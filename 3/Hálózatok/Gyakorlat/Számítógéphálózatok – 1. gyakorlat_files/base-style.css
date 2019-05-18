@@ -1,0 +1,128 @@
+
+BODY {
+       background-color: #FFFFFF;
+/*
+       font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   font-family: Lucida;
+*/
+       font-family: Arial;
+       font-size: 16pt;
+        font-weight: normal;
+       color: #0D314B;
+       color: black;
+       margin-left: 36pt; margin-right: 24pt;
+          }
+
+/*
+   ul {
+        text-indent: 1%;
+        line-height: 12px;
+        letter-spacing: 1px;
+        word-spacing: 2px;
+        }
+*/
+
+/* Select by div id name */
+#postamble{
+            text-align: right;
+            font-size: small;
+            color: lightgrey;
+/*
+   A:link {text-decoration: none; color: grey;}
+A:visited {text-decoration: none; color: red;}
+A:active {text-decoration: none; color: green;}
+A:hover {text-decoration: underline; color: red;}
+*/
+}
+
+H1 {
+font-size: 24pt;
+font-family : Arial;
+color: red;
+text-align: center;
+}
+
+H2 {
+font-size: 20pt;
+font-family : Arial;
+color: red;
+}
+
+H3 {
+font-size: 18pt;
+font-family : Arial;
+color: darkgreen;
+}
+
+H4 {
+font-size: 16pt;
+font-family : Arial;
+color: darkgreen;
+}
+
+div.figure p
+{
+
+font-family: Arial;
+font-style: italic;
+color: green;
+}
+
+
+b { color: 'forest green'; }
+
+/* input: http://www.somacon.com/p141.php
+*/
+table {
+	border-width: 2px 2px 2px 2px;
+	border-spacing: 2px;
+	border-style: outset outset outset outset;
+/*	border-color: red red red red;
+*/
+	border-collapse: separate;
+	background-color: white;
+
+}
+table th {
+	border-width: 2px 2px 2px 2px;
+	padding: 6px 6px 6px 6px;
+	border-style: inset inset inset inset;
+	border-color: gray gray gray gray;
+	background-color: white;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+table td {
+        font-family: courier;
+        font-style: bold;
+	border-width: 2px 2px 2px 2px;
+	padding: 6px 6px 6px 6px;
+	border-style: inset inset inset inset;
+	border-color: gray gray gray gray;
+	background-color: white;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+table caption {
+        font-family: courier;
+        font-style: italic;
+
+ }
+
+A:link {
+  text-decoration: underline;
+  font-weight: bold;
+  color: darkgreen;
+}
+
+A:visited {
+  text-decoration: underline;
+  font-weight: bold;
+  color: darkgreen;
+}
+
+
+code
+{
+font-size: 110%;
+}
+

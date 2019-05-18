@@ -1,0 +1,25 @@
+PROGRAM csere
+  VÁLTOZÓK:
+    a, b, c, d, e: SZÖVEG,
+    j: EGÉSZ
+ 
+  j := 0
+  BE: c, a, b
+  c := c + ' '
+  d := ""
+  e := ""
+  CIKLUS AMÍG j + 1 < |c|
+    d := d + c[j]
+    HA j = |c| VAGY c[j + 1] = ' ' AKKOR
+      HA d[1:|d|] = a AKKOR
+        e := e + ' ' + b
+        d := ""
+      KÜLÖNBEN
+        e := e + d
+        d := ""
+      HA_VÉGE
+    HA_VÉGE
+    j := j + 1
+  CIKLUS_VÉGE
+  KI: e
+PROGRAM_VÉGE

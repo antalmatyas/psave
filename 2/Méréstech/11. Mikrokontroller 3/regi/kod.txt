@@ -1,0 +1,265 @@
+ #include  <io430x16x.h>
+ #include  <msp430x16x.h>
+       rseg code:CODE,2000h
+       extern  LCDUpdate, LCDStr,LCDChrXY, DelayN, LCDPixmove, hexdraw, LCDClear
+#define BUTTON      BIT0,&P2IN
+#define LEFT        BIT7,&P1IN
+#define RIGHT       BIT4,&P1IN
+#define UP          BIT6,&P1IN
+#define DOWN        BIT5,&P1IN
+#define STAT        BIT1,&P2OUT
+#define STAT2       BIT1,&P2DIR
+#define LeftValue   &ADC12MEM0
+#define RightValue  &ADC12MEM1
+
+      public asmmain
+
+
+
+////////////////////////////////////////////////
+asmmain:
+     ; Ide írhatod az asm-programot!
+
+; Ez a program a jobb oldali potméter értékét írja ki bal felso kijelzore 
+; Hexadeciumális formában
+      mov.b #5, R9 ;labda x
+      mov.b #3, R10 ;labda y
+      mov.b #1, R11 ;játék adatai: 1 labda jobbra fel, 2 labda jobbra le, 3 labda balra fel, 4 labda balra le
+      mov.w #0, R4 ;számláló
+      jmp gameLoop
+      
+gameLoop:  call #SetupADC12
+           ;mov.w LeftValue,R4
+           ;mov.w RightValue, R5
+           mov.b #0, R6 ;x koord
+           mov.b #0, R7 ;y koord
+           mov.b #0, R8 ;szamitas
+           mov.w #0,R13
+           mov.w #1,R14
+           call #movex
+           jmp gameLoop
+           ret
+      
+movex: add.w #0x030F, R8
+       mov.w LeftValue,R5
+       cmp.w R5, R8
+       jc nullaz
+       inc.b R6
+       jmp movex  
+       
+nullaz: mov.b #0, R8
+        jmp movey
+        
+movey: add.w #0x030F, R8
+       mov.w RightValue, R5
+       cmp.w R5, R8
+       jc rajzol
+       inc.b R7
+       jmp movey
+       
+rajzol: call #LCDClear
+        mov.b #0, R12
+        mov.b R6, R13
+        mov.b #0x0023, R14
+        call #LCDChrXY
+        mov.b #13, R12
+        mov.b R7, R13
+        mov.b #0x0023, R14
+        call #LCDChrXY
+        mov.b R10, R13
+        mov.b R9, R12
+        mov.b #0x0030, R14
+        call #LCDChrXY
+        call #LCDUpdate
+        jmp doLabda
+        
+
+doLabda: inc.w R4
+         cmp.w #15, R4
+         jl gameLoop
+         mov.b #0, R4
+         cmp.b #1, R11
+         jeq labdaJobbFel
+         cmp.b #2, R11
+         jeq labdaJobbLe
+         cmp.b #3, R11
+         jeq labdaBalFel
+         cmp.b #4, R11
+         jeq labdaBalLe
+         ;cmp.b #5, R11
+         ;jeq balNyert
+         ;cmp.b #6, R11
+         ;jeq jobbNyert
+         ;jmp gameLoop
+         
+labdaJobbFel: inc.b R9
+              cmp.b #13, R9
+              jeq jobbPattan
+              cmp.b #0, R10
+              jeq fentJobbPattan
+              dec.b R10
+              jmp gameLoop
+              
+labdaJobbLe:  inc.b R9
+              cmp.b #13, R9
+              jeq jobbPattan
+              cmp.b #5, R10
+              jeq lentJobbPattan
+              inc.b R10
+              jmp gameLoop
+              
+labdaBalFel:  dec.b R9
+              cmp.b #0, R9
+              jeq balPattan
+              cmp.b #0, R10
+              jeq fentBalPattan
+              dec.b R10
+              jmp gameLoop
+              
+labdaBalLe:   dec.b R9
+              cmp.b #0, R9
+              jeq balPattan
+              cmp.b #5, R10
+              jeq lentBalPattan
+              inc.b R10
+              jmp gameLoop
+              
+jobbPattan:   cmp.b R10, R7
+              jeq jobbUtoPattan
+              jmp balNyert
+              
+balPattan:    cmp.b R10, R6
+              jeq balUtoPattan
+              jmp jobbNyert
+              
+fentJobbPattan: mov.b #2, R11
+                inc.b R10
+                jmp gameLoop
+                
+lentJobbPattan: mov.b #1, R11
+                dec.b R10
+                jmp gameLoop
+                
+fentBalPattan:  mov.b #4, R11
+                inc.b R10
+                jmp gameLoop
+                
+lentBalPattan:  mov.b #3, R11
+                dec.b R10
+                jmp gameLoop
+              
+jobbUtoPattan: cmp.b #1, R11
+               jeq jobbPattanLe
+               jmp jobbPattanFel
+         
+balUtoPattan:  cmp.b #3, R11
+               jeq balPattanLe
+               jmp balPattanFel
+               
+jobbPattanLe: mov.b #4, R11
+              jmp gameLoop
+              
+jobbPattanFel: mov.b #3, R11
+               jmp gameLoop
+               
+balPattanLe:  mov.b #2, R11
+              jmp gameLoop
+              
+balPattanFel: mov.b #1, R11
+              jmp gameLoop
+               
+balNyert:     call #LCDClear
+              mov.b #0, R12
+              mov.b #0, R13
+              mov.b #0x0041, R14
+              call #LCDChrXY
+              call #LCDUpdate
+              bit.b #BUTTON
+              jc balNyert
+              jmp asmmain
+             
+
+jobbNyert:    mov.b #0, R12
+              mov.b #0, R13
+              mov.b #0x004A, R14
+              call #LCDClear
+              call #LCDChrXY
+              call #LCDUpdate
+              bit.b #BUTTON
+              jc jobbNyert
+              jmp asmmain
+         
+       
+       
+       
+      
+     ; Innentol, pedig ne módosíts semmit!
+                                            ;
+SetupADC12  mov     #SHT0_8+MSC+ADC12ON,&ADC12CTL0
+                                            ; Turn on ADC12, use int. osc.
+                                            ; extend sampling time so won't
+                                            ; get overflow
+                                            ; Set MSC so conversions triggered
+                                            ; automatically
+            mov     #SHP+CONSEQ_3,&ADC12CTL1
+                                            ; Use sampling timer, set mode
+            mov     #BIT3,&ADC12IE          ; Enable ADC12IFG.3 for ADC12MEM3
+            mov.b   #INCH_0,ADC12MCTL0      ; A0 goes to MEM0
+            mov.b   #INCH_1,ADC12MCTL1      ; A1 goes to MEM1
+            mov.b   #INCH_2,ADC12MCTL2      ; A2 goes to MEM2
+            mov.b   #EOS+INCH_3,ADC12MCTL3  ; A3 goes to MEM3, end of sequence
+                                            ;
+            clr     R5                      ; Clear pointer
+                                            ;
+            bis     #ENC,&ADC12CTL0         ; Enable conversions
+            bis     #ADC12SC,&ADC12CTL0     ; Start conversions
+//            bis     #CPUOFF+GIE,SR          ; Hold in LPM0, Enable interrupts
+//ki kell várni a konverzió végét
+testIFG     bit     #BIT0,&ADC12IFG         ; konverzió ellenorzése
+            jz      testIFG                 ; nemleges válasz esetén újra tesztelés
+
+            ret                     ; Need only for debug
+                                            ;
+ 
+            
+divide: clr.w R15
+        push.w R9
+        push.w R10
+        push.w R11
+        clr.w R10
+        clr.w R11
+        mov.w #0x20,R9
+divloop
+        rla.w R12
+        rlc.w R13
+        rlc.w R10
+        rlc.w R11
+        sub.w R14,R10
+        subc.w R15,R11
+        jnc div001
+        bis.w #0x1, R12
+        
+        add.w #0xFFFF,R9
+        jne divloop
+        jmp div002
+div001
+        add.w R14,R10
+        addc.w R15,R11
+        add.w #0xFFFF,R9
+        jne divloop
+div002
+        mov.w R10,R14
+        mov.w R11,R15
+        pop.w R11
+        pop.w R10
+        pop.w R9
+        ret
+        
+multiply:
+        mov.w R12, &MPY
+        mov.w R14, &OP2
+        mov.w &RESLO, R12
+        mov.w &RESHI, R13
+        ret
+
+            end

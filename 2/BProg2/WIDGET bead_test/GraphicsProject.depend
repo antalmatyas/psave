@@ -1,0 +1,155 @@
+# depslib dependency file v1.0
+1363437174 source:c:\users\matyó\desktop\gpdefault\examplecheckbox.cpp
+	"examplecheckbox.hpp"
+	"graphics.hpp"
+
+1363437154 c:\users\matyó\desktop\gpdefault\examplecheckbox.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+
+1430022466 c:\users\matyó\desktop\gpdefault\include\graphics.hpp
+	<string>
+
+1363436920 c:\users\matyó\desktop\gpdefault\widgets.hpp
+	"graphics.hpp"
+
+1363437202 source:c:\users\matyó\desktop\gpdefault\main.cpp
+	"graphics.hpp"
+	"widgets.hpp"
+	"examplecheckbox.hpp"
+	<vector>
+
+1363436916 source:c:\users\matyó\desktop\gpdefault\widgets.cpp
+	"widgets.hpp"
+	"graphics.hpp"
+
+1492679611 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\main.cpp
+	<stdio.h>
+	<vector>
+	"graphics.hpp"
+	"widget.h"
+	"nums.h"
+	"slist.h"
+
+1492611352 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\widget.h
+	"graphics.hpp"
+	<vector>
+
+1492679620 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\nums.h
+	"widget.h"
+	"graphics.hpp"
+
+1492611352 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\widget.cpp
+	"widget.h"
+	"graphics.hpp"
+	<vector>
+
+1430022466 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\include\graphics.hpp
+	<string>
+
+1492609316 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\nums.cpp
+	"widget.h"
+	"nums.h"
+	"graphics.hpp"
+	<stdio.h>
+	<sstream>
+
+1492678256 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\slist.cpp
+	<stdio.h>
+	<vector>
+	<sstream>
+	"slist.h"
+	"widget.h"
+	"graphics.hpp"
+
+1492677523 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\slist.h
+	<vector>
+	"widget.h"
+	"graphics.hpp"
+
+1492765216 source:c:\users\matyó\desktop\widget bead_test\nums.cpp
+	"widget.h"
+	"nums.h"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1492765216 c:\users\matyó\desktop\widget bead_test\widget.h
+	"graphics.hpp"
+	<vector>
+
+1430022466 c:\users\matyó\desktop\widget bead_test\include\graphics.hpp
+	<string>
+
+1492765216 c:\users\matyó\desktop\widget bead_test\nums.h
+	"widget.h"
+	"graphics.hpp"
+	<iostream>
+	<fstream>
+
+1492765216 source:c:\users\matyó\desktop\widget bead_test\slist.cpp
+	<stdio.h>
+	<vector>
+	<sstream>
+	<iostream>
+	<fstream>
+	"slist.h"
+	"widget.h"
+	"graphics.hpp"
+
+1492765216 c:\users\matyó\desktop\widget bead_test\slist.h
+	<iostream>
+	<fstream>
+	<vector>
+	"widget.h"
+	"graphics.hpp"
+
+1492765216 source:c:\users\matyó\desktop\widget bead_test\widget.cpp
+	"widget.h"
+	"graphics.hpp"
+	<vector>
+
+1492766891 source:c:\users\matyó\desktop\widget bead_test\main.cpp
+	<stdio.h>
+	<vector>
+	<iostream>
+	<fstream>
+	"graphics.hpp"
+	"widget.h"
+	"nums.h"
+	"slist.h"
+	"sinput.h"
+
+1492766839 source:c:\users\matyó\desktop\widget bead_test\sinput.cpp
+	"widget.h"
+	"sinput.h"
+	"graphics.hpp"
+	<string.h>
+	<string>
+	<iostream>
+	<fstream>
+
+1492766751 c:\users\matyó\desktop\widget bead_test\sinput.h
+	"graphics.hpp"
+	"widget.h"
+
+1493140577 source:c:\users\matyó\desktop\widget bead_test\checkbox.cpp
+	<stdio.h>
+	<vector>
+	<sstream>
+	<iostream>
+	<fstream>
+	"slist.h"
+	"widget.h"
+	"graphics.hpp"
+	"checkbox.h"
+
+1493140577 c:\users\matyó\desktop\widget bead_test\checkbox.h
+	"widget.h"
+	"graphics.hpp"
+	<iostream>
+	<fstream>
+	<vector>
+

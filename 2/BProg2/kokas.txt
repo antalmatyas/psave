@@ -1,0 +1,36 @@
+#include "graphics.hpp"
+#include <iostream>
+#include <sstream>
+#include <cmath>
+#include <fstream>
+#include <stdlib.h>
+using namespace genv;
+using namespace std;
+
+int main()
+{
+
+    gout.open(400,400);
+    gout.showmouse(true);
+    event ev;
+    ifstream f("a.kep");
+    if(!f.good()){cerr << "Nincs meg a file!" << endl;
+    exit(1);}
+    int XX, YY;
+    f >> XX >> YY;
+    gout.open(XX, YY);
+    for(int y = 0 ; y < YY ; y++)
+    {
+        for(int x = 0 ; x < XX ; x++)
+        {
+            int r,g,b;
+            f >> r >> g >> b;
+            gout << move_to(x,y) << color(r, g, b) << dot;
+        }
+    }
+    gout << refresh;
+    while(gin >> ev && ev.keycode != key_escape) {
+        
+    }
+    return 0;
+}

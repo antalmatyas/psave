@@ -1,0 +1,399 @@
+# depslib dependency file v1.0
+1363437174 source:c:\users\matyó\desktop\gpdefault\examplecheckbox.cpp
+	"examplecheckbox.hpp"
+	"graphics.hpp"
+
+1492682131 hpp"
+
+1363437154 c:\users\matyó\desktop\gpdefault\examplecheckbox.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+
+1363437154 pp"
+
+1430022466 c:\users\matyó\desktop\gpdefault\include\graphics.hpp
+	<string>
+
+1492681333 
+
+1363436920 c:\users\matyó\desktop\gpdefault\widgets.hpp
+	"graphics.hpp"
+
+1363437202 source:c:\users\matyó\desktop\gpdefault\main.cpp
+	"graphics.hpp"
+	"widgets.hpp"
+	"examplecheckbox.hpp"
+	<vector>
+
+1363436916 source:c:\users\matyó\desktop\gpdefault\widgets.cpp
+	"widgets.hpp"
+	"graphics.hpp"
+
+1492679611 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\main.cpp
+	<stdio.h>
+	<vector>
+	"graphics.hpp"
+	"widget.h"
+	"nums.h"
+	"slist.h"
+
+1492611352 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\widget.h
+	"graphics.hpp"
+	<vector>
+
+1492679620 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\nums.h
+	"widget.h"
+	"graphics.hpp"
+
+1492611352 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\widget.cpp
+	"widget.h"
+	"graphics.hpp"
+	<vector>
+
+1430022466 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\include\graphics.hpp
+	<string>
+
+1492609316 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\nums.cpp
+	"widget.h"
+	"nums.h"
+	"graphics.hpp"
+	<stdio.h>
+	<sstream>
+
+1492678256 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\slist.cpp
+	<stdio.h>
+	<vector>
+	<sstream>
+	"slist.h"
+	"widget.h"
+	"graphics.hpp"
+
+1492677523 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\slist.h
+	<vector>
+	"widget.h"
+	"graphics.hpp"
+
+1492682105 source:c:\users\matyó\desktop\widget bead_test\nums.cpp
+	"widget.h"
+	"nums.h"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1492681333 c:\users\matyó\desktop\widget bead_test\widget.h
+	"graphics.hpp"
+	<vector>
+
+1430022466 c:\users\matyó\desktop\widget bead_test\include\graphics.hpp
+	<string>
+
+1492682117 c:\users\matyó\desktop\widget bead_test\nums.h
+	"widget.h"
+	"graphics.hpp"
+	<iostream>
+	<fstream>
+
+1492682131 source:c:\users\matyó\desktop\widget bead_test\slist.cpp
+	<stdio.h>
+	<vector>
+	<sstream>
+	<iostream>
+	<fstream>
+	"slist.h"
+	"widget.h"
+	"graphics.hpp"
+
+1492682105 c:\users\matyó\desktop\widget bead_test\slist.h
+	<iostream>
+	<fstream>
+	<vector>
+	"widget.h"
+	"graphics.hpp"
+
+1492681333 source:c:\users\matyó\desktop\widget bead_test\widget.cpp
+	"widget.h"
+	"graphics.hpp"
+	<vector>
+
+1492681705 source:c:\users\matyó\desktop\widget bead_test\main.cpp
+	<stdio.h>
+	<vector>
+	<iostream>
+	<fstream>
+	"graphics.hpp"
+	"widget.h"
+	"nums.h"
+	"slist.h"
+
+1492682105 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead_final\nums.cpp
+	"widget.h"
+	"nums.h"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1492681333 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead_final\widget.h
+	"graphics.hpp"
+	<vector>
+
+1430022466 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead_final\include\graphics.hpp
+	<string>
+
+1492682117 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead_final\nums.h
+	"widget.h"
+	"graphics.hpp"
+	<iostream>
+	<fstream>
+
+1492682131 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead_final\slist.cpp
+	<stdio.h>
+	<vector>
+	<sstream>
+	<iostream>
+	<fstream>
+	"slist.h"
+	"widget.h"
+	"graphics.hpp"
+
+1492682105 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead_final\slist.h
+	<iostream>
+	<fstream>
+	<vector>
+	"widget.h"
+	"graphics.hpp"
+
+1492681333 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead_final\widget.cpp
+	"widget.h"
+	"graphics.hpp"
+	<vector>
+
+1492682517 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead_final\main.cpp
+	<stdio.h>
+	<vector>
+	<iostream>
+	<fstream>
+	"graphics.hpp"
+	"widget.h"
+	"nums.h"
+	"slist.h"
+
+1492682517 source:c:\users\matyó\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\main.cpp
+	<stdio.h>
+	<vector>
+	<iostream>
+	<fstream>
+	"graphics.hpp"
+	"widget.h"
+	"nums.h"
+	"slist.h"
+
+1430022466 c:\users\matyó\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\include\graphics.hpp
+	<string>
+
+1492681333 c:\users\matyó\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\widget.h
+	"graphics.hpp"
+	<vector>
+
+1492682117 c:\users\matyó\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\nums.h
+	"widget.h"
+	"graphics.hpp"
+	<iostream>
+	<fstream>
+
+1492682105 c:\users\matyó\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\slist.h
+	<iostream>
+	<fstream>
+	<vector>
+	"widget.h"
+	"graphics.hpp"
+
+1492682105 source:c:\users\matyó\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\nums.cpp
+	"widget.h"
+	"nums.h"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1492682131 source:c:\users\matyó\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\slist.cpp
+	<stdio.h>
+	<vector>
+	<sstream>
+	<iostream>
+	<fstream>
+	"slist.h"
+	"widget.h"
+	"graphics.hpp"
+
+1492681333 source:c:\users\matyó\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\widget.cpp
+	"widget.h"
+	"graphics.hpp"
+	<vector>
+
+1492678917 source:/home/lux/Dropbox/000EXTERIOR/2/BProg2/2. Beadando - widget/WIDGET bead_final/main.cpp
+	<stdio.h>
+	<vector>
+	<iostream>
+	<fstream>
+	"graphics.hpp"
+	"widget.h"
+	"nums.h"
+	"slist.h"
+
+1430018866 /home/lux/Dropbox/000EXTERIOR/2/BProg2/2. Beadando - widget/WIDGET bead_final/include/graphics.hpp
+	<string>
+
+1492677733 /home/lux/Dropbox/000EXTERIOR/2/BProg2/2. Beadando - widget/WIDGET bead_final/widget.h
+	"graphics.hpp"
+	<vector>
+
+1492678517 /home/lux/Dropbox/000EXTERIOR/2/BProg2/2. Beadando - widget/WIDGET bead_final/nums.h
+	"widget.h"
+	"graphics.hpp"
+	<iostream>
+	<fstream>
+
+1492678505 /home/lux/Dropbox/000EXTERIOR/2/BProg2/2. Beadando - widget/WIDGET bead_final/slist.h
+	<iostream>
+	<fstream>
+	<vector>
+	"widget.h"
+	"graphics.hpp"
+
+1492678505 source:/home/lux/Dropbox/000EXTERIOR/2/BProg2/2. Beadando - widget/WIDGET bead_final/nums.cpp
+	"widget.h"
+	"nums.h"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1492678531 source:/home/lux/Dropbox/000EXTERIOR/2/BProg2/2. Beadando - widget/WIDGET bead_final/slist.cpp
+	<stdio.h>
+	<vector>
+	<sstream>
+	<iostream>
+	<fstream>
+	"slist.h"
+	"widget.h"
+	"graphics.hpp"
+
+1492677733 source:/home/lux/Dropbox/000EXTERIOR/2/BProg2/2. Beadando - widget/WIDGET bead_final/widget.cpp
+	"widget.h"
+	"graphics.hpp"
+	<vector>
+
+1492678917 source:c:\users\nox\dropbox (personal)\000exterior\2\bprog2\2. beadando - widget\widget bead_final\main.cpp
+	<stdio.h>
+	<vector>
+	<iostream>
+	<fstream>
+	"graphics.hpp"
+	"widget.h"
+	"nums.h"
+	"slist.h"
+
+1430018866 c:\users\nox\dropbox (personal)\000exterior\2\bprog2\2. beadando - widget\widget bead_final\include\graphics.hpp
+	<string>
+
+1492677733 c:\users\nox\dropbox (personal)\000exterior\2\bprog2\2. beadando - widget\widget bead_final\widget.h
+	"graphics.hpp"
+	<vector>
+
+1492678517 c:\users\nox\dropbox (personal)\000exterior\2\bprog2\2. beadando - widget\widget bead_final\nums.h
+	"widget.h"
+	"graphics.hpp"
+	<iostream>
+	<fstream>
+
+1492678505 c:\users\nox\dropbox (personal)\000exterior\2\bprog2\2. beadando - widget\widget bead_final\slist.h
+	<iostream>
+	<fstream>
+	<vector>
+	"widget.h"
+	"graphics.hpp"
+
+1492678505 source:c:\users\nox\dropbox (personal)\000exterior\2\bprog2\2. beadando - widget\widget bead_final\nums.cpp
+	"widget.h"
+	"nums.h"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1492678531 source:c:\users\nox\dropbox (personal)\000exterior\2\bprog2\2. beadando - widget\widget bead_final\slist.cpp
+	<stdio.h>
+	<vector>
+	<sstream>
+	<iostream>
+	<fstream>
+	"slist.h"
+	"widget.h"
+	"graphics.hpp"
+
+1492677733 source:c:\users\nox\dropbox (personal)\000exterior\2\bprog2\2. beadando - widget\widget bead_final\widget.cpp
+	"widget.h"
+	"graphics.hpp"
+	<vector>
+
+1492678917 source:c:\users\nox\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\main.cpp
+	<stdio.h>
+	<vector>
+	<iostream>
+	<fstream>
+	"graphics.hpp"
+	"widget.h"
+	"nums.h"
+	"slist.h"
+
+1430018866 c:\users\nox\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\include\graphics.hpp
+	<string>
+
+1492677733 c:\users\nox\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\widget.h
+	"graphics.hpp"
+	<vector>
+
+1492678517 c:\users\nox\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\nums.h
+	"widget.h"
+	"graphics.hpp"
+	<iostream>
+	<fstream>
+
+1492678505 c:\users\nox\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\slist.h
+	<iostream>
+	<fstream>
+	<vector>
+	"widget.h"
+	"graphics.hpp"
+
+1492678505 source:c:\users\nox\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\nums.cpp
+	"widget.h"
+	"nums.h"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1492678531 source:c:\users\nox\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\slist.cpp
+	<stdio.h>
+	<vector>
+	<sstream>
+	<iostream>
+	<fstream>
+	"slist.h"
+	"widget.h"
+	"graphics.hpp"
+
+1492677733 source:c:\users\nox\dropbox\000exterior\2\bprog2\2. beadando - widget\widget bead_final\widget.cpp
+	"widget.h"
+	"graphics.hpp"
+	<vector>
+

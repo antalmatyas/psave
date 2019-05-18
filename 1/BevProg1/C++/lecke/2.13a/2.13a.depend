@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1481009279 source:c:\users\matyó\desktop\c++\lecke\2.13a\main.cpp
+	<iostream>
+	<cctype>
+	<string>
+

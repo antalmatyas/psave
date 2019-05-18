@@ -1,0 +1,1343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0048)http://users.itk.ppke.hu/~marta5/eloadas-12.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógépes hálózatok – 12. előadás</title>
+
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Pásztor Miklós">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógépes hálózatok – 12. előadás_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Számítógépes hálózatok – 12. előadás</h1>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">FTP - File Transfer Protocol</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/959">RFC959</a>
+</li>
+<li>Klasszikus szolgáltatás
+<ul class="org-ul">
+<li>Idézet az 1985-ös RFC-ből:  <i>FTP has had a long evolution over the years.</i>
+</li>
+</ul>
+</li>
+<li>Két TCP kapcsolaton alapul
+<ul class="org-ul">
+<li>Vezérlő (control) kapcsolat
+<ul class="org-ul">
+<li>A kliens egy ephemeral portjáról a szerver 21-es portjára
+</li>
+</ul>
+</li>
+<li>Adat (data) kapcsolat
+<ul class="org-ul">
+<li>Klasszikusan a szerver építi fel a saját 20-as portjáról
+</li>
+<li>A kliens is felépítheti, ez a passzív ftp
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 12. előadás_files/ftp.png" alt="ftp.png">
+</p>
+<p><span class="figure-number">Figure 2:</span> FTP alkotóelemek</p>
+</div>
+<ul class="org-ul">
+<li>Web böngészők (pl. Firefox) és fálj menedzserek (pl. Windows Commander) is támogatják
+</li>
+<li>Alternatívák
+<ul class="org-ul">
+<li>SCP
+</li>
+<li>SFTP
+</li>
+<li>HTTP
+</li>
+<li>…
+</li>
+</ul>
+</li>
+<li>Különböző architektúrák, fájl rendszerek, fájl formátumok, karakter készletek
+</li>
+<li>Fájl típusok
+<ul class="org-ul">
+<li>ASCII
+</li>
+<li>EBCDIC - főleg IBM által használt klasszikus karakterkódolás
+</li>
+<li>Image - bitfolyam, változatlan formában tárolandó
+</li>
+<li>Local - különböző byte hosszakat használó gépek közti átvitel
+</li>
+</ul>
+</li>
+<li>Format control
+<ul class="org-ul">
+<li>ASCII és EBCDIC fájlok tulajdonsága
+</li>
+<li>Nyomtatási vezérlő információ
+</li>
+<li>Lehetséges értékei
+<ul class="org-ul">
+<li>Nonprint
+</li>
+<li>Telnet - CR, LF, VT van a fájlban
+</li>
+<li>Fortran - a rekordok első byte-ja vezérlő byte
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Fájl szerkezet
+<ul class="org-ul">
+<li>Byte stream
+</li>
+<li>Rekordok – szöveges típusú fájloknál használatos
+</li>
+<li>Indexelt lapok (page) – tetszőleges sorrendben küldhetők
+</li>
+</ul>
+</li>
+<li>Átvitel módja
+<ul class="org-ul">
+<li>Stream (bájt folyam). Ez az alapértelmezés
+</li>
+<li>Block mode
+<ul class="org-ul">
+<li>Blokkokban történik az átvitel
+</li>
+<li>Minden blokk fejrészből és adatból áll. A fejrész hosszból és leírásból.
+</li>
+</ul>
+</li>
+<li>Compressed mode
+<ul class="org-ul">
+<li>Az egymás után következő egyforma bájtokat rövidítve kódolja
+</li>
+<li>Nemigen használatos: jobb tömöríteni a fájlokat pl. gzip-pel
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">FTP control kapcsolat</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>A kliens egysoros, CR/LF-fel záródó parancsokat ad
+<ul class="org-ul">
+<li>Következmény: pl. telnet klienssel is lehet ftp-t emulálni
+</li>
+</ul>
+</li>
+<li>Ezek a parancsok nem feltétlenül a kliens előtt ülő felhasználó közvetlen parancsai
+<ul class="org-ul">
+<li><code>USER kicsoda</code>
+</li>
+<li><code>PASS jel</code>
+</li>
+<li><code>TYPE tipus</code> - fájl típust határoz meg a következő átvitelekre
+</li>
+<li><code>LIST file</code>-ok - listát ad egy könyvtárról
+</li>
+<li><code>RETR file</code> - hoz egy fájlt a kliensre
+</li>
+<li><code>STOR file</code> - visz egy fájlt a kliensről
+</li>
+<li><code>ABOR</code> - a folyamatban levő átvitelt elveti
+</li>
+<li><code>PORT n1,n2,n3,n4,n5,n6</code> - adatkapcsolat nyitás kezdeményezése (aktív mód)
+</li>
+<li><code>PASV</code> - adatkapcsolat nyitás kezdeményezése (passzív mód)
+</li>
+<li><code>QUIT</code> - bontja a kapcsolatot
+</li>
+</ul>
+</li>
+<li>FTP szerver válaszok
+<ul class="org-ul">
+<li>Szerkezet: <code>xyz valami szöveg</code>
+<ul class="org-ul">
+<li><code>xyz</code> három számjegy, a program csak azt nézi
+</li>
+<li>A szöveg nekünk, embereknek szól
+</li>
+<li><code>x</code> jelenti, hogy siker vagy kudarc
+<ul class="org-ul">
+<li><code>1</code> = részleges, előzetes sikeres válasz
+</li>
+<li><code>2</code> = siker
+</li>
+<li><code>3</code> = részleges, közbülső állapotot jelző sikeres válasz
+</li>
+<li><code>4</code> = átmeneti sikertelenség
+</li>
+<li><code>5</code> = végleges sikertelenség
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Ha többsoros a válasz
+<ul class="org-ul">
+<li>A folytatósort - (dash karakter) jelzi a szám mögött
+</li>
+<li>Az utolsó sorban megismétlődik a numerikus kód, - nélkül
+</li>
+</ul>
+</li>
+<li>Példák:
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">125     Data connection already open; transfer starting.
+150     File status okay; about to open data connection.
+200     Command okay.
+202     Command not implemented, superfluous at this site.
+211     System status, or system help reply.
+212     Directory status.
+213     File status.
+214     Help message.
+215     NAME system type.
+220     Service ready for new user.
+221     Service closing control connection.
+225     Data connection open; no transfer in progress.
+226     Closing data connection.
+227     Entering Passive Mode &lt;h1,h2,h3,h4,p1,p2 &gt;.
+228     Entering Long Passive Mode.
+229     Extended Passive Mode Entered.
+230     User logged in, proceed.
+250     Requested file action okay, completed.
+257     "PATHNAME" created.
+331     User name okay, need password.
+332     Need account for login.
+350     Requested file action pending further information.
+421     Service not available, closing control connection.
+425     Can't open data connection.
+426     Connection closed; transfer aborted.
+450     Requested file action not taken.
+451     Requested action aborted. Local error in processing.
+452     Requested action not taken.
+500     Syntax error, command unrecognized.
+501     Syntax error in parameters or arguments.
+502     Command not implemented.
+503     Bad sequence of commands.
+504     Command not implemented for that parameter.
+521     Supported address families are  ...
+522     Protocol not supported.
+530     Not logged in.
+532     Need account for storing files.
+550     Requested action not taken.
+551     Requested action aborted. Page type unknown.
+552     Requested file action aborted.
+553     Requested action not taken.
+554     Requested action not taken: invalid REST parameter.
+555     Requested action not taken: type or stru mismatch.
+</pre>
+
+<ul class="org-ul">
+<li>Ez az ember által is fogyasztható parancs/válasz modell az alapja más protokolloknak is
+
+<ul class="org-ul">
+<li>SMTP - levelezés
+</li>
+<li>HTTP - web lapok
+<ul class="org-ul">
+<li>Példa: HTTP <code>404</code>-es hiba
+</li>
+</ul>
+</li>
+<li>SIP - multimedia kapcsolatok
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">FTP adat kapcsolat</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>A parancsok csatornájától független TCP kapcsolat épül fel
+</li>
+<li>Rendszerint minden fájl átvitelhez külön
+</li>
+<li>A könyvtár listázás és más hasonló parancsok is ezen a módon: a könyvtár listázása is egy fájl
+átvitel!
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">Aktív FTP</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>A kliens <code>PORT port nr.</code> paranccsal közöl egy portot - és a
+saját IP címét:
+</li>
+</ul>
+<pre class="example">PORT 193,225,150,80,14,178
+</pre>
+<ul class="org-ul">
+<li>A szerver a saját 20-as portjáról erre kezdeményez egy kapcsolatot
+</li>
+<li>Ha nincs megadva port nr, akkor arra a portra kapcsolódik, ahonnan a control kapcsolathoz
+tartozó TCP kapcsolat felépült
+</li>
+<li>Aktív FTP gondot okoz csomagszűrő tűzfalaknál
+<ul class="org-ul">
+<li>A kliens gépekre bemenő TCP kapcsolatot nem engedélyezünk, mert biztonsági kockázatot
+jelent
+</li>
+<li>Gyakori jelenség, hogy tűzfal mögül nem lehet ftp-zni
+</li>
+<li>1. megoldás: passzív ftp
+</li>
+<li>2. megoldás: a tűzfalnak „tudni” kell, hogy milyen ftp „PORT” parancs ment ki - ez az u.n. „Connection tracking”
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">Passzív FTP</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>A kliens PASV parancsot ad
+</li>
+<li>A szerver válaszol IP címmel és ephemeral porttal. Az üzenet  hasonlít a <code>PORT</code> parancshoz:
+</li>
+<li>A kliens építi fel az adatkapcsolatot egy saját ephemeral portjáról erre a portra
+</li>
+</ul>
+
+<pre class="example">227 Entering Passive Mode (195,228,252,133,236,56)
+</pre>
+
+<ul class="org-ul">
+<li>Fájl vége: stream módnál (ez az általános) egyszerűen lezárja a küldő a TCP kapcsolatot
+</li>
+<li>A parancs csatornán küldött ABOR parancs hatására a küldő
+<ul class="org-ul">
+<li>Lezárja az adat TCP kapcsolatot,
+</li>
+<li>A parancs csatornán jelzi, hogy végrehajtotta az abortot.
+</li>
+<li>Még ez után is jöhetnek az adat TCP kapcsolaton csomagok!
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">426 Transfer aborted. Data connection closed.
+226 Abort successful
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Anonymous FTP</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>A USER parancsra közös választ ad a kliens: „anonymous”
+</li>
+<li>Nyilvánosan olvasható, de nem nyilvánosan írható fájlok közzétételének klasszikus módja
+</li>
+<li>A szerver jelszóként rendszerint a felhasználó e-mail címét várja
+</li>
+<li>Manapság messze a legjellemzőbb FTP használat
+<ul class="org-ul">
+<li>Saját fájlok elérése ftp-vel kockázatos: kódolatlanul utazik a jelszó
+</li>
+</ul>
+</li>
+<li>Pl. <a href="ftp://ftp.ietf.org/">ftp://ftp.ietf.org</a>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">SMTP - Simple Mail Transfer Protocol</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Szintén klasszikus protokoll
+</li>
+<li><a href="http://tools.ietf.org/html/821">RFC821</a>, újabban <a href="http://tools.ietf.org/html/2821">RFC2821</a> majd <a href="http://tools.ietf.org/html/5321">RFC5321</a> (2008. október) finomította
+</li>
+<li><b>User Agent, UA:</b> a felhasználó által kezelt levelezőprogram
+</li>
+<li><b>Mail Transfer Agent, MTA:</b> a leveleket továbbító szerver program
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 12. előadás_files/mail-elements.png" alt="mail-elements.png">
+</p>
+<p><span class="figure-number">Figure 1:</span> Internet levelezés építőelemek</p>
+</div>
+
+<ul class="org-ul">
+<li>Rendszerint több MTA-n át jut a levél a címzetthez
+</li>
+<li>Az UA → MTA és az MTA → MTA között rendszerint SMTP szállítja a levelet
+</li>
+<li>Az célnál rendszerint POP - Post Office Protocol, vagy IMAP - Internet Mail Access Protocol jut
+szerephez
+</li>
+<li>Az FTP-nél látott egysoros, CR/LF-fel záródó parancsok, ASCII szöveg
+</li>
+<li>Válaszok: <code>xyz valami</code> alakú válaszok
+<ul class="org-ul">
+<li>Az <code>xyz</code> számjegyeket a program nézi, a szöveg nekünk, embereknek szól
+</li>
+<li>Az első számjegy jelenti a sikert/sikertelenséget, éppen úgy mint az FTP-nél
+<ul class="org-ul">
+<li><code>1</code> = részleges, előzetes sikeres válasz
+</li>
+<li><code>2</code> = siker
+</li>
+<li><code>3</code> = részleges, közbülső állaptot jelző sikeres válasz
+</li>
+<li><code>4</code> = átmeneti sikertelenség
+</li>
+<li><code>5</code> = végleges sikertelenség
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Nincs külön adat csatorna: a levelet is ugyanaz a TCP kapcsolat közvetíti, mint a parancsokat
+</li>
+<li>A felépülő full duplex TCP kapcsolaton half duplex beszélgetést folytat az SMTP
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Jellemző SMTP folyamat</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>A szerver a 25-ös porton figyel
+</li>
+<li>A kliens egy ephemeral portról a szerver 25-ös portjára TCP kapcsolatot épít
+</li>
+<li>Ez egy SMTP kapcsolat tartalma:
+</li>
+</ul>
+<pre class="example">                                         &lt;-- 220 rs3.lvs.iif.hu ESMTP
+HELO kapa.itk.ppke.hu --&gt;
+                                         &lt;-- 250 rs3.lvs.iif.hu
+MAIL FROM: &lt;kitol@teljes.domain.nev&gt; --&gt;
+                                         &lt;-- 250 OK
+RCPT TO: &lt;kinek@cimzett.domain.neve&gt; --&gt;
+                                         &lt;-- 250 OK
+DATA
+                                         &lt;-- 354 Enter message, ending with "." on a line by itself
+Feje
+
+Torzse a levelnek,
+sorok
+sorban
+CR/LF-fel
+.
+                                         &lt;--250 OK, GH-9025494x Message accepted for delivery
+QUIT
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">SMTP parancsok</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><code>HELO fqdn.domain.nev</code>
+<ul class="org-ul">
+<li>A kliens köszönése
+</li>
+<li>Paraméter: a gép domain neve
+</li>
+<li>Visszautasíthatják, ha hazudik (PTR rekord lookup)
+</li>
+<li>A válasz <code>250</code> ha elfogadja a köszönést
+</li>
+<li>Eddig ez hasonlít a TCP 3-way handshake-hez
+</li>
+</ul>
+</li>
+<li><code>MAIL FROM: &lt;mailbox@valahol&gt;</code>
+<ul class="org-ul">
+<li>Paraméter: a feladó címe <code>&lt;&gt;</code> közé zárva
+</li>
+<li>Lehet üres
+<ul class="org-ul">
+<li>Levelező szerver által generált hibaüzeneteknél
+</li>
+<li>Ez a visszapattanó levél: bounce
+</li>
+</ul>
+</li>
+<li>A „valahol” résznek érvényes FQDN névnek kell lennie
+<ul class="org-ul">
+<li>Lehet A rekord (host név) vagy MX rekord
+</li>
+<li>Nem lehet CNAME (Elvben. Gyakorlatban nem egy implementáció megengedi.)
+</li>
+</ul>
+</li>
+<li>A „mailbox” rész nem feltétlenül egy személy
+<ul class="org-ul">
+<li>Lehet pl. program (lista szerver)
+</li>
+<li>Lehet összetett cím, pl. percent hack: <code>valaki%mashol@ugro.deszka.domain</code>
+</li>
+<li>Lehet más levelező rendszerbeli cím
+</li>
+</ul>
+</li>
+<li>A paraméter értéke az <b>envelope from</b>
+</li>
+<li>Ez látszódhat <code>Return path:</code>-ként a levelet olvasó számára
+</li>
+<li>A kliens választ vár
+<ul class="org-ul">
+<li><code>250</code>: siker
+</li>
+<li>Lehet <code>4yz</code>, vagy <code>5yz</code> alakú visszautasítás
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>RCPT TO: &lt;mailbox@valahol&gt;</code>
+<ul class="org-ul">
+<li>Ez is az „envelope” része: <b>envelope to</b>
+</li>
+<li>A megadott címmel, mint címzettel bővül a boríték
+</li>
+<li>Több címzett is lehet a borítékon, de legfeljebb 100
+<ul class="org-ul">
+<li>A szerver a kapott levelet továbbküldheti egy vagy több levélben
+</li>
+</ul>
+</li>
+<li>A <code>&lt;postmaster@domain&gt;</code> kötelezően érvényes cím kell legyen minden domain-ra
+<ul class="org-ul">
+<li>A domain levelezésével kapcsolatos szolgálati e-mail cím
+</li>
+</ul>
+</li>
+<li>Más szolgálati címek
+<ul class="org-ul">
+<li><code>webmaster@domain</code>
+</li>
+<li><code>abuse@domain</code>
+</li>
+<li><code>hostmaster@domain</code>
+</li>
+</ul>
+</li>
+<li>A szerver <code>250</code>-nel válaszol, ha elfogadja a címet
+<ul class="org-ul">
+<li>Ez csak azt jelenti, hogy felírta a borítékra
+</li>
+<li>Nem garancia még arra sem, hogy végül elfogadja a levelet
+</li>
+<li>A címet ellenőrizheti a szerver
+<ul class="org-ul">
+<li>Ez sok időt vehet igénybe
+</li>
+<li>Lehet, hogy már a levelet is elküldte addigra a kliens
+<ul class="org-ul">
+<li>Ilyenkor csak a tényleges levélküldés végén, a <code>DATA</code> parancs után jön a
+visszautasító válasz
+</li>
+</ul>
+</li>
+<li>Erőforrás kímélő, ha minél hamarabb kiderül a hiba, azonnal visszapattan a levél
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lehet hogy néhány <code>RCPT TO:</code>-t elfogad, másokat nem
+<ul class="org-ul">
+<li>Persze ilyen nem fordulhat elő, ha a DATA után jelzi, hogy
+„címzett ismeretlen” (recipient unknown)
+</li>
+</ul>
+</li>
+<li>Jellemző hibakódok
+<ul class="org-ul">
+<li><code>550 Mailbox not found</code>
+</li>
+<li><code>452 Too many recipients</code>
+</li>
+<li><code>551 User has moved to</code>
+</li>
+<li><code>553 User ambiguous</code>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>DATA</code>
+<ul class="org-ul">
+<li>Ezzel jelzi a kliens, hogy levél következik, ami a „borítékban” van
+</li>
+<li>Nincs paraméter
+</li>
+<li>A szerver siker esetén <code>354</code>-es kóddal válaszol (átmeneti állapot)
+<ul class="org-ul">
+<li><code>End data with .</code>
+</li>
+</ul>
+</li>
+<li>Ez után ASCII sorok következhetnek
+<ul class="org-ul">
+<li>Csak 7 bites ascii karakterek
+</li>
+<li>Sorokra tördelve, a sorokat CR/LF választja el (<code>0d0a</code>)
+</li>
+<li>A sorok legfeljebb 1000 (CR/LF nélkül 998) hosszúak lehetnek
+</li>
+</ul>
+</li>
+<li>Az utolsó sor egyetlen pontból áll
+</li>
+<li>A ponttal kezdődő sorokat escape-elni kell
+<ul class="org-ul">
+<li>A küldő a ponttal kezdődő sor elejére még egy pontot illeszt
+</li>
+<li>Ha a fogadó a sor elején pontot talál, eldobja
+</li>
+</ul>
+</li>
+<li>Az üzenet végén a szerver válaszol ilyenformán:
+<ul class="org-ul">
+<li><code>250 valami-id message received and queued</code>
+</li>
+<li>Példák hibaüzenetre:
+<ul class="org-ul">
+<li><code>554 too many hops, this message is looping</code>
+</li>
+<li><code>452 Requested action not taken: insufficient system storage</code>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Ha sikeres az átvitel, a felelősség a szerveré
+</li>
+<li>A <code>250</code>-es üzenetben a túlsó azonosítót szokás küldeni, ami szerint a naplóban utána lehet nézni
+az üzenetnek
+</li>
+</ul>
+</li>
+<li><code>QUIT</code>
+<ul class="org-ul">
+<li>A beszélgetés végét jelzi
+</li>
+<li>A szerver <code>221</code>-es kóddal válaszol, és bontja a kapcsolatot
+</li>
+</ul>
+</li>
+<li><code>VRFY</code> és <code>EXPN</code>
+<ul class="org-ul">
+<li>Egy cím ellenőrzésére szolgáló parancsok: létezik-e itt ilyen?
+</li>
+<li>Biztonsági kockázat miatt kiment a divatból
+<ul class="org-ul">
+<li>A szerverek konfigurációjában le van tiltva
+</li>
+</ul>
+</li>
+<li>Helyettesíthető egy <code>RCPT TO</code>-val, ami után bontjuk a kapcsolatot
+</li>
+</ul>
+</li>
+<li><code>HELP</code>
+<ul class="org-ul">
+<li>Humán használatra szolgáló parancs
+</li>
+<li>Nem minden szerver ad választ
+</li>
+</ul>
+</li>
+<li><code>ETRN</code>
+<ul class="org-ul">
+<li>Extended TURN - fordítsunk: most Te küldj nekem, amit csak tudsz
+</li>
+<li><a href="http://tools.ietf.org/html/1985">RFC1985</a>
+</li>
+<li>Paraméter egy domain név
+<ul class="org-ul">
+<li><code>ETRN kicsi-domain.hu</code>
+</li>
+</ul>
+</li>
+<li>Ennek hatására a szerver a <code>kicsi-domain.hu</code> fele sorban álló leveleket el kezdi kiküldeni
+</li>
+<li>Kis, betárcsázással csatlakozó intézmények domain-jénél használatos
+</li>
+</ul>
+</li>
+<li><code>NOOP</code>
+<ul class="org-ul">
+<li>Kivált egy <code>250</code>-es választ
+</li>
+</ul>
+</li>
+<li><code>RSET</code>
+<ul class="org-ul">
+<li>A borítékot (envelope) kiradírozza: minden címzettre és feladóra vonatkozó információ üres lesz
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">RFC822 - levél formátum</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/822">RFC822</a> → <a href="http://tools.ietf.org/html/2822">RFC2822</a> → <a href="http://tools.ietf.org/html/5322">RFC5322</a>
+</li>
+<li>A levél formátum szintakszisát írja le
+</li>
+<li>A levél ASCII sorokból áll, amiket CR/LF zár
+</li>
+<li>A levél sorai legfeljebb 998 karakteresek
+</li>
+<li>A levél fejrészből és törzsből (header &amp; body) áll
+</li>
+<li>A fejrész az első üres sorig tart
+</li>
+<li>A fejrész is tartalmaz(hat) küldőt és címzettet, de az a levél „postai” kezelésénél nem kap
+szerepet
+<ul class="org-ul">
+<li>Ott az SMTP envelope számít
+</li>
+</ul>
+</li>
+<li>A fejrész mezőket (header fields) tartalmaz
+<ul class="org-ul">
+<li>A mező szerkezete: sor elején a név, kettőspont, whitespace, tartalom
+</li>
+<li>Egy mező általában egy sorból áll
+</li>
+<li>Folytatósort a sor eleji whitespace jelez
+</li>
+</ul>
+</li>
+<li><code>Date:</code>
+<ul class="org-ul">
+<li>A feladás idejét jelzi
+</li>
+<li>Példa: <code>Tue, 7 Dec 2004 15:07:54 +0100 (CET)</code>
+</li>
+<li>Fontos, hogy az időzóna is része
+</li>
+</ul>
+</li>
+<li><code>To:</code>
+<ul class="org-ul">
+<li>Azok akiknek/amiknek elsősorban szánjuk a levelet
+</li>
+<li><code>valaki@valahol</code> alakú cím
+</li>
+<li>Több is lehet, vesszővel elválasztva
+</li>
+<li>Kiegészíthető így: "<code>Kiss Pista</code>" <code>&lt;kispista@ceg.hu&gt;</code>
+</li>
+<li>Az UA-n kitöltött To-ból envelope címzett lesz
+</li>
+</ul>
+</li>
+<li><code>CC:</code>
+<ul class="org-ul">
+<li>Carbon Copy, indigós másolat
+</li>
+<li>Épp olyan mint a To: envelope címzett lesz
+</li>
+</ul>
+</li>
+<li><code>BCC:</code>
+<ul class="org-ul">
+<li>Blind Carbon Copy, titkos, rejtett másolat
+</li>
+<li>Épp olyan mint a To: envelope címzett lesz
+</li>
+<li>A DATA-val átküldött levélből kimarad
+</li>
+</ul>
+</li>
+<li><code>From:</code>
+<ul class="org-ul">
+<li>Azt a küldőt jelenti, akinek a nevében megy a levél
+</li>
+</ul>
+</li>
+<li><code>Sender:</code>
+<ul class="org-ul">
+<li>A személyt, vagy más entitást, aki ténylegesen küldi
+<ul class="org-ul">
+<li><code>From: sales@ceg.hu</code>
+</li>
+<li><code>Sender: kispista@ceg.hu</code>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>Reply-to:</code>
+<ul class="org-ul">
+<li>Kérem erre a címre válaszolj
+</li>
+</ul>
+</li>
+<li><code>Message-id:</code>
+<ul class="org-ul">
+<li>Egy véletlen szám, ami azonosítja a levelet
+</li>
+<li>Általában <code>@</code> után a rendszert azonosítja, ahol a levél keletkezett
+</li>
+<li>Pl: <code>Message-ID: &lt;Pine.LNX.4.58.0412082029001.10200@login03.caesar.elte.hu&gt;</code>
+</li>
+</ul>
+</li>
+<li><code>References:</code>
+<ul class="org-ul">
+<li>Message-id-k sorozatát tartalmazza, amikre hivatkozik a levél
+</li>
+<li>News csoportoknál vezették be
+</li>
+<li>Levelezési listáknál is hasznos: <b>thread</b>-ek keletkeznek
+<ul class="org-ul">
+<li>Ezért nem okos/udvarias más tárgyban írni a levelezőprogramunk
+<i>Reply</i> funkciójával
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><code>Subject:</code>
+<ul class="org-ul">
+<li>Nagy illetlenség kitöltetlenül hagyni
+</li>
+<li>Rövid, és lényegre törő legyen
+</li>
+</ul>
+</li>
+<li><code>Return-Path:</code>
+<ul class="org-ul">
+<li>Az envelope sendert mutatja
+</li>
+</ul>
+</li>
+<li><code>Received:</code>
+<ul class="org-ul">
+<li>A közvetítő MTA-k által betett mező
+</li>
+<li>Segítségével nyomon lehet követni, hol és mikor járt a levél
+</li>
+<li>Ki lehet szűrni a körbe keringő leveleket
+</li>
+<li>Az egyes MTA-k hop count korlátozást használnak
+<ul class="org-ul">
+<li>Visszapattanó levelet küldenek ilyenkor
+</li>
+<li>Itt nem a feladó, hanem a közbülső rendszer dönti el, hogy mikor elégeli meg!
+</li>
+</ul>
+</li>
+<li>Az időzóna fontos része a received soroknak
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Kitől fogad el egy SMTP szerver levelet?</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>Régen nem volt szokás korlátozni
+<ul class="org-ul">
+<li>Egy ausztrál smtp szervert Dániából lehetett arra használni, hogy „kiinduló MTA” legyen
+</li>
+<li>Az ilyen konfigurációt nevezzük nyílt relay-nek
+</li>
+<li>Az ilyet gyorsan felfedezik, spam-ek küldésére használják
+</li>
+</ul>
+</li>
+<li>Olyan <b>IP címekről</b>, akik számára ő a „sarki postaláda” (kiinduló MTA)
+<ul class="org-ul">
+<li>Egy subneten levő IP címek
+</li>
+<li>Konfigurációs paraméterben megadott címek
+</li>
+</ul>
+</li>
+<li>Olyan <b>címzettek</b> számára, akiknek ő a „kapunál levő postaláda” (cél MTA)
+<ul class="org-ul">
+<li>Akiknek ezen a gépen van a postafiókjuk
+</li>
+<li>Akik számára MX
+</li>
+<li>Konfigurációs paraméterben megadott domain-ok
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">MIME - Multipurpose Internet Mail Extensions</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/2045">RFC2045</a>
+</li>
+<li>Nem csak 7 bites ascii sorokat akarunk a levélben küldeni
+</li>
+<li>Úgy küldünk át ékezetes levelet, képet, hangot stb.
+<ul class="org-ul">
+<li>7 bites ascii-val kódolunk
+</li>
+<li>Fejrész mezőkben vezérlő információt küldünk hozzá
+</li>
+</ul>
+</li>
+<li>Egy üzenet több részből állhat
+</li>
+<li>Minden résznek <a href="http://tools.ietf.org/html/822">RFC822</a> szerinti fejrésze lesz
+</li>
+<li>Egy MIME üzenet újabb MIME üzeneteket tartalmazhat fa elrendezésben
+</li>
+<li>Új fejrész mezők
+<ul class="org-ul">
+<li><code>MIME-version:</code>
+</li>
+<li><code>Content-type:</code>
+<ul class="org-ul">
+<li>A törzs típusát mondja meg
+</li>
+<li>Leggyakoribb a text típus
+</li>
+<li>Paraméter: <code>charset</code>
+<ul class="org-ul">
+<li><code>text/plain; charset=ISO-8859-2;</code>
+</li>
+<li><code>text/html</code>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1">A multipart üzenetek valók a mellékletek (attachment) hordozásra</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>Pl.: <code>multipart/mixed, multipart/alternative</code>
+<ul class="org-ul">
+<li>Paraméter: <code>boundary</code>
+<ul class="org-ul">
+<li>Példa:
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">Content-type: multipart/mixed boundary "ezittaz"
+</pre>
+
+<ul class="org-ul">
+<li>Az egyes darabokat ilyen sorok választják el:
+<ul class="org-ul">
+<li><code>--ezittaz</code>
+</li>
+</ul>
+</li>
+<li>A utolsó darabot ez zárja le:
+<ul class="org-ul">
+<li><code>--ezittaz--</code>
+</li>
+</ul>
+</li>
+<li>multipart/mixed keletkezik akkor, ha csatolmányt küldünk egy levéllel
+</li>
+<li>Az egyes darabok külön RFC822 szerinti fejrészt tartalmaznak
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><code>Content-transfer-encoding:</code></h3>
+<div class="outline-text-3" id="text-6-2">
+<ul class="org-ul">
+<li>7bit - közönséges ASCII levél, sorokra tördelve
+</li>
+<li>8bit - nem csak 7 bites karakterek, de sorokra tördelve
+<ul class="org-ul">
+<li>Így lehet tárolni pl. lokális folderben a leveleket
+</li>
+<li>SMTP szerverek is átvehetik így: 8bitmime kiterjesztés
+</li>
+</ul>
+</li>
+<li>quoted printable: a 7 bites ascii karakterek változatlanok maradnak,
+a többit 3 karakteres szekvencia kódolja. Pl. <code>0xe4 → =e4</code>
+<ul class="org-ul">
+<li>Az egyenlőségjelet is kódolni kell: = <code>3d</code>
+</li>
+<li>A <code>recode</code> unixos utility nem csak karakterkészletek, hanem
+kódolások közt is tud konvertálni (<i>surface</i>-nek nevezi)
+</li>
+</ul>
+</li>
+</ul>
+
+<pre class="example">echo "Ábel és Bernát"|recode ../qp
+=C3=81bel =C3=A9s Bern=C3=A1t
+</pre>
+<ul class="org-ul">
+<li>Base64
+<ul class="org-ul">
+<li>Az üzenetet 3 byte-os darabokra bontjuk
+</li>
+<li>A keletkező 24 bitet 6 bites darabokra bontjuk
+</li>
+<li>A 4 darabot egy táblázat szerint kódoljuk (64 jel)
+<ul class="org-ul">
+<li>Ez a táblázat betüket, számokat és + /-t tartalmaz
+</li>
+</ul>
+</li>
+<li>Visszakódolásnál a karakter indexe szerint összeállítjuk a 3 byte-os darabokat
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">% echo "Ábel és Bernát"|recode ../b64
+w4FiZWwgw6lzIEJlcm7DoXQK
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">ESMTP - Extended SMTP</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/1425">RFC1425</a>
+</li>
+<li>Ha megállapodtak benne
+<ul class="org-ul">
+<li>Több parancsot használhatnak
+</li>
+<li>Pl. 8 bites kódolással is küldhetnek adatot
+</li>
+</ul>
+</li>
+<li>A <code>HELO</code> helyett <code>EHLO</code> parancsot küld a kliens, ezzel jelzi, hogy ESMTP-t ért
+</li>
+<li>A 250-es válasszal a szerver felsorolja azokat az kiterjesztett tulajdonságokat, amiket támogat
+</li>
+<li>Pl:
+</li>
+</ul>
+<pre class="example">ehlo sun.tuc.noao.edu
+250-vangogh.CS.Berkeley.EDU Hello sun.tuc.noao.edu [140.252.1.29], pleased to meet you
+250-EXPN
+250-8BITMIME
+250 HELP
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">VERP - Variable Envelope Return Path</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li><b>1. probléma</b>
+<ul class="org-ul">
+<li>Listáról menő levelek címzettjei sokszor továbbítják máshova a levelet pl. .forward fájl vagy
+alias segítségével
+</li>
+<li>Ez többszörös mélységben is előfordulhat
+</li>
+<li>Ha valahol hiba van, nem lehet tudni, hogy ki is volt az eredeti címzett
+</li>
+<li>E-mail címek megszűnnek, az ide átirányított más címek maradnak
+</li>
+<li>A levelezési listákon is megmarad a cím
+</li>
+<li>A visszapattanó levélből nem látható, hogy ki is volt a listatag
+</li>
+</ul>
+</li>
+<li><b>2. probléma</b>
+<ul class="org-ul">
+<li>A felhasználók sok címet használnak, ezeket egymásra irányítják
+</li>
+<li>Nem is tudják, hogy az egyes levelezési listákra melyik címmel iratkoztak fel
+</li>
+</ul>
+</li>
+<li><b>Megoldás: VERP - Variable Envelope Return Path</b>
+<ul class="org-ul">
+<li>A címzett címének egy részét betesszük a return address-be  = az envelope <code>mail from:</code> címbe
+</li>
+<li>Például: <code>owner-listname@listaserver.hu</code> helyett a „MAIL FROM” ban
+<code>owner-listname+nemecsek=palutca.hu@listaserver.hu</code> lesz a kimenő levél envelope-jában
+</li>
+<li>Gondoskodni kell róla, hogy az <code>owner-listname+akarmi@listaserver.hu</code> címekre menő leveleket (a
+visszapattanó levelet) mind ugyanaz a program kapja, és megfelelően cselekedjen
+</li>
+</ul>
+</li>
+<li><b>Hátrány:</b> ha egy smtp szervernek küld a lista szerver több levelet, akkor kénytelen külön-külön
+küldeni
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">RBL-ek</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>RBL = Realtime Blackhole List
+</li>
+<li>IP cím gyűjtő listák – ezekről az IP címekről a lista gazdája szerint
+nem tanácsos levelet elfogadni
+<ul class="org-ul">
+<li>Bizonyítottan spamelő IP címek
+</li>
+<li>Dialup címek
+</li>
+<li>Botnet címek
+</li>
+<li>…
+</li>
+</ul>
+</li>
+<li>DNS-en alapul: a <code>12.34.56.78</code> IP cím akkor van a listán, ha a feloldható
+a  <code>78.56.34.12.&lt;list-specific-suffix&gt;</code> név
+<ul class="org-ul">
+<li>Például: Ha a  <code>93.116.55.65.sbl-xbl.spamhaus.org.</code> feloldható, akkor
+a cím rajta van az <b>SBL</b> vagy az <b>XBL</b> listán. Ha <code>127.0.0.2</code> amire
+feloldódik, akkor SBL, ha, nem akkor XBL
+</li>
+</ul>
+</li>
+<li>Sok RBL van. Lista a pillanatnyi állapotról:
+<a href="http://dnsbl.inps.de/analyse.cgi?lang=en">http://dnsbl.inps.de/analyse.cgi?lang=en</a>
+</li>
+<li>A fogadó MTA a konfigurációja szerint eldöntheti, hogy mit csinál, ha
+a küldő MTA szerepel egy (vagy több) RBL-en
+<ul class="org-ul">
+<li>Visszautasíthatja az SMTP kapcsolatot
+</li>
+<li>Megjelölheti a levelet mint spam gyanúsat
+</li>
+<li>Figyelembe veheti úgy, hogy  spam-gyanú-faktort növelik
+</li>
+</ul>
+</li>
+<li>Gyakori, hogy egy fogadó MTA több RBL-t is használ
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">Internetes levelezés és biztonság</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>Az internetes levelezés olyan, mintha mindig nyílt levelezőlapon
+küldenénk minden levelet
+<ul class="org-ul">
+<li>A közbülső MTA-k, sőt a közbülső routerek, tűzfalak gazdái gond
+nélkül tudják olvasni sőt módosítani a leveleinket
+</li>
+<li><b>Van</b> ellenszer évtizedek óta: <a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">PGP</a>
+</li>
+<li>Mindenkit bíztatok, hogy használja
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Szerzõ: Pásztor Miklós, Máray Tamás</p>
+<!--
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+-->
+</div>
+
+
+</body></html>

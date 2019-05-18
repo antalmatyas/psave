@@ -1,0 +1,10 @@
+PROGRAM szovegresztorol
+  VÁLTOZÓK:
+    a, b: SZÖVEG,
+    x: EGÉSZ
+ 
+  BE: a
+  BE: b
+  x := a @ b
+  KI: a[0:x] + a[x + |b|:|a|]
+PROGRAM_VÉGE

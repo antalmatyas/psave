@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1488986170 source:c:\users\matyó\desktop\ablakdolog\main.cpp
+	"graphics.hpp"
+	<iostream>
+	<vector>
+	<cmath>
+	<ctime>
+
+1430018866 c:\users\matyó\desktop\ablakdolog\include\graphics.hpp
+	<string>
+

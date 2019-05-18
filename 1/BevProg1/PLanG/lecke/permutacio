@@ -1,0 +1,18 @@
+PROGRAM permutacio
+  VÁLTOZÓK:
+    f: EGÉSZ[10],
+    i, j: EGÉSZ
+ 
+  i := 0
+  CIKLUS AMÍG i < |f|
+    f[i] := RND 100
+    i := i + 1
+  CIKLUS_VÉGE
+  i := 0
+  j := 0
+  CIKLUS AMÍG i < |f|
+    j := RND 10
+    KI: f[j], "; "
+    i := i + 1
+  CIKLUS_VÉGE
+PROGRAM_VÉGE

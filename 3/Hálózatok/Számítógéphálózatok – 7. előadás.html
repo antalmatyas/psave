@@ -1,0 +1,1239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0047)http://users.itk.ppke.hu/~marta5/eloadas-7.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógéphálózatok – 7. előadás</title>
+
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Pásztor Miklós">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógéphálózatok – 7. előadás_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Számítógéphálózatok – 7. előadás</h1>
+
+
+<!--
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">TFTP - Trivial File Transfer Protocol</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Egyszerűen implementálható fájl küldés/fogadás
+</li>
+<li>Boot szervereknél használatos: DHCP paraméter a host és a fájl neve
+</li>
+<li><a href="http://tools.ietf.org/html/1350">RFC1350</a>
+</li>
+<li>UDP-t használ, 69-es porton szólitja meg a kliens a szervert
+<ul class="org-ul">
+<li>A tényleges adatforgalom már nem a 69-es portról, hanem a szerver véletlen portja és a kliens
+kezdeményező portja közt
+</li>
+</ul>
+</li>
+<li>Stop-and-wait elvű protokoll:
+<ul class="org-ul">
+<li>Minden egyes küldött blokkra nyugtát vár
+</li>
+<li>Ha nem jön adat timeout-ig, ismétli az utolsó nyugtát
+</li>
+<li>Ha nem jön nyugta timeout-ig, ismétli az utolsó adatot
+</li>
+</ul>
+</li>
+</ul>
+
+
+<pre class="example">Type   Op #     Format without header
+
+       2 bytes    string   1 byte     string   1 byte
+      +-----------------------------------------------+
+RRQ/  | 01/02 |  Filename  |   0  |    Mode    |   0  |
+WRQ   +-----------------------------------------------+
+       2 bytes    2 bytes       n bytes
+      +---------------------------------+
+DATA  | 03    |   Block #  |    Data    |
+      +---------------------------------+
+       2 bytes    2 bytes
+      +--------------------+
+ACK   | 04    |   Block #  |
+      +--------------------+
+       2 bytes  2 bytes        string    1 byte
+      +----------------------------------------+
+ERROR | 05    |  ErrorCode |   ErrMsg   |   0  |
+      +----------------------------------------+
+</pre>
+
+<ul class="org-ul">
+<li>Az első két byte: opcode, <code>read=1, write=2, data=3, ack=4, error=5</code>
+</li>
+<li>Írásnál és olvasásnál 0-val terminált fájlnév
+</li>
+<li>Mode: netascii, vagy octet
+<ul class="org-ul">
+<li>netascii-nál a sorok <code>CR/LF</code> közt
+</li>
+</ul>
+</li>
+<li>Az adatokat és a nyugtákat a block nr. rendeli egymáshoz
+</li>
+<li>Az adat legfeljebb 512 byte
+</li>
+<li>A fájl végét az 512-nél rövidebb adatcsomag jelzi
+</li>
+<li>Nincs csekkszumma
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">A stop and wait elv és sávszélesség</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>A tényleges átviteli sebesség nem csak a fizikai vonalak sebességétől, hanem a késleltetéstől is függ
+</li>
+<li>A fogadónak lehetne ilyesfajta mondása: „van három csomagnyi bufferem, küldhetsz egymás után annyit”
+</li>
+<li>Ez a <b>window mechanizmus</b>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Bűvészinas szindróma (Sorcerer's apprentice syndrome)</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>A <code>k</code>-adik nyugta késik, de nem vész el
+</li>
+<li>A <code>k</code>-adik adatot újra küldi a küldő
+</li>
+<li>Megérkezik a késett k-adik nyugta
+</li>
+<li>A küldő küldi a <code>k+1</code>-edig adatot
+</li>
+<li>Megérkezik az újraküldött k-adikra küldött nyugta
+</li>
+<li>A küldő küldi a <code>k+1</code>-edig adatot
+</li>
+<li>Ettől kezdve minden csomagot kétszer fog küldeni
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Biztonság</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>A TFTP protokollban nincs azonosító/jelszó se semmi más biztosíték
+</li>
+<li>A szerver implementációk korlátozásokat tesznek lehetővé, mint pl.:
+<ul class="org-ul">
+<li>Csak bizonyos fájlokhoz
+</li>
+<li>Csak bizonyos IP címekről
+</li>
+<li>Csak olvasási joggal
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Hol használnak TFTP-t?</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Router, switch operációs rendszerek frissítésekor
+</li>
+<li>Router, switch konfiguációs fájlok tárolására, mentésére
+</li>
+<li>Vékony kliensek, PC-k bútolásakor (PXE)
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+-->
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">TCP - Transmission Control Protocol</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Az alapja: <a href="http://tools.ietf.org/html/793">RFC793</a> - Postel
+</li>
+<li>A leggyakrabban használt 4. szintű protokoll
+</li>
+<li>Kapcsolat-orientált: mindig pontosan két partner közti kommunikáció
+<ul class="org-ul">
+<li>Következmény: multicast-on nincs értelme
+</li>
+<li>Analógia: telefon
+</li>
+</ul>
+</li>
+<li>A megbízhatatlan IP fölött megbízható szolgáltatást nyújt
+</li>
+<li>Alkalmazás-alkalmazás kommunikációt tesz lehetővé (szemben az IP host-host kommunikációval)
+</li>
+<li>Manapság is fejlesztik
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">TCP szolgáltatások</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>A TCP darabokra bontja az információt. Egy IP rétegnek átadott darab: szegmens
+</li>
+<li>Pozitív nyugtázás
+</li>
+<li>Minden szegmensre nyugtát vár
+</li>
+<li>Ha nem jött nyugta, újraküld
+<ul class="org-ul">
+<li>Nem feltétlenül minden szegmenst külön-külön
+</li>
+<li>Nem feltétlenül azonnal
+</li>
+</ul>
+</li>
+<li>Minden szegmenst csekkszumma véd. Ha ez hibát jelez, egyszerűen eldobja
+<ul class="org-ul">
+<li>Ilyenkor a küldő oldal timeout-ol és újra küld
+</li>
+</ul>
+</li>
+<li>Az IP csomagok nem feltétlenül sorrendben érkeznek meg. A TCP helyreállítja a sorrendet
+</li>
+<li>IP csomagok duplázódhatnak. A TCP kiszűri a duplikátumokat
+</li>
+<li>A TCP folyamvezérlést - flow controlt - alkalmaz: az adatáramlás sebességét fékezni és gyorsítani
+tudja a rendelkezésre álló erőforrásoktól függően
+</li>
+<li>A TCP byte (oktet) folyamot visz át: nincs rekord vagy sorhatár fogalom. Ilyesmiről a felsőbb szintnek kell
+gondoskodni, ha szükséges
+<ul class="org-ul">
+<li>Egy byte folyamot öntünk be az egyik oldalon, a TCP gondoskodik róla, hogy pont az a byte
+folyam bukik ki a másik oldalon
+</li>
+</ul>
+</li>
+<li>A TCP full duplex kapcsolatot tesz lehetővé: mindkét irányban és egymástól függetlenül áramlik a
+byte folyam
+</li>
+</ul>
+</div>
+</div>
+
+<h3>Portok</h3>
+<ul>
+<li>Multiplexálás/demultiplexálás
+</li>
+<li>16 bites port szám
+</li>
+<li>0-1023 well known ports
+</li>
+<li>1024-től szabadon használható
+</li>
+</ul>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">TCP fejrész</h3>
+<div class="outline-text-3" id="text-2-2">
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Source Port          |       Destination Port        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                        Sequence Number                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Acknowledgment Number                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Data |           |U|A|P|R|S|F|                               |
+| Offset| Reserved  |R|C|S|S|Y|I|            Window             |
+|       |           |G|K|H|T|N|N|                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|           Checksum            |         Urgent Pointer        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Options                    |    Padding    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                             data                              |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+
+<ul class="org-ul">
+<li>A kapcsolatot ez a négyes határozza meg: <i>source és destination port, source és destination IP cím</i>
+               (telefon hívás analógia)
+<ul class="org-ul">
+<li>Az egyik oldalon az IP cím/port páros: socket
+</li>
+<li>A kapcsolatot egy socket pár határozza meg
+</li>
+</ul>
+</li>
+<li>Sequence number: a byte folyamban az ebben a szegmensben küldött első byte sorszáma
+<ul class="org-ul">
+<li>Körbefordul: modulo <code>2³²</code> mutatja a sorszámot
+</li>
+<li>A kapcsolat elején rendszerint <b>nem</b> 0
+<ul class="org-ul">
+<li>ISN, initial sequence number: a kezdeti érték
+</li>
+</ul>
+</li>
+<li>Hagyományosan nem is véletlen, megjósolható
+<ul class="org-ul">
+<li>Támadásra ad módot, manapság véletlen szám
+<ul class="org-ul">
+<li>Tűzfalak (pl. OpenBSD) külön erőfeszítéseket tehetnek a „véletlenség” növelésére
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SYN, synchronize flag: a kapcsolat felépítésekor használatos
+<ul class="org-ul">
+<li>Egy sequence numbert „elfogyaszt”
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Acknowledgment number: a vett byte-folyamot eddig a sorszámig nyugtázom. A következő venni kívánt
+sorszámot tartalmazza
+<ul class="org-ul">
+<li>Az acknowledgement number akkor érvényes, ha az ACK bit áll
+</li>
+<li>Az ACK bit rendszerint áll: ha nem jött új adat (vagy jött, de nem akarom nyugtázni),
+megismétlem az előző acknowledgement numbert
+</li>
+<li>A TCP sliding-window (csúszó ablakos) nyugtázást alkalmaz, szelektív és negatív nyugták nélkül
+<ul class="org-ul">
+<li>Ha kimaradt egy csomag, de a következő már megjött, nincs mód arra, hogy a megérkezettet
+nyugtázzam
+</li>
+<li>Ha megjött egy csomag, mondjuk 2001-től 3000-ig de hibás, nincs erre más mondásom, mint
+az, hogy újra nyugtázom 2000-ig a folyamot
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data offset: a fejrész hosszát adja meg 4 byte-os egységekben.
+<ul class="org-ul">
+<li>Az opciók miatt változhat a fejrész hossza
+</li>
+<li>Rendszerint 20, legfeljebb 60
+</li>
+</ul>
+</li>
+<li>Flagek
+<ul class="org-ul">
+<li>URG: az urgent (sürgős adat) pointer érvényes
+</li>
+<li>ACK: az acknoledgement number érvényes
+</li>
+<li>PSH: azonnal add fel a felső rétegnek a szegmenst (push)
+</li>
+<li>RST: lecsaptam a kagylót, durva bontás (reset)
+</li>
+<li>SYN: szinkronizáljuk a sequence numbereinket, kapcsolat indítása
+</li>
+<li>FIN: befejeztem az adatküldést, leteszem a kagylót (finish)
+<ul class="org-ul">
+<li>Adatot fogadni még tudok
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Window: ablak. Az acknowledgement numbertől ennyi byte fogadására készen állok
+</li>
+<li>Csekkszumma: a szokásos one's complement 16 bites darabokra, a teljes szegmensre
+<ul class="org-ul">
+<li>Nem csak az TCP csomagot, hanem egy „pszeudó fejrészt” is figyelembe vesz:
+</li>
+</ul>
+</li>
+</ul>
+
+<pre class="example">+--------+--------+--------+--------+
+|          source address           |
++--------+--------+--------+--------+
+|        destination address        |
++--------+--------+--------+--------+
+|  zero  |protocol|   TCP length    |
++--------+--------+--------+--------+
+</pre>
+
+<ul class="org-ul">
+<li>Az IP fejrészből ismétel meg elemeket
+<ul class="org-ul">
+<li>A rossz helyre küldött TCP csomagokat lehet így kiszűrni
+</li>
+<li>UDP-nél is van ilyen
+</li>
+</ul>
+</li>
+<li>Urgent pointer: ha áll az URG bit, akkor az adatban eddig a pontig sürgős adat van
+</li>
+<li>Pl. fájl transzfer abortálásra szolgál
+</li>
+<li>Opciók
+<ul class="org-ul">
+<li>típus: 1 byte-os opció
+</li>
+<li>típus, hossz, opció adatok
+</li>
+<li>Gyakran használt opció: MSS, Maximum Segment Size
+</li>
+</ul>
+</li>
+<li>Adat: nincs feltétlenül
+<ul class="org-ul">
+<li>Például ha csak nyugtázunk vett adatot, akkor nincs.
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">TCP opciók: Type/Length/Value</h3>
+<div class="outline-text-3" id="text-2-3">
+<pre class="example">                      +-----+
+End of option list:   |  0  |
+                      +-----+
+                      1 byte
+
+                      +-----+
+No operation:         |  1  |
+                      +-----+
+                      1 byte
+
+                      +-----+-----+--------+
+Maximum segment size: |  2  |  4  | MSS    |
+                      +-----+-----+--------+
+                      4 byte
+
+                      +-----+-----+-----+
+Window scale factor:  |  3  |  3  |  x  |
+                      +-----+-----+-----+
+                      3 byte
+                      0 &lt;= x &lt;= 14 : shift count
+                      x bittel elshifteljük a 16 bites window-t
+
+                      +-----+-----+-------------+-------------+
+Timestemp:            |  4  | 10  | Time value  | Time echo   |
+                      +-----+-----+-------------+-------------+
+                      10 byte
+                      Az ACK-val együtt visszaküldjük a kapott értéket
+                      RTT számolást pontosít
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">Sliding window</h3>
+<div class="outline-text-3" id="text-2-4">
+
+<div class="figure">
+<p><img src="./Számítógéphálózatok – 7. előadás_files/window.png" alt="window.png">
+</p>
+</div>
+
+<ul class="org-ul">
+<li>A nyugtázott+window sorszámig folyamatosan küldhető adat
+<ul class="org-ul">
+<li>Rendszerint nem tölti ki az egész window-t
+</li>
+</ul>
+</li>
+<li>A nyugtázott+window sorszámnál nagyobb sorszámú oktet nem küldhető
+</li>
+<li>A window folyamatosan csúszik jobbra az ábrán
+</li>
+<li>A window-t a fogadó csökkentheti/növelheti
+<ul class="org-ul">
+<li>Ha nyugtáz és nem akarja növelni, akkor a nyugtában kisebb window-t kell mondania az előzőnél
+</li>
+</ul>
+</li>
+<li>A window mérettel a fogadó szabályozhatja a küldés ütemét
+<ul class="org-ul">
+<li>Flow control: az alkalmazás igényeihez igazodhat
+<ul class="org-ul">
+<li>Pl. a window lehet az alkalmazás által vételre felkínált buffer mérete
+</li>
+</ul>
+</li>
+<li>Congestion control: torlódás és csomagvesztés elkerülésére
+</li>
+</ul>
+</li>
+<li>Egy nyugta mindig addig az SN-ig nyugtáz mindent, nem csak az utolsó csomagot
+</li>
+<li>A window nyílik, ha a jobb széle jobbra mozdul
+</li>
+<li>A window becsukódik:
+<ul class="org-ul">
+<li>ha a hirdetett window 0,
+</li>
+<li>az adó kimerítette a küldhető adatmennyiséget,
+</li>
+<li>a vevő mindent nyugtázott
+</li>
+</ul>
+</li>
+<li>A window zsugorodik (shrinks), ha a jobb széle balra mozdul
+<ul class="org-ul">
+<li>Lehetséges, de ellenjavalt
+</li>
+<li>A TCP-ben ez különleges dolog: vannak protokollok, ahol ez lehetetlen
+</li>
+</ul>
+</li>
+<li>Újraküldés
+<ul class="org-ul">
+<li>Ha három ugyanolyan ACK-t kapok, onnan kezdve újraküldök
+</li>
+<li>Ha timeout (RTO) lejár, és nem kapok ACK-t
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">TCP kapcsolatfelépítés</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<!--
+<li><a href="http://users.itk.ppke.hu/%7Empasztor/netora/captures/dayt.cap">captures/dayt.cap</a>
+</li>
+-->
+<li>Three-way handshake
+<ol class="org-ol">
+<li>A kezdeményező (kliens) küld egy SYN flages csomagot. Eldől a kapcsolatra
+<ul class="org-ul">
+<li>A hívó fél ISN-je
+</li>
+<li>portok. A hívó port többnyire véletlenszerűen választott
+</li>
+</ul>
+</li>
+<li>A hívott (szerver) küld egy ACK-t, és SYN-t tartalmazó csomagot. Nyugtázza a kapott csomagot, a
+SYN elfogyaszt egy sequence numbert. Eldől:
+<ul class="org-ul">
+<li>A másik ISN
+</li>
+</ul>
+</li>
+<li>A hívó küld egy ACK-t, nyugtázza a másik csomagját. Az a SYN is elfogyaszt egy sequence
+numbert.
+</li>
+</ol>
+</li>
+
+<li>A kezdeményezőre azt mondjuk: active open-t hajt végre
+</li>
+<li>A hívott: passive open-t
+</li>
+
+<li>Ha a kapcsolat felépítés nem sikerült, a kezdeményező timeout után újra próbálkozik
+</li>
+<li>Ha többedszerre sem sikerül, értesíti az alkalmazást a kudarcról
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">TCP SYN flood támadás</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li>A támadott IP címre SYN csomagok tömegét küldik
+<ul class="org-ul">
+<li>A forrás IP címek változnak, hamisak, véletlenszerűen generáltak
+</li>
+<li>A támadott állomás SYN/ACK-t küld és vár az ACK-ra, ami sose jön meg
+</li>
+<li>Elemészti a támadott állomás erőforrásait
+</li>
+<li>Megbéníthat egy állomást (DoS)
+</li>
+</ul>
+</li>
+<li>Védekezés
+<ul class="org-ul">
+<li>Egy hálózatból kifele csak az oda tartozó source címekkel mehessenek ki csomagok
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/2827">BCP38</a>, <a href="http://tools.ietf.org/html/3013">BCP46</a>
+</li>
+</ul>
+</li>
+<li>Syn cookie
+<ul class="org-ul">
+<li>A SYN/ACK-val küldött sequence number ravaszul választott, és küldésekor nem foglalunk semmi erőforrást
+<ul class="org-ul">
+<li>ISN = <i>f(source addr, source port, dst addr, dst port, time, secret)</i>
+</li>
+<li>Lásd: <a href="http://cr.yp.to/syncookies/archive">http://cr.yp.to/syncookies/archive</a>
+</li>
+</ul>
+</li>
+<li>A visszaküldött ACK tartalmazza ezt a cookie-t, és csak ennek érkezésekor foglalunk erőforrást
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7">Kapcsolat zárás</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li>A TCP kapcsolat full duplex, ezért a FIN csak azt jelenti: én nem küldök több adatot
+</li>
+<li>TCP half close: csak az egyik irányban zárt kapcsolat
+<ul class="org-ul">
+<li>Elvben lehetséges, gyakorlatban ritka
+</li>
+</ul>
+</li>
+<!--
+<li><a href="http://users.itk.ppke.hu/%7Empasztor/netora/captures/dayt.cap">captures/dayt.cap</a>
+</li>
+-->
+<li>Négy csomag utazhat
+<ol class="org-ol">
+<li>Az egyik <i>(A)</i> fél küld egy FIN-t
+<ul class="org-ul">
+<li>A másik <i>(B)</i> értesíti az applikációt, hogy vége az adatnak (EOF, End of File)
+</li>
+</ul>
+</li>
+<li><i>B</i> nyugtázza ACK-val
+</li>
+<li><i>B</i> is küld FIN-t, ha befejezte az adatküldést
+</li>
+<li>Erre is megjön a nyugta
+</li>
+</ol>
+</li>
+<li>A FIN-is elfogyaszt egy sequence numbert
+</li>
+<li>A activ close-t, B passive close-t hajt végre
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8">MSS opció</h3>
+<div class="outline-text-3" id="text-2-8">
+<ul class="org-ul">
+<li>A SYN-nel szokás küldeni
+</li>
+<li>Ez a legnagyobb szegmens, amit venni szeretnék
+</li>
+<li>Nincs garancia rá, hogy útközben nincs kisebb MTU
+</li>
+<li>Path MTU discovery választ adhat a valódi értékre
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9">TCP állapotábra</h3>
+<div class="outline-text-3" id="text-2-9">
+
+<div class="figure">
+<p><img src="./Számítógéphálózatok – 7. előadás_files/tcp_diagr.png" alt="tcp_diagr.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10">A szokásos folyamat</h3>
+<div class="outline-text-3" id="text-2-10">
+
+<div class="figure">
+<p><img src="./Számítógéphálózatok – 7. előadás_files/tcp-time.png" alt="tcp-time.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-11" class="outline-3">
+<h3 id="sec-2-11">TIME_WAIT állapot</h3>
+<div class="outline-text-3" id="text-2-11">
+<ul class="org-ul">
+<li>Az aktív close-t végző utolsó állapota
+</li>
+<li>Lehet, hogy elvész az utolsó küldött ACK
+</li>
+<li>Ilyenkor a passzív oldal újra küldi a FIN-t
+<ul class="org-ul">
+<li>Ezt egy másik kapcsolat részeként lehet felfogni, RESET lenne a válasz
+</li>
+</ul>
+</li>
+<li>MSL: Maximum Segment Lifetime. Becsült érték: ennél tovább nem lehet a hálózaton egy TCP szegmens
+</li>
+<li>TIME_WAIT állapot = 2MSL állapot: 2xMSL ideig van ebben egy kapcsolat, utána ,,closed''
+</li>
+<li>Lehet, hogy amiatt nem indul el egy szerver, mert nem tudja megnyitni ,,listen''-re a socket-et: TIME_WAIT-ben van
+<ul class="org-ul">
+<li>Implementáció függő
+</li>
+</ul>
+</li>
+<li>Nem csak a TIME_WAIT, hanem a FIN_WAIT_2 is olyan, hogy benneragadhatunk: timeout után fel kell szabadítani az erőforrásokat,
+alapállapotba kell menni
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-12" class="outline-3">
+<h3 id="sec-2-12">Quiet time elv</h3>
+<div class="outline-text-3" id="text-2-12">
+<ul class="org-ul">
+<li>Ha egy gép újraindul, akor a TIME_WAIT-ben levő kapcsolatairól nem tudhat
+</li>
+<li>Ezért 2xMSL ideig újrainduláskor ne létesítsen TCP kapcsolatot
+</li>
+<li>A gyakorlatban a boot idő nagyobb
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-13" class="outline-3">
+<h3 id="sec-2-13">Reset</h3>
+<div class="outline-text-3" id="text-2-13">
+<ul class="org-ul">
+<li>Akkor küldik, ha olyan csomag érkezik, amit nem találunk szabályosnak
+</li>
+<li>Például ha olyan portra érkezik TCP kérés, amin nem figyel alkalmazás
+<ul class="org-ul">
+<!--
+<li><a href="http://users.itk.ppke.hu/%7Empasztor/netora/captures/reset.cap">captures/reset.cap</a>
+</li>
+-->
+</ul>
+</li>
+<li>Kapcsolat erőszakos bontására is használható
+<ul class="org-ul">
+<li>Ilyenkor nincs garancia arra, hogy minden csomagot megkapott az alkalmazás: abort
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-14" class="outline-3">
+<h3 id="sec-2-14">Half open kapcsolatok</h3>
+<div class="outline-text-3" id="text-2-14">
+<ul class="org-ul">
+<li>Ha TCP kapcsolatban álló állomások közül az egyik (vagy rajta az alkalmazás) újraindul, a másik fél élőnek hiheti a kapcsolatot
+</li>
+<li>Küldhet adatot, ez meglepetés lesz az újra indult oldalon
+</li>
+<li>Ilyenkor RESET a válasz
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-15" class="outline-3">
+<h3 id="sec-2-15">Szimultán open</h3>
+<div class="outline-text-3" id="text-2-15">
+<ul class="org-ul">
+<li>Keresztbe küldhet két alkalmazás SYN-t ugyanarra a socket párra
+</li>
+<li>Ilyenkor mindkettő ACK-val válaszol
+</li>
+<li>A kapcsolat felépül és csak egy kapcsolat épül fel!
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-16" class="outline-3">
+<h3 id="sec-2-16">Szimultán close</h3>
+<div class="outline-text-3" id="text-2-16">
+<ul class="org-ul">
+<li>A küldött FIN-re nem ACK, hanem FIN jön
+</li>
+<li>ACK-val meg kell válaszolni, és várni az ACK-ra: CLOSING állapot
+</li>
+<li>Ilyenkor mindkét oldal TIME_WAIT állapotba kerül
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-17" class="outline-3">
+<h3 id="sec-2-17">TCP reset támadás (TCP Reset attack)</h3>
+<div class="outline-text-3" id="text-2-17">
+<ul class="org-ul">
+<li><i>A</i> és <i>B</i> közt élő TCP kapcsolatba <i>E</i> RESET csomagot csempészhet
+</li>
+<li><i>E</i>-nek tudnia kell a következőket:
+<ul class="org-ul">
+<li>source/destination IP cím
+</li>
+<li>source/destination port
+</li>
+<li>sequence number
+</li>
+</ul>
+</li>
+<li>2004 májusában nagy port vert fel
+</li>
+<li>
+<!--
+<a href="https://packetstormsecurity.com/files/33169/SlippingInTheWindow_v1.0.ppt.html">
+-->
+Paul Watson - Slipping in the Window: TCP Reset Attacks
+<!--
+</a>
+-->
+, CanSecWest konferencián
+</li>
+<li>Felfedezte, hogy nem szükséges a kurrens sequence numbert tudni: elég a window-ban levő bármi!
+<ul class="org-ul">
+<li>Nagy window méretnél (ami egyre gyakoribb) könnyebb a támadás
+</li>
+<li>Brute force támadás is indítható
+</li>
+</ul>
+</li>
+<li>BGP kapcsolatok nagyon veszélyeztetettek
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-18" class="outline-3">
+<h3 id="sec-2-18">TCP szerverek</h3>
+<div class="outline-text-3" id="text-2-18">
+<ul class="org-ul">
+<li>Az egyes ismert szolgáltatásokhoz a IANA portokat rendel: <i>well-known ports</i>, pl:
+</li>
+<ul>
+<li>20 - FTP data
+</li><li>21 - FTP control
+</li><li>23 - TELNET
+</li><li>25 - SMTP
+</li><li>53 - DNS
+</li><li>80 - HTTP
+</li></ul>
+<li>Az implementáció, sőt a konfiguráció mást is választhat
+</li>
+<li>Unixokban az <code>/etc/services</code> tartalmazza az ismert portok nevét és számát
+</li>
+<li>A szerverek induláskor figyelnek a választott porton (Listen állapot)
+<ul class="org-ul">
+<li>Ha több IP cím van, általában mindegyiken
+</li>
+<li>Lehet, hogy csak az IP címek egy részén
+</li>
+<li>Lehet, hogy ugyanazon gépen különböző IP címeken különböző programok figyelnek
+</li>
+</ul>
+</li>
+<li>Ha kérés érkezik, a szerver egy gyerek processzt forkol
+<ul class="org-ul">
+<li>Azé lesz az új kapcsolat
+</li>
+</ul>
+</li>
+<li>A netstat parancs mutatja a pillanatnyi kapcsolatokat
+<ul class="org-ul">
+<li>Alternatíva: <code>lsof -i</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-19" class="outline-3">
+<h3 id="sec-2-19"><code>inet</code> daemon</h3>
+<div class="outline-text-3" id="text-2-19">
+<ul class="org-ul">
+<li>Unixokon klasszikus, egyszerű szolgáltatások indításának eszköze
+</li>
+<li>Belső szolgáltatások (pl. echo) és tetszőleges program indítása
+<ul class="org-ul">
+<li>Az indított program standard inputja és outputja a TCP kapcsolat lesz
+</li>
+</ul>
+</li>
+<li>Alternatíva: <code>xinetd</code>
+<ul class="org-ul">
+<li>Árnyalni lehet, hogy milyen feltételekkel, honnan fogad el kapcsolatot
+<ul class="org-ul">
+<li>Hívó IP cím
+</li>
+<li>Idő: mettől meddig
+</li>
+</ul>
+</li>
+<li>Árnyalni lehet az induló processz környezetét
+</li>
+</ul>
+</li>
+<!--
+<li><code>inetd.conf</code> részlet
+</li>
+</ul>
+
+<pre class="example"># /etc/inetd.conf:  see inetd(8) for further informations.
+#
+# Internet server configuration database
+#
+#
+# Lines starting with "#:LABEL:" or "##" should not
+# be changed unless you know what you are doing!
+#
+# If you want to disable an entry so it isn't touched during
+# package updates just comment it out with a single '#' character.
+#
+# Packages should modify this file by using update-inetd(8)
+#
+#
+#
+#:INTERNAL: Internal services
+#echo           stream  tcp     nowait  root    internal
+#echo           dgram   udp     wait    root    internal
+#chargen        stream  tcp     nowait  root    internal
+#chargen        dgram   udp     wait    root    internal
+discard         stream  tcp     nowait  root    internal
+discard         dgram   udp     wait    root    internal
+daytime         stream  tcp     nowait  root    internal
+#daytime        dgram   udp     wait    root    internal
+time            stream  tcp     nowait  root    internal
+#time           dgram   udp     wait    root    internal
+
+#:STANDARD: These are standard services.
+
+#:BSD: Shell, login, exec and talk are BSD protocols.
+
+#:MAIL: Mail, news and uucp services.
+smtp            stream  tcp     nowait  mail    /usr/sbin/exim exim -bs
+</pre>
+-->
+
+</ul></div>
+</div>
+
+
+
+<div id="outline-container-sec-2-20" class="outline-3">
+<h3 id="sec-2-20">TCP daemon, <code>tcpd</code>, alias <code>tcp_wrapper</code></h3>
+<div class="outline-text-3" id="text-2-20">
+<ul class="org-ul">
+<li><code>inetd</code> és egyes programok közé ékelődhet
+</li>
+<li>Árnyaltan lehet akciót kezdeményezni
+<ul class="org-ul">
+<li>Elutasítani/elfogadni a kapcsolatot
+</li>
+<li>Naplózni
+</li>
+<li>Figyelmeztető levelet küldeni, tetszőleges parancsot kiadni
+</li>
+</ul>
+</li>
+<li>Két fő konfigurációs fájl: <code>/etc/hosts.allow, /etc/hosts.deny</code>
+<ol class="org-ol">
+<li>Az első match nyer
+</li>
+<li>Ha nincs match, engedi a kapcsolatot
+</li>
+<li>A fájlokat a következő sorrendben nézi: <code>hosts.allow, hosts.deny</code>
+</li>
+</ol>
+</li>
+<li>Nem csak inetd mögött, hanem libwrap-pal egybelinkelt bármilyen programmal használható
+<ul class="org-ul">
+<li>Az ssh szerver ilyen szokott lenni
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h3>Socket server példa program</h3>
+<pre class="example"><code>
+#include &lt;sys/socket.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;time.h&gt; 
+
+int main(int argc, char *argv[])
+{
+    int listenfd = 0, connfd = 0;
+    struct sockaddr_in serv_addr; 
+
+    char sendBuff[1025];
+    time_t ticks; 
+
+    listenfd = socket(AF_INET, SOCK_STREAM, 0);
+    memset(&amp;serv_addr, '0', sizeof(serv_addr));
+    memset(sendBuff, '0', sizeof(sendBuff)); 
+
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    serv_addr.sin_port = htons(5000); 
+
+    bind(listenfd, (struct sockaddr*)&amp;serv_addr, sizeof(serv_addr)); 
+
+    listen(listenfd, 10); 
+
+    while(1)
+    {
+        connfd = accept(listenfd, (struct sockaddr*)NULL, NULL); 
+
+        ticks = time(NULL);
+        snprintf(sendBuff, sizeof(sendBuff), "%.24s\r\n", ctime(&amp;ticks));
+        write(connfd, sendBuff, strlen(sendBuff)); 
+
+        close(connfd);
+        sleep(1);
+     }
+}
+</code>
+</pre>
+
+<h3>Socket client példa program</h3>
+<pre class="example"><code>
+
+#include &lt;sys/socket.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;netdb.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;arpa/inet.h&gt; 
+
+int main(int argc, char *argv[])
+{
+    int sockfd = 0, n = 0;
+    char recvBuff[1024];
+    struct sockaddr_in serv_addr; 
+
+    if(argc != 2)
+    {
+        printf("\n Usage: %s <ip of="" server=""> \n",argv[0]);
+        return 1;
+    } 
+
+    memset(recvBuff, '0',sizeof(recvBuff));
+    if((sockfd = socket(AF_INET, SOCK_STREAM, 0)) &lt; 0)
+    {
+        printf("\n Error : Could not create socket \n");
+        return 1;
+    } 
+
+    memset(&amp;serv_addr, '0', sizeof(serv_addr)); 
+
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_port = htons(5000); 
+
+    if(inet_pton(AF_INET, argv[1], &amp;serv_addr.sin_addr)&lt;=0)
+    {
+        printf("\n inet_pton error occured\n");
+        return 1;
+    } 
+
+    if( connect(sockfd, (struct sockaddr *)&amp;serv_addr, sizeof(serv_addr)) &lt; 0)
+    {
+       printf("\n Error : Connect Failed \n");
+       return 1;
+    } 
+
+    while ( (n = read(sockfd, recvBuff, sizeof(recvBuff)-1)) &gt; 0)
+    {
+        recvBuff[n] = 0;
+        if(fputs(recvBuff, stdout) == EOF)
+        {
+            printf("\n Error : Fputs error\n");
+        }
+    } 
+
+    if(n &lt; 0)
+    {
+        printf("\n Read error \n");
+    } 
+
+    return 0;
+}
+</ip></code>
+</pre>
+
+
+</div>
+<div id="postamble" class="status">
+<p class="author">Szerzõ: Pásztor Miklós, Máray Tamás</p>
+<!--
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+-->
+</div>
+
+
+
+</body></html>

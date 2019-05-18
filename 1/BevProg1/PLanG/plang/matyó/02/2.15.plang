@@ -1,0 +1,15 @@
+program nagybetu
+valtozok:
+i: egesz,
+s: szoveg
+
+be: s
+i := 0
+ciklus amig i < |s|
+	ha i = 0 vagy s[i-1] = ' ' AKKOR
+		s[i] := nagy(s[i])
+	ha_vege
+	i := i + 1
+ciklus_vege
+KI: s
+program_vege

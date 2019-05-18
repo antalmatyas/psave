@@ -1,0 +1,10 @@
+program elso
+valtozok: 
+string: szoveg
+
+
+BE: string
+string := string 
+KI: string[0] = NAGY (string[0]) ÉS betu(string[0])
+
+program_vege

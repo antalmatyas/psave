@@ -1,0 +1,8 @@
+PROGRAM elso
+  VÁLTOZÓK:
+    a, b: EGÉSZ
+ 
+  BE: a
+  BE: b
+  KI: a = 0 VAGY b = 0
+PROGRAM_VÉGE

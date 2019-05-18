@@ -1,0 +1,826 @@
+\documentclass[xcolor=pdftex,dvipsnames,table,compress,bigger]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \useoutertheme[subsection=false]{miniframes}
+  \setbeamercolor{lower separation line head}{parent=palette tertiary}
+  \setbeamercolor{palette secondary}{bg=beamer@blendedblue!85!black}
+  \setbeamercolor{palette tertiary}{bg=beamer@blendedblue!50!black}
+  \setbeamercovered{transparent=0}
+}
+
+\hypersetup
+{
+   pdfkeywords={number representations, number systems, number expansions},
+}
+
+
+\usepackage{beamerthemeshadow}
+\setbeamertemplate{navigation symbols}{}
+\usepackage[latin2]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{multirow}
+%\usepackage[table]{xcolor}
+
+%\usepackage{fourier}
+
+
+\newenvironment{eqxample}{%
+  \par\addvspace\medskipamount
+  \noindent\begin{minipage}{.5\columnwidth}%
+  \def\producing{\end{minipage}\begin{minipage}{.5\columnwidth}%
+    \hbox\bgroup\kern-.2pt\vrule width.2pt%
+      \vbox\bgroup\parindent0pt\relax
+%    The 3pt is to cancel the -\lineskip from \displ@y
+    \abovedisplayskip3pt \abovedisplayshortskip\abovedisplayskip
+    \belowdisplayskip0pt \belowdisplayshortskip\belowdisplayskip
+    \noindent}
+}{%
+  \par
+%    Ensure that a lonely \[\] structure doesn't take up width less than
+%    \hsize.
+  \hrule height0pt width\hsize
+  \egroup\vrule width.2pt\kern-.2pt\egroup
+  \end{minipage}%
+  \par\addvspace\medskipamount
+}
+\DeclareMathOperator{\sgn}{sgn}
+
+
+\title{Latex kezd�knek}
+\author{Bev. sz�mtech. - Latex 2. gyak}
+\date{}
+
+% matematikai k�pletek haszn�lata -ams
+%		math mode
+%		equation
+%		eqnarray
+%		label
+%		
+% egyenlet szerkeszt�s
+%		
+% k�pek besz�r�sa
+%		figure
+%		includegraphics
+%		include
+%		epsfig
+%		
+% t�bl�zat besz�r�sa
+%		tabular	
+% sty f�jlok haszn�lata, hogy lehet k�l�nb�z� form�tum� cikkeket k�sz�teni, pl IEEE forma stb.
+%		sty
+%		ref
+%		cite
+
+\begin{document}
+
+\begin{frame}[t]
+   \titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+ \begin{frame}
+  \frametitle{Tartalomjegyz�k}
+  \small
+  \tableofcontents[currentsection,hideothersubsections]
+  \normalsize
+ \end{frame}
+}
+
+\section{Matematikai k�pletek haszn�lata}
+\subsection{Elm�leti ism�tl�s}
+\begin{frame}[fragile]
+    \frametitle{Matematikai k�pletek haszn�lata}
+    \begin{itemize}
+    \item Az egyik f� eleme a \LaTeX-nek hogy matematikai formul�kat szeretn�nk sz�pen megjelen�teni.
+    \pause
+    \item M�lt �r�n m�r megismerkedt�nk olyan form�n a 
+    	\begin{quote}
+    	\begin{verbatim}
+\usepackage{amsmath}
+			\end{verbatim}
+    	\end{quote} paranccsal, hogy azt mondtuk ez ``kell'' a matematikai dolgokhoz.
+    	\pause
+    	\item Most n�zz�k is meg mir�l is van val�j�ban sz�:
+    \end{itemize}
+    \pause
+    Az \AmS\ csomagok az American Mathematical Society �ltal kiadott csomagok.
+    Ezen bel�l az \verb|amsmath| 
+    a matematikai form�z�sokkal �a a k�l�nb�z� k�rnyezetekkel foglalkozik.\\
+    B�vebb inf� a csomagokr�l: \url(http://www.ams.org/tex/amslatex.html)
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Matematikai k�pletek haszn�lata}
+    T�lts�k le a \url(http://www.ams.org/tex/amslatex.html) oldalr�l a 
+    \begin{itemize}
+    \item \href{ftp://ftp.ams.org/pub/tex/doc/amsmath/amsldoc.pdf}{amsldoc.pdf}-et �s a 
+    \item \href{ftp://ftp.ams.org/pub/tex/doc/amsmath/short-math-guide.pdf}{short-math-guide.pdf}-et
+    \end{itemize}
+    Ezek a dokumentumok nagyon j� �sszefoglal�t adnak az alap (�s az alapon t�li) matematikai form�z�sokra.
+    Ezekb�l n�z�nk meg most fontosabb dolgokat.
+    \begin{block}{Megjegyz�s}
+		Az \AmS\ csomag dokumentumai feltelep�lnek a tex disztrib�ci�nk telep�t�s�vel is.
+\end{block}
+    
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Ism�tl�s}
+    \begin{itemize}[<+-| alert@+>]
+    	\item ``inline math'' m�d: \verb*|$...$| vagy \verb*|\(...\)|
+    	\item ``equation'' m�d: \verb*|\[...\]| vagy \verb*|\begin{equation}...\end{equation}|
+    \end{itemize}
+    \pause
+    \begin{alertblock}{Figyelem!}
+    	Az \AmS\ aj�nl�sai szerint a r�gi \TeX\ \verb*|$$...$$| kifejez�s nem javasolt egyenletek megjelen�t�s�re!
+    \end{alertblock}
+    \pause
+\begin{eqxample}
+\begin{verbatim}
+\[\sum_{i=0}^{\infty} 
+\sqrt[5]{
+	a_{(i+1)^2}^3
+}\]
+\end{verbatim}
+\producing
+\[\sum_{i=0}^{\infty}\sqrt[5]{a_{(i+1)^2}^3} \]
+\end{eqxample}    
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Ism�tl�s}
+M�lt �r�n tanult elemek �tism�tl�se:
+\begin{eqxample}
+\begin{verbatim}
+\[\sum\]
+\end{verbatim}
+\producing
+\[\sum\]
+\end{eqxample}  
+
+\begin{eqxample}
+\begin{verbatim}
+\[\sum_{i=0}\]
+\end{verbatim}
+\producing
+\[\sum_{i=0}\]
+\end{eqxample}  
+
+\begin{eqxample}
+\begin{verbatim}
+\[\sum_i=0\]
+\end{verbatim}
+\producing
+\[\sum_i=0\]
+\end{eqxample}  
+
+\begin{eqxample}
+\begin{verbatim}
+\[\sum_{i=0}^{\infty}
+\]
+\end{verbatim}
+\producing
+\[\sum_{i=0}^{\infty}\]
+\end{eqxample}  
+
+\begin{eqxample}
+\begin{verbatim}
+\[\sqrt[5]{a}\]
+\end{verbatim}
+\producing
+\[\sqrt[5]{a}\]
+\end{eqxample} 
+
+\begin{eqxample}
+\begin{verbatim}
+\[\sqrt[5]{a^3}\]
+\end{verbatim}
+\producing
+\[\sqrt[5]{a^3}\]
+\end{eqxample}  
+
+\begin{eqxample}
+\begin{verbatim}
+\[\sqrt[5]{a}^3\]
+\end{verbatim}
+\producing
+\[\sqrt[5]{a}^3\]
+\end{eqxample}   
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Ism�tl�s}
+    Matematikai m�dok m�g egyszer:
+    \begin{itemize}[<alert@+>]
+    	\item {\bf inline:} \verb*|$...$| vagy \verb*|\(...\)|
+    	\item {\bf sz�mozatlan} \verb*|\[...\]| vagy \verb*|\begin{equation*}...\end{equation*}|
+    	\item {\bf sz�mozott} \verb*|\begin{equation}...\end{equation}|
+    \end{itemize}
+    Szimb�lumokr�l egy �sszeoglal�: \\$\Rightarrow$ \href{http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf}{szimb�lumok}, ha nem tudod minek mi a neve
+    \begin{alertblock}{Figyelem!}
+    	Az �sszes szimb�lumot NEM KELL fejb�l tudni $\ldots$
+    \end{alertblock}
+\end{frame}    
+
+\subsubsection{Gyakorl�s}
+\begin{frame}[fragile]
+    \frametitle{Ism�tl�s}
+    Hozz l�tre egy dokumentumot ahol ezt l�tod:\\ 
+    \begin{exampleblock}{Feladat}
+    A k�r ter�let�t ($T_\bigcirc$) a sug�r ($r$) �s a $\pi$ helyes ar�nya hat�rozza meg:
+    \begin{equation}
+    	T_\bigcirc=r^2\cdot\pi
+    \end{equation}
+    \end{exampleblock}
+    \pause
+    \begin{block}{Megold�s}
+    \begin{verbatim}
+    A k�r ter�let�t ($T_\bigcirc$) a sug�r 
+    ($r$) �s a $\pi$ helyes ar�nya 
+    hat�rozza meg:
+    \begin{equation}
+    	T_\bigcirc=r^2\cdot\pi 
+    \end{equation}
+    \end{verbatim}
+    \end{block}
+\end{frame}
+
+\subsection{kereszthivatkoz�sok �s t�bb soros egyenletek}
+\begin{frame}[fragile]
+    \frametitle{T�bb soros egyenletek �s igaz�t�s}
+    
+\begin{eqxample}
+\begin{verbatim}
+\begin{equation}
+a=b
+\end{equation}
+\end{verbatim}
+\producing
+\begin{equation}
+a=b
+\end{equation}
+\end{eqxample}
+
+\begin{eqxample}
+\begin{verbatim}
+\begin{equation}
+\label{xx}
+\begin{split}
+a& =b+c-d\\
+ & \quad +e-f\\
+ & =g+h\\
+ & =i
+\end{split}
+\end{equation}
+\end{verbatim}
+\producing
+\begin{equation}\label{xx}
+\begin{split}
+a& =b+c-d\\
+ & \quad +e-f\\
+ & =g+h\\
+ & =i
+\end{split}
+\end{equation}
+\end{eqxample}
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{T�bb soros egyenletek �s igaz�t�s}
+
+\begin{block}{Magyar�zat}
+\begin{itemize}[<alert@+>]
+\item \verb*|\\| soremel�s
+\item \verb*|\label{hivatkozas_nev}| bels� hivatkoz�s neve (l. k�s�bb)
+\item \verb*|\begin{split}...\end{split}| a split ``environment'' hogy egy k�pletben lehessen \verb*|\\|-t �rni �s csak 1 db sz�ma legyen a t�bb soros egyenletnek
+\item \verb*|&| jelekkel jelezz�k hogy mik ker�ljenek egym�s al�
+\item \verb*|\quad| math m�dban �res hely besz�r�s�ra haszn�ljuk.
+\end{itemize}
+\end{block}
+    
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{T�bb soros egyenletek �s igaz�t�s}
+\begin{eqxample}
+\begin{verbatim}
+\begin{align}
+a_{11}& =b_{11}&
+  a_{12}& =b_{12}\\
+a_{21}& =b_{21}&
+  a_{22}& =b_{22}+
+  c_{22}
+\end{align}
+\end{verbatim}
+\producing
+\begin{align}
+a_{11}& =b_{11}&
+  a_{12}& =b_{12}\\
+a_{21}& =b_{21}&
+  a_{22}& =b_{22}+c_{22}
+\end{align}
+\end{eqxample}
+\begin{block}{Magyar�zat}
+az \verb*|align| environment lehet�s�get ad egyenletek folyamatos sz�moz�s�ra �s egym�shoz igaz�t�s�ra
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{T�bb soros egyenletek �s igaz�t�s}
+    Ahogy az egysoros egyenletekhez az \verb*|equation|, �gy a t�bbsoros egyenletekhez az \verb*|align|, \verb*|gather|, \verb*|alignat| ``environmentek'' mind ki akarj�k t�lteni az eg�sz sort, �gy nem tudunk ut�nuk �rni dolgokat ha akarn�nk.\\
+    Ez�rt l�teznek ezeknek is olyan verzi�i amik csak annyi helyet foglalnak el amennyire sz�ks�g�k van: \verb*|aligned|, \verb*|gathered|, \verb*|alignedat| 
+    \begin{block}{P�lda}
+    \begin{equation}
+\left.\begin{aligned}
+B'&=-\partial\times E,\\
+E'&=\partial\times B - 4\pi j,
+\end{aligned}
+\right\}
+\qquad \text{Maxwell's equations}
+\end{equation}
+    \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Visszahivatkoz�s �s k�pletbe sz�veg besz�r�sa:}
+    Eml�kezz�nk vissza a \verb*|\label{xx}|-es egyenlet�nkre. Ha a sz�m�ra dinamikusan akarunk hivatkozni, akkor a
+    \verb*|\eqref{cimke}| parancsot kell haszn�lnunk. Ha sz�veket akarunk beilleszteni k�pletbe akkor a \verb*|\text{...}|-et kell haszn�lnunk.
+    \begin{block}{P�lda}
+    \begin{equation}
+    	\text{teh�t } a=i \text{, \eqref{xx} egyenlet alapj�n}
+    \end{equation}
+    \begin{verbatim}
+    \begin{equation}
+    	\text{teh�t } a=i \text{, 
+    	\eqref{xx} egyenlet alapj�n}
+    \end{equation}
+    \end{verbatim}
+    \end{block}
+\end{frame}
+
+\subsubsection{Gyakorl�s}
+\begin{frame}[fragile]
+    \frametitle{Visszahivatkoz�s �s k�pletbe sz�veg besz�r�sa:}
+	Hozz l�tre egy dokumentumot ahol ezt l�tod:\\ 
+    \begin{exampleblock}{Feladat}
+    A k�r ter�let�t ($T_\bigcirc$) �s ker�let�t ($K_\bigcirc$) a sug�r ($r$) �s a $\pi$ helyes ar�nya hat�rozza meg:
+    \begin{align}
+    	\label{eq:korT} T_\bigcirc&=r^2\cdot\pi \\
+    	\label{eq:korK} K_\bigcirc&=2\cdot r\cdot\pi \\
+    	\begin{split}
+    		\text{A ter�let �s ker�let ar�nya \eqref{eq:korT} �s \eqref{eq:korK} alapj�n} \\
+    		\frac{T_\bigcirc}{K_\bigcirc}=\frac{r^2\cdot\pi}{2\cdot r\cdot\pi}=\frac{r}{2}
+    	\end{split}
+    \end{align}
+    \end{exampleblock}
+\end{frame}    
+
+\begin{frame}[fragile]
+    \frametitle{Az el�z� feladat megold�sa:}
+    {\small
+    \begin{verbatim}
+A k�r ter�let�t ($T_\bigcirc$) �s ker�let�t 
+($K_\bigcirc$) a sug�r ($r$) �s a $\pi$ 
+helyes ar�nya hat�rozza meg:
+\begin{align}
+ \label{eq:korT} T_\bigcirc&=r^2\cdot\pi\\
+ \label{eq:korK} K_\bigcirc&=2\cdot r\cdot\pi\\
+ \begin{split}
+  \text{A ter�let �s ker�let ar�nya 
+  \eqref{eq:korT} �s \eqref{eq:korK} alapj�n} \\
+  \frac{T_\bigcirc}{K_\bigcirc}=
+  \frac{r^2\cdot\pi}{2\cdot r\cdot\pi}=\frac{r}{2}
+ \end{split}
+\end{align}
+	\end{verbatim}}
+\end{frame}
+
+%left right !!
+\subsection{Z�r�jelez�s}
+\begin{frame}[fragile]
+    \frametitle{Z�r�jelez�s:}
+    �ltal�ban a \verb*|\left''z�r�jel t�pus''| �s \verb*|\right''z�r�jel t�pus''| jeleket haszn�ljuk vagy csak sim�n
+    z�r�jelez�nk.\\
+    Itt egy t�bl�zat az �sszehasonl�t�s�r�l a k�l�nb�z� z�r�jelez� oper�toroknak:
+    \begin{tabular}{c|cccc}
+    jel & sima    & \verb*|\left(|  & \verb*|\bigl(|  & \verb*|\Bigl(|  \\
+        & z�r�jel & \verb*|\right)| & \verb*|\bigr)|  & \verb*|\Bigr)|  \\
+    \hline 
+    eredm�ny & 
+    $\displaystyle(a)(\sum_{i=0}^{\infty})$ & 
+    $\displaystyle \left(a\right)\left(\sum_{i=0}^{\infty}\right)$ & 
+    $\displaystyle \bigl(a\bigr)\bigl(\sum_{i=0}^{\infty}\bigr)$ &
+    $\displaystyle \Bigl(a\Bigr)\Bigl(\sum_{i=0}^{\infty}\Bigr)$ \\
+    \hline
+    \hline
+    jel &  \verb*|\biggl(|  & \verb*|\Biggl(| &&\\ 
+    	  &  \verb*|\biggr)|  & \verb*|\Biggr)| &&\\
+    \hline
+    eredm�ny &
+    $\displaystyle \biggl(a\biggr)\biggl(\sum_{i=0}^{\infty}\biggr)$ &
+    $\displaystyle \Biggl(a\Biggr)\Biggl(\sum_{i=0}^{\infty}\Biggr)$ \\
+    \end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Z�r�jelez�s:}
+    Ha nem a sima z�r�jelez�st haszn�ljuk, hanem a \verb*|\left|, \verb*|\right| �s t�rsai oper�torokat, akkor k�telez� kitenni {\bf mindkett�t}. Amennyiben az egyiket elhagyjuk, ford�t�si hib�t kapunk.\\
+    Term�szetesen ha egy z�r�jelnek ``nincs p�rja'' �s a \verb*|\left|, \verb*|\right| konstrukci�t szeretn�nk haszn�lni, mert az automatikusan figyeli a k�plet m�ret�t, akkor a kihagyand� z�r�jel hely�re az oper�tor ut�n \verb*|.|-ot kell tenn�nk. Itt pl \verb*|\left.|$\ldots$\verb*|\right\}|-ot haszn�lunk.
+    \begin{block}{P�lda}
+    \begin{equation}
+\left.\begin{aligned}
+B'&=-\partial\times E,\\
+E'&=\partial\times B - 4\pi j,
+\end{aligned}
+\right\}
+\qquad \text{Maxwell's equations}
+\end{equation}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Z�r�jelez�s:}
+\begin{block}{Az el�z� p�lda k�dja:}
+    \begin{verbatim}
+    \begin{equation}
+\left.\begin{aligned}
+B'&=-\partial\times E,\\
+E'&=\partial\times B - 4\pi j,
+\end{aligned}
+\right\}
+\qquad \text{Maxwell's equations}
+\end{equation}
+\end{verbatim}
+    \end{block}
+\end{frame}
+
+\subsubsection{Gyakorl�s}
+\begin{frame}[fragile]
+    \frametitle{Z�r�jelez�s:}
+ Hozz l�tre egy dokumentumot ahol ezt l�tod:\\ 
+    \begin{exampleblock}{Feladat}
+    \begin{align}
+    	\lim_{\alpha\rightarrow\infty} \varphi(u) &= \frac{1}{1+e^{\alpha\cdot u}} = sgn(u) \\
+    	sgn(u)&:=\left\{
+    	\begin{aligned}
+    	1& \text{ if} &u>0 \\
+    	0& \text{ if} &u=0 \\
+    	-1& \text{ if} &u<0
+    	 \end{aligned}\right.
+    \end{align}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Z�r�jelez�s:}
+    \begin{block}{Az el�z� feladat megold�sa}
+    \begin{verbatim}
+    \begin{align}
+    	\lim_{\alpha\rightarrow\infty} \varphi(u) &= \frac{1}{1+e^{\alpha\cdot u}} = sgn(u) \\
+    	sgn(u)&:=\left\{
+    	\begin{aligned}
+    	1& \text{ if} &u>0 \\
+    	0& \text{ if} &u=0 \\
+    	-1& \text{ if} &u<0
+    	 \end{aligned}\right.
+    \end{align}
+    \end{verbatim}
+    \end{block}
+\end{frame}
+
+\subsection{Matematikai bet�t�pusok �s oper�torok}
+\begin{frame}[fragile]
+    \frametitle{Bet�t�pusok}
+    \begin{itemize}
+    \item f�lk�v�r bet�k, szimb�lumok \verb*|\mathbf{ABCRXx\pi}| $\mathbf{ABCRXx\pi}$
+    \item kalligrafikus bet�k (csak nagy) \verb*|\mathcal{ABCRXx\pi}|  $\mathcal{ABCRXx\pi}$
+    \item kett�s h�zott bet�k (csak nagy) \verb*|\mathbb{ABCRXx\pi}|  $\mathbb{ABCRXx\pi}$
+    \item g�tikus hat�s� bet�k  \verb*|\mathfrak{ABCRXx\pi}|  $\mathfrak{ABCRXx\pi}$
+    \end{itemize}
+    ahol nincs f�lk�v�r a \verb*|\mathbf{}|-el ott a \verb*|\boldsymbol{}|-t haszn�ljuk. pl $\boldsymbol{\pi}$\\
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{�j oper�tor defini�l�sa:}
+    \verb*|\DeclareMathOperator{\n�v}{megjelen�tend�}| paranccsal.
+    L�thattuk hogy az el�z�ekben amikor nem defini�ltuk az \verb*|\sgn| -t csak sim�n be�rtuk a sz�vegbe, �gy az d�lt lett.
+    Ha deklar�ljuk ezt a matematikai oper�tort, akkor haszn�lhatjuk:
+    \verb*|\DeclareMathOperator{\sgn}{sgn}|
+    \begin{block}{oper�tor}
+    $\sgn(u)$ vs. $sgn(u)$\\
+    \verb*|$\sgn(u)$| vs. \verb*|$sgn(u)$|
+    \end{block}
+    \begin{alertblock}{Fontos!}
+    deklar�lni �j f�ggv�nyket, oper�torokat a dokumentum t�rzs�n k�v�l kell. (\verb*|\begin{document}| el�tt)
+    \end{alertblock}
+    
+\end{frame}
+% m�rtixok
+\subsection{M�trix k�rnyezetek}
+\begin{frame}[fragile]
+    \frametitle{M�trix k�rnyezetek:}
+    A k�vetkez� M�trix ``environmenteket'' defini�lja a csomag, amik egym�st�l csak a z�r�jel�kben t�rnek el:
+    \begin{itemize}
+    \item \verb*|pmatrix| $()$
+    \item \verb*|bmatrix| $[]$
+    \item \verb*|Bmatrix| $\{\}$
+    \item \verb*|vmatrix| $||$
+    \item \verb*|Vmatrix| $\left\|\right\|$
+    \end{itemize}
+    \begin{block}{M�trixok}
+    	\[
+    	\begin{pmatrix}
+    	a&b\\
+    	c&d
+    	\end{pmatrix}
+    	\begin{bmatrix}
+    	a&b\\
+    	c&d
+    	\end{bmatrix}
+    	\begin{Bmatrix}
+    	a&b\\
+    	c&d
+    	\end{Bmatrix}
+    	\begin{vmatrix}
+    	a&b\\
+    	c&d
+    	\end{vmatrix}
+    	\begin{Vmatrix}
+    	a&b\\
+    	c&d
+    	\end{Vmatrix}
+    	\]
+    \end{block}
+\end{frame}
+
+%t�bl�zatok
+\subsection{T�bl�zatok}
+\begin{frame}[fragile]
+    \frametitle{A tabular k�rnyezet:}
+    \url{http://en.wikibooks.org/wiki/LaTeX/Tables}
+    alapok:
+    
+    \begin{tabular}{m{0.6\textwidth}|m{0.4\textwidth}}
+    \begin{verbatim}
+			\begin{tabular}{|l||rc}
+			alma & k�rte & szilva \\
+			aaaa & bbbbb & cccccc \\
+			\hline
+			sz�l� & KV & f�ge
+			\end{tabular}
+		\end{verbatim}
+		&
+    \begin{tabular}{|l||rc}
+			alma & k�rte & szilva \\
+			aaaa & bbbbb & cccccc \\
+			\hline
+			sz�l� & KV & f�ge
+			\end{tabular}
+    \end{tabular}
+    Ugorjunk el a fent eml�tett lapra �s t�lts�nk ott el egy kis id�t.
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{A tabular k�rnyezet:}
+    K�sz�tsd el a k�vetkez� t�bl�zatot:
+    \begin{exampleblock}{Feladat}
+    \begin{tabular}{|l|l|l|}
+\hline
+\multicolumn{3}{|c|}{Team sheet} \\
+\hline
+Goalkeeper & GK & Paul Robinson \\ \hline
+\multirow{4}{*}{Defenders} & LB & Lucus Radebe \\
+ & DC & Michael Duberry \\
+ & DC & Dominic Matteo \\
+ & RB & Didier Domi \\ \hline
+\multirow{3}{*}{Midfielders} & MC & David Batty \\
+ & MC & Eirik Bakke \\
+ & MC & Jody Morris \\ \hline
+Forward & FW & Jamie McMaster \\ \hline
+\multirow{2}{*}{Strikers} & ST & Alan Smith \\
+ & ST & Mark Viduka \\
+\hline
+\end{tabular}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{A tabular k�rnyezet:}
+    \begin{block}{Megold�s:}
+    {\scriptsize
+    \begin{verbatim}
+    \begin{tabular}{|l|l|l|}
+\hline
+\multicolumn{3}{|c|}{Team sheet} \\
+\hline
+Goalkeeper & GK & Paul Robinson \\ 
+\hline
+\multirow{4}{*}{Defenders} & LB & Lucus Radebe \\
+ & DC & Michael Duberry \\
+ & DC & Dominic Matteo \\
+ & RB & Didier Domi \\ \hline
+\multirow{3}{*}{Midfielders} & MC & David Batty \\
+ & MC & Eirik Bakke \\
+ & MC & Jody Morris \\ \hline
+Forward & FW & Jamie McMaster \\ \hline
+\multirow{2}{*}{Strikers} & ST & Alan Smith \\
+ & ST & Mark Viduka \\
+\hline
+\end{tabular}
+\end{verbatim}}
+    \end{block}
+\end{frame}
+
+%k�pek
+\section{K�pek kezel�se}
+\subsection{�bra k�rnyezet}
+\begin{frame}
+	\frametitle{�bra k�rnyezezet}
+		\begin{itemize}
+			\item �br�k beilleszt�se mindig probl�m�s: Hova ker�lj�n a sz�vegen bel�l? Milyen marg�kat hagyjunk a k�p k�r�l? Hogyan �rhetj�k el, hogy minden k�p az egyesoldalakon azonos poz�ci�ba ker�ljenk?
+			\item \LaTeX k�rnyezetben ezeket a dolgokat maga a \LaTeX ford�t�ja kezeli le.
+			\item Az �bra k�rnyezet seg�ts�g�vel k�peket, �br�kat helyezhet�nk el a dokumentunjainkban, prezent�ci�nkban.
+		\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{�rba k�rnyezet 2.}
+	A k�vetkez� parancsok seg�ts�g�vel illeszthet�nk be egy k�pet dokumentumunkba.
+	\begin{block}{K�rnyezet defini�l�sa}
+		    \begin{quote}
+    \begin{verbatim}
+		\begin{figure}
+			\centering
+			\includegraphics{figure.eps}
+			\caption{This is an inserted EPS graphic}
+			\label{fig1}
+		\end{figure}
+    \end{verbatim}
+    \end{quote}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{�bra k�rnyezet 3.}
+
+	\begin{block}{Parancsok jelent�se}
+		\begin{itemize}
+			\item Az �rba k�rnyezetet \textit{begin-end} p�ros seg�ts�g�vel tudjuk defini�lni
+			\item \textit{centering} az �br�t k�z�pre igaz�tani
+			\item \textit{includegraphics}-al tudjuk megadni a beillesztend� k�p el�r�si �tvonal�t. (Ha csak a k�p nev�t adjuk meg akkor az aktu�lis k�nyvt�rban keresi a k�pet)
+			\item A \textit{caption}-al megadott sz�veg lesz az �bra fel�rata. Az �br�k alapbe�ll�t�sk�nt automatikusan sz�moz�dnak a dokumentumban.
+			\item \textit{label} seg�ts�g�vel tudunk hivatkozni a dokumentumon bel�l az �br�nkra. Haszn�lat�t l�sd a \textit{label-ref} le�r�s�n�l.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsubsection{P�lda}
+\begin{frame}
+	\frametitle{P�lda �br�ra}
+Nyissuk meg a gyak2peldak.tex f�jlt �s ford�tsuk le! Amenyiben hi�nyz� csomagokat tal�l a ford�t� akkor azt t�lts�k le. A miktex ilyen esetben egy felugr� ablakban �rtes�t minket a csomaghi�ny�r�l, melyet azonnal le is tudunk t�lteni.
+\end{frame}
+
+\subsection{�br�k elhelyez�se oldalon bel�l}
+\begin{frame}
+	\frametitle{�br�k elhelyez�se oldalon bel�l}
+Alapvet�en a \LaTeX ford�t�ra van b�zva az �br�k elhelyez�se, de lehet�s�g�nk van alapvet� szempontokat megadni az �br�nkkal kapcsolatban.
+	\begin{block}{}
+		\begin{itemize}
+			
+			\item[h] Ebben az esetben a ford�t� t�rekszik a k�pet ott elhelyezni, ahol azt defini�lt�k a doktumentumba, ha tal�l megfelel� m�ret� helyet az oldalon
+
+			\item[t] A ford�t� az adott oldal tetej�n vagy azt k�vet� oldal \textbf{tetej�re} helyezi az �br�t.
+
+			\item[b]  A ford�t� az adott oldal alj�n vagy azt k�vet� oldal \textbf{alj�n} helyezi az �br�t.
+
+			\item[p] A k�pet olyan oldalon helyezi el ahol nincs sz�veg, csak tov�bbi k�pek.\\
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection{�br�k m�rete}
+\begin{frame}[fragile]
+	\frametitle{�bra m�ret�nek meghat�roz�sa, haszn�lhat� k�pform�tumok}
+	\begin{block}{Pr�b�ljuk ki ezeket a be�ll�t�sokat a \textbf{gyak2peldak} f�jlban!}
+		\begin{itemize}
+			\item A \LaTeX  k�pes kezelni k�l�n csomag n�lk�l a jpg,png,eps form�tumokat.
+			\item Az \verb*|includegraphics| param�terek�nt lehet megadni, hogy mekkora m�retben szeretn�nk beilleszteni a k�p�nket. 
+			\item P�ld�ul\\
+    \verb*|\includegraphics[width=0.48\textwidth]|
+est�n azt mondjuk meg, hogy az adott sz�veg sz�less�g 48\%-a legyen a k�psz�less�g.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{�bra m�ret�nek meghat�roz�sa, haszn�lhat� k�pform�tumok}
+	\begin{block}{Pr�b�ljuk ki ezeket a be�ll�t�sokat a \textbf{gyak2peldak} f�jlban!}
+	\begin{itemize}
+	\item \verb*|width=1in|, est�n explicit egy inchre sz�less�g�re �ll�thatjuk a k�p�nket.
+\item Az \verb*|\includegraphics[scale=0.5]|
+    parancs seg�ts�g�vel nagy�thatjuk/kicsiny�thetj�k a beillesztet k�p�nket. 
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{Be�gyazott k�pek}
+\begin{frame}
+	\frametitle{Be�gyazott k�pek}
+A sima �bra beilleszt�sen t�l lehet�s�g�nk van m�g:
+	\begin{enumerate}
+		\item subplotok l�trehoz�s�ra (mint p�ld�ul Matlabban)
+		\item �bra fel�rat mozgat�s�ra
+		\item �rb�k sz�veggel k�r�lfolyat�s�ra.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Subplotok}
+	Subplot haszn�lat�hoz a \verb*|\usepackage{subfig}| csomagra van sz�ks�g�nk!
+	P�ld�t a \textbf{gyak2peldak} tex f�jlban tal�lhatunk, nyissuk meg!
+	\begin{block}{A szintaxis a k�vetkez�}
+		    \begin{quote}
+		    {\footnotesize
+    \begin{verbatim}
+\begin{figure}
+  \centering
+  \subfloat[A gull]{\label{fig:gull}
+  	\includegraphics[width=0.3\textwidth]{gull}}                
+  \subfloat[A tiger]{\label{fig:tiger}
+  	\includegraphics[width=0.3\textwidth]{tiger}}
+  \subfloat[A mouse]{\label{fig:mouse}
+  	\includegraphics[width=0.3\textwidth]{mouse}}
+  \caption{Pictures of animals}
+  \label{fig:animals}
+\end{figure}
+    \end{verbatim}}
+    \end{quote}
+	\end{block}
+\end{frame}
+
+\subsection{�brafeliratokr�l}
+\begin{frame}[fragile]
+	\frametitle{�brafel�rat �thelyez�se}
+Lehet�s�g�nk van az �bra fel�rat�t �thelyezni, p�ld�ul oldalra. Ehhez a \verb*|\usepackage[pdftex]{graphicx}| �s \verb*|\usepackage{sidecap}| csomagokra van sz�ks�g�nk!
+	\begin{block}{}
+			    \begin{quote}
+			    {\footnotesize
+    \begin{verbatim}
+\begin{SCfigure}
+  \centering
+  \includegraphics[width=0.55\textwidth]%
+    {giraffe}% picture filename
+  \caption{ ... caption text ... }
+\end{SCfigure}
+    \end{verbatim}}
+    \end{quote}
+	\end{block}
+P�ld�t a \textbf{gyak2peldak} tex f�jlban tal�lhatunk, nyissuk meg!
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{�br�k k�rbefutatt�sa sz�veggel}
+Lehet�s�g�nk van az �br�kat a sz�vegbe �gyazni. Ehhez a \verb*|wrapfig| csomagra lesz sz�ks�g�nk
+	\begin{block}{}
+			    \begin{quote}{\footnotesize
+    \begin{verbatim}
+\begin{wrapfigure}[lineheight]{alignment}{width}
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{gull}
+  \end{center}
+  \caption{A gull}
+\end{wrapfigure}
+    \end{verbatim}}
+    \end{quote}
+	\end{block}
+\end{frame}
+
+\subsection{�brajegyz�k}
+\begin{frame}
+	\frametitle{�br�k jegyz�ke}
+
+	\begin{block}{}
+		A \textit{listoffigures} seg�ts�gvel automatikusan gener�l�dik az �br�kjegyz�ke. Ehhez a \textit{caption}-ben megadott sz�veghaszn�lja fel, valamint az oldalsz�mot, amit a ford�t� adott a k�pnek ford�t�si id�ben.
+	\end{block}
+Nyissuk meg a \textbf{gyak2peldak} tex f�jlt, �s lapozzunk a v�g�re! A babel csomag param�tere hat�rozza meg, hogy az "�br�kjegyz�ke" fel�rat, illetve az �bra fel�ratn�l az "�bra" sz� milyen nyelven jelenik meg. 
+\end{frame}
+
+
+%st�lus f�jlok
+
+
+\end{document}

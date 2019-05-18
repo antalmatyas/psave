@@ -1,0 +1,24 @@
+PROGRAM leghszo
+  VÁLTOZÓK:
+    a, b: SZÖVEG,
+    c, d, e, f, i: EGÉSZ
+ 
+  BE: a
+  i := 0
+  c := 0
+  f := 0
+  CIKLUS AMÍG i < |a|
+    HA a[0] = ' ' AKKOR
+      a := a[1:|a|]
+    HA_VÉGE
+    d := a @ ' '
+    e := d - c
+    HA e > f AKKOR
+      b := a[c:d]
+      f := e
+    HA_VÉGE
+    a := a[d:|a|]
+    i := i + 1
+  CIKLUS_VÉGE
+  KI: b
+PROGRAM_VÉGE

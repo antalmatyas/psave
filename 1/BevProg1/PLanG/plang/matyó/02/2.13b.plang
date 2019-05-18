@@ -1,0 +1,17 @@
+program monogram
+valtozok:
+n: egesz,
+nev: szoveg
+
+BE: nev
+KI: nev[0] , "."
+
+n := 0
+
+CIKLUS AMÍG n /= |nev|
+	HA nev[n] = ' ' AKKOR
+		KI: ' ', nev[n + 1], '.'
+	HA_VÉGE
+	n := n+1
+CIKLUS_VÉGE
+program_vege

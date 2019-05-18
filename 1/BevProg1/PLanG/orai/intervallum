@@ -1,0 +1,9 @@
+PROGRAM elso
+  VÁLTOZÓK:
+    a, b, c: EGÉSZ
+ 
+  BE: a
+  BE: b
+  BE: c
+  KI: a < b ÉS b < c
+PROGRAM_VÉGE

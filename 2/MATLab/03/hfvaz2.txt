@@ -1,0 +1,17 @@
+function [abra, hitelesitettMeresiErtekek, elsoSzenzorHelyesMereseiSzovegben,...
+    szenzorokDeliMeresenekAtlagaSzovegben]=gyak3_f32_(legnyomasErtekek)
+% A bemenetünk egy 900 és 1060 közötti véletlenszeru értékeket tartalmazó
+% 4x3x31-es mátrix.
+%% Ide jöhet az 1. részfeladathoz szükséges adat kigyujtése
+
+%% Ide kerüljön az ábra kirajzoltatása
+abra = figure; % ez után
+
+%% Itt legyenek a további részfeladatok
+
+hitelesitettMeresiErtekek = NaN;
+
+elsoSzenzorHelyesMereseiSzovegben = NaN
+
+szenzorokDeliMeresenekAtlagaSzovegben = NaN;
+end

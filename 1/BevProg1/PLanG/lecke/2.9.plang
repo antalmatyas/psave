@@ -1,0 +1,21 @@
+PROGRAM egyutthato
+  VÁLTOZÓK:
+    a, b, c, d: EGÉSZ
+ 
+  a := 1
+  CIKLUS AMÍG a < 10
+    b := 1
+    CIKLUS AMÍG b < 10
+      c := 1
+      CIKLUS AMÍG c < 10
+        d := b ^ 2 - 4 * a * c
+        HA d = 0 AKKOR
+          KI: a, "x^2", " + ", b, "x", " + ", c, " = 0", SV
+        HA_VÉGE
+        c := c + 1
+      CIKLUS_VÉGE
+      b := b + 1
+    CIKLUS_VÉGE
+    a := a + 1
+  CIKLUS_VÉGE
+PROGRAM_VÉGE

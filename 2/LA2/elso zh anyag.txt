@@ -1,0 +1,18 @@
+
+A nagy zh elméleti anyaga:
+
+- Minden definíció és tétel kimondása a hasonlóság, diagonalizálhatóság, kvadratikus alakok és komplex számok témakörébõl.
+
+Szükséges bizonyítások:
+
+- kúpszeletek középponti egyenleteinek levezetése (ellipszis, hiperbola, parabola) 
+- szimmetrikus mátrix különbözõ sajátértékeihez tartozó sajátvektorok merõlegesek,
+- fõtengely transzformáció
+- komplex számok szorzása, osztása, hatványozása trigonometrikus alakban
+
+
+A ngyzh gyakorlati anyaga:
+
+- Kvadratikus alakok: kvadratikus alakok szimmetrikus mátrixa, és ennek diagonalizálása ortogonális mátrix segítségével, sajátérték és sajátvektor számítás, diagonális alak, ortogonális áttérési mátrix felírása, kvadratikus alak definitsége, kvadratikus egyenletek által meghatározott alakzatok felismerése (2 dim: ellipszis, hiperbola, párhuzamos egyenespár, elfajult esetek, 3 dim: ellipszoid, egyköpenyû- és kétköpenyû hiperboloid), 2 dimenzióban az alakzatok ábrázolása mind az új mind az eredeti koordináta rendszerben
+
+- Komplex számok: összetett számolási feladatok (algebrai alak, trigo. alak, átváltás az alakok között, konjugálás, összeadás, kivonás, szorzás, osztás, hatványozás), komplex gyökvonás, a gyökök megadása és ábrázolása, másodfokú egyenletek komplex megoldása

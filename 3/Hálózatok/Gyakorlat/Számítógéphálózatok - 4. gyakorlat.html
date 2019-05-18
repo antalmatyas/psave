@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0067)http://users.itk.ppke.hu/~mpasztor/netora/2012-osz/gyakorlat-4.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu" xml:lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógéphálózatok - 4. gyakorlat</title>
+
+<meta name="title" content="Számítógéphálózatok - 4. gyakorlat">
+<meta name="generator" content="Org-mode">
+<meta name="generated" content="2012-10-10T15:12+0200">
+<meta name="author" content="Pasztor Miklos">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógéphálózatok - 4. gyakorlat_files/base-style.css">
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="http://users.itk.ppke.hu/~pasztor/netora/2012-tavasz"> UP </a>
+ |
+ <a accesskey="H" href="http://www.ppke.hu/~pasztor/"> HOME </a>
+</div>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Számítógéphálózatok - 4. gyakorlat</h1>
+
+
+
+
+<div id="outline-container-1" class="outline-3">
+<h3 id="sec-1">A 4. feladatsor</h3>
+<div class="outline-text-3" id="text-1">
+
+
+<p>
+  <a href="https://users.itk.ppke.hu/~horbe/TCExam/">Tcexam</a>-ban kell kitölteni!
+</p>
+<ul>
+<li id="sec-1-1">1. feladat (6 pont)<br>
+
+<p>
+  Az ábrán egy lakóközösség hálózatát láthatjuk. Három lakásban három
+  router.  A routerek nem működnek switchként, csak a
+</p><ol>
+<li>szinten. A ház informatikusának lakásában egy központi router és egy
+   fájl és dns szerver is helyet kapott. Adjunk a routereknek (minden
+   interfésznek!) és a szervernek fix IP címet, és határozzuk meg mindenütt
+   a netmaszkot és a default route-ot.  A két szomszéd hálózatán a DHCP
+   szervereket is konfiguráljuk: határozzuk meg, hogy mi legyen a
+   címtartomány, netmaszk, default gateway és DNS szerver, amit a kliensek
+   kapnak.
+</li>
+</ol>
+
+
+<p>
+  A <code>10.1.77.0/24</code> hálózatból gazdálkodjunk!
+</p>
+<p>
+  <img src="./Számítógéphálózatok - 4. gyakorlat_files/lakokozosseg-ip.png" alt="lakokozosseg-ip.png">
+</p>
+</li>
+</ul>
+<ul>
+<li id="sec-1-2">2. feladat (2 pont)<br>
+
+<p>
+  Mi a PC-jén az IP cím, a  default route és a netmaszk?
+  Milyen bejegyzések vannak az ARP cache-ében?
+</p>
+</li>
+</ul>
+<ul>
+<li id="sec-1-3">3. feladat (3 pont)<br>
+
+<p>
+  Hálózati eszközökkel derítse ki legalább három tantermi gép IP címét és
+  ethernet címét! (Írja le, hogyan csinálta!) Hogyan változott közben az
+  ARP cache a gépén?
+</p>
+</li>
+</ul>
+<ul>
+<li id="sec-1-4">4. feladat (3 pont)<br>
+
+<p>
+  A <a href="http://users.itk.ppke.hu/~mpasztor/netora/captures/d1.cap">http://users.itk.ppke.hu/~mpasztor/netora/captures/d1.cap</a> fájl is
+  tartalmaz dhcp üzeneteket. Vizsgálja meg! Ezzel kapcsolatos kérdések:
+</p>
+<ol>
+<li>Honnan tudni, hogy vége az opcióknak?
+</li>
+<li>Nincs „server host name” paraméter megadva. Mi lehet az oka?
+</li>
+<li>Milyen hosszú a „lease time” opció? Mi a kódja? Mi az egység, amiben az
+     időt méri?
+</li>
+</ol>
+
+
+
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="creator"><a href="http://orgmode.org/">Org</a> version 7.8.11 with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+
+
+</body></html>

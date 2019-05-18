@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1487342324 source:c:\users\matyó\desktop\graphicsproject\main.cpp
+	"graphics.hpp"
+
+1430018866 c:\users\matyó\desktop\graphicsproject\include\graphics.hpp
+	<string>
+
+1488218566 source:c:\users\matyó\desktop\vasarely\main.cpp
+	"graphics.hpp"
+	<iostream>
+	<time.h>
+	<vector>
+	<stdlib.h>
+	<cmath>
+	<random>
+
+1430018866 c:\users\matyó\desktop\vasarely\include\graphics.hpp
+	<string>
+
+1487348308 source:c:\users\matyó\dropbox\000exterior\2\bprog2\vasarely\main.cpp
+	"graphics.hpp"
+	<iostream>
+
+1430018866 c:\users\matyó\dropbox\000exterior\2\bprog2\vasarely\include\graphics.hpp
+	<string>
+
+1488352354 source:c:\users\matyó\desktop\starfighter\main.cpp
+	"graphics.hpp"
+	<vector>
+	<time.h>
+	<stdlib.h>
+	<cmath>
+
+1430018866 c:\users\matyó\desktop\starfighter\include\graphics.hpp
+	<string>
+
+1488355954 source:e:\asztal ment\starfighter\main.cpp
+	"graphics.hpp"
+	<vector>
+	<time.h>
+	<stdlib.h>
+	<cmath>
+
+1430022466 e:\asztal ment\starfighter\include\graphics.hpp
+	<string>
+
+1488352354 source:c:\users\nox\dropbox\000exterior\2\bprog2\starfighter\main.cpp
+	"graphics.hpp"
+	<vector>
+	<time.h>
+	<stdlib.h>
+	<cmath>
+
+1430018866 c:\users\nox\dropbox\000exterior\2\bprog2\starfighter\include\graphics.hpp
+	<string>
+

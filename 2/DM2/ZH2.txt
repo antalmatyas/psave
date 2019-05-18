@@ -1,0 +1,38 @@
+ELMÉLETI KÉRDÉSEK:
+
+Számosságokkal kapcsolatos bizonyítások:
+- mikor mondjuk hogy két végtelen számosság egyenlõ?
+- biz. be, hogy a (0,1) intervallum NEM megszámlálható
+- biz. be, hogy a racionális számok halmaza megszámlálható
+-- a négyzet pontjainak számossága=egy oldalának számossága
+
+***********-
+
+- Hamilton kör létezésére vonatkozó elégséges feltételek és biznyításuk
+
+************
+
+- Euler poliéder tétel biz.
+
+***********
+
+- 5 -szín tétel biz.
+
+***********
+
+ A feladatokban nem lesz meglepetés:  a gyakolatokon megtanult típusokhoz hasonlóak lesznek, például:
+
+- lehet-e gráf és milyen ha adottak a fokszámok, ill.  adjon meg olyan fokszémnmokat, hogy létezzen bizonyos tul. gráf
+- Euler kör/út  rajzolása
+_ Hamilton kör/út rajzolása
+- feszítõfa keresése: Prím, Kruskal algoritmus
+- feszítõfa keresése nem súlyozott gráfon: szélességi /  mélységi keresés, pl.
+- hálózati folyam (maximális folyam, (minimális) vágás megadása, )
+- annak eldöntése, hogy síkgráf-e egy adott gráf, adott gráf konkrát síkba rajzolása
+- gráfok mátrixainak felírása
+- Dijkstra algoritmus
+- fabejkárások (pre-, in-, postorder)
+
+A hallgatók kérése alapján az  elméleti feladaatok megoldásának és a zh-k összpontszámának függvényében max.  közepesig megajánlott jegy lehetséges.
+
+Sok sikert!

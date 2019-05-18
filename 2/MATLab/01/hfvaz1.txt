@@ -1,0 +1,14 @@
+function [c,d,e,f,g,h,k,l,m,n,o,p]=gyak1_(a,b)
+c = NaN;
+d = NaN;
+e = NaN;
+f = NaN;
+g = NaN;
+h = NaN;
+k = NaN;
+l = NaN;
+m = NaN;
+n = NaN;
+o = NaN;
+p = NaN;
+end

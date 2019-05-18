@@ -1,0 +1,8 @@
+PROGRAM origotavolsag
+  VÁLTOZÓK:
+    x, y: VALÓS
+ 
+  BE: x
+  BE: y
+  KI: (|x| ^ 2 + |y| ^ 2) ^ 0.5
+PROGRAM_VÉGE

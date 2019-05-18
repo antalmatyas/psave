@@ -1,0 +1,10 @@
+program monogram
+valtozok:
+n: egesz,
+nev: szoveg
+
+BE: nev
+KI: nev[0] , ". "
+KI: nev[nev@' ' + 1] , '.'
+
+program_vege

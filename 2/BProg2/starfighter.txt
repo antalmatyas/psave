@@ -1,0 +1,147 @@
+#include "graphics.hpp"
+#include <vector>
+#include <time.h>
+#include <stdlib.h>
+#include <cmath>
+using namespace genv;
+using namespace std;
+
+int XX, YY;
+
+struct sh{int x, y, s, sp, hs;};
+
+void starsp(vector<sh> &starz){
+for(int i = 0 ; i < 10 ; i++)
+    {
+        sh a;
+        a.x = rand() % XX;
+        a.y = rand() % YY;
+        a.s = 4;
+        a.sp = 10;
+        starz.push_back(a);
+    }
+    for(int i = 0 ; i < 40 ; i++)
+    {
+        sh a;
+        a.x = rand() % XX;
+        a.y = rand() % YY;
+        a.s = 2;
+        a.sp = 3;
+        starz.push_back(a);
+    }
+    for(int i = 0 ; i < 200 ; i++)
+    {
+        sh a;
+        a.x = rand() % XX;
+        a.y = rand() % YY;
+        a.s = 1;
+        a.sp = 2;
+        starz.push_back(a);
+    }
+}
+
+void starmove(vector<sh> &starz)
+{
+    for(int i = 0 ; i < starz.size() ; i++)
+    {
+        starz[i].y += starz[i].sp*1.5;
+        if(starz[i].y > YY)
+        {
+            starz[i].y = 0;
+        }
+    }
+}
+
+void stdraw(vector<sh> &starz)
+{
+    gout <<color(255,255,255);
+    for(int i  = 0 ; i < starz.size() ; i++)
+    {
+        gout << move_to(starz[i].x, starz[i].y) << box(starz[i].s, starz[i].s);
+    }
+}
+
+void sclear()
+{
+    gout << color(0,0,0) << move_to(0,0) << box (XX, YY);
+}
+
+void shipmove(sh &ship, event &ev)
+{
+    if(ev.keycode == key_down)
+        {
+            if(ship.y+10+ship.hs < YY)
+            {
+              ship.y += 10;
+            }
+        }
+    if(ev.keycode == key_up)
+        {
+            if(ship.y-10-ship.hs > 0)
+            {
+              ship.y -= 10;
+            }
+        }
+    if(ev.keycode == key_right)
+        {
+            if(ship.x+10+ship.hs < XX)
+            {
+              ship.x += 10;
+            }
+        }
+    if(ev.keycode == key_left)
+        {
+            if(ship.x-10-ship.hs > 0)
+            {
+              ship.x -= 10;
+            }
+        }
+}
+
+void shipdraw(sh &ship)
+{
+    gout << color(0,0, 155) << move_to(ship.x, ship.y) << box(ship.hs,ship.hs);
+    gout << color(255,255,255) << move_to(ship.x-ship.hs, ship.y) << box(ship.hs,ship.hs);
+    gout << color(0,255,255) << move_to(ship.x, ship.y-ship.hs) << box(ship.hs,ship.hs);
+    gout << color(255,255,0) << move_to(ship.x-ship.hs, ship.y-ship.hs) << box(ship.hs,ship.hs);
+
+}
+
+void ensp(&vector<sh> enemy)
+{
+    for(int i = 0 ; i < 5 ; i++)
+    {
+        sh a;
+        a.x =
+    }
+}
+
+
+int main()
+{
+    srand(time(0));
+    XX = 600;
+    YY = 600;
+    gout.open(XX,YY);
+    event ev;
+    gin.timer(20);
+    sh ship;
+    ship.x = 300;
+    ship.y = 500;
+    ship.s = 40;
+    ship.hs = ship.s/2;
+    vector<sh> starz;
+    starsp(starz);
+    while(gin >> ev) {
+            shipmove(ship, ev);
+    if(ev.type == ev_timer)
+    {
+        sclear();
+        starmove(starz);
+        stdraw(starz);
+        shipdraw(ship);
+        gout << refresh;
+    }
+    }
+    return 0;
+}

@@ -1,0 +1,15 @@
+PROGRAM skalarisszorzat
+  VÁLTOZÓK:
+    n, o, i, a, b: EGÉSZ
+ 
+  BE: n
+  i := 1
+  o := 0
+  CIKLUS AMÍG i <= n
+    BE: a
+    BE: b
+    o := o + a * b
+    i := i + 1
+  CIKLUS_VÉGE
+  KI: o
+PROGRAM_VÉGE

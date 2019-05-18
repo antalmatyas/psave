@@ -1,0 +1,200 @@
+# depslib dependency file v1.0
+1493809557 source:c:\users\matyó\desktop\gpdefault\button.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+
+1430022466 c:\users\matyó\desktop\gpdefault\include\graphics.hpp
+	<string>
+
+1493809684 c:\users\matyó\desktop\gpdefault\widget.hpp
+
+1493809557 c:\users\matyó\desktop\gpdefault\button.hpp
+	"graphics.hpp"
+	"Widget.hpp"
+
+1330883726 source:c:\users\matyó\desktop\gpdefault\main.cpp
+	"graphics.hpp"
+
+1494624037 source:c:\users\matyó\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\button.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+
+1430022466 c:\users\matyó\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\include\graphics.hpp
+	<string>
+
+1494325518 c:\users\matyó\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\widget.hpp
+
+1494325656 c:\users\matyó\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\button.hpp
+	"graphics.hpp"
+	"Widget.hpp"
+
+1493924145 source:c:\users\matyó\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\widget.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+
+1494104146 source:c:\users\matyó\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\main.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+	"Thingy.hpp"
+	"DungeonMaster.hpp"
+	<vector>
+
+1494107707 source:c:\users\matyó\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\thingy.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Thingy.hpp"
+
+1494098725 c:\users\matyó\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\thingy.h
+
+1494772071 source:c:\users\matyó\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\dungeonmaster.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+	"Thingy.hpp"
+	"DungeonMaster.hpp"
+	<vector>
+	<iostream>
+
+1494107707 c:\users\matyó\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\thingy.hpp
+
+1494622532 c:\users\matyó\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\dungeonmaster.hpp
+	<vector>
+
+1494624037 source:c:\users\matyo\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\button.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+
+1430022466 c:\users\matyo\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\include\graphics.hpp
+	<string>
+
+1494325518 c:\users\matyo\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\widget.hpp
+
+1494325656 c:\users\matyo\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\button.hpp
+	"graphics.hpp"
+	"Widget.hpp"
+
+1502289589 source:c:\users\matyo\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\dungeonmaster.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+	"Thingy.hpp"
+	"DungeonMaster.hpp"
+	<vector>
+	<iostream>
+
+1494107707 c:\users\matyo\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\thingy.hpp
+
+1494622532 c:\users\matyo\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\dungeonmaster.hpp
+	<vector>
+
+1494104146 source:c:\users\matyo\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\main.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+	"Thingy.hpp"
+	"DungeonMaster.hpp"
+	<vector>
+
+1494107707 source:c:\users\matyo\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\thingy.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Thingy.hpp"
+
+1493924145 source:c:\users\matyo\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\widget.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+
+1494620437 source:c:\users\nox\dropbox (personal)\000exterior\2\bprog2\3. beadando - amoeba\amoeba\button.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+
+1430018866 c:\users\nox\dropbox (personal)\000exterior\2\bprog2\3. beadando - amoeba\amoeba\include\graphics.hpp
+	<string>
+
+1494321918 c:\users\nox\dropbox (personal)\000exterior\2\bprog2\3. beadando - amoeba\amoeba\widget.hpp
+
+1541714139 c:\users\nox\dropbox (personal)\000exterior\2\bprog2\3. beadando - amoeba\amoeba\button.hpp
+	"graphics.hpp"
+	"Widget.hpp"
+
+1494100546 source:c:\users\nox\dropbox (personal)\000exterior\2\bprog2\3. beadando - amoeba\amoeba\main.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+	"Thingy.hpp"
+	"DungeonMaster.hpp"
+	<vector>
+
+1494104107 c:\users\nox\dropbox (personal)\000exterior\2\bprog2\3. beadando - amoeba\amoeba\thingy.hpp
+
+1494618932 c:\users\nox\dropbox (personal)\000exterior\2\bprog2\3. beadando - amoeba\amoeba\dungeonmaster.hpp
+	<vector>
+
+1494104107 source:c:\users\nox\dropbox (personal)\000exterior\2\bprog2\3. beadando - amoeba\amoeba\thingy.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Thingy.hpp"
+
+1493920545 source:c:\users\nox\dropbox (personal)\000exterior\2\bprog2\3. beadando - amoeba\amoeba\widget.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+
+1502286481 source:c:\users\nox\dropbox (personal)\000exterior\2\bprog2\3. beadando - amoeba\amoeba\dungeonmaster.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+	"Thingy.hpp"
+	"DungeonMaster.hpp"
+	<vector>
+	<iostream>
+
+1494620437 source:c:\users\nox\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\button.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+
+1430018866 c:\users\nox\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\include\graphics.hpp
+	<string>
+
+1494321918 c:\users\nox\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\widget.hpp
+
+1541714139 c:\users\nox\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\button.hpp
+	"graphics.hpp"
+	"Widget.hpp"
+
+1502286481 source:c:\users\nox\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\dungeonmaster.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+	"Thingy.hpp"
+	"DungeonMaster.hpp"
+	<vector>
+	<iostream>
+
+1494104107 c:\users\nox\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\thingy.hpp
+
+1494618932 c:\users\nox\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\dungeonmaster.hpp
+	<vector>
+
+1494100546 source:c:\users\nox\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\main.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Button.hpp"
+	"Thingy.hpp"
+	"DungeonMaster.hpp"
+	<vector>
+
+1494104107 source:c:\users\nox\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\thingy.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"Thingy.hpp"
+
+1493920545 source:c:\users\nox\dropbox\000exterior\2\bprog2\3. beadando - amoeba\amoeba\widget.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+

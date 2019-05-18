@@ -1,0 +1,4 @@
+#ifndef THINGY_H_INCLUDED
+#define THINGY_H_INCLUDED
+
+#endif // THINGY_H_INCLUDED

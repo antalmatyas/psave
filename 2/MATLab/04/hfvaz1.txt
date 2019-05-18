@@ -1,0 +1,3 @@
+function gyumolcsok_ara=gyak4_f41_(a,b,c,d)
+gyumolcsok_ara=NaN;
+end

@@ -1,0 +1,1014 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0047)http://users.itk.ppke.hu/~marta5/eloadas-3.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógéphálózatok - 3. előadás</title>
+
+<meta name="generator" content="Org-mode">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógéphálózatok - 3. előadás_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Számítógéphálózatok - 3. előadás</h1>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Adatkapcsolati réteg</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Az adatkapcsolati  (a 2., link) réteg feladatai</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Csomagok elkülönítése (framing)
+</li>
+<li>Hozzáférés vezérlés (Link Access Control)
+<ul class="org-ul">
+<li>Akkor van jelentősége, ha egy időben többen is hozzáférhetnek a fizikai réteghez
+</li>
+</ul>
+</li>
+<li>Hiba detektálás
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Ethernet - a leggyakrabban használt 2. szintű protokoll</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Ether: a közvetítő médium, éter
+<ul class="org-ul">
+<li>Az 1970-es évek elején Xerox Palo Alto Research Center: 2,94 Mbit/s
+</li>
+<li>1979-82: Digital, Intel, Xerox (DIX ethernet), Ethernet II, 10 Mbit/s
+</li>
+<li>1985, IEEE (Institute of Electrical and Electronic Engineers) szabvány: 802.3
+<ul class="org-ul">
+<li>802 working group (1980, februárban indult)
+</li>
+<li>Sajnos kissé eltér az ethernet II-től, más a frame formátum
+</li>
+<li>Egy hálózaton párhuzamosan többféle frame formátum használható
+</li>
+<li>A Novell Ethernet_802.2 és Ethernet_SNAP a <a href="http://www.ieee802.org/3/">802.3</a>-tól is eltér
+</li>
+</ul>
+</li>
+<li>Azóta folyamatosan egyre újabb szabványokat adnak ki az IEEE 802 munkacsoportban
+<ul class="org-ul">
+<li>Gigabit, 10Gbit, 40Gbit, 100Gbit ethernet
+</li>
+<li>Wireless ethernet
+</li>
+<li>…
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">CSMA/CD</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>CS = Carrier Sense
+<ul class="org-ul">
+<li>Az egyes állomások „érzik” ha a csatorna foglalt
+</li>
+<li>Nem kezdek adni, ha már más ad
+</li>
+</ul>
+</li>
+<li>MA = Multiple Access
+<ul class="org-ul">
+<li>A másnak szóló csomagokat elengedem a fülem mellett
+</li>
+<li>„Snoop”
+</li>
+</ul>
+</li>
+<li>CD = Collision Detection
+<ul class="org-ul">
+<li>Ha adás közben észreveszem, hogy ütközés (collision) van, más is ad, megállok, de előbb még 32 zajbitet kikürtölök
+</li>
+<li>Véletlen ideig várok: <b>backoff delay</b>
+</li>
+<li>Újra próbálkozom
+</li>
+<li>Ha újra ütközés van, újra véletlen ideig várok, de hosszabb ideig: <i>exponential backoff</i>
+</li>
+</ul>
+</li>
+<li>1 persistent
+<ul class="org-ul">
+<li>Ha szabad a csatorna, és van adnivalóm, 1 valószínűséggel adok
+</li>
+<li>Ha éppen foglalt a csatorna, várok amíg befejeződik az adás, és
+azonnal adok
+</li>
+</ul>
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógéphálózatok - 3. előadás_files/collision.png" alt="collision.png">
+</p>
+<p><span class="figure-number">Figure 1:</span> Ethernet ütközés</p>
+</div>
+
+<ul class="org-ul">
+<li>Capture effect
+<ul class="org-ul">
+<li>Az exponenciális backoff következménye, ha túlterhelt a hálózat
+</li>
+<li>Egyetlen állomás kisajátíthatja az erőforrásokat
+<ul class="org-ul">
+<li>Ha sok az adnivalója (pl. video ;-), akkor csak neki lesz kicsi a backoff timere
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Topológia</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Busz topológia
+<ul class="org-ul">
+<li>Thick ethernet (múzeumban)
+</li>
+<li>Thin ethernet (koax, BNC csatlakozó, még néhol látható)
+</li>
+</ul>
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógéphálózatok - 3. előadás_files/busz1.png" alt="busz1.png">
+</p>
+<p><span class="figure-number">Figure 2:</span> Busz topológiájú ethernet hálózat</p>
+</div>
+
+<ul class="org-ul">
+<li>Csillag és fa topológia
+<ul class="org-ul">
+<li>Manapság ilyenek készülnek
+</li>
+<li>UTP és optikai kábelek
+</li>
+</ul>
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógéphálózatok - 3. előadás_files/star.png" alt="star.png">
+</p>
+<p><span class="figure-number">Figure 3:</span> Csillag topológiájú ethernet hálózat</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">Ethernet fizikai réteg</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>10Base2: vékony (thin) ethernet, koax, T alakú BNC csatlakozók
+<ul class="org-ul">
+<li>Busz topológia
+</li>
+<li>Már régen elavult
+</li>
+<li>Nincs kizárva, hogy találkozunk ilyennel
+</li>
+<li>Egyetlen berendezés hibája leültetheti az egész hálózatot
+</li>
+</ul>
+</li>
+
+<li>10Base-T: 10Mb/s legalább Cat3 csavart érpáron
+<ul class="org-ul">
+<li>Ez is elavult
+</li>
+<li>Cat3 kábelezés régen nem szokásos
+</li>
+<li>Lehet, hogy 10/M-val működik egy csavart érpáras ethernet
+kapcsolat, de azt vélhetőleg csatlakozó vagy kábelhiba okozza!
+</li>
+</ul>
+</li>
+<li>100Base-TX: 100Mb/s legalább Cat5 csavart érpáron
+<ul class="org-ul">
+<li>Ezzel találkozunk leggyakrabban
+</li>
+<li>Az UTP kábel 8 eréből csak 4 használatos
+<ul class="org-ul">
+<li>2-2 adásra/vételre:  send=1,2/receive=3,6
+</li>
+<li>Nem feltétlenül „tudja kitalálni” az állomás, hogy melyek ezek
+<ul class="org-ul">
+<li>Ilyenkor <i>cross kábel</i>-re van szükség
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1000Base-T: 1000Mb/s legalább Cat5 csavart érpáron
+<ul class="org-ul">
+<li>Mind a 8 ér használatos
+</li>
+<li>Mind a 4 pár ad és vesz is 250M-val!
+</li>
+<li>Nincs szükség sose cross kábelre!
+</li>
+</ul>
+</li>
+<li>1000Base-TX: 1 Gb/s legalább <i>Cat6</i> csavart érpáron
+<ul class="org-ul">
+<li>Csak 2 érpár használatos
+</li>
+<li>Se ez, se a Cat6 nem terjedt el.
+</li>
+</ul>
+</li>
+</ul>
+<ul class="org-ul">
+<li>1000Base-SX: Short Wavelength, 850 nm, gigabit
+</li>
+<li>1000Base-LX: Long Wavelength, 1300 nm, gigabit
+</li>
+<li>40GBASE-SR4/100GBASE-SR4 40/100 Gb/s MMF üvegen
+</li>
+<li>40GBASE-LR4/100GBASE-LR4 40/100 Gb/s SMF üvegen
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">Rézkábelek</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>UTP - Unshielded Twisted Pair: a legelterjedtebb
+</li>
+<li>ScTP - Screened Twisted Pair: árnyékolás a csavart érpáron
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">Optikai kábelek</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li>Multimódusú: MMF - Multi-Mode Fiber
+<ul class="org-ul">
+<li>A fény több úton halad a kábelben
+</li>
+<li>LED-del megvilágítható
+</li>
+<li>50-100 micron (!) a kábel átmérője
+</li>
+<li>Legalább 3 csomagoló réteg borítja
+</li>
+<li>Jellemző méretek (belső méret, első csomagolás):
+<ul class="org-ul">
+<li>62,5/125 μ
+</li>
+<li>50/125 μ
+</li>
+</ul>
+</li>
+<li>Viszonylag olcsó
+</li>
+<li>Kábelhossz: &lt; 2000m
+</li>
+<li>Jellemzően épületen belül
+</li>
+</ul>
+</li>
+<li>Single módusú: SMF - Single-Mode Fiber
+<ul class="org-ul">
+<li>A fény nem szóródik a kábelben
+</li>
+<li>10 micron (!) a kábel átmérője
+</li>
+<li>Nehezebb a betalálni a lyukba (lézer)
+</li>
+<li>Viszonylag drága
+</li>
+<li>Nagyobb távolságokra használatos
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">MAC (Media Access Control)</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li>Az ethernet egy rétege, funkcióhalmaza:
+<ul class="org-ul">
+<li>I/O
+</li>
+<li>Címzés
+</li>
+<li>Hiba detektálás
+<ul class="org-ul">
+<li>Bit hiba (CRC)
+</li>
+<li>Protokoll hiba
+</li>
+<li>Médium hibája (pl. szakadás)
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">Frame struktúra</h3>
+<div class="outline-text-3" id="text-1-9">
+<pre class="example">+--------------------------------+
+| Preambulum (7 byte)            |
+.                                .
+.                                .
++--------------------------------+
+| Start Frame Delimiter (1 byte) |
++--------------------------------+
+| Cél cím (6 byte)               |
+.                                .
+.                                .
++--------------------------------+
+| Forrás cím (6 byte)            |
+.                                .
+.                                .
++--------------------------------+
+| Hossz, vagy típus (2 byte)     |
+|                                |
++--------------------------------+
+| Adat                           |
+.      (legfeljebb 1500 byte)    .
+.                                .
++--------------------------------+
+| Pad (tömítés)                  |
+.     (ha az adat &lt;46 byte)      .
+.                                .
++--------------------------------+
+| CRC  (4 byte)                  |
+.                                .
+.                                .
++--------------------------------+
+</pre>
+
+<ul class="org-ul">
+<li>Preambulum: 56 bit váltakozó 0 és 1
+<ul class="org-ul">
+<li>Szinkronizál a vevő
+</li>
+</ul>
+</li>
+<li>Start Frame Delimiter: <code>10101011</code>
+</li>
+<li>Cél (destination) cím
+<ul class="org-ul">
+<li>Unicast: egyetlen állomásnak
+</li>
+<li>Multicast: több állomásnak
+</li>
+<li>Broadcast: <code>FFFFFFFFFFFF</code>, minden állomásnak az etherneten
+</li>
+</ul>
+</li>
+<li>Hossz vagy típus: ha 1500-nál kisebb, akkor hossz, ha nagyobb, akkor típus (ethernet II.)
+<ul class="org-ul">
+<li>A hossz (802.3) a következő byte-tól a crc-ig számít
+</li>
+<li>Ethernet II-nél a hossz nincs a frame-ben!
+</li>
+</ul>
+</li>
+<li>Pad: az adat legalább 46 byte legyen. Ha kisebb lenne, kiegészítjük.
+</li>
+<li>CRC: A cél címtől az adat vagy a pad végéig számolja a küldő és a fogadó is
+<ul class="org-ul">
+<li>Ha a CRC hibát jelez, a fogadó eldobja a csomagot
+</li>
+</ul>
+</li>
+<li>Frame-ek közt: interframe gap. Legalább 96 bit idő
+<ul class="org-ul">
+<li>Az időt bitben mérjük. A csillagászok a távolságot időben.
+</li>
+<li>Vajon hány bit egy fényév?
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10">MAC címek fajtái</h3>
+<div class="outline-text-3" id="text-1-10">
+<table border="1">
+<tbody><tr><td><b>MAC cím</b></td><td><b>Cím mező</b></td></tr>
+<tr>
+<td>Világállandó</td>
+<td>*0:**:**:**:**:**<br>
+*4:**:**:**:**:**<br>
+*8:**:**:**:**:**<br>
+*C:**:**:**:**:**</td>
+</tr>
+<tr>
+<td>Lokálisan kiosztható</td>
+<td>*2:**:**:**:**:**<br>
+*6:**:**:**:**:**<br>
+*A:**:**:**:**:**<br>
+*E:**:**:**:**:**</td>
+</tr>
+<tr>
+<td>Multicast</td>
+<td>*1:**:**:**:**:**<br>
+*3:**:**:**:**:**<br>
+*5:**:**:**:**:**<br>
+*7:**:**:**:**:**<br>
+*9:**:**:**:**:**<br>
+*B:**:**:**:**:**<br>
+*D:**:**:**:**:**<br>
+*F:**:**:**:**:**<br>
+Kivéve a broadcast cím
+</td>
+</tr>
+<tr>
+<td>Broadcast</td>
+<td>FF:FF:FF:FF:FF:FF</td>
+</tr>
+</tbody></table>
+
+<ul class="org-ul">
+<li>A világállandó címeket az IEEE osztja <code>2²⁴</code> -es darabokban (&gt;16 millió egy menetben egy gyártónak)
+</li>
+<li>Három byte fix. Például <code>00:00:0C</code> - CISCO
+</li>
+<li>Az ethernet interfész csak neki címzett csomagokat adja fel a felső rétegnek
+<ul class="org-ul">
+<li>Kivéve, ha <b>promiscuous</b> módba kapcsoljuk
+</li>
+<li>Az operációs rendszer korlátozhatja
+</li>
+</ul>
+</li>
+<li>A multicast címre érkező csomagokat külön „kérni kell” az interfésztől
+</li>
+<li>A broadcast csomagok pazarlóak, veszélyesek
+<ul class="org-ul">
+<li>Okos konfigurációval csökkenteni kell a számukat
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11">Repeater, HUB</h3>
+<div class="outline-text-3" id="text-1-11">
+<ul class="org-ul">
+<li>Ethernet szegmenseket köt össze
+</li>
+<li>Fizikai szinten funkcionál
+</li>
+<li>A fizikai jelet megismétli minden interfészén
+</li>
+<li>Különböző típusú interfészei lehetnek (UTP, koax)
+</li>
+<li>Protokoll független
+</li>
+<li>Hibás frame-eket is átvisz
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12">Switch, bridge</h3>
+<div class="outline-text-3" id="text-1-12">
+<ul class="org-ul">
+<li>Ethernet szegmenseket köt össze
+</li>
+<li>Ethernet szinten funkcionál
+</li>
+<li>Buffereli a frame-eket
+</li>
+<li>Különböző sebességű interfészei lehetnek (100M, 1G)
+</li>
+<li>Megtanulja, hogy egyes interfészein milyen MAC címek vannak
+<ul class="org-ul">
+<li>Amíg nem tud egy MAC címet, addig az arra küldött csomagokat 
+repeaterként továbbítja (IP-nél ez        nem fordul elő a gyakorlatban)
+</li>
+<li>Felejt. Miért kell felejtenie?
+</li>
+</ul>
+</li>
+<li>Csak arra küldi tovább a frame-et, amerre kell
+</li>
+<li>Protokoll független
+</li>
+<li>Előnye a repeaterrel szemben
+<ul class="org-ul">
+<li>Kíméli a sávszélességet
+</li>
+<li>Hibás frame-et, ütközést nem közvetít
+</li>
+<li>Lehallgatás ellen védelmet jelent
+</li>
+</ul>
+</li>
+<li>A switch: célhardverként gyártott bridge
+<ul class="org-ul">
+<li>Külön hardver elemek a gyorsabb továbbításra
+</li>
+<li>Extra funkciók: managelhető, IP címe van, VLAN, stb.
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13">Hálózati paraméterek</h3>
+<div class="outline-text-3" id="text-1-13">
+<ul class="org-ul">
+<li>Ha elindul egy frame, a hálózat legtávolabbi pontján is érzékelni kell mielőtt véget ér
+<ul class="org-ul">
+<li>Nem lehetne észrevenni az ütközést: <b>late collision</b>
+</li>
+</ul>
+</li>
+<li>Korlátozni kell a kábelhosszat
+</li>
+<li>Korlátozni kell a repeaterek számát (4)
+<ul class="org-ul">
+<li>Kell-e korlátozni a switchek számát?
+</li>
+</ul>
+</li>
+<li>Alulról korlátozni kell a médiumon megengedett frame hosszát
+<ul class="org-ul">
+<li>Ez a <b>slot time</b>, bitben adják meg – az időt bitben mérjük!
+</li>
+<li>512 bit (64 byte) –  gigabit ethernetnél lehet 4096 bit
+</li>
+</ul>
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógéphálózatok - 3. előadás_files/latecoll.png" alt="latecoll.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-14" class="outline-3">
+<h3 id="sec-1-14">Runt (törpe) frame</h3>
+<div class="outline-text-3" id="text-1-14">
+<ul class="org-ul">
+<li>Slot time-nál (64 byte-nál) kisebb (46 byte adat)
+<ul class="org-ul">
+<li>A 18 byte: 12 cím, 2 hossz, 4 CRC
+</li>
+</ul>
+</li>
+<li>A kártya eldobja
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-15" class="outline-3">
+<h3 id="sec-1-15">Giant (óriás) frame</h3>
+<div class="outline-text-3" id="text-1-15">
+<ul class="org-ul">
+<li>1518 byte-nál nagyobb (1500 byte adat)
+</li>
+<li>A IEEE 802.3ac szabvány megnövelte
+<ul class="org-ul">
+<li>Tagged frame-ek számára
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-16" class="outline-3">
+<h3 id="sec-1-16">Full duplex ethernet</h3>
+<div class="outline-text-3" id="text-1-16">
+<ul class="org-ul">
+<li>IEEE 802.3x
+</li>
+<li>Csak pont-pont összeköttetéseken működik
+<ul class="org-ul">
+<li>Például switch  ←→ végberendezés
+</li>
+<li>Nem jelenti, hogy csak két ethernet cím!
+</li>
+</ul>
+</li>
+<li>Nincs CSMA/CD, bármikor lehet adni
+</li>
+<li>Az átviteli kapacitás duplájára nő
+<ul class="org-ul">
+<li>Például 100 Mb/s összeköttetésen 200Mb/s forgalom lehetséges
+</li>
+</ul>
+</li>
+<li>Nem kell ütközések miatt késleltetni
+</li>
+<li>Kábel hossz nőhet, slot time csökkenhet
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-17" class="outline-3">
+<h3 id="sec-1-17">Ethernet flow control</h3>
+<div class="outline-text-3" id="text-1-17">
+<ul class="org-ul">
+<li>A full duplex ethernet kellemetlen mellékhatása miatt kell
+</li>
+<li>Az adó állomást meg kell állítani, ha nem tudjuk tovább adni a frame-eket
+</li>
+<li>PAUSE frame-et küldhetünk
+<ul class="org-ul">
+<li>Speciális frame típus
+</li>
+<li>A destination cím lehet az adó állomás ethernet címe, vagy a speciális <code>01:80:C2:00:00:01</code> multicast cím
+</li>
+<li>A type mező: <code>0x8808</code>
+</li>
+<li>Adat:
+<ul class="org-ul">
+<li>MAC opcode: <code>0x0001</code>
+</li>
+<li>MAC paraméter: 2 byte idő, az egysége 512 bitnyi
+</li>
+<li>42 db 0 byte (pad, hogy a 46 byte meglegyen)
+</li>
+</ul>
+</li>
+<li>Egy újabb PAUSE az előzőt érvényteleníti
+<ul class="org-ul">
+<li>0-val érkező PAUSE hatása: continue
+</li>
+</ul>
+</li>
+<li>A két állomás egymástól függetlenül lehet képes adni/fogadni PAUSE-t
+</li>
+<li>PAUSE alatt a másik állomás csak MAC control frame-et küldhet (pl. pause-t)
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-18" class="outline-3">
+<h3 id="sec-1-18">Fast ethernet</h3>
+<div class="outline-text-3" id="text-1-18">
+<ul class="org-ul">
+<li>IEEE 802.3u, 1995
+</li>
+<li>100 Mbit/s
+<ul class="org-ul">
+<li>Az ethernet eredetileg 10 Mbit/s – ehhez képset 100 már gyors
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-19" class="outline-3">
+<h3 id="sec-1-19">Link halmozás (aggregation)</h3>
+<div class="outline-text-3" id="text-1-19">
+<ul class="org-ul">
+<li>Két vagy több fizikai összeköttetést logikailag egynek tekinthetünk
+</li>
+<li>Az aggregált összeköttetés a magasabb szintek számára (pl. spanning tree) egynek látszik
+</li>
+<li>A több interfésznek látszólag ugyanaz lesz a MAC címe
+</li>
+<li>Megkötések
+<ul class="org-ul">
+<li>Egyforma teljesítményű összeköttetések (vagy mind 100, vagy mind 1000)
+</li>
+<li>Csak pont-pont összeköttetéseket lehet aggregálni
+</li>
+<li>Csak full duplex összeköttetéseket
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-20" class="outline-3">
+<h3 id="sec-1-20">Ethernet autonegotiation</h3>
+<div class="outline-text-3" id="text-1-20">
+<ul class="org-ul">
+<li>Pulse-code szekvencia, nem frame (FLP = Fast Link Pulse)
+</li>
+<li>Nem okoz zavart, régi eszköznél sem
+</li>
+<li>Point to point összeköttetéseknél (switchek vannak)
+</li>
+<li>Sebesség - 10/100/1000 ?
+</li>
+<li>Full duplex, vagy half duplex üzemmód ?
+</li>
+<li>Van-e flow control, és melyik irányban?
+</li>
+</ul>
+
+<table rules="groups" frame="hsides" cellspacing="0" cellpadding="6" border="2">
+<caption class="t-above"><span class="table-number">Table 1:</span> Ősi és újabb ethernet hálózatok tulajdonságai</caption>
+
+<colgroup>
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Sebesség</th>
+<th scope="col" class="left">Médium</th>
+<th scope="col" class="left">CSMA/CD ?</th>
+<th scope="col" class="left">Topológia</th>
+<th scope="col" class="left">Flow control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">10Mb</td>
+<td class="left">koax, utp</td>
+<td class="left">CSMA/CD</td>
+<td class="left">busz</td>
+<td class="left">nincs szükség flow control-ra</td>
+</tr>
+
+<tr>
+<td class="left">legalább 100Mb</td>
+<td class="left">utp, optika</td>
+<td class="left">rendszerint full duplex, nincs szükség CSMA/CD-re</td>
+<td class="left">csillag, fa</td>
+<td class="left">szükség lehet flow control-ra</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-21" class="outline-3">
+<h3 id="sec-1-21">VLAN, (Virtual LAN)</h3>
+<div class="outline-text-3" id="text-1-21">
+<ul class="org-ul">
+<li>IEEE 802.1Q
+</li>
+<li>Broadcast domain-eket = VLAN definiálhatunk
+</li>
+<li>Egy fizikai ethernetet logikailag több részre osztunk
+</li>
+<li>Csak valamilyen magasabb réteg (router) által lehet kommunikálni a VLAN-ok közt
+</li>
+<li>Előnyök
+<ul class="org-ul">
+<li>Biztonság
+</li>
+<li>Kezelhetőség
+</li>
+<li>Erőforrás takarékosság
+</li>
+</ul>
+</li>
+<li>VLAN tag-ek: az ethernet frame-et újra ethernetbe csomagoljuk
+<ul class="org-ul">
+<li>A cím mezők után 4 extra byte
+</li>
+<li>2 byte: 802.1Q típus
+</li>
+<li>12 bit: VLAN id
+</li>
+</ul>
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógéphálózatok - 3. előadás_files/vlanok.png" alt="vlanok.png">
+</p>
+<p><span class="figure-number">Figure 5:</span> Olyan, mintha vlan-onként lenne egy-egy piros, kék és zöld switch-ünk, és az összeköttetések is mind  ismétlődnének</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-22" class="outline-3">
+<h3 id="sec-1-22">Spanning Tree protokoll (Feszítő Fa), STP</h3>
+<div class="outline-text-3" id="text-1-22">
+<ul class="org-ul">
+<li>IEEE 802.1d
+</li>
+<li>Ha kör van a topológiában, a csomagok körbe-körbe vándorolhatnak
+<ul class="org-ul">
+<li>Broadcast storm
+</li>
+</ul>
+</li>
+<li>A switch-ek választanak egy root-ot
+<ul class="org-ul">
+<li>A legkisebb Serial Number-t birtokló lesz
+</li>
+</ul>
+</li>
+<li>A root-ból minden eszközhöz kiválasztják a legrövidebb utat
+</li>
+<li>Azokat az összeköttetéseket, amik nem szerepeltek, kikapcsolják
+</li>
+<li>Később is figyelik, hogy hol vannak utak
+</li>
+<li>BPDU - Bridge Protocol Data Unit
+<ul class="org-ul">
+<li>Az én SN-em
+</li>
+<li>Kit hiszek root-nak
+</li>
+<li>Merre van tőlem a root
+</li>
+</ul>
+</li>
+<li>Ha kiesik egy eszköz, vagy link, van esély rá, hogy az egész hálózat élve marad
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Szerzõ: Pásztor Miklós</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+
+</body></html>

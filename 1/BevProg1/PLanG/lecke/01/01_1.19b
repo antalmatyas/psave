@@ -1,0 +1,10 @@
+PROGRAM elsoszotorol
+  VÁLTOZÓK:
+    a: SZÖVEG,
+    b, c: EGÉSZ
+ 
+  BE: a
+  b := a @ ' '
+  c := |a|
+  KI: a[b + 1:c]
+PROGRAM_VÉGE

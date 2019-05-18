@@ -1,0 +1,7 @@
+PROGRAM szokoz
+  VÁLTOZÓK:
+    a: SZÖVEG
+ 
+  BE: a
+  KI: a[0] = ' '
+PROGRAM_VÉGE

@@ -1,0 +1,20 @@
+program vektortémacucc
+változók:
+	n, i, v1, v2, összeg: egesz
+** add meg a dimenziók számát, majd két oszlopba írd le a két vektor koordinátáit 
+** a1 b1
+** a2 b2
+** a3 b3
+** mintára
+
+i := 0
+be: n
+összeg := 0
+ciklus amig i < n
+	be: v1
+	be: v2
+	összeg := összeg + v1 * v2
+	i := i + 1
+ciklus_vége
+ki: összeg
+program_vege

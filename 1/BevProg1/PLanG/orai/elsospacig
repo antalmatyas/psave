@@ -1,0 +1,10 @@
+PROGRAM elso
+  VÁLTOZÓK:
+    a, b, d: SZÖVEG,
+    c: EGÉSZ
+ 
+  BE: a
+  b := " "
+  c := a @ b
+  KI: a[0:c]
+PROGRAM_VÉGE

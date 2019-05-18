@@ -1,0 +1,96 @@
+# depslib dependency file v1.0
+1487342324 source:c:\users\matyó\desktop\graphicsproject\main.cpp
+	"graphics.hpp"
+
+1430018866 c:\users\matyó\desktop\graphicsproject\include\graphics.hpp
+	<string>
+
+1488218566 source:c:\users\matyó\desktop\vasarely\main.cpp
+	"graphics.hpp"
+	<iostream>
+	<time.h>
+	<vector>
+	<stdlib.h>
+	<cmath>
+	<random>
+
+1430018866 c:\users\matyó\desktop\vasarely\include\graphics.hpp
+	<string>
+
+1487348308 source:c:\users\matyó\dropbox\000exterior\2\bprog2\vasarely\main.cpp
+	"graphics.hpp"
+	<iostream>
+
+1430018866 c:\users\matyó\dropbox\000exterior\2\bprog2\vasarely\include\graphics.hpp
+	<string>
+
+1488307948 source:c:\users\matyó\desktop\starfighter\main.cpp
+	"graphics.hpp"
+	<vector>
+	<time.h>
+	<stdlib.h>
+	<cmath>
+
+1430018866 c:\users\matyó\desktop\starfighter\include\graphics.hpp
+	<string>
+
+1488569193 source:c:\users\matyó\desktop\snake\main.cpp
+	"graphics.hpp"
+	<vector>
+	<time.h>
+	<stdlib.h>
+	<cmath>
+	<iostream>
+	<sstream>
+
+1430018866 c:\users\matyó\desktop\snake\include\graphics.hpp
+	<string>
+
+1488990882 source:c:\users\matyó\dropbox\000exterior\2\bprog2\snake\main.cpp
+	"graphics.hpp"
+	<vector>
+	<time.h>
+	<stdlib.h>
+	<cmath>
+	<iostream>
+	<sstream>
+
+1430018866 c:\users\matyó\dropbox\000exterior\2\bprog2\snake\include\graphics.hpp
+	<string>
+
+1489583732 source:c:\users\john\desktop\snake\main.cpp
+	"graphics.hpp"
+	<vector>
+	<time.h>
+	<stdlib.h>
+	<cmath>
+	<iostream>
+	<sstream>
+
+1430015266 c:\users\john\desktop\snake\include\graphics.hpp
+	<string>
+
+1489583732 source:c:\users\matyó\dropbox\snake\main.cpp
+	"graphics.hpp"
+	<vector>
+	<time.h>
+	<stdlib.h>
+	<cmath>
+	<iostream>
+	<sstream>
+
+1430018866 c:\users\matyó\dropbox\snake\include\graphics.hpp
+	<string>
+
+1489583732 source:c:\users\nox\dropbox\000exterior\2\bprog2\1. beadando - snake\snakejo\main.cpp
+	"graphics.hpp"
+	<vector>
+	<time.h>
+	<stdlib.h>
+	<cmath>
+	<iostream>
+	<sstream>
+
+1430018866 c:\users\nox\dropbox\000exterior\2\bprog2\1. beadando - snake\snakejo\include\graphics.hpp
+	<string>
+

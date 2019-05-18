@@ -1,0 +1,7 @@
+PROGRAM elso
+  VÁLTOZÓK:
+    a, b: VALÓS
+ 
+  BE: a
+  KI: (4 * (a ^ 3) * 3.14) / 3
+PROGRAM_VÉGE

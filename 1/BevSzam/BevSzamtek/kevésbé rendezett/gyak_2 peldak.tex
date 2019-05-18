@@ -1,0 +1,72 @@
+\documentclass{article}
+
+\usepackage[latin2]{inputenc}
+\usepackage[magyar]{babel}
+
+
+
+\usepackage[pdftex]{graphicx}
+\usepackage{sidecap}
+\usepackage{subfig}
+ \usepackage{wrapfig}
+\begin{document}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor vestibulum eros eget suscipit. Aliquam id erat nulla. Morbi sit amet augue quam, tristique consequat magna. Nulla varius rutrum ligula euismod vestibulum. Nunc commodo volutpat eleifend. Donec egestas sodales est, ut sollicitudin elit scelerisque ut. Pellentesque id metus metus, malesuada malesuada neque. Sed mollis est scelerisque enim ultricies eget bibendum risus malesuada. Aenean pulvinar malesuada aliquam. Vestibulum ut dui neque, sed imperdiet ante. Suspendisse ultricies nibh et quam commodo eget laoreet eros fringilla. Sed tellus tortor, viverra a sollicitudin ut, malesuada sodales nulla. Nulla ipsum dui, faucibus malesuada adipiscing non, ultricies eu velit.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.34\textwidth]{giraffe.png}
+\caption{Relat�v k�psz�less�g}
+\label{fig:}
+\end{figure}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor vestibulum eros eget suscipit. Aliquam id erat nulla. Morbi sit amet augue quam, tristique consequat magna. Nulla varius rutrum ligula euismod vestibulum. Nunc commodo volutpat eleifend. Donec egestas sodales est, ut sollicitudin elit scelerisque ut. Pellentesque id metus metus, malesuada malesuada neque. Sed mollis est scelerisque enim ultricies eget bibendum risus malesuada. Aenean pulvinar malesuada aliquam. Vestibulum ut dui neque, sed imperdiet ante. Suspendisse ultricies nibh et quam commodo eget laoreet eros fringilla. Sed tellus tortor, viverra a sollicitudin ut, malesuada sodales nulla. Nulla ipsum dui, faucibus malesuada adipiscing non, ultricies eu velit.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{giraffe.png}
+\caption{scale param�ter}
+\label{fig:}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \subfloat[Tux]{\label{fig:linux}\includegraphics[width=0.3\textwidth]{Tux-G2.png}}                
+  \subfloat[Matlab]{\label{fig:matlab}\includegraphics[width=0.3\textwidth]{matlab_logo.png}}
+  \subfloat[Latex]{\label{fig:latex}\includegraphics[width=0.3\textwidth]{latexplusmetafont.jpg}}
+  \caption{Bevezet�s a sz�m�t�stechnik�ba}
+  \label{fig:animals}
+\end{figure}
+
+
+
+
+ 
+\begin{SCfigure}
+  \centering
+  \includegraphics[width=0.55\textwidth]%
+    {giraffe.png}% picture filename
+  \caption{The giraffe is one of only two living species of the family Giraffidae, along with the okapi.}
+\end{SCfigure}
+
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor vestibulum eros eget suscipit. Aliquam id erat nulla. Morbi sit amet augue quam, tristique consequat magna. Nulla varius rutrum ligula euismod vestibulum. Nunc commodo volutpat eleifend. Donec egestas sodales est, ut sollicitudin elit scelerisque ut. Pellentesque id metus metus, malesuada malesuada neque. Sed mollis est scelerisque enim ultricies eget bibendum risus malesuada. Aenean pulvinar malesuada aliquam. Vestibulum ut dui neque, sed imperdiet ante. Suspendisse ultricies nibh et quam commodo eget laoreet eros fringilla. Sed tellus tortor, viverra a sollicitudin ut, malesuada sodales nulla. Nulla ipsum dui, faucibus malesuada adipiscing non, ultricies eu velit.
+
+Praesent eget nibh vel nisi rhoncus sodales. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean pharetra elementum sagittis. Mauris iaculis suscipit mollis. Nullam non felis a ante posuere gravida iaculis scelerisque est. Aliquam lorem ipsum, fermentum eu vehicula rutrum, porta non purus. Fusce quis massa at metus fringilla ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tincidunt nunc. Donec eget dignissim augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi id sagittis diam.
+
+Suspendisse eu neque nec arcu laoreet dapibus a luctus lectus. Fusce sollicitudin commodo ligula ac adipiscing. Etiam et ligula ut neque bibendum fringilla in in turpis. Nulla interdum purus nibh. Duis dui mi, pretium eget faucibus in, tempor at mauris. Cras sed nunc risus. Vivamus posuere condimentum neque, in blandit ligula suscipit in. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed volutpat mattis nulla nec sagittis. Pellentesque sollicitudin, enim in vulputate fringilla, eros nisi volutpat ligula, eget dictum nisl urna vel nisi. Quisque gravida vehicula imperdiet. Cras id augue diam. Phasellus tellus erat, ultricies mattis condimentum eget, placerat non neque. Nulla neque est, convallis vitae auctor eu, tempus ac enim. Proin consequat viverra consectetur. Aenean dui metus, scelerisque id scelerisque nec, aliquet et leo.
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{Tux-G2.png}
+  \end{center}
+  \caption{Tux}
+\end{wrapfigure}
+Suspendisse potenti. Fusce et dignissim felis. Duis facilisis vehicula mauris in fermentum. Aenean faucibus enim sed sapien rutrum ut eleifend eros consequat. In hac habitasse platea dictumst. Sed a arcu imperdiet lacus consequat porta. Donec id orci eu nulla placerat commodo. Suspendisse posuere leo sed nibh tincidunt vestibulum. Integer eget orci arcu. Pellentesque eget orci vel odio egestas sodales. Vestibulum a mi felis. Morbi et sem sem, ut lobortis lectus. Aliquam convallis suscipit nisl blandit elementum. Morbi blandit dolor sit amet mauris dignissim eget pharetra nunc congue. Suspendisse libero purus, elementum vel suscipit volutpat, egestas et erat. Morbi quis lacus a dui fermentum cursus. Mauris in metus elit, vel accumsan massa.
+
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec et mauris a nibh auctor laoreet vel vel leo. In hac habitasse platea dictumst. Mauris quis lorem nulla. Curabitur scelerisque molestie mi et mollis. Mauris malesuada pulvinar lacus in mollis. Vestibulum eget diam nibh. Suspendisse tempor luctus tellus in imperdiet. Donec id libero dolor, sed mattis ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis lorem arcu, vel rhoncus justo. Duis ornare sodales mi, eget mattis elit ultricies sit amet. Quisque hendrerit nisi sit amet ligula semper ultrices. Fusce gravida massa et est blandit gravida vitae vel nibh. Ut bibendum purus sed tortor tempor sed condimentum purus viverra. Suspendisse non fringilla risus. 
+
+
+\listoffigures
+
+\end{document}

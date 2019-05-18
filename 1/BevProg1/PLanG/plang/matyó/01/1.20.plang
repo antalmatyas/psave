@@ -1,0 +1,9 @@
+program elso
+valtozok: 
+szo: szoveg
+
+be: szo
+szo[0] := nagy(szo[0])
+ki: szo
+
+program_vege

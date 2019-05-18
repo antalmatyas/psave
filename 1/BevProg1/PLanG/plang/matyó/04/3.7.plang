@@ -1,0 +1,35 @@
+PROGRAM legtobbosztoab
+  VÁLTOZÓK:
+    a, b, i, j, max, hol, c: EGÉSZ
+
+be: a, b
+ha a > b akkor
+	i := b
+	b := a
+	a := i
+ha_vege
+i := a
+
+max := 2
+hol := a
+j := 2
+c := 2
+
+ciklus amig i <= b
+	ciklus amig j < i
+		ha (i mod j) = 0 akkor
+			c := c + 1
+		ha_vege
+		j := j + 1
+	ciklus_vege
+	ha c > max akkor
+		max := c
+		hol := i
+	ha_vege
+	i := i + 1
+	j := 2
+	c := 2
+ciklus_vege
+ki: hol
+
+PROGRAM_VÉGE

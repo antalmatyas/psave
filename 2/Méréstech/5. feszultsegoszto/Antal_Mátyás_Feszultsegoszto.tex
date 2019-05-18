@@ -1,0 +1,129 @@
+%  <-- ezzel lesznek jelölve a kommentek,
+%a legtöbb dolgot jobb békénhagyni úgy ahogy van, általában csak {} közé vagy \section{} alá kell írni majd
+%az ITKproc miatt nem kell megformáznod a szöveget tehát ezt mindenképpen hagyjátok a itt, valamint mindig legyen a dokumentum mappájában, hogy elérje a fordító
+\documentclass[10pt, conference,a4paper]{ITKproc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+% correct bad hyphenation here
+
+\hyphenation{pre-sence vi-su-alized si-mu-la-tions mo-le-cu-lar se-ve-ral cha-rac-te-ris-tic CoNSEnsX}
+
+
+\begin{document}
+% ide a {} közé írd a jegyzőkönyv címét
+\title{Feszültségosztó vizsgálata mérési jegyzőkönyv}
+% ezek gondolom egyértelműek, itt is mindig csak a {} szerkesszétek, valamint használhattok \\ sortöréshez, pl dátum hozzáírás stb
+\author{\IEEEauthorblockN{Mátyás Antal}
+\IEEEauthorblockA{(Supervisor:Attila Tihanyi)\\
+Pázmány Péter Catholic University, Faculty of Information Technology and Bionics\\
+50/a Pr\'ater street, 1083 Budapest, Hungary\\
+\texttt{antal.matyas.gergely@hallgato.ppke.hu}}
+}
+
+
+\maketitle
+
+\begin{abstract}
+A mérés célja volt megismerkedni az ellenállásokból álló feszültségosztó tulajdonságaival, vizsgálatával, valamint az ELVIS mérőműszer és a hozzá tartotó szoftvercsomag használatával. A mérésre való felkészülés során átismételtük a középiskolában az ellenállásról, feszültségosztóról valamint a Kirchhoff törvényekről tanultakat, továbbá ezek mérési lehetőségeit. 
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+% innentől kezdve jönnek a feladatok
+% \section{} Ezzel hozunk létre fejezetet, a {} közé pedig bármi írhatunk, általában úgyis "Feladat" és "összefoglalás"-t fogunk,
+% a fejezetek alapjáraton számozódnak római számokkal tehát azt nem szükséges beleírni, 
+% ha alfejezeteket akarunk létrehozni akkor \subsection{} subsubsection{} stb- vel tegyük
+%példa:
+\section{Mérendő objektumok}
+
+A mérés kezdetén 3 darab ismeretéen értékű ellenállást kaptunk, első feladatunk tehát ezeknek beazonosítása volt. Mindhárom ellenállás 5 csíkos jelöléssel volt ellátva, az erre vonatkozó táblázat alapján leolvastuk az értéküket, majd az ELVIS digitális multiméter használatával, a V és COM kimenetek közé kapcsolva méréssel ellenőriztük azt. Az $R_1$ ellenállás a jelölés alapján 3300$\Omega$, 1\%-os tűréssel, a mérés eredménye pedig $R_1$ = 3.28$k\Omega$, ami belül esik a tűréshatáron. A második ($R_2$) ellenállás leolvasott értéke 1100$\Omega$ szinén 1\%-os tűréssel, a mért értéke pedig $R_2$ = 1.09$k\Omega$, ami szintén megfelelő érték. A harmadik ($R_3$) ellenállás a színkód alapján 2200$\Omega$, 1\%-os tűréssel, mért értéke pedig $R_3$ = 2.18$k\Omega$. Az ellenállások értéke tehát: \[ R_1 = 3.28k\Omega, R_2 = 1.09k\Omega,   R_3 = 2.18k\Omega\] 
+A mérések során minden esetben megmértük a mérőeszközben a nulla ellenállást, illetve feszültséget, és a Null Offset funkció használatával ezt automatikusan kivontuk a később mért értékekből, ezzel kiküszöbölve az offszet hibát. 
+\section{Első mérési összeállítás}
+\subsection{Elmléleti értékek}
+Az ellenállások értékének segítségével kiszámítottuk a névleges feszültségosztási viszonyt, melyhez a \[U_{ki} = U_{be} * \frac{R_1}{R_1+R_2}\] képletet használtuk. A feladat folytatásaképp kiszámítottuk a feszültségosztási viszonyt a tűréshatárok figyelembe vételével a \[U_{be} * \frac{R_1*0.01}{R_1+R_2}\] képlet használatával. A kapott értékeket az I. táblázat szemlélteti. 
+
+\begin{table}[ht!]
+\renewcommand{\arraystretch}{1.3}
+\caption{Feszültségosztás - elmélet}
+\centering
+\begin{tabular}{c||c||c}
+\hline
+\bfseries Ellenállás & \bfseries Feszültség & \bfseries Feszültségosztás maximális eltérés\\
+\hline\hline
+ $R_1$ = 3.3$k\Omega$ & $U_1$ = 3.75$V$  & $U_{el}$ = 0.0075$V$\\
+\hline
+ $R_2$ = 1.1$k\Omega$ & $U_2$ = 1.25$V$  & $U_{el}$ = 0.0025$V$\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Számított értékek}
+A mérési utasításnak megfelelően ezt követően kiszámítottuk a feszültségosztási viszont, valamint annak maximális eltérését, ezúttal az ellenállások valós (mért) értékét felhasználva. A számítások eredményeit a II. táblázat szemlélteti.
+
+\begin{table}[ht!]
+\renewcommand{\arraystretch}{1.3}
+\caption{Feszültségosztás - gyakorlati}
+\centering
+\begin{tabular}{c||c||c}
+\hline
+\bfseries Ellenállás & \bfseries Feszültség & \bfseries Feszültségosztás maximális eltérés\\
+\hline\hline
+ $R_1$ = 3.28$k\Omega$ & $U_1$ = 3.73$V$  & $U_{el}$ = 0.0075$V$\\
+\hline
+ $R_2$ = 1.09$k\Omega$ & $U_2$ = 1.24$V$  & $U_{el}$ = 0.0024$V$\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Mért értékek}
+A mérést az utasításban mellékelt ábra alapján összeállítva, gyakorlatban is megvizsgáltuk a feszültségosztást, megmértük értékeit, amik az $U_1 = 3.62 V$, valamint az $U_2 = 1.20 V$ feszültségeket adták, ez megerősíti a korábbi számításainkat.  
+
+\subsection{Tápegység feszültsége}
+Ezt követően az ELVIS digtális multiméter segítségével megmértül a tápegység belső feszültségét, majd ennek segítségével korrigáltuk a korábbi számításainkat. A tápegység mért belső feszültsége: $U_{b} = 4.85 V$, ez 3\%-os relatív eltérést jelent. Ez alapján a kimeneti feszültségek: $U_1 = 3.64 V$ és $U_2 = 1.21 V$. Méréssel ellenőriztük a számítások helyességét. 
+
+\section{Második mérési összeállítás}
+\subsection{Elméleti értékek}
+A második mérési összeállítás elméleti számításai során az $R_2$ és $R_3$ ellenállások eredő ellenállásával számoltunk, mely párhuzamos kapcsolás miatt az $R_{23} = \frac{1}{\frac{1}{R_2} + \frac{1}{R_3}}$ értékkel megegyező. Ezesetben a kimeneti feszültség elméleti értéke: $U_{23} = 0.90 V$. 
+\subsection{Mért értékek}
+A mérési utasításban mellékelt ábra alapján összeállítottuk a mérést, és az ELVIS digitális multiméter használatával ellenőriztük számításaink helyességét, megmértük a kimeneti feszültség valós értékét, mely az $U_{23} = 0,899 V$ értéket vette fel, mely beleesik az 1\%-os legnagyobb megengedett eltérési értékbe. 
+
+\section{A mérést befolyásoló tényezők}
+\subsection{Fesztülséggenerátor}
+Ha az alkalmazott feszültséggenerátor belső ellenállása eltér a tervezett értéktől, azaz jelen esetben nem 0, ahogy az egy ideális feszültséggenerátornál volna, úgy a kimenő, valamint minden eső feszültség is változik, hiszen a belső ellenállás hozzáadódik a számítások során használt eredő ellenálláshoz, ezzel módosítva az összeállításban mért áramerősség, valamin így az egyes ellenállásokra eső feszültség értékét is. 
+\subsection{Feszültségmérő}
+A gyakorlatban alkalmazott feszültségmérő belső ellenállása igen nagy, általában M$\Omega$ nagyságrendű. Amennyiben ez a belső ellenállás csökken, a párhuzamosan kötött feszültségmérőn is áram folyik, így a feszültségosztás módosul, hiszen a mérőműszerre is esik feszültség, ezzel csökkentve az ellenállásokra eső feszültség értékeit. 
+\subsection{Befolyásoló tényezők mérése}
+\subsubsection{Feszülséggenerátor}
+
+A kimenő feszültség függése a belső ellenállástól az alábbi képlettel szemléltethető: 
+\[R_b-\frac{R_b*U_{ki}}{U{be}} = \frac{R_1*U{ki}+R_2*U{ki}}{U_{be}} \]
+\[R_b*(U_{be}-U_{ki}) = R_1*U{ki}+R_2*U{ki} \]
+\[R_b = \frac{R_1*U{ki} + R_2*U{ki}}{U_{be}-U{ki}} \]
+
+\subsubsection{Feszültségmérő}
+
+A kimenő feszültség függését a bemenő ellenállástól pedig az alábbi képlet írja le: 
+\[R_1 = \frac{R_b*U_{ki}+R_2*U{ki}}{U_{be}-U_{ki}} \]
+%Ha szeretnéd hogy az adott fejezet ne legyen számozva használj \section*{} -t, pl Acknowledgements
+
+
+% Az egyenletekre, táblázatokra, listákra stb. itt nem térnék ki, ahhoz mindenképp érdemes kicsit utána olvasni
+
+% A references mindig a legutolsó fejezet lesz
+
+%  minden hivatkozás elnevezünk, ezzel a névvel fogunk hivatkozni a szövegen belül
+% \bibitem{} <- hivatkozásnév
+% A hivatkozás formája legjobban a példa dokumentumban látszik a tanárúr honlapján, általában: szerző, olvasott anyag neve, közreműködők, hely, év
+% a szövegben pedig \cite{Megadott hivatkozásnév} -vel hivatkozunk
+
+
+% példa:
+
+
+% Ez a rész mindig marad:---------
+\bibliographystyle{ieeetr}
+%\bibliography{references}
+
+
+% that's all folks
+\end{document}

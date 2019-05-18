@@ -1,0 +1,19 @@
+program valodiosztoesszeg
+valtozok: 
+	n, sum: egesz,
+	k: valos
+BE: n
+k := 1
+sum := 0
+HA (n > 0) AKKOR
+	CIKLUS AMÍG k <= n
+		HA((valos(n) / k = egesz(valos(n) / k))) AKKOR
+			sum := sum + egesz(k)
+		HA_VEGE
+		k := k + 1 
+	CIKLUS_VEGE
+	KI: sum
+KÜLÖNBEN
+	KI: "Ez nem természetes szám"
+HA_VÉGE
+program_vege

@@ -1,0 +1,959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0047)http://users.itk.ppke.hu/~marta5/eloadas-8.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógépes hálózatok – 8. előadás</title>
+
+<meta name="generator" content="Org-mode">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógépes hálózatok – 8. előadás_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Számítógépes hálózatok – 8. előadás</h1>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">TCP adatforgalom</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Hogyan adjunk, ha ki akarjuk használni a sávszélességet?</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Figyelembe kell venni a késleltetést is (TFTP példa)
+</li>
+<li>Akkor küldhetünk folyamatosan, ha az első csomagunk nyugtájának megérkezéséig folyamatosan adhatunk
+<ul class="org-ul">
+<li>A csomagfordulási idő, <b>RTT</b> – Round Trip Time korlátoz
+</li>
+</ul>
+</li>
+<li><i>Sávszélesség * RTT</i> elküldött bit legyen a window
+<ul class="org-ul">
+<li>Az első nyugta megérkezésekor ekkor <i>sávszélesség * késleltetés</i> úton levő bit
+</li>
+</ul>
+</li>
+<li>Pl. <code>100 Mb/sec</code> vonal, <code>0,01</code> sec RTT: <code>1Mbit = 125 KByte</code>
+</li>
+<li>Pl. <code>100 Mb/sec</code> vonal, <code>2</code> sec RTT: <code>200Mbit = 25 MByte</code> !
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Sliding window</h2>
+<div class="outline-text-2" id="text-2">
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 8. előadás_files/window.png" alt="window.png">
+</p>
+</div>
+<ul class="org-ul">
+<li>A nyugtázott+window sorszámig folyamatosan küldhető adat
+<ul class="org-ul">
+<li>Rendszerint nem tölti ki az egész window-t
+</li>
+</ul>
+</li>
+<li>A nyugtázott+window sorszámnál nagyobb sorszámú oktet nem küldhető
+</li>
+<li>A window folyamatosan csúszik jobbra az ábrán
+</li>
+<li>A window-t a fogadó csökkentheti/növelheti
+<!--
+<ul class="org-ul">
+<li>Ha nyugtáz és nem akarja növelni, akkor a nyugtában kisebb window-t kell mondania az előzőnél
+</li>
+</ul>
+-->
+</li>
+<li>A window mérettel a fogadó szabályozhatja a küldés ütemét
+<ul class="org-ul">
+<li>Flow control: az alkalmazás igényeihez igazodhat
+<ul class="org-ul">
+<li>Pl. a window lehet az alkalmazás által vételre felkínált buffer mérete
+</li>
+</ul>
+</li>
+<li>Congestion control: torlódás és csomagvesztés elkerülésére
+</li>
+</ul>
+</li>
+<li>Egy nyugta mindig addig az SN-ig nyugtáz mindent, nem csak az utolsó csomagot
+</li>
+<li>A window nyílik, ha a jobb széle jobbra mozdul
+</li>
+<li>A window becsukódik:
+<ul class="org-ul">
+<li>ha a hirdetett window 0,
+</li>
+<li>az adó kimerítette a küldhető adatmennyiséget,
+</li>
+<li>a vevő mindent nyugtázott
+</li>
+</ul>
+</li>
+<li>A window zsugorodik (shrinks), ha a jobb széle balra mozdul
+<ul class="org-ul">
+<li>Lehetséges, de ellenjavalt
+</li>
+<li>Vannak protokollok, ahol ez lehetetlen
+</li>
+</ul>
+</li>
+<li>Újraküldés
+<ul class="org-ul">
+<li>Ha három ugyanolyan ACK-t kapok, onnan kezdve újraküldök
+</li>
+<li>Ha timeout (RTO) lejár, és nem kapok ACK-t
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">TCP nyugták</h2>
+<div class="outline-text-2" id="text-3">
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 8. előadás_files/tcp-ack.png" alt="tcp-ack.png">
+</p>
+<p><span class="figure-number">Figure 2:</span> Csomag sorrend felcserélődés és TCP nyugták</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Window scale opció</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/1323">RFC1323</a>
+</li>
+<li>3 byte-os opció a TCP fejrészben:
+</li>
+</ul>
+<pre class="example">+--------+-------+-----------+
+| kind=3 | len=3 |shift count|
++--------+-------+-----------+
+</pre>
+
+<ul class="org-ul">
+<li><code>2</code>-nek a <i>shift count</i> -adik hatványa lesz a window paraméter mértékegysége
+</li>
+<li><code>0</code> azt jelenti, hogy a window byte-okban számolandó (nincs scale)
+</li>
+<li><code>3</code> azt jelenti, hogy <code>8</code> byte-os darabokban
+</li>
+<li>Maximum 14 a megengedett = <code>2^30</code> = <code>1G</code>
+</li>
+<li>A SYN flag-gel együtt küldhető a three-way handshake során
+</li>
+<li>Akkor él, ha a SYN/ACK-ban is megismétli a partner
+</li>
+<li>Lehet különböző a két irányban
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Delayed ACK</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>A TCP réteg nem feltétlenül küld nyugtát, ha tud
+<ul class="org-ul">
+<li>Legalább 40 byte-ot kell küldeni!
+</li>
+</ul>
+</li>
+<li>Egy timer lejártát megvárja, hátha addig lesz:
+<ul class="org-ul">
+<li>elküldendő adat, amivel „mellékesen” nyugtáz: piggyback nyugta
+</li>
+<li>újabb bejövő adat, amit nyugtázhat.
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">ACK generálás</h2>
+<div class="outline-text-2" id="text-6">
+<table rules="groups" frame="hsides" cellspacing="0" cellpadding="6" border="2">
+
+
+<colgroup>
+<col class="left">
+
+<col class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Esemény</th>
+<th scope="col" class="left">Akció</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">A nyugtázotthoz, és vett sorszámhoz képest folyamatosan jön egy szegmens</td>
+<td class="left">Késleltetetés. Ne küldj ACK-t, még 200 ms-ig.</td>
+</tr>
+
+<tr>
+<td class="left">A vett sorszámhoz képest folyamatosan jön egy szegmens, van már nyugtáznivaló (timer ketyeg)</td>
+<td class="left">Azonnal küldj ACK-t, csúsztasd a window-t.</td>
+</tr>
+
+<tr>
+<td class="left">A vett sorszámmal összevetve kimaradást jelző sorszámmal jön csomag</td>
+<td class="left">Azonnal küldj ACK-t az előző csomagot nyugtázva (duplicate ack).</td>
+</tr>
+
+<tr>
+<td class="left">Egy lyukból eddig hiányzó, a lyuk aljához illeszkedő csomag érkezik</td>
+<td class="left">Azonnal küldj ACK-t.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">TCP Retransmission timeout (RTO): a nyugtázatlan csomag újraküldésének időzítése</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Ha túl rövid, felesleges újraküldés történik
+</li>
+<li>Ha túl hosszú, nagy csuklást okoz egy csomag elvesztése
+</li>
+<li><b>RTT</b> – Rount Trip Time
+<ul class="org-ul">
+<li>TCP szegmens újraküldésnél ez határozza meg a timeout-ot
+</li>
+<li>Egy szegmens elküldése és a hozzá tartozó ACK megérkezése közti idő
+<ul class="org-ul">
+<li>Időben változik, sok mindentől függ
+</li>
+<li>Átlagot érdemes venni
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Exponential Backoff: ha újraküldünk, az RTO-t duplázzuk, egy határig (jellemző érték: 9 perc)
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">Hogyan függ az RTO az RTT-től ?</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li><i>Becsült-RTT = a * Becsült-RTT + (1-a) * Mért-RTT</i>, ahol <i>0&lt;a&lt;1</i>
+</li>
+<li><i>RTO = b * Becsült-RTT</i>, ahol <i>b&gt;1</i>
+</li>
+<li>Tipikus értékek: <i>a = 0.9, b = 2</i>
+</li>
+<li>Ravaszságok
+<ul class="org-ul">
+<li><i>a</i> nem konstans: ha hirtelen nő a <i>Mért-RTT</i>, legyen kisebb: gyorsabban vegyük figyelembe a romlást
+</li>
+<li>Karn algoritmus:
+<ul class="org-ul">
+<li>Ha ismételtünk egy csomagot, az arra jövő ack-ból ne számoljunk RTT-t
+<ul class="org-ul">
+<li>Nem tudhatjuk, hogy az ismételt csomagra jött, vagy az eredetire
+</li>
+</ul>
+</li>
+<li>Ha ismétlünk egy csomagot, az RTO-t ne módosítsuk (most dupláztuk exponential backoff miatt!), míg ismétlés nélkül nem
+csikarunk ki ack-t
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">Interaktív adatforgalom</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>Kis csomagok
+</li>
+<li>Lehetőleg azonnali echo
+</li>
+<li>TOS: minimize delay
+</li>
+<li>Nagy a csomagokon az overhead: sokszor 1 byte-on 40, ráadásul a nyugta!
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">Nagle algoritmus</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>Probléma: a lassú vonal végén ülő felhasználó gépelésével mindig újabb csomagokat generál
+<ul class="org-ul">
+<li>Ha torlódnak a csomagok, ezzel tetézi a bajt
+</li>
+</ul>
+</li>
+<li><a href="http://tools.ietf.org/html/896">RFC896</a>
+</li>
+<li>Nem küldünk újabb csomagot, bufferelünk, míg van nyugtázatlan kintlevő csomag
+</li>
+<li>Timeout után mindenképpen ürítünk
+</li>
+<li>Önszabályozó: ha gyors a hálózat, nincs is hatása
+</li>
+<li>Egyes alkalmazásoknál hátrányt jelent
+<ul class="org-ul">
+<li>X terminálok
+</li>
+<li>Több karakteres vezérlőszekvenciák (pl. PF gomb)
+</li>
+<li>Ki lehet kapcsolni (klasszikus mondás: <code>TCP_NODELAY</code>)
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11">Torlódás kezelése</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li>Számítani kell rá, hogy sok eszközön megy át a csomag, amiket túlterhelhetünk, csomagokat dobnak el
+</li>
+<li>Ha bambán újraküldünk: növeljük a bajt, a túlterheltséget
+</li>
+<li>Congestion control: mit csináljunk, ha torlódás lett
+</li>
+<li>Congestion avoidance: mit csináljunk, hogy elkerüljük a torlódást
+</li>
+<li>Összefoglaló: <a href="http://tools.ietf.org/html/2581">RFC2581</a> TCP Congestion Control
+<ul class="org-ul">
+<li>Az egyik szerző R.W. Stevens
+</li>
+<li>Újabb változat <a href="http://tools.ietf.org/html/5681">RFC5681</a>
+</li>
+</ul>
+</li>
+
+<li>Nem csak a technológia tanulságos, hanem a szemléletmód is: a
+congestion avoidance a szolidaritásra szép példa (ahogy a DNS a szubszidiaritásra)
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12">Slow start</h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li>Nem csak a fogadó, a küldő is flow controlt alkalmaz
+</li>
+<li>Congestion window: a hálózat kímélése érdekében bevezetett ablak
+<ul class="org-ul">
+<li>A küldő becslése, a TCP masina belső változója: <i>cwnd</i>
+</li>
+<li>A receive window és a congestion window jobb szélének minimuma határozza meg, hogy küldhetek-e csomagot
+</li>
+</ul>
+</li>
+<li>Kezdetben a Congestion window (klasszikusan) 1 MSS méretű
+<ul class="org-ul">
+<li>Lehet 10 MSS, sőt van javaslat még nagyobbra <!-- – <a href="http://code.google.com/speed/articles/tcp_initcwnd_paper.pdf">google munkatársak cikke</a> -->
+</li>
+</ul>
+</li>
+<li>Minden ack-zott szegmens 1 MSS-sel növeli a <i>cwnd</i>-t
+<ul class="org-ul">
+<li>Ideális esetben a <i>cwnd</i> nem korlátoz
+</li>
+<li>A vevő képességét, illetve a hálózati kapacitást teljesen kihasználva tömjük a hálózatot
+</li>
+</ul>
+</li>
+<li>Slow start alatt az átvitel exponenciálisan nő
+</li>
+<li>A slow start alkalmazásával elkerüljük, hogy azonnal bajt okozzunk
+</li>
+<li>Ha torlódást észlelünk, a congestion avoidance algoritmus jut szóhoz
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 8. előadás_files/slowstart.png" alt="slowstart.png">
+</p>
+<p><span class="figure-number">Figure 3:</span> TCP slow start</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13">Congestion avoidance</h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li>Congestion avoidance-nál a <i>cwnd</i>-t 1 szegmensnyivel növeljük minden RTT alkalmával
+<ul class="org-ul">
+<li>lineáris növekedés
+</li>
+</ul>
+</li>
+<li>Additive increase, multiplicative decrease (AIMD)
+</li>
+<li>Bevezetünk egy új változót: slow start threshold, <i>ssthresh</i>
+<ul class="org-ul">
+<li>Kezdetben a receiver window
+</li>
+</ul>
+</li>
+<li>Slow startot alkalmazunk, ha <i>cwnd &lt; ssthresh</i>, congestion avoidance-t különben
+</li>
+<li>Ha congestion-t észlelünk (RTO, vagy tripla ack), akkor
+<ol class="org-ol">
+<li>Újraküldjük a szegmenst (fast retransmit)
+</li>
+<li>A nyugtázatlan_byte-ok/2-re, de legfeljebb 2 MSS-re csökkentjük <i>ssthresh</i>-t (multiplicative decrease)
+</li>
+<li>Ha RTO történt, akkor slow start-tal indítunk: <i>cwnd = 1</i>
+</li>
+<li>Ha tripla ack, akkor <i>cwnd = ssthresh + 3*MSS</i>
+</li>
+</ol>
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 8. előadás_files/cwnd.png" alt="cwnd.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14">Fast retransmit és fast recovery</h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li>Ha a küldő tripla ACK-kat kap ugyanarra az sequence numberre, akkor congestion-ra következtet
+</li>
+<li>Nem várja ki az RTO-t, hanem újra küld: ez a fast retransmit
+</li>
+<li>Ez után nem kezd elölről a Slow Start szerint, hanem a congestion
+avoidance algoritmust alkalmazza (<i>cwnd=sshthresh+3MSS</i>): ez a fast recovery
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 8. előadás_files/TCP_fastrecovery.JPG">
+</p>
+<p><span class="figure-number">Figure 5:</span> TCP forgalom kisimitas (Forras: Tanenbaum konyv)</p>
+
+<!--
+<p><img src="ssthresh.jpg" alt="ssthresh.jpg">
+</p>
+<p><span class="figure-number">Figure 5:</span> TCP forgalom kisimítás. (Forrás: Stevens könyv)</p>
+
+-->
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-15" class="outline-2">
+<h2 id="sec-15">RED: Random Early Detection</h2>
+<div class="outline-text-2" id="text-15">
+<ul class="org-ul">
+<li>A TCP congestion control eljárások egészségesebbé tették az internetet
+<ul class="org-ul">
+<li>A TCP kapcsolatok „reagálnak” a torlódásokra
+</li>
+<li>Megszűnt a 80-as években előforduló „congestion collapse”
+</li>
+</ul>
+</li>
+<li>A hálózat belsejében is lépéseket kell tenni:
+<ul class="org-ul">
+<li>Active queue management a routerekben
+</li>
+</ul>
+</li>
+<li><a href="http://tools.ietf.org/html/2309">RFC2309</a>: Internet Performance Recommendations
+</li>
+<li>Első megoldás
+<ul class="org-ul">
+<li>A router queue-kat kezel egyes interfészeihez
+</li>
+<li>Ha a queue-ba már nem fér egy csomag, eldobja
+</li>
+<li>Hátrányok:
+<ul class="org-ul">
+<li>Egyes kapcsolatok monopolizálhatják az erőforrásokat
+</li>
+<li>Ha beáll egy telítettség, nehéz kivergődni belőle
+</li>
+<li>Újabb lökések tovább rontják a helyzetet
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Arra kell törekedni, hogy tartósan kicsik legyenek a Q-k
+<ul class="org-ul">
+<li>Úgyis lesznek lökések, amiket el kell viselni
+</li>
+<li>Interaktív kapcsolatoknál a hosszú Q-k kibírhatatlanok a nagy késleltetés miatt
+</li>
+</ul>
+</li>
+<li>RED működés:
+<ul class="org-ul">
+<li>Minden csomagot bizonyos valószínűséggel eldobunk
+</li>
+<li>A valószínűség annál nagyobb minél nagyobb volt az elmúlt időszakban a Q hossza
+</li>
+<li>Egy-egy eldobott csomag nem okoz nagy gondot, de zsinórban eldobott sok csomag igen
+</li>
+<li>Le tudunk lassítani minden adatfolyamot, flow-t
+</li>
+<li>Folytonosan mérjük az átlagos Q hosszt
+<ul class="org-ul">
+<li>A régebbi időket exponenciálisan kisebb súllyal vesszük figyelembe
+</li>
+<li>A hossz mértékegysége csomag, de byte is lehet
+</li>
+</ul>
+</li>
+<li>Változók: minimum <i>(m)</i> és maximum <i>(M)</i> küszöb, <i>0 &lt; maxp &lt; 1</i>
+</li>
+<li>Ha a Q mért hossza <i>m</i>-nél kisebb, nem dobunk el csomagot, ha <i>M</i>-nél nagyobb minden csomagot eldobunk
+</li>
+<li>Ha a kettő közt van akkor a mért hosszal arányos <i>0</i> és <i>maxp</i> közti valószínüséggel dobjuk el a csomagot
+</li>
+</ul>
+</li>
+<li>WRED - Weighted RED: vannak „egyenlőbb” csomagok: valamilyen szempont szerint bizonyos csomagokat kevésbé valószínűen dobunk
+el
+<ul class="org-ul">
+<li>IP címek
+</li>
+<li>Protokoll
+</li>
+<li>TOS
+</li>
+<li>…
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<!--
+
+<div id="outline-container-sec-16" class="outline-2">
+<h2 id="sec-16">ECN - Explicit Congestion Notification</h2>
+<div class="outline-text-2" id="text-16">
+<ul class="org-ul">
+<li>RED-del együtt használt eljárás
+</li>
+<li>Kerüljük a csomagok eldobását, helyette szinezünk
+</li>
+<li><a href="http://tools.ietf.org/html/2481">RFC2481</a>, <a href="http://tools.ietf.org/html/3168">RFC3168</a>
+</li>
+<li>TCP és IP, végberendezés és router aktív együttműködése
+</li>
+<li>Az IP és TCP fejrészben új flag-eket használ
+<ul class="org-ul">
+<li>ECT: ECN Capable Transmission, IP flag(ek)
+</li>
+<li>CE: Congestion Experienced, IP flag(ek)
+</li>
+<li>ECE ECN Echo, TCP flag
+</li>
+<li>CWR: Congestion Window Reduced, TCP flag
+</li>
+</ul>
+</li>
+<li>Pontosabban (v.ö. IP fejrész, <a href="http://users.itk.ppke.hu/%7Empasztor/netora/2015-osz/eloadas-3.html">3. előadás</a>)
+</li>
+</ul>
+<pre class="example">+-----+-----+
+| ECN FIELD |
++-----+-----+
+  ECT   CE         [Obsolete] RFC2481 names for the ECN bits.
+   0     0         Not-ECT
+   0     1         ECT(1)
+   1     0         ECT(0)
+   1     1         CE
+
+Figure 1: The ECN Field in IP.
+</pre>
+
+<ul class="org-ul">
+<li>TCP fejrész, 13. és 14. byte (v.ö. TCP fejrész, <a href="http://users.itk.ppke.hu/%7Empasztor/netora/2015-osz/eloadas-7.html">előző előadás</a>)
+</li>
+</ul>
+<pre class="example">  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
++---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+|               |               | C | E | U | A | P | R | S | F |
+| Header Length |    Reserved   | W | C | R | C | S | S | Y | I |
+|               |               | R | E | G | K | H | T | N | N |
++---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+</pre>
+
+
+
+<ul class="org-ul">
+<li>TCP kapcsolat felvétel ECN-nel
+<ul class="org-ul">
+<li>A kezdeményező SYN csomagban áll ECE+CWR is
+</li>
+<li>A SYN/ACK csomagban áll ECE
+</li>
+<li>Ez után minden adatcsomagban beállítják az ECT bitet
+<ul class="org-ul">
+<li>Választhatják, hogy egyes csomagokban nem állítanak ECT-t
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ECN a routerben (middlebox-ban)
+<ul class="org-ul">
+<li>Ha a sor hossza m és M közt van, a véletlenszerű eldobás helyett beállítja az adatcsomagban a CE-t, feltéve, hogy a
+csomagban ECT áll
+</li>
+<li>Ha a sor hossza M-nél nagyobb, eldob
+</li>
+</ul>
+</li>
+<li>ECN a fogadó oldalon
+<ul class="org-ul">
+<li>Ha CE bites csomagot kap, ECN Echo-t küld
+</li>
+<li>Minden ACK ECN echo lesz, míg szembe nem jön egy CWR adat
+<ul class="org-ul">
+<li>Az ECN echo csomag elveszhetett!
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ECN az adó oldalon
+<ul class="org-ul">
+<li>Ha ECN Echo csomagot kap, úgy tesz, mintha csomagvesztés által észlelte volna a torlódást
+</li>
+<li>Csökkenti (felére) a <i>cwnd</i>-t
+</li>
+<li>Csökkenti <i>ssthresh</i>-t
+</li>
+<li>A következő kimenő adatban beállítja a CWR bitet
+</li>
+<li>A CWR bitet mindig beállítja, ha bármi okból csökkenti <i>cwnd</i>-t
+</li>
+</ul>
+</li>
+<li>Kompatibilitási probléma
+<ul class="org-ul">
+<li>Az ECN csupa addig használatlan/rezervált bitet vesz igénybe
+</li>
+<li>Egyes TCP stack implementációk nem tolerálják, ha ezek állnak
+</li>
+<li>A linux 2.4 kernel bevezetésekor a web helyek egy része elérhetetlen volt az alapbeállítással, mert ECN-nel vette fel a
+kapcsolatot
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+-->
+
+<div id="outline-container-sec-17" class="outline-2">
+<h2 id="sec-17">Persist timer</h2>
+<div class="outline-text-2" id="text-17">
+<ul class="org-ul">
+<li>Ha a fogadó bufferei elfogytak, bezárja a window-t
+</li>
+<li>Ha újra tud fogadni, nyitja: ACK megismételt acknowledgement numberrel, de nem 0 window-val
+</li>
+<li>Mi van, ha ez az ACK elvész?
+<ul class="org-ul">
+<li>A fogadó nem tudhatja, hogy van-e még a küldőnek mondandója
+</li>
+<li>A küldő próbálkozik: küld egy 1 byte-os csomagot (hite szerint window-n kívül!) (window jobb széle után)
+<ul class="org-ul">
+<li>Ezt ismétli persist timer-enként
+</li>
+<li>A persist timer exponenciálisan nő (Exponential Backoff)
+<ul class="org-ul">
+<li>Tipikusan 1,5 sec-ről indul, 1 percnél nem lesz nagyobb
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-18" class="outline-2">
+<h2 id="sec-18">Silly window szindróma</h2>
+<div class="outline-text-2" id="text-18">
+<ul class="org-ul">
+<li>Ha a vevő oldalon kicsi (akár 1 byte) szabadul fel, lehet 1 byte a window
+</li>
+<li>A küldő 1 byte-ot küld, a vevő megint 1 byte-tal nyit é.í.t.
+</li>
+<li>Erőforráspocsékolás
+</li>
+<li>Elkerülésére
+<ul class="org-ul">
+<li>A vevő nem nyitja a window-t, csak akkor, ha MSS nagyságrendűt nyithat
+</li>
+<li>A küldő nem küld, hacsak
+<ul class="org-ul">
+<li>MSS-nyit küldhet
+</li>
+<li>Mindent küldhet, amit az alkalmazás kért
+<ul class="org-ul">
+<li>Feltéve, hogy Nagle ezt nem tiltja (nem vár ACK-t, és Nagle nincs kikapcsolva)
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-19" class="outline-2">
+<h2 id="sec-19">Keep-alive timer</h2>
+<div class="outline-text-2" id="text-19">
+<ul class="org-ul">
+<li>TCP kapcsolatok eredendően nem bomlanak forgalom hiányában sem
+<ul class="org-ul">
+<li>Akár hónapokig „élve” maradnak
+</li>
+<li>Közben a middlebox-okat újraindíthatták, átkonfigurálhatták, akár kicserélhették
+</li>
+</ul>
+</li>
+<li>Az eredeti szándék szerint az alkalmazások használhatnak „AYT” (Are You There) mechanizmust
+</li>
+<li>Mégis divatba jött a keep-alive mechanizmus
+</li>
+<li><a href="http://tools.ietf.org/html/1122">RFC1122</a> leírja, bár ellenjavallva
+<ol class="org-ol">
+<li>Feleslegesen lebonthat később még használható kapcsolatokat
+</li>
+<li>Feleslegesen hálózati erőforrásokat használ
+</li>
+<li>Kidobott pénz, ha forgalom után fizetünk
+</li>
+</ol>
+</li>
+<li><a href="http://tools.ietf.org/html/1122">RFC1122</a> megengedi, hogy opcionálisan használni lehessen
+</li>
+<li>Keep-alive time: jellemzően 2 óra, általában rendszerparaméter
+</li>
+<li>Ha egy kapcsolat keep-alive ideig néma, akkor a mechanizmust alkalmazó oldal
+<ul class="org-ul">
+<li>Küld egy próba csomagot
+<ul class="org-ul">
+<li>Jellemzően 0 adattal, a küldött utolsó sorszámú SN-nel
+</li>
+<li>Ez window-n kívül lesz! (window bal széle előtt)
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A másik oldal erre ACK-t küld
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-20" class="outline-2">
+<h2 id="sec-20">Wireshark és TCP</h2>
+<div class="outline-text-2" id="text-20">
+<ul class="org-ul">
+<li>A wireshark nagyon alkalmas arra, hogy sok TCP-vel kapcsolatos dolgot
+megértsünk, felfedezzünk
+</li>
+<li>Follow tcp-stream → tcp streamgraph → Stevens
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 8. előadás_files/slowstart-wireshark.png" alt="slowstart-wireshark.png">
+</p>
+<p><span class="figure-number">Figure 6:</span> TCP slow start - Stevens graph</p>
+</div>
+<!--
+<ul class="org-ul">
+<li><a href="https://ask.wireshark.org/questions/">Wireshark fórum</a>
+</li>
+</ul>
+-->
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Szerzõ: Pásztor Miklós, Máray Tamás</p>
+<!--
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+-->
+</div>
+
+
+</body></html>

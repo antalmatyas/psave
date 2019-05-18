@@ -1,0 +1,14 @@
+program nbetu
+változók:
+a:szöveg,
+i:egész
+be:a
+i:=0
+ciklus amíg i < |a|
+ha i= 0 vagy a[i-1] = ' ' akkor
+a[i] := nagy(a[i])
+ha_vége
+i:=i+1
+ciklus_vége
+ki:a
+program_vége

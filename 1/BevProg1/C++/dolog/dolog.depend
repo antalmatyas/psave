@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1476977148 source:c:\users\matyó\desktop\cpp\dolog\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+

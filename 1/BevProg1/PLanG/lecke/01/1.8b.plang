@@ -1,0 +1,10 @@
+PROGRAM szsorn
+  VÁLTOZÓK:
+    a, b, c, n: VALÓS
+ 
+  BE: a
+  BE: b
+  BE: n
+  c := b - a
+  KI: a + (n-1) * c
+PROGRAM_VÉGE

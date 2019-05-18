@@ -1,0 +1,990 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0048)http://users.itk.ppke.hu/~marta5/eloadas-11.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógépes hálózatok – 11. előadás</title>
+
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Pásztor Miklós">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógépes hálózatok – 11. előadás_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Számítógépes hálózatok – 11. előadás</h1>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Routing</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Útvonalválasztás
+</li>
+<li>Csomópontokban merre irányítsuk a forgalmat?
+</li>
+<li>Csomag/üzenet/levél/fájl/… irányítás
+</li>
+</ul>
+</div>
+
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Hol is kell?</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><b>IP szinten</b>
+</li>
+<li>Adatkapcsolati szinten: (STP) Spanning Tree Protocol
+</li>
+<li>Alkalmazás szinten: például mail routing
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Matematikai modell</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Irányított, súlyozott gráfban minimális költségű utat keresni
+</li>
+<li>Két pont közt keressük az optimumot - lehetne általánosabban is !
+</li>
+<li>Kiterjedt irodalma van
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Routing protokollok két családja: <i>distance vector</i> és <i>link state</i></h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1">Distance vector protokollok</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li>Minden csomópont az összes szomszédjának elküldi a teljes
+routing tábláját: <b>hirdetéseket</b>.
+</li>
+<li>A routerek összevetik a jelenlegi routing táblájukat a kapott
+hirdetésekkel: amit egy szomszéd router <i>k</i> távolságra lát, azt én
+<i>k+1</i> távolságra látom és <b>felé</b> route-olom.
+<ul class="org-ul">
+<li>Feltéve, hogy nem volt eddig jobb utam a célhoz. Ha ez a helyzet,
+egyszerűen figyelmen kívül hagyom a hirdetést.
+</li>
+</ul>
+</li>
+<li>Ha stabil a hálózat állapota, akkor egy idő után a routing táblák is
+stabilizálódnak minden csomópontban: <b>konvergencia</b>.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2">Link state protokollok</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<ul class="org-ul">
+<li>A csomópontok nem a routing táblájukat, hanem a kapcsolataikat
+(link) hirdetik.
+</li>
+<li>Nem csak a szomszédoknak, hanem az egész hálózatba.
+<ul class="org-ul">
+<li>Fontos, hogy mindenhova eljusson minden hirdetés.
+</li>
+</ul>
+</li>
+<li>Minden csomópont tudni fogja a teljes topológiát, és ezek alapján
+építi fel <b>önállóan</b> a teljes routing tábláját.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">IP routing protokollok</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><b>Routing tábla</b>
+<ul class="org-ul">
+<li>Minden internetben forgalmazó eszközön jelen van
+</li>
+<li><b>Melyik CIDR blokkot merre</b> (melyik interfészen, melyik IP címre) route-olunk
+</li>
+</ul>
+</li>
+<li>Egyszerű esetben meg lehet úszni egy default route-tal
+</li>
+<li>Az internet attól szép, és működőképes, hogy időben és térben változatos és folyton változó a hálózatok/csomópontok összekötése
+</li>
+<li>Nem elég a statikus routing információ: időben változó, <b>dinamikus</b> kell
+</li>
+<li>Nem csak egy utat veszünk figyelembe, hanem többet: <b>multipath routing</b> kell
+<ul class="org-ul">
+<li>Folyamatosan változik/változhat a routing tábla – különösen routereken
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Distance vector protokollok</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Minden router, minden célpontról (hálózatról) küld információt
+<ul class="org-ul">
+<li>Milyen célpontot
+</li>
+<li>Milyen messze lát: súly, távolság, költség, metric, (pl. hopcount)
+</li>
+<li>Melyik szomszéd router fele (a célpont „tulajdonosa”)
+</li>
+</ul>
+</li>
+<li>A szomszédos routereknek periodikusan elküldi a saját képét a hálózatról
+</li>
+<li>A szomszédos router 1-et hozzáad minden kapott értékhez
+</li>
+<li>A régi saját táblázatát, és a most kapottat összefésüli - eldobja a rosszabb utakat
+<ul class="org-ul">
+<li>Ha egy célpont „tulajdonosától” nagyobbat kap, azt is elfogadja
+<ul class="org-ul">
+<li>Csak csökkenni tudna a költség
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A saját képét ő is elküldi az összes többinek
+</li>
+<li>Lassan beáll egy állapot: <b>konvergencia</b>
+</li>
+<li>Periodikusan kötelező update-et küldeni
+</li>
+<li>Ha sokáig nem kapunk valahonnan update-et, az ő útjait elfelejtjük
+</li>
+<li>Triggered update: ha változás van (pl. meghal valami, vagy update-et kap), időn kívül is küld update-et
+</li>
+<li>Példa: RIP, IGRP
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1">Counting to infinity - Split horizon</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<pre class="example">+-----+      +-------+        +------+
+|  A  |------|   B   |---//---|  C   |
++-----+      +-------+        +------+
+</pre>
+
+<ul class="org-ul">
+<li>Ha <i>B</i> és <i>C</i> közt megszakad a kapcsolat, <i>B</i> <i>A</i>-tól még mindig hallja 2-es count-tal hirdetni <i>C</i>-t
+</li>
+<li>Loophoz vezet
+<ul class="org-ul">
+<li>Sokáig tarthat, míg végtelenig számlálunk
+</li>
+<li>Ezért a végtelent kicsire érdemes választani ;-)
+</li>
+</ul>
+</li>
+<li><b>Split horizon</b>: ha <i>A</i> csak <i>B</i>-től hallja <i>C</i>-t, akkor <i>B</i> fele <b>nem</b> hirdeti
+</li>
+<li><b>Poisoned reverse</b>
+<ul class="org-ul">
+<li>Ha <i>A</i> csak <i>B</i>-től hallja <i>C</i>-t, akkor visszafele <b>végtelen</b> költséggel hirdeti
+</li>
+</ul>
+</li>
+<li>Nem szűnteti meg teljesen a végtelenig számlálást
+</li>
+</ul>
+
+<pre class="example">+----+
+| A  |       +-----+          +------+
++----+-------|  C  |----//----|  D   |
+   |     +-- +-----+          +------+
+   |    /
++----+ /
+| B  |/
++----+
+</pre>
+
+<ul class="org-ul">
+<li><i>A</i> és <i>B</i> egymásnak fogja hirdetni <i>D</i> elérhetőségét, akkor is ha már <i>C</i> és <i>D</i> közt nincs kapcsolat
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2">RIP - Routing Information Protocol</h4>
+<div class="outline-text-4" id="text-2-1-2">
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 11. előadás_files/rip1.png" alt="rip1.png">
+</p>
+</div>
+
+<table border="no">
+<tbody><tr>
+  <td>
+
+  <table border="1">
+
+<tbody><tr><th colspan="3">A</th></tr>
+  <tr><th>Dst</th><th>Hop</th><th>Next</th></tr>
+  <tr><td>155.1.1.0/16</td><td>1</td><td>-</td><td>
+  </td></tr><tr><td>190.2.2.0/24</td><td>1</td><td>-</td><td>
+  </td></tr><tr><td>195.22.2.64/26</td><td>1</td><td>-</td><td>
+  </td></tr><tr><td>195.22.2.128/26</td><td>1</td><td>-</td><td>
+  </td></tr><tr><td>195.22.2.0/26</td><td>2</td><td>195.22.2.66</td><td>
+  </td></tr><tr><td>201.3.3.0/24</td><td>3</td><td>195.22.2.66</td><td>
+  </td></tr><tr><td>13.0.0.0/8</td><td>2</td><td>195.22.2.132</td><td>
+  </td></tr></tbody></table>
+</td><td>
+
+  <table border="1">
+
+<tbody><tr><th colspan="3">B</th></tr>
+  <tr><th>Dst</th><th>Hop</th><th>Next</th></tr>
+  <tr><td>155.1.1.0/16</td><td>2</td><td>195.22.2.65</td><td>
+  </td></tr><tr><td>190.2.2.0/24</td><td>2</td><td>195.22.2.65</td><td>
+  </td></tr><tr><td>195.22.2.64/26</td><td>1</td><td>-</td><td>
+  </td></tr><tr><td>195.22.2.128/26</td><td>2</td><td>195.22.2.65</td><td>
+  </td></tr><tr><td>195.22.2.0/26</td><td>1</td><td>-</td><td>
+  </td></tr><tr><td>201.3.3.0/24</td><td>2</td><td>195.22.2.3</td><td>
+  </td></tr><tr><td>13.0.0.0/8</td><td>3</td><td>195.22.2.65</td><td>
+  </td></tr></tbody></table>
+</td><td>
+
+  <table border="1">
+
+<tbody><tr><th colspan="3">C</th></tr>
+  <tr><th>Dst</th><th>Hop</th><th>Next</th></tr>
+  <tr><td>155.1.1.0/16</td><td>3</td><td>195.22.2.2</td><td>
+  </td></tr><tr><td>190.2.2.0/24</td><td>3</td><td>195.22.2.2</td><td>
+  </td></tr><tr><td>195.22.2.64/26</td><td>2</td><td>195.22.2.2</td><td>
+  </td></tr><tr><td>195.22.2.128/26</td><td>3</td><td>195.22.2.2</td><td>
+  </td></tr><tr><td>195.22.2.0/26</td><td>2</td><td>-</td><td>
+  </td></tr><tr><td>201.3.3.0/24</td><td>1</td><td>-</td><td>
+  </td></tr><tr><td>13.0.0.0/8</td><td>4</td><td>195.22.2.2</td><td>
+  </td></tr></tbody></table>
+</td><td>
+
+  <table border="1">
+
+<tbody><tr><th colspan="3">D</th></tr>
+  <tr><th>Dst</th><th>Hop</th><th>Next</th></tr>
+  <tr><td>155.1.1.0/16</td><td>2</td><td>195.22.2.129</td><td>
+  </td></tr><tr><td>190.2.2.0/24</td><td>2</td><td>195.22.2.129</td><td>
+  </td></tr><tr><td>195.22.2.64/26</td><td>2</td><td>195.22.2.129</td><td>
+  </td></tr><tr><td>195.22.2.128/26</td><td>1</td><td>-</td><td>
+  </td></tr><tr><td>195.22.2.0/26</td><td>3</td><td>195.22.2.129</td><td>
+  </td></tr><tr><td>201.3.3.0/24</td><td>4</td><td>195.22.2.129</td><td>
+  </td></tr><tr><td>13.0.0.0/8</td><td>1</td><td>-</td><td>
+  </td></tr></tbody></table>
+
+  </td></tr></tbody></table>
+
+
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/1058">RFC1058</a>, <a href="http://tools.ietf.org/html/2453">RFC2453</a> (RIPv2)
+</li>
+<li>Distance-vector alapú
+<ul class="org-ul">
+<li>Destination: egy cél hálózat
+</li>
+<li>Cost (él súly): a küldő távolsága a céltól (hop count)
+</li>
+<li>Source: a küldő router ID-je
+</li>
+</ul>
+</li>
+<li>Split horizon, poisoned reverse
+</li>
+<li>Triggered update
+</li>
+<li>UDP <code>520</code> port
+</li>
+<li>Végtelen = 16
+</li>
+<li>RIP1 - IP broadcast
+</li>
+<li>RIP2 - IP multicast: <code>244.0.0.9</code>
+</li>
+</ul>
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  command (1)  |  version (1)  | zero/RIP1, routing domain/RIP2|
++---------------+---------------+-------------------------------+
+|                                                               |
+~                         RIP Entry (20)                        ~
+|                                                               |
++---------------+---------------+---------------+---------------+
+</pre>
+
+
+<ul class="org-ul">
+<li>Command: 1 = request, 2 = response
+</li>
+<li>Version: 1 (RIP1) vagy 2 (RIP2)
+</li>
+<li>Routing domain: azonosító, egy hálózaton/gépen több RIP instancia is futhat, azok közt választ
+</li>
+
+<li>Egy RIP1 entry:
+</li>
+</ul>
+
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| address family identifier (2) |      must be zero (2)         |
++-------------------------------+-------------------------------+
+|                        IPv4 address (4)                       |
++---------------------------------------------------------------+
+|                        must be zero (4)                       |
++---------------------------------------------------------------+
+|                        must be zero (4)                       |
++---------------------------------------------------------------+
+|                           metric (4)                          |
++---------------------------------------------------------------+
+</pre>
+
+<ul class="org-ul">
+<li>Address family: IP-nél 2
+</li>
+<li>IPv4 cím: hálózat, vagy host cím
+</li>
+<li>metric: távolság
+</li>
+
+<li>Egy RIP2 entry:
+</li>
+</ul>
+<pre class="example"> 0                   1                   2                   3 3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| Address Family Identifier (2) |        Route Tag (2)          |
++-------------------------------+-------------------------------+
+|                         IP Address (4)                        |
++---------------------------------------------------------------+
+|                         Subnet Mask (4)                       |
++---------------------------------------------------------------+
+|                         Next Hop (4)                          |
++---------------------------------------------------------------+
+|                         Metric (4)                            |
++---------------------------------------------------------------+
+</pre>
+
+<ul class="org-ul">
+<li>Address Family = 2, ha IP v4
+</li>
+<li>Route Tag: az AS (Autonomous System) ID, ha ilyet is tud a küldő
+</li>
+<li>Subnet mask: a hirdetett címhez/tartományhoz tartozó maszk – RIP1-nél nincs!
+</li>
+<li>Next hop: én erre az IP címre route-olom ezt
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-3" class="outline-4">
+<h4 id="sec-2-1-3">RIP2 autentikáció</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<ul class="org-ul">
+<li>Speciális RIP entry: address family = <code>0xFFFF</code>
+</li>
+<li>Egy jelszó megy 16 byte-on a maradék RIP entry részben
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-4" class="outline-4">
+<h4 id="sec-2-1-4">RIP2 autentikáció továbbfejlesztés</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<ul class="org-ul">
+<li>Az eredeti RIP2 autentikáció gyenge
+</li>
+<li><a href="http://tools.ietf.org/html/4822">RFC4822</a>: MD5 vagy SHA1 hash-t képez
+<ul class="org-ul">
+<li>16 byte-os shared secret-ből és az üzenetből
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-5" class="outline-4">
+<h4 id="sec-2-1-5">Időzítések</h4>
+<div class="outline-text-4" id="text-2-1-5">
+<ul class="org-ul">
+<li><b>Update:</b> 30 sec. Ennyi időnként szól a szomszédoknak
+</li>
+<li><b>Timeout:</b> 180 sec. Ha ennyi ideig nem kap valahonnan update-et, végtelenre (16) állítja az arra menő utakat
+</li>
+<li><b>Garbage collection:</b> 120 sec. A törlésre szánt (végtelen költségű) utak ennyi idő múlva valóban törlődnek
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-6" class="outline-4">
+<h4 id="sec-2-1-6">Miért RIP?</h4>
+<div class="outline-text-4" id="text-2-1-6">
+<ul class="org-ul">
+<li>PRO: Egyszerűen konfigurálható, viszonylag gyors konvergencia, rövidek a count to infinity loop-ok
+</li>
+<li>CONTRA: Nem használható nagy hálózatban: legfeljebb 15 hop
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-7" class="outline-4">
+<h4 id="sec-2-1-7">Autonóm rendszer - Autonoumous System (AS)</h4>
+<div class="outline-text-4" id="text-2-1-7">
+<ul class="org-ul">
+<li>Routing szempontjából önálló entitás
+</li>
+<li>Pl. egy-egy szolgáltató által felügyelt hálózat
+</li>
+<li>Egy azonosítót rendel hozzá: AS number
+<ul class="org-ul">
+<li>Az AS number eredetileg 16 bites, 2006 óta <a href="http://www.potaroo.net/tools/asn32/">32 bites</a> lehet
+</li>
+<li>Fontos, hogy világállandó legyen
+</li>
+<li>Európában a RIPE osztja
+</li>
+<li>A világon máshol: ARIN, APNIC, LACNIC, AFRINIC
+</li>
+</ul>
+</li>
+<li>CIDR hálózatok, <b>prefixek</b> egy halmaza
+<ul class="org-ul">
+<li>Az AS ezeket tartalmazza
+</li>
+<li>Az AS ezeket és a tanultakat hirdeti
+</li>
+<li>Route aggregation: össze lehet vonni CIDR blokkokat
+<ul class="org-ul">
+<li>Pl. a <code>193.224.0.0/15</code>-at egyben tudja hírdetni a HBONE AS
+</li>
+<li>Ebbe tartozik az ITK blokkja, a <code>193.225.109.0/24</code>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NIIF AS NR: <code>1955</code>
+</li>
+<li>AS fajták:
+<ul class="org-ul">
+<li>Stub: egy másik AS fele van kapcsolata
+</li>
+<li>Multihomed: több AS fele van kapcsolata
+</li>
+<li>Transit: nem csak a saját forgalmát bonyolítja
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-1-8" class="outline-4">
+<h4 id="sec-2-1-8">Interior Gateway Protocol (IGP), Exterior Gateway Protocol (EGP)</h4>
+<div class="outline-text-4" id="text-2-1-8">
+<ul class="org-ul">
+<li>Egy AS-en belüli routing: <b>IGP</b>
+<ul class="org-ul">
+<li>Jellemző protokollok: RIP, OSPF, EIGRP (Cisco saját, de publikus definíció), IS-IS
+</li>
+</ul>
+</li>
+<li>AS-ek közti routing: <b>EGP</b>
+<ul class="org-ul">
+<li>BGP
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-9" class="outline-4">
+<h4 id="sec-2-1-9">BGP - Border Gateway Protocol</h4>
+<div class="outline-text-4" id="text-2-1-9">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/1771">RFC1771</a> BGP - version 4
+</li>
+<li><a href="http://tools.ietf.org/html/4271">RFC4271</a> újabb, bővített, javított kiadása
+</li>
+<li>Az interneten ezen alapul a routing, a backbone routerek ezt használják
+</li>
+<li>AS-eken belül is használják: iBGP - internal BGP
+</li>
+<li>Hirdetés - advertisement
+</li>
+<li>Adminisztrációs döntés kérdése:
+<ul class="org-ul">
+<li>A route-olás: policy based routing
+</li>
+<li>A hirdetések elfogadása
+<ul class="org-ul">
+<li>Pl. ISP-k nem fogadnak el /25-ös hirdetéseket
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TCP alapú, <code>179</code>-es port
+<ul class="org-ul">
+<li>BGP peers: konfiguráció kérdése
+</li>
+<li>A peer-hez vezető út nem lehet BGP függő
+<ul class="org-ul">
+<li>Közvetlen szomszéd
+</li>
+<li>Statikus út
+</li>
+<li>AS-en belüli (IGP) route
+</li>
+</ul>
+</li>
+<li>Kezdetben teljes táblázat - később inkrementális update
+</li>
+<li>Keep-alive üzenetek: alapértelmezésben 30 sec
+</li>
+</ul>
+</li>
+<li>Distance vector: a célhoz vezető AS-eket tartja számon: <b>AS Path</b>
+</li>
+<li>BGP dampening: a gyakran változó hirdetéseket nem veszik figyelembe
+<ul class="org-ul">
+<li>Ha lejár egy timeout, visszaveszik
+</li>
+</ul>
+</li>
+<li>Route-olás:
+<ul class="org-ul">
+<li>A specifikusabb (hosszabb netmaszkú) út preferált
+</li>
+<li>A lokális (AS-en belüli) út preferált (cold potato)
+</li>
+<li>A rövidebb AS-path preferált
+</li>
+<li>Végső döntés: kisebb IP cím
+</li>
+</ul>
+</li>
+<li>Route reflector
+<ul class="org-ul">
+<li>Nem kell full-mesh: mindenki csak a közvetítővel beszél
+</li>
+<li><a href="http://tools.ietf.org/html/2796">RFC2796</a>
+</li>
+</ul>
+</li>
+<li>A BGP hirdetéseket nem ismétlik periodikusan (RIP, OSPF igen)
+</li>
+
+<li>Egy BGP üzenet 1 destination fele csak 1 route-ot hirdet
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-10" class="outline-4">
+<h4 id="sec-2-1-10">BGP üzenetek</h4>
+<div class="outline-text-4" id="text-2-1-10">
+<ul class="org-ul">
+<li>open
+<ul class="org-ul">
+<li>Ki vagyok ?
+<ul class="org-ul">
+<li>AS number
+</li>
+<li>Router ID
+</li>
+</ul>
+</li>
+<li>Hold time
+<ul class="org-ul">
+<li>Ennyi időnként kell halljak tőled üzenetet, különben lebontom a kapcsolatot
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>update
+<ul class="org-ul">
+<li>Route-ok küldése
+</li>
+</ul>
+</li>
+<li>keepalive
+<ul class="org-ul">
+<li>Nem tartalmaz routing információt (különbözik RIP, OSPF-nél!)
+</li>
+</ul>
+</li>
+<li>notification
+<ul class="org-ul">
+<li>Hibaüzenet
+</li>
+<li>Ez után bomlik a BGP kapcsolat
+</li>
+</ul>
+</li>
+<li>route-refresh
+<ul class="org-ul">
+<li>Kérlek küldd el a teljes routing tábládat
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-11" class="outline-4">
+<h4 id="sec-2-1-11">BGP állapot pillanatfelvétel</h4>
+<div class="outline-text-4" id="text-2-1-11">
+<pre class="example">route-server&gt;sho ip bgp summ
+BGP router identifier 12.0.1.28, local AS number 65000
+BGP table version is 4531838, main routing table version 4531838
+349853 network entries using 42332213 bytes of memory
+6421122 path entries using 333898344 bytes of memory
+434933/59464 BGP path/bestpath attribute entries using 60890620 bytes of memory
+85225 BGP AS-PATH entries using 2234930 bytes of memory
+141 BGP community entries using 3384 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 439359491 total bytes of memory
+Dampening enabled. 947 history paths, 1403 dampened paths
+BGP activity 386988/37135 prefixes, 7508771/1087649 paths, scan interval 60 secs
+
+Neighbor V AS MsgRcvd MsgSent TblVer InQ OutQ Up/Down State/PfxRcd
+12.122.83.91 4 7018 123464 15888 4531838 0 0 1w4d 62006
+12.122.125.4 4 7018 113962 31743 4531838 0 0 1w4d 61952
+12.123.1.236 4 7018 734220 15888 4531838 0 0 1w4d 349786
+12.123.5.240 4 7018 706352 15887 4531838 0 0 1w4d 349786
+12.123.9.241 4 7018 732571 15887 4531838 0 0 1w4d 349786
+12.123.13.241 4 7018 748721 15887 4531838 0 0 1w4d 349788
+12.123.17.244 4 7018 837705 15888 4531838 0 0 1w4d 349792
+12.123.21.243 4 7018 710111 15888 4531838 0 0 1w4d 349789
+12.123.25.245 4 7018 816917 15888 4531838 0 0 1w4d 349790
+12.123.29.249 4 7018 687763 15888 4531838 0 0 1w4d 349792
+12.123.33.249 4 7018 924657 15888 4531838 0 0 1w4d 349792
+12.123.37.250 4 7018 851313 15888 4531838 0 0 1w4d 349791
+12.123.41.250 4 7018 732548 15887 4531838 0 0 1w4d 349790
+12.123.45.252 4 7018 732877 15888 4531838 0 0 1w4d 349788
+12.123.133.124 4 7018 921513 15888 4531838 0 0 1w4d 349789
+12.123.134.124 4 7018 834446 15888 4531838 0 0 1w4d 349788
+12.123.137.124 4 7018 768822 15888 4531838 0 0 1w4d 349787
+12.123.139.124 4 7018 819424 15888 4531838 0 0 1w4d 349790
+12.123.142.124 4 7018 749401 15885 4531838 0 0 1w3d 349788
+12.123.145.124 4 7018 688564 15888 4531838 0 0 1w4d 349792
+</pre>
+
+<ul class="org-ul">
+<li>2016-ben már több mint 600 ezer hálózatot hirdetnek a backbone routerek!
+</li>
+</ul>
+<p>
+<a href="http://bgp.potaroo.net/as2.0/bgp-active.html">http://bgp.potaroo.net/as2.0/bgp-active.html</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-12" class="outline-4">
+<h4 id="sec-2-1-12">BGP táblázat részlet</h4>
+<div class="outline-text-4" id="text-2-1-12">
+<pre class="example">Network Next Hop Metric LocPrf Weight Path
+*&gt; 12.5.52.0/24 62.40.103.25 155 0 20965 3356 701 12163 i
+*&gt; 12.5.53.0/24 62.40.103.25 155 0 20965 1299 7911 19094 29734 i
+*&gt; 12.5.54.0/23 62.40.103.25 155 0 20965 3356 701 12163 i
+*&gt; 12.5.56.0/23 62.40.103.25 155 0 20965 3356 701 12163 i
+*&gt; 12.5.56.0/22 62.40.103.25 155 0 20965 3356 701 12163 i
+*&gt; 12.5.58.0/24 62.40.103.25 155 0 20965 3356 701 12163 i
+*&gt; 12.5.59.0/24 62.40.103.25 155 0 20965 3356 701 12163 i
+*&gt; 12.5.60.0/22 62.40.103.25 155 0 20965 3356 701 12163 i
+*&gt; 12.5.96.0/24 62.40.103.25 155 0 20965 1299 1239 6988 i
+*&gt; 12.5.103.0/24 62.40.103.25 155 0 20965 1299 7018 11230 i
+*&gt; 12.5.122.0/23 62.40.103.25 155 0 20965 1299 7018 20324 i
+*&gt; 12.5.128.0/24 62.40.103.25 155 0 20965 1299 209 21594 i
+*&gt; 12.5.129.0/24 62.40.103.25 155 0 20965 1299 209 21594 i
+*&gt; 12.5.130.0/24 62.40.103.25 155 0 20965 1299 7018 21594 i
+*&gt; 12.5.131.0/24 62.40.103.25 155 0 20965 1299 7018 2386 i
+*&gt; 12.5.134.0/24 62.40.103.25 155 0 20965 1299 7018 2386 i
+*&gt; 12.5.136.0/24 62.40.103.25 155 0 20965 3356 12179 16759 i
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-13" class="outline-4">
+<h4 id="sec-2-1-13">Egy IP cím merre route-olódik?</h4>
+<div class="outline-text-4" id="text-2-1-13">
+<pre class="example">gsr16.vh&gt;sho ip bgp 193.0.0.1
+BGP routing table entry for 193.0.0.0/21, version 25187349
+Bestpath Modifiers: always-compare-med
+Paths: (1 available, best #1)
+Advertised to update-groups:
+1 4
+20965 1103 3333
+62.40.103.25 from 62.40.103.25 (62.40.102.19)
+Origin IGP, localpref 155, valid, external, best
+Community: 1955:20965
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Whois</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Egyszerű, emberi fogyasztársra közvetlenül alkalmas információk hálózati alanyokról
+</li>
+
+<li>Egy ilyen alany: <b>objektum</b>
+
+<ul class="org-ul">
+<li>Hálózat
+</li>
+<li>AS
+</li>
+<li>domain
+</li>
+</ul>
+</li>
+
+<li>Egy tulajdonsága: <b>attribútum</b>
+<ul class="org-ul">
+<li>Tulajdonos neve
+</li>
+<li>Felelős neve
+<ul class="org-ul">
+<li>Adminisztratív
+</li>
+<li>Technikai
+</li>
+</ul>
+</li>
+<li>E-mail (?) cím
+</li>
+</ul>
+</li>
+
+<li>Példa:
+</li>
+</ul>
+<pre class="example">whois -T aut-num AS5377 -h whois.ripe.net
+</pre>
+
+<ul class="org-ul">
+<li>Egyetlen kérdés/válasz
+</li>
+
+<li>TCP <code>43</code>-as port
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Looking glass</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Az interneten elszórva http felületen lekérdezhető routerek
+</li>
+<li>Diagnosztikai eszköz
+</li>
+<li>BGP információ
+</li>
+<li>Traceroute információ
+</li>
+<li>Gyűjtemény: <a href="http://www.bgp4.as/looking-glasses">http://www.bgp4.as/looking-glasses</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">Route szerverek</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>Az interneten elszórva telnettel elérhető routerek
+</li>
+<li>Diagnosztikai eszköz
+</li>
+<li>Gyűjtemény: <a href="http://www.traceroute.org/">http://www.traceroute.org</a>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">Olvasnivaló</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li><a href="http://bgpmon.net/">http://bgpmon.net/</a>
+</li>
+<li><a href="http://www.bgp4.as/">http://www.bgp4.as/</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Szerzõ: Pásztor Miklós, Máray Tamás</p>
+<!--
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+-->
+</div>
+
+
+</body></html>

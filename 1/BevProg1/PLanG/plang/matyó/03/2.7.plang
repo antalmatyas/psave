@@ -1,0 +1,34 @@
+PROGRAM nedikfibonacci
+  VÁLTOZÓK:
+    a, b, e, n, i: EGÉSZ,
+    w: LOGIKAI
+ 
+  i := 2
+  a := 0
+  b := 1
+  e := 1
+  w := IGAZ
+  BE: n
+  HA n < 1 AKKOR
+    KI: "A természetes számok 1-gyel kezdõdnek!"
+  KÜLÖNBEN
+    HA n = 1 AKKOR
+      e := 0
+    HA_VÉGE
+    HA n = 2 AKKOR
+      e := 1
+    HA_VÉGE
+    CIKLUS AMÍG i < n
+      e := a + b
+      HA w AKKOR
+        w := HAMIS
+        a := e
+      KÜLÖNBEN
+        w := IGAZ
+        b := e
+      HA_VÉGE
+      i := i + 1
+    CIKLUS_VÉGE
+    KI: e
+  HA_VÉGE
+PROGRAM_VÉGE

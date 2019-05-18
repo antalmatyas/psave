@@ -1,0 +1,15 @@
+PROGRAM monogram
+  VÁLTOZÓK:
+    a: EGÉSZ,
+    n: SZÖVEG
+ 
+BE: n
+KI: n[0], "."
+a := 0
+CIKLUS AMÍG a /= |n|
+HA n[a] = ' ' AKKOR
+KI: ' ', n[a + 1], '.'
+HA_VÉGE
+a := a + 1
+CIKLUS_VÉGE
+PROGRAM_VÉGE

@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1487491205 source:c:\users\matyó\desktop\graphicsproject\main.cpp
+	"graphics.hpp"
+	<iostream>
+
+1430018866 c:\users\matyó\desktop\graphicsproject\include\graphics.hpp
+	<string>
+
+1487491205 source:c:\users\matyó\dropbox\000exterior\2\bprog2\boxmozgat\main.cpp
+	"graphics.hpp"
+	<iostream>
+
+1430018866 c:\users\matyó\dropbox\000exterior\2\bprog2\boxmozgat\include\graphics.hpp
+	<string>
+

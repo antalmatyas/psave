@@ -1,0 +1,7 @@
+PROGRAM elso
+  VÁLTOZÓK:
+    a: SZÖVEG
+ 
+  BE: a
+  KI: NAGY a[0] = a[0]
+PROGRAM_VÉGE

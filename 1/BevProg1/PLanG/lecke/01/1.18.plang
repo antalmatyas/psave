@@ -1,0 +1,8 @@
+PROGRAM elsoot
+  VÁLTOZÓK:
+    a, b: SZÖVEG
+ 
+  BE: a
+  BE: b
+  KI: |a| > 4 ÉS |b| > 4 ÉS a[0:5] = b[0:5]
+PROGRAM_VÉGE

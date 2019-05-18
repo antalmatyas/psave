@@ -1,0 +1,9 @@
+PROGRAM kezdoesvege
+  VÁLTOZÓK:
+    a: SZÖVEG,
+    b: EGÉSZ
+ 
+  BE: a
+  b := |a|
+  KI: a[0] = a[b - 1]
+PROGRAM_VÉGE

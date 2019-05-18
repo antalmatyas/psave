@@ -1,0 +1,13 @@
+program elso
+valtozok: 
+string1, string2, string3: szoveg,
+n: egesz
+
+BE: string1, string2
+n := string1 @ ' '
+string1 := string1[n:|string1|]
+string3 := string2 + string1
+
+KI: string3
+
+program_vege

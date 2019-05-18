@@ -1,0 +1,43 @@
+Tananyag: a komplex számoktól a május 2. elõadásig.
+
+Típus feladatok:
+
+- n. egységgyökök, primitív egységgyökök kiszámítása bármely alakban, ábrázolása
+
+- számolási feladat különbözõ alakban adott komplex számokkal
+
+- magasabb fokú polinom gyökeinek meghatározása
+
+-  Cayley- Hamilton tétel  illusztrálása
+
+- többszörös szögek sin, cos kifejezése egyszeres szögek függvényeivel
+
+- igaz-e, hogy adott függvény: skalárszorzat/norma/metrika?
+
+- adott skalárszorzatból metrika, norma származtatása, adott normából metrika származtatása
+
+- "vektorok" (mátrixok, polinomok, folyt. függvények vektorterének vektorai) skalárszorzata, metrikája, normája, "szöge", ortogonalitása.
+
+ - spec. transzformációk tulajdonságainak illusztrálása
+
+- Gram-Schmidt ortogonalizáció
+
+
+
+Elmélet: Minden definíció és tétel kimondása.
+
+Bizonyítással:
+
+- egységgyökök struktúrája
+
+- Cauchy - Bunyakovszkij- Schwarz egyenlõtlenség
+ 
+- ortogonális vektorok függetlenek
+
+- ha van skalárszorzat, megadható norma
+
+- ha van skalárszorzat, megadható metrika
+
+- ha van norma, megadható metrika
+
+- ha van ortogonális bázis, akkor van ortonormált bázis is.

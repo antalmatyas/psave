@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1491243840 source:c:\users\matyó\desktop\graphicsproject\main.cpp
+	"graphics.hpp"
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<vector>
+	<cmath>
+	"komplex.hpp"
+
+1430022466 c:\users\matyó\desktop\graphicsproject\include\graphics.hpp
+	<string>
+
+1491243744 c:\users\matyó\desktop\graphicsproject\komplex.hpp
+
+1491243840 source:c:\users\matyó\dropbox\000exterior\2\bprog2\mandelbrot 2\main.cpp
+	"graphics.hpp"
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<vector>
+	<cmath>
+	"komplex.hpp"
+
+1430022466 c:\users\matyó\dropbox\000exterior\2\bprog2\mandelbrot 2\include\graphics.hpp
+	<string>
+
+1491243744 c:\users\matyó\dropbox\000exterior\2\bprog2\mandelbrot 2\komplex.hpp
+

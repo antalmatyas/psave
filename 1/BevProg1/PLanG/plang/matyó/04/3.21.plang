@@ -1,0 +1,16 @@
+program YETIIIII
+valtozok:
+	n, i : egesz,
+	szovegecske : szoveg
+
+be: szovegecske
+i := 0
+n := 0
+ciklus amig i < |szovegecske|
+ha szovegecske[i] = 'a' akkor
+n:= n+ 1
+ha_vege
+i := i + 1
+ciklus_vege
+ki:n
+program_vege

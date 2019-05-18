@@ -1,0 +1,789 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0047)http://users.itk.ppke.hu/~marta5/eloadas-4.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógépes hálózatok - 4. előadás</title>
+
+<meta name="generator" content="Org-mode">
+<meta name="author" content="">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógépes hálózatok - 4. előadás_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Számítógépes hálózatok - 4. előadás</h1>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">ARP, RARP, BOOTP, DHCP</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Hogyan tudja meg a link layer (ethernet) címet egy hálózati állomás?</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>ARP - Address Resolution Protocol
+</li>
+<li><a href="http://tools.ietf.org/html/826">RFC826</a>
+</li>
+<li>Elsősorban etherneten
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">ARP csomag formátum</h3>
+<div class="outline-text-3" id="text-1-2">
+<pre class="example">6         6        2       2       2       1     1     2     6        4      6         4
++--------+---------+-------+-------+-------+-----+-----+-----+--------+------+---------+------+
+|Ethernet| Ethernet| típus |hardw  | proto |Hardw| Prot|Opcod|Ethernet|IP    | Ethernet| IP   |
+|cél     |  forrás |       | típus | típus | size| size|     | forrás |forrás|    cél  | cél  |
++--------+---------+-------+-------+-------+-----+-----+-----+--------+------+---------+------+
+   &lt;- Ethernet header -&gt;   |                         &lt;- ARP header -&gt;
+</pre>
+
+<p>
+Vagy másképp felrajzolva:
+</p><p>
+<img src="./Számítógépes hálózatok - 4. előadás_files/arp-header2.png">
+</p><p>
+
+</p><ul class="org-ul">
+<li>Az ethernet type: <code>0x806</code>
+</li>
+<li>A kérés broadcast, a válasz unicast
+</li>
+<li>Hardware type: ethernetnél 1
+</li>
+<li>Protocol type: IP-nél <code>0x800</code>
+</li>
+<li>Hardware size (address length): 6 (ethernet cím hossza)
+</li>
+<li>Protocol size (address length): 4 (IP cím hossza)
+</li>
+<li>Opcode: 1 ha kérés, 2 ha válasz, 3 ha RARP request, 4 ha RARP válasz
+</li>
+</ul>
+<pre class="example">22:25:58.477643 0:b:cd:8:24:22 Broadcast arp 42: arp who-has 10.1.30.1 tell 10.1.30.200
+22:25:58.477818 0:7:e9:2e:74:99 0:b:cd:8:24:22 arp 60: arp reply 10.1.30.1 is-at 0:7:e9:2e:74:99
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">ARP kérés nem létező hostra</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>A broadcast-ra nem jön válasz
+</li>
+<li>A kérdező timeout után újra próbálkozik
+<ul class="org-ul">
+<li>Implementáció függő
+</li>
+</ul>
+</li>
+<li>Egy idő után feladja, értesíti a felsőbb réteget a hibáról
+<ul class="org-ul">
+<li>Implementáció függő
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">ARP cache</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>A megtanult megfeleltetéseket az állomások megjegyzik
+</li>
+<li>Timeout: néhány perc
+<ul class="org-ul">
+<li>Implementáció függő
+</li>
+</ul>
+</li>
+<li>Erővel is lehet ARP entryket betenni, kivenni
+<ul class="org-ul">
+<li>Unixokon arp parancs
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">Proxy ARP</h3>
+<div class="outline-text-3" id="text-1-5">
+<pre class="example">                    +---------------+
+                    | Távoli host   | 10.1.1.3/24
+                    +------+--------+
+                           |
+                    +------+----+
+                    |  Router   |
+                    +-----+-----+
+                          |
+                          |
+=================================================================   LAN
+    |                                      |
++--------+                             +--------+
+| Host 1 |  10.1.1.1/24                | Host 2 | 10.1.1.2/24
++--------+                             +--------+
+</pre>
+
+<ul class="org-ul">
+<li>A router a távoli host-ot a LAN-on jelenlevőnek mutatja
+</li>
+<li>Válaszol a 10.1.1.3 IP címre érkező ARP kérésekre
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">UNARP</h3>
+<div class="outline-text-3" id="text-1-6">
+<pre class="example">              +--------+
+              | Host A |
+              +--------+
+                  |
+======================================== LAN
+    |                             |
++--------+                    +--------+
+|   R1   |   Routerek         |   R2   |
++--------+                    +--------+
+  |    |                        |    |
+ +-+  +-+                      +-+  +-+
+ | |  | |       modemek        | |  | |
+ +-+  +-+                      +-+  +-+
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">UNARP probléma</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li>Modemeken át jönnek állomások
+<ul class="org-ul">
+<li>Modemek helyett manapság VPN, Virtual Private Network végződések
+</li>
+</ul>
+</li>
+<li>A LAN-on használt IP címekből használnak
+</li>
+<li>R1 és R2 proxy arp-t ad nekik
+</li>
+<li>Egyik pillanatról a másikra átkerülhetnek R1-ről R2-re
+</li>
+<li>Host A rossz ARP információt hihet !
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">UNARP megoldás</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/1868">RFC1868</a>
+</li>
+<li>Ethernet ARP broadcast <b>reply</b>
+</li>
+<li>A source ethernet cím üres!
+</li>
+<li>A cache-ekből mindenki kiüríti az IP címhez tartozó ARP entry-t
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">Gratuitous ARP</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li>A saját IP címemre adok ki ARP kérést
+</li>
+<li>Segít felfedezni, ha tévedésből többször osztották ki ugyanazt az IP
+címet
+</li>
+<li>Sokszor az operációs rendszerek ezzel kezdik az IP cím használatát
+<ul class="org-ul">
+<li>Nem veszik birtokba a címet, ha választ kapnak
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10">ARP cache poisoning</h3>
+<div class="outline-text-3" id="text-1-10">
+<ul class="org-ul">
+<li>Egy rosszindulatú támadó hamis ARP adatokkal mérgezhet
+</li>
+<li>Elterelhet forgalmat
+</li>
+<li>Túlcsordíthat ARP cache-t: DoS (Denial of Service)
+</li>
+<li>WiFi növeli a veszélyét !
+</li>
+<li>Védekezés: ARP táblákat be lehet vasalni
+<ul class="org-ul">
+<li>Fáradságos lehet, de nagy biztonságot követelő helyeken szükséges
+</li>
+<li>Szerver esetén, ahol a forgalom akár 100%-ban csak <b>egyetlen</b> router
+felé irányul, könnyű és célszerű lehet használni
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11">Man in the Middle támadás ARP cache poisoninggal</h3>
+<div class="outline-text-3" id="text-1-11">
+<pre class="example">+-------+       B    +-------+   A      +---------+
+|  A    |    &lt;------ |   C   | ------&gt;  |    B    |
++-------+     vagyok +-------+ vagyok   +---------+
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12"><a href="http://ettercap.github.io/ettercap">ettercap</a></h3>
+<div class="outline-text-3" id="text-1-12">
+<ul class="org-ul">
+<li>ARP hamisításon alapuló eszköz
+</li>
+<li>Egy <i>broadcast domain</i>-on belül működik
+</li>
+<li>Switch-elt hálózaton hallgatózásra (snooping)
+<ul class="org-ul">
+<li>Úgy lehet hallgatózni, mint a régi jó busz topológiájú hálózaton
+</li>
+<li>VLAN-ok - viszonylagos - védelmet jelentenek
+</li>
+</ul>
+</li>
+<li>Man in the Middle támadás végrehajtására
+</li>
+<li>Grafikus felület
+</li>
+<li>A debian linux disztribució része
+</li>
+<li>Diagnosztikai, hibakeresési céllal jól használható
+</li>
+<li>„Script kiddie” támadásokra is alkalmas
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13">Mi van, ha nem tudjuk a saját IP címünket?</h3>
+<div class="outline-text-3" id="text-1-13">
+</div><div id="outline-container-sec-1-13-1" class="outline-4">
+<h4 id="sec-1-13-1">RARP</h4>
+<div class="outline-text-4" id="text-1-13-1">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/903">RFC903</a>
+</li>
+<li>Külön ethernet frame type: <code>0x8035</code>
+<ul class="org-ul">
+<li>Lehetne ARP is
+</li>
+</ul>
+</li>
+<li>Broadcast kérés
+</li>
+<li>A formátum megegyezik az ARP-vel
+</li>
+<li>A válaszban a címzett IP címe és ethernet címe
+</li>
+<li>A válasz már unicast
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-13-2" class="outline-4">
+<h4 id="sec-1-13-2">RARP hátrányok</h4>
+<div class="outline-text-4" id="text-1-13-2">
+<ul class="org-ul">
+<li>Csak egy puszta IP címet ad vissza (routert, netmaskot nem)
+</li>
+<li>Nem route-olható
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-13-3" class="outline-4">
+<h4 id="sec-1-13-3">BOOTP</h4>
+<div class="outline-text-4" id="text-1-13-3">
+<ul class="org-ul">
+<li>Kliens gépek automatikus konfigurálása, indítása
+<ul class="org-ul">
+<li>Pl. X terminálok, „vékony” kliensek
+</li>
+</ul>
+</li>
+<li><a href="http://tools.ietf.org/html/951">RFC951</a>, <a href="http://tools.ietf.org/html/1542">RFC1542</a>
+</li>
+<li>IP címen kívül visszaad
+<ul class="org-ul">
+<li>Netmaskot
+</li>
+<li>Router címet
+</li>
+<li>Boot server host címet
+</li>
+<li>Boot fájlnevet
+</li>
+<li>…
+</li>
+</ul>
+</li>
+<li>UDP csomagok
+<ul class="org-ul">
+<li>server port: <code>67</code> (bootps)
+</li>
+<li>kliens port: <code>68</code> (bootpc)
+</li>
+</ul>
+</li>
+<li>A kérés ethernet broadcast, a válasz rendszerint unicast
+<ul class="org-ul">
+<li>Lehet broadcast, ha a BOOTP flag-ben azt kérte a kliens
+</li>
+</ul>
+</li>
+<li>Hogyan használhat a kliens UDP-t, amikor még IP címe sincs?
+<ul class="org-ul">
+<li>A <code>0.0.0.0</code> forrás címet használja (unspecified address)
+</li>
+<li>A <code>255.255.255.255</code> cél címet használja (broadcast)
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-13-4" class="outline-4">
+<h4 id="sec-1-13-4">BOOTP csomagformátum</h4>
+<div class="outline-text-4" id="text-1-13-4">
+<pre class="example">0                   1                   2                   3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     op (1)    |   htype (1)   |   hlen (1)    |   hops (1)    |
++---------------+---------------+---------------+---------------+
+|                            xid (4)                            |
++-------------------------------+-------------------------------+
+|           secs (2)            |           flags (2)           |
++-------------------------------+-------------------------------+
+|                           ciaddr (4)                          |
++---------------------------------------------------------------+
+|                           yiaddr (4)                          |
++---------------------------------------------------------------+
+|                           siaddr (4)                          |
++---------------------------------------------------------------+
+|                           giaddr (4)                          |
++---------------------------------------------------------------+
+|                                                               |
+|                           chaddr (16)                         |
+|                                                               |
+|                                                               |
++---------------------------------------------------------------+
+|                                                               |
+|                           sname  (64)                         |
++---------------------------------------------------------------+
+|                                                               |
+|                           file   (128)                        |
++---------------------------------------------------------------+
+|                                                               |
+|                           vend   (64)                         |
++---------------------------------------------------------------+
+</pre>
+
+
+<ul class="org-ul">
+<li>opcode: 1 - request, 2 reply
+</li>
+<li>htype, hlen: mint arp-nél
+</li>
+<li>hop count: a kliens 0-ra állítja, proxy szerverek (= bootp-t közvetítő router-ek) eggyel növelik
+<ul class="org-ul">
+<li>A BOOTP route-olható, de gyakorlatban ritkán route-olják
+</li>
+</ul>
+</li>
+<li>xid: tracnsaction id. Ezzel derül ki, hogy mi mire válasz
+</li>
+<li>secs: az első bootp kérés óta eltelt idő
+<ul class="org-ul">
+<li>Ha a kliens nem kap választ <i>exponential backoff</i> szerint újra próbálkozik
+</li>
+</ul>
+</li>
+<li>flags: Itt kérheti a legfelső biten a kliens, hogy a BOOTP reply is
+broadcast legyen
+</li>
+<li>ciaddr: Client IP address. Kérésben a kliens kitöltheti: ezt kérem
+</li>
+<li>yiaddr: Your IP address. Ezt a címet kapja a kliens
+</li>
+<li>siaddr: Server IP address. A következő szerver IP címe, akivel a
+boot folytatható
+</li>
+<li>giaddr: Gateway IP address. Ha relé (bootp átengedésre konfigurált
+router) van, annak a címe
+</li>
+<li>chaddr: a kliens hardware (ethernet) címe - akkor van jelentősége, ha reléken
+át éri el a szervert a kliens
+</li>
+<li>sname: server host name
+<ul class="org-ul">
+<li>Annak a szervernek a neve, ahonnan majd az operációs rendszert letöltheted
+</li>
+</ul>
+</li>
+<li>file: boot fájlnév
+<ul class="org-ul">
+<li>Az operációs rendszeredet tartalmazó fájl, amit le kell töltened
+</li>
+<li>A fájl maga TFTP protokollal tölthető le
+</li>
+</ul>
+</li>
+<li>vend: különböző kiegészítések (<i>vendor specific information</i>)
+<ul class="org-ul">
+<li>magic cookie: az első 4 byte
+<ul class="org-ul">
+<li>Elvben többféle szintaxis következhet, ezt határozza meg
+</li>
+<li>A gyakorlatban mindig ugyanazt az értéket látjuk: (<code>0x63825363</code>)
+</li>
+</ul>
+</li>
+<li>tag kód, hossz, érték
+</li>
+<li>Netmask
+</li>
+<li>Router(ek) IP címe
+<ul class="org-ul">
+<li>Több is lehet
+</li>
+</ul>
+</li>
+<li>DNS szerver IP címe
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-13-5" class="outline-4">
+<h4 id="sec-1-13-5">DHCP</h4>
+<div class="outline-text-4" id="text-1-13-5">
+<ul class="org-ul">
+<li>Dynamic Host Configuration Protocol, <a href="http://tools.ietf.org/html/2131">RFC2131</a>
+</li>
+<li>BOOTP kompatibilis
+<ul class="org-ul">
+<li>Portok, üzenet formátum megegyezik a BOOTP-vel, de bővül a
+lehetőségek köre
+</li>
+<li>A ,vend' helyett az ,options' szó használatos
+</li>
+<li>312 byte hosszú lehet (64 volt)
+</li>
+<li>DHCP ,,message type'' opció
+</li>
+</ul>
+</li>
+<li>Rugalmasan lehet IP címeket kiosztani
+<ul class="org-ul">
+<li>Permanens IP cím - nem jár le
+</li>
+<li>Dinamikusan - egy poolból véletlenszerűen, meghatározott időre
+<ul class="org-ul">
+<li>Egy IP cím/kliens/időintervallum együttes: <b>lease</b>
+</li>
+</ul>
+</li>
+<li>Manuálisan - ugyanaz a kliens mindig ugyanazt kapja
+</li>
+</ul>
+</li>
+<li>Nem lehet DHCP-vel
+<ul class="org-ul">
+<li>DNS bejegyzést eszközölni
+</li>
+<li>Egy routert konfigurálni
+</li>
+</ul>
+</li>
+<li>Message types
+<ul class="org-ul">
+<li>DHCPDISCOVER
+</li>
+<li>DHCPOFFER
+</li>
+<li>DHCPREQUEST
+</li>
+<li>DHCPACK
+</li>
+<li>DHCPNAK
+</li>
+<li>DHCPRELEASE
+<ul class="org-ul">
+<li>A kliens elengedi a lease-t (IP címet)
+</li>
+</ul>
+</li>
+<li>DHCPINFORM
+<ul class="org-ul">
+<li>A kliens csak konfigurációs paramétereket (opciókat) kér
+</li>
+</ul>
+</li>
+<li>DHCPDECLINE
+<ul class="org-ul">
+<li>A kliensnek mégse kell a cím, mert úgy tudja, hogy már használatos
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>4 lépcsős kezdeti handshake
+<ul class="org-ul">
+<li>DISCOVER (broadcast) →
+</li>
+<li>OFFER ←
+</li>
+<li>REQUEST →
+</li>
+<li>ACK ←
+</li>
+</ul>
+</li>
+<li>Lease-ek
+<ul class="org-ul">
+<li>A szerver az összes kiosztott lease-ről nyilvántartást vezet
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-13-6" class="outline-4">
+<h4 id="sec-1-13-6">Leases adatbázis részlet</h4>
+<div class="outline-text-4" id="text-1-13-6">
+<pre class="example">lease 10.2.19.105 {
+        starts 3 2004/10/13 11:07:41;
+        ends 3 2004/10/13 23:07:41;
+        hardware ethernet 00:0d:60:8d:49:34;
+        uid 01:00:0d:60:8d:49:34;
+        client-hostname "Pingvin";
+}
+lease 10.2.19.110 {
+        starts 2 2004/10/12 13:12:05;
+        ends 2 2004/10/12 13:14:05;
+        hardware ethernet 00:11:92:fa:ee:00;
+}
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-13-7" class="outline-4">
+<h4 id="sec-1-13-7">DHCP szerver konfiguráció fájl részlet</h4>
+<div class="outline-text-4" id="text-1-13-7">
+<pre class="example">subnet 10.18.48.0 netmask 255.255.255.0{
+  range 10.18.48.150 10.18.48.200;
+  option subnet-mask 255.255.255.0;
+  option broadcast-address 10.18.48.255;
+  option domain-name-servers 193.224.194.225;
+  option routers 10.18.48.254;
+  option domain-name "sapientia.hu";
+}
+
+
+host eva {hardware ethernet 00:b0:d0:08:02:79; fixed-address 193.224.194.26;}
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-13-8" class="outline-4">
+<h4 id="sec-1-13-8">PXE - Preboot Execution Environment</h4>
+<div class="outline-text-4" id="text-1-13-8">
+<ul class="org-ul">
+<li>Az Intel szabvány, PC-k hálózati boot-olására
+<ul class="org-ul">
+<li><a href="http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf">http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf</a>
+</li>
+</ul>
+</li>
+<li>DHCP-n és TFTP-n alapul
+</li>
+<li>DHCP kiegészítéseket tartalmaz
+<ul class="org-ul">
+<li>Pl: csak olyan DHCP szervertől fogad el a kliens választ, ami – az
+opcióban közölt – hardware architektúrájának megfelelő
+</li>
+</ul>
+</li>
+<li>Szabványos user interfészről is szól
+</li>
+<li>Nem csak Intel hardware-en használható
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Szerzõ: Pásztor Miklós, Máray Tamás</p>
+<!--
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+-->
+</div>
+
+
+
+</body></html>

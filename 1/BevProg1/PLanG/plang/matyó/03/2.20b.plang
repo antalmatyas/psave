@@ -1,0 +1,12 @@
+PROGRAM megford
+  VÁLTOZÓK:
+    n: EGÉSZ,
+    txt: szoveg
+
+be: txt
+n := |txt| - 1
+ciklus amig n >= 0
+	ki: txt[n]
+	n := n - 1
+ciklus_vege 
+PROGRAM_VÉGE

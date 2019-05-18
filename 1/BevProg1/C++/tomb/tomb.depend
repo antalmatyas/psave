@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1477582793 source:c:\users\matyó\desktop\c++\tomb\main.cpp
+	<iostream>
+	<cstdlib>
+	<vector>
+

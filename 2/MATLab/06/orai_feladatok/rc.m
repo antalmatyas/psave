@@ -1,0 +1,13 @@
+V0 = 2;
+R = 1000;
+C = 0.0005;
+tau = R*C;
+stv = V0/R;
+F = @(t, i) -(1/tau)*i;
+[t45, y45] = ode45(F, [0 1], stv);
+t = 0:0.001:1;
+y = (V0/R)*exp(-(t/tau));
+figure(1);
+plot(t45, y45, '-b');
+hold on;
+plot(t, y, '--r');

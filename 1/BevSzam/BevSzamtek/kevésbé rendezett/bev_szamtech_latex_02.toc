@@ -1,0 +1,20 @@
+\beamer@endinputifotherversion {3.10pt}
+\select@language {magyar}
+\beamer@sectionintoc {1}{Matematikai k\v d\.z\H {}pletek haszn\v d\.z\H {}lata}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Elm\v d\.z\H {}leti ism\v d\.z\H {}tl\v d\.z\H {}s}{3}{0}{1}
+\beamer@subsubsectionintoc {1}{1}{1}{Gyakorl\v d\.z\H {}s}{17}{0}{1}
+\beamer@subsectionintoc {1}{2}{kereszthivatkoz\v d\.z\H {}sok \v d\.z\H {}s t\v d\.z\H {}bb soros egyenletek}{19}{0}{1}
+\beamer@subsubsectionintoc {1}{2}{1}{Gyakorl\v d\.z\H {}s}{28}{0}{1}
+\beamer@subsectionintoc {1}{3}{Z\v d\.z\H {}r\v d\.z\H {}jelez\v d\.z\H {}s}{30}{0}{1}
+\beamer@subsubsectionintoc {1}{3}{1}{Gyakorl\v d\.z\H {}s}{33}{0}{1}
+\beamer@subsectionintoc {1}{4}{Matematikai bet\v d\.z\H {}t\v d\.z\H {}pusok \v d\.z\H {}s oper\v d\.z\H {}torok}{35}{0}{1}
+\beamer@subsectionintoc {1}{5}{M\v d\.z\H {}trix k\v d\.z\H {}rnyezetek}{37}{0}{1}
+\beamer@subsectionintoc {1}{6}{T\v d\.z\H {}bl\v d\.z\H {}zatok}{38}{0}{1}
+\beamer@sectionintoc {2}{K\v d\.z\H {}pek kezel\v d\.z\H {}se}{41}{0}{2}
+\beamer@subsectionintoc {2}{1}{\v d\.z\H {}bra k\v d\.z\H {}rnyezet}{42}{0}{2}
+\beamer@subsubsectionintoc {2}{1}{1}{P\v d\.z\H {}lda}{45}{0}{2}
+\beamer@subsectionintoc {2}{2}{\v d\.z\H {}br\v d\.z\H {}k elhelyez\v d\.z\H {}se oldalon bel\v d\.z\H {}l}{46}{0}{2}
+\beamer@subsectionintoc {2}{3}{\v d\.z\H {}br\v d\.z\H {}k m\v d\.z\H {}rete}{47}{0}{2}
+\beamer@subsectionintoc {2}{4}{Be\v d\.z\H {}gyazott k\v d\.z\H {}pek}{49}{0}{2}
+\beamer@subsectionintoc {2}{5}{\v d\.z\H {}brafeliratokr\v d\.z\H {}l}{51}{0}{2}
+\beamer@subsectionintoc {2}{6}{\v d\.z\H {}brajegyz\v d\.z\H {}k}{53}{0}{2}

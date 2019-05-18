@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0063)http://grafika.itk.ppke.hu/segedanyag/VisualStudioNETSteps.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+
+
+  
+    <title>Visual Studio .NET és a GLUT</title>
+  </head><body>
+    <h1>GLUT használata Microsoft Visual Studio C++ .NET környezetben (2003, 2005, 2005 Express Edition)</h1>
+
+    <hr>
+
+    <h2>Előkészületek:</h2>
+
+    <ul>
+      <li>Töltsük le a <a href="http://www.xmission.com/~nate/glut.html">http://www.xmission.com/~nate/glut.html</a> oldalról a glut-3.7.6-bin.zip (117 KB) file-t, a tartalmát csomagoljuk ki.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Visual Studio .NET C++ 2003</h2>
+
+    <ul>
+      <li>Másoljuk át a következő file-okat (feltesszük, hogy a Visual Studio a <tt>c:\Program Files</tt> könyvtárba van telepítve):
+	<ul>
+	  <li><b><tt>glut.h</tt></b> a <tt>c:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\PlatformSDK\Include\gl</tt> könyvtárba.</li>
+	  <li><b><tt>glut32.lib</tt></b> a <tt>c:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\PlatformSDK\Lib</tt> könyvtárba.
+	</li></ul>
+      </li><li>A program futtatásakor a <b><tt>glut32.dll</tt></b> file-nak a rendszer által elérhető helyen (pl. <tt>Windows\System</tt> alkönyvtár), vagy a futtatható állomány könyvtárában kell lennie.</li>
+    </ul>
+    
+    <h3>Ha nincs írási jogunk a Visual C++ könyvtárakra:</h3>
+    <p>Elegendő egyszer megcsinálni:</p>
+    <ul>
+      <li>Hozzunk létre egy tetszőleges alkönyvtárat (bármi lehet, itt a C:\glut néven hivatkozunk rá).</li>
+      <li>Ide másoljuk be a <b>glut32.lib</b> file-t.</li>
+      <li>Hozzunk létre itt egy <b>GL</b> nevű alkönyvtárat, és ebbe másoljuk be a  <b>glut.h</b> file-t.</li>
+      <li>A Tools / Options / Projects / VC++ Directories opciónál adjuk meg Include és Library könyvtárként a <tt>c:\glut</tt> könyvtárat.</li>
+    </ul>
+    
+    <img src="./Visual Studio .NET és a GLUT_files/VisualStudioNET2003Directories.png">
+
+    <p>A <tt>simple.c</tt> példaprogram fordításának menete</p>
+    <ul>
+      <li>File / New / Project</li>
+      <li>Visual C++ Projects / Win32 / Win32 Console Project</li>
+      <li>Name: simple</li>
+      <li>OK</li>
+      <li>Application Settings: Jelöljük ki az "Empty project"-et.</li>
+      <li>Finish</li>
+      <li>Másoljuk be az új project könyvtárba a <tt>simple.c</tt> file-t.</li>
+      <li>A "Solution Explorer"-ben a simple csomóponton kattintsunk a jobb egérgombbal, majd Add / Existing Item.</li>
+      <li>Válasszuk ki a <tt>simple.c</tt> file-t.</li>
+      <li>Build / Build Solution</li>
+      <li>Debug / Start Debugging</li>
+    </ul>
+
+    <hr>
+
+    <h2>Visual Studio C++ 2005</h2>
+
+    <ul>
+      <li>Másoljuk át a következő file-okat (feltesszük, hogy a Visual Studio a <tt>c:\Program Files</tt> könyvtárba van telepítve):
+	<ul>
+	  <li><b><tt>glut.h</tt></b> a <tt>c:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\Include\gl</tt> könyvtárba.</li>
+	  <li><b><tt>glut32.lib</tt></b> a <tt>c:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\Lib</tt> könyvtárba.
+	</li></ul>
+      </li><li>A program futtatásakor a <b><tt>glut32.dll</tt></b> file-nak a rendszer által elérhető helyen (pl. <tt>Windows\System</tt> alkönyvtár), vagy a futtatható állomány könyvtárában kell lennie.</li>
+    </ul>
+    
+    <h3>Ha nincs írási jogunk a Visual C++ könyvtárakra:</h3>
+    <p>Elegendő egyszer megcsinálni:</p>
+    <ul>
+      <li>Hozzunk létre egy tetszőleges alkönyvtárat (bármi lehet, itt a C:\glut néven hivatkozunk rá).</li>
+      <li>Ide másoljuk be a <b>glut32.lib</b> file-t.</li>
+      <li>Hozzunk létre itt egy <b>GL</b> nevű alkönyvtárat, és ebbe másoljuk be a  <b>glut.h</b> file-t.</li>
+      <li>A Tools / Options / Projects and Solutions / VC++ Directories opciónál adjuk meg Include és Library könyvtárként a <tt>c:\glut</tt> könyvtárat.</li>
+    </ul>
+    
+    <img src="./Visual Studio .NET és a GLUT_files/VisualStudio2005Directories.png">
+
+    <p>A <tt>simple.c</tt> példaprogram fordításának menete</p>
+    <ul>
+      <li>File / New / Project</li>
+      <li>Visual C++ / Win32 / Win32 Console Application</li>
+      <li>Name: simple</li>
+      <li>OK</li>
+      <li>Application Settings: Jelöljük ki az "Empty project"-et.</li>
+      <li>Finish</li>
+      <li>Másoljuk be az új project könyvtárba a <tt>simple.c</tt> file-t.</li>
+      <li>A "Solution Explorer"-ben a simple csomóponton kattintsunk a jobb egérgombbal, majd Add / Existing Item.</li>
+      <li>Válasszuk ki a <tt>simple.c</tt> file-t.</li>
+      <li>Build / Build Solution</li>
+      <li>Debug / Start Debugging</li>
+    </ul>
+
+    <hr>
+
+    <h2>Visual Studio C++ 2005 Express Edition</h2>
+
+    <p>A Microsoft ingyenesen elérhetővé tette a Visual Studio Express kiadását, amely letölthető az alábbi címről: <a href="http://msdn.microsoft.com/vstudio/express/">http://msdn.microsoft.com/vstudio/express/</a> .</p>
+    <p>A dolog egyetlen szépséghibája, hogy az OpenGL fordításához 
+sincsnek meg a szükséges Lib-ek és fejléc file-ok, nemcsak a GLUT-hoz.</p>
+
+    <p>Kétféle megoldás is lehetséges.</p>
+
+    <ol>
+      <li>
+	Telepítsük a Platform SDK-t az itt leírtak szerint: <a href="http://msdn.microsoft.com/vstudio/express/visualc/usingpsdk/default.aspx">http://msdn.microsoft.com/vstudio/express/visualc/usingpsdk/default.aspx</a>, majd másoljuk a <tt>glut.h</tt> és <tt>glut32.lib</tt> file-okat a PlatformSDK Include és Lib alkönyvtáraiba.
+      </li>
+
+      <li>
+	Ha nem akarunk feleslegesen 1 GB-ot elhasználni a merevlemezen és a Platform SDK-t másra nem használnánk, akkor:
+	<ul>
+	  <li>
+	    Töltsük le a <a href="http://www.inf.u-szeged.hu/~tanacs/oktatas/szggraf10/VisualExpress_OpenGL.zip">VisualExpress_OpenGL.zip</a> file-t és csomagoljuk ki tetszőleges helyre.
+	  </li>
+	  <li>
+	    A Tools / Options / Projects and Solutions / VC++ Directories 
+opciónál adjuk meg Include és Library könyvtárként az előző pontban 
+létrehozott könyvtárnevet.
+	  </li>
+	</ul>
+      </li>
+    </ol>
+
+      <p>A program futtatásakor a <b><tt>glut32.dll</tt></b> file-nak a rendszer által elérhető helyen (pl. <tt>Windows\System</tt> alkönyvtár), vagy a futtatható állomány könyvtárában kell lennie.</p>
+
+    <p>A <tt>simple.c</tt> példaprogram fordításának menete</p>
+    <ul>
+      <li>File / New / Project</li>
+      <li>Win32 / Win32 Console Application</li>
+      <li>Name: simple</li>
+      <li>OK</li>
+      <li>Application Settings: Jelöljük ki az "Empty project"-et.</li>
+      <li>Finish</li>
+      <li>Másoljuk be az új project könyvtárba a <tt>simple.c</tt> file-t.</li>
+      <li>A "Solution Explorer"-ben a simple csomóponton kattintsunk a jobb egérgombbal, majd Add / Existing Item.</li>
+      <li>Válasszuk ki a <tt>simple.c</tt> file-t.</li>
+      <li>Build / Build Solution</li>
+      <li>Debug / Start Debugging</li>
+    </ul>
+
+      <hr>
+      <address><a href="mailto:tanacs@A10X"></a></address>
+<!-- Created: Mon Sep 06 11:03:11 Central Europe Daylight Time 2004 -->
+<!-- hhmts start -->
+Last modified: Tue Sep 05 10:10:09 Central Europe Daylight Time 2006
+<!-- hhmts end -->
+  </body></html>

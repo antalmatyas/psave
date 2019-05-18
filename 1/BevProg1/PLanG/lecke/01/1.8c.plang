@@ -1,0 +1,10 @@
+PROGRAM mersorn
+  VÁLTOZÓK:
+    a, b, q, n: VALÓS
+ 
+  BE: a
+  BE: b
+  BE: n
+  q := b / a
+  KI: a * (q ^ (n - 1))
+PROGRAM_VÉGE

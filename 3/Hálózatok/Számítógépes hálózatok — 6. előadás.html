@@ -1,0 +1,967 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0047)http://users.itk.ppke.hu/~marta5/eloadas-6.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógépes hálózatok — 6. előadás</title>
+
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Pásztor Miklós">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógépes hálózatok — 6. előadás_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Számítógépes hálózatok — 6. előadás</h1>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">ICMP, Internet Control Message Protocol</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>ICMP - <a href="http://tools.ietf.org/html/792">RFC792</a>
+</li>
+<li><i>To control = vezérel</i>
+</li>
+<li>STD 5 (IP-vel együtt)
+<ul class="org-ul">
+<li>Egy-egy RFC, vagy RFC-k egy halmaza lehet <b>internet standard</b>,
+(STD)
+</li>
+<li>A szabvánnyá válás folyamatáról szól az <a href="http://tools.ietf.org/html/2026">RFC2026</a>
+</li>
+<li>Feltétel többek közt: két különböző, együttműködő implementáció
+</li>
+<li>Az <a href="http://www.rfc-editor.org/standards">STD-k</a> listája
+</li>
+</ul>
+</li>
+<li>"IP companion protocol"
+</li>
+<li>Bizonyos szempontból az IP fölött levő réteg
+<ul class="org-ul">
+<li>IP csomagokat használ
+</li>
+<li>IP protocol mező: <code>1</code>
+</li>
+</ul>
+</li>
+<li>Bizonyos szempontból az IP alatti réteg
+<ul class="org-ul">
+<li>Az IP viselkedését (is) befolyásolja
+<ul class="org-ul">
+<li>Hibaüzenetek
+</li>
+<li>Szolgálati üzenetek: routing, netmask stb.
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">ICMP formátum</h3>
+<div class="outline-text-3" id="text-1-1">
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Type      |     Code      |          Checksum             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
+|                                                               |
+|      Üzenet típusától függő rész                              |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+
+<ul class="org-ul">
+<li>Type: az elsődleges információ, az üzenet típusát határozza meg
+</li>
+<li>Code: bizonyos üzeneteknél az üzenet altipusa
+</li>
+<li>Checksum: egyes komplemens összeadás, mint az IP-nél, az egész icmp üzenetre, 16 bites darabokban
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">ICMP üzenet-típusok</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+ICMP üzenet-típusok. Zárójelben a Stevens könyv fejezeteire való utalás
+</p>
+<pre class="example">+------+------+----------------------------------------------------------------+-------+-------+
+| Type | Code | Description                                                    | Query | Error |
+|------+------+----------------------------------------------------------------+-------+-------|
+|    0 |    0 | *echo reply (Ping reply. Chapter 7)*                           | *     |       |
+|------+------+----------------------------------------------------------------+-------+-------|
+|    3 |      | *destination unreachable:*                                     |       |       |
+|------+------+----------------------------------------------------------------+-------+-------|
+|      |    0 | network unreachable (Section 9.3)                              |       | *     |
+|      |    1 | host unreachable (Section 9.3)                                 |       | *     |
+|      |    2 | protocol unreachable                                           |       | *     |
+|      |    3 | port unreachable (Section 6.5)                                 |       | *     |
+|      |    4 | fragmentation needed but don't-fragment bit set (Section 11.6) |       | *     |
+|      |    5 | source route failed (Section 8.5)                              |       | *     |
+|      |    6 | destination network unknown                                    |       | *     |
+|      |    7 | destination host unknown                                       |       | *     |
+|      |    8 | source host isolated (obsolete)                                |       | *     |
+|      |    9 | destination network administratively prohibited                |       | *     |
+|      |   10 | destination host administratively prohibited                   |       | *     |
+|      |   11 | network unreachable for TOS (Section 9.3)                      |       | *     |
+|      |   12 | host unreachable for TOS (Section 9.3)                         |       | *     |
+|      |   13 | communication administratively prohibited by filtering         |       | *     |
+|      |   14 | host precedence violation                                      |       | *     |
+|      |   15 | precedence cutoff in effect                                    |       |       |
+|------+------+----------------------------------------------------------------+-------+-------|
+|    4 |    0 | *source quench (elementary flow control. Section 11.11)*       |       | *     |
+|------+------+----------------------------------------------------------------+-------+-------|
+|    5 |      | *redirect (Section 9.5):*                                      |       |       |
+|------+------+----------------------------------------------------------------+-------+-------|
+|      |    0 | redirect for network                                           |       | *     |
+|      |    1 | redirect for host                                              |       | *     |
+|      |    2 | redirect for type-of-service and network                       |       | *     |
+|      |    3 | redirect for type-of-service and host                          |       | *     |
+|------+------+----------------------------------------------------------------+-------+-------|
+|    8 |    0 | *echo request (Ping request. Chapter 7)*                       | *     |       |
+|------+------+----------------------------------------------------------------+-------+-------|
+|    9 |    0 | *router advertisement (Section 9.6)*                           | *     |       |
+|   10 |    0 | *router solicitation (Section 9.6)*                            | *     |       |
+|------+------+----------------------------------------------------------------+-------+-------|
+|   11 |      | *time exceeded:*                                               |       |       |
+|------+------+----------------------------------------------------------------+-------+-------|
+|      |    0 | time-to-live equals 0 during transit (Traceroute,Chapter 8)    |       | *     |
+|      |    1 | time-to-live equals 0 during reassembly (Section 11.5)         |       | *     |
+|------+------+----------------------------------------------------------------+-------+-------|
+|   12 |      | *parameter problem:*                                           |       |       |
+|      |    0 | IP header bad (catchall error)                                 |       | *     |
+|      |    1 | required option missing                                        |       | *     |
+|------+------+----------------------------------------------------------------+-------+-------|
+|   13 |    0 | *timestamp request (Section 6.4)*                              | *     |       |
+|   14 |    0 | *timestamp reply (Section 6.4)*                                | *     |       |
+|------+------+----------------------------------------------------------------+-------+-------|
+|   15 |    0 | *information request (obsolete)*                               | *     |       |
+|   16 |    0 | *information reply (obsolete)*                                 | *     |       |
+|------+------+----------------------------------------------------------------+-------+-------|
+|   17 |    0 | *address mask request (Section 6.3)*                           | *     |       |
+|   18 |    0 | *address mask reply (Section 6.3)*                             | *     |       |
++------+------+----------------------------------------------------------------+-------+-------+
+</pre>
+
+<ul class="org-ul">
+<li>Két fő csoport
+<ul class="org-ul">
+<li>Hibaüzenetek
+</li>
+<li>Vezérlő, konfiguráló üzenetek
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">A hibaüzenetekre nagyon szigorú szabályok vonatkoznak</h3>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Sose eredményezhet hibaüzenetet:</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>ICMP hibaüzenet
+</li>
+<li>IP broadcast, vagy multicast
+</li>
+<li>Alacsonyabb (link layer) broadcast, vagy multicast
+</li>
+<li>Egy IP csomag többedik (nem első) fragmentuma
+</li>
+<li>Olyan IP csomag, aminek forráscíme nem egy host IP címe
+</li>
+<li>IGMP (Internet Group Management) üzenetek
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">A hibaüzenet mindig tartalmazza a kiváltó IP csomag lényeges részét</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>A teljes IP fejrészet (20-60 byte)
+</li>
+<li>Az első 8 byte-ját az IP adat résznek
+</li>
+<li>TCP és UDP esetén ez tartalmazza a portokat
+<ul class="org-ul">
+<li>A vevő ebből tudja, hogy melyik programot érinti a hiba
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">ICMP address mask request/reply</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>Request típus: <code>17</code>, broadcast
+</li>
+<li>Reply típus: <code>18</code>, unicast
+</li>
+<li>RARP-pal kapcsolatban használatos
+</li>
+<li>Több válasz is érkezhet
+<ul class="org-ul">
+<li>A RARP csak egy puszta címet ad
+</li>
+<li>Nekem is az legyen a netmaskom, ami a többinek
+</li>
+</ul>
+</li>
+<li>Kiment a divatból
+<ul class="org-ul">
+<li>DHCP betölti ezt a funkciót is
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">ICMP Timestamp request/reply</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li>Request típus: <code>13</code>
+</li>
+<li>Reply típus: <code>14</code>
+</li>
+<li>Mindkettő unicast
+</li>
+</ul>
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Type=13/14|     Code=0    |          Checksum             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          ID                   |     Sequence number           |
++-------------------------------+-------------------------------+
+|      Originate timestamp    (O)                               |
++-------------------------------+-------------------------------+
+|      Receive   timestamp    (R)                               |
++-------------------------------+-------------------------------+
+|      Transmit  timestamp    (T)                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+
+<ul class="org-ul">
+<li>Időegység: az UTC éjfél (Coordinated Universal Time) óta eltelt milliszekundumok
+<ul class="org-ul">
+<li>Ha a felső bit <code>0</code>
+</li>
+<li>Ha a felső bit <code>1</code>, akkor más idő is lehet - implementáció függő
+</li>
+</ul>
+</li>
+<li>A gyakorlatban - ma már - a receive és a transmit timestamp egyezik
+</li>
+<li>Óra beállításra alkalmas
+<ul class="org-ul">
+<li>Legyen <i>RTT</i> a request küldés és a reply fogadás közti idő
+</li>
+<li>Ha
+<ul class="org-ul">
+<li>egyformán jár az óránk, és
+</li>
+<li>egyforma a késleltetés oda-vissza,
+</li>
+<li>akkor <i>O+RTT/2=R</i>
+</li>
+<li>Ha <i>R</i> ennél nagyobb, akkor a mi óránk késik, ha kisebb, akkor siet
+</li>
+</ul>
+</li>
+<li>Alternatívák:
+<ul class="org-ul">
+<li><code>13</code> TCP/UDP port: daytime. A helyi időt mutatja olvasható formában
+</li>
+<li>Ravaszabb órabeállító protokoll: NTP (Network Time Protocol)
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok — 6. előadás_files/icmp-timestamp.png" alt="icmp-timestamp.png">
+</p>
+<p><span class="figure-number">Figure 1:</span> ICMP timestamp request/reply</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">NTP</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li>NTP: <a href="http://tools.ietf.org/html/5905">RFC5905</a>,  <a href="http://www.ntp.org/">http://www.ntp.org</a>
+<ul class="org-ul">
+<li>UDP <code>123</code>-as porton működik
+</li>
+<li>A nyilvános interneten is ezredmásodperces pontosságúak lehetnek eszközeinkben a rendszerórák
+</li>
+<li>Pl. szökőmásodperceket azonnal érvényesít
+</li>
+</ul>
+</li>
+<li>Az NTP segítségével nem egymáshoz szinkronizáljuk az órákat, hanem referencia órához (reference clock) állítjuk
+</li>
+<li>A konfigurációban több NTP szervert adhatunk meg, mindegyiket kérdezgetjük, aztán választunk referenciát
+</li>
+<li><b>Stratum:</b> az atomórával vagy GPS-sel közvetlen kapcsolatban levő ntp szerver stratum <code>1</code>
+<ul class="org-ul">
+<li>Ha egy NTP szerver stratum <code>n</code> szerverhez szinkronizál, akkor ő stratum <code>n+1</code>
+</li>
+</ul>
+</li>
+<!--
+<li><b>offset:</b> mennyire tér el az én időm a referenciától
+</li>
+<li><b>skew:</b> milyen gyorsan változik az eltérésem (az offset deriváltja, a frekvencia eltérése)
+</li>
+<li><b>drift:</b> a skew deriváltja
+</li>
+<li><b>dispersion:</b> a mért legnagyobb eltérésem
+</li>
+-->
+<li>Az óra beállítása célszerűen nem pillanatszerű: az <code>adjtime</code> rendszerhívás fokozatosan szinkronizálja az órát
+<ul class="org-ul">
+<li>Így nem lesz kimaradás, sose jár hátrafele az óra.
+</li>
+</ul>
+</li>
+<li>Publikus ntp szerverek listája: <a href="http://psp2.ntp.org/bin/view/Servers/WebHome">http://psp2.ntp.org/bin/view/Servers/WebHome</a>
+</li>
+<li>Magyarországon népszerű: time.kfki.hu
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-8-1" class="outline-4">
+<h4 id="sec-1-8-1">A pool.ntp.org projekt</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<ul class="org-ul">
+<li>Önkéntesek által üzemeltetett <a href="http://www.pool.ntp.org/">projekt</a>
+</li>
+<li>Sok ezer NTP szerver clustere
+</li>
+<li>A <code>pool.ntp.org</code> név véletlenszerűen választ a név alapján publikus ntp
+szerver(eke)t
+</li>
+<li>Egy linuxban ha települ az NTP csomag, ez az alapértelmezett „szerver”,
+amihez szinkronizál
+</li>
+<li>A pool-hoz bárki csatlakozhat, része lehet a clusternek
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">Router advertisement/router solicitation</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/1256">RFC1256</a>
+</li>
+<li>Dinamikusan, ICMP üzenetek által állít route-okat
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10">Router Solicitation</h3>
+<div class="outline-text-3" id="text-1-10">
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Type = 10 |     Code = 0  |           Checksum            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                           Reserved                            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+
+
+
+<ul class="org-ul">
+<li>Type = <code>10</code>
+</li>
+<li>Multicast: <code>224.0.0.2</code> = all routers
+</li>
+<li>A routerek unicast-tal válaszolnak: router advertisement ICMP csomaggal
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11">Router Advertisement</h3>
+<div class="outline-text-3" id="text-1-11">
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Type = 9  |     Code = 0  |           Checksum            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|   Num Addrs   |Addr Entry Size|           Lifetime            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Router Address[1]                       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      Preference Level[1]                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Router Address[2]                       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      Preference Level[2]                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                               .                               |
+|                               .                               |
+|                               .                               |
+</pre>
+
+<ul class="org-ul">
+<li>A default router címét hirdeti
+</li>
+<li>Num Addrs: ennyi router címet hirdetek
+</li>
+<li>Addr entry size: ennyi 4 byte-os érték egy entry (=2)
+</li>
+<li>Lifetime: ennyi másodpercig érvényes ez a hirdetés
+</li>
+<li>Router Address: a router IP címe
+</li>
+<li>Preference Level: előjeles szám, minél nagyobb, annál jobban preferáld
+</li>
+
+<li>Nem csak solicite-ra válaszul, unicasttal, hanem multicasttal is
+<ul class="org-ul">
+<li>8-10 percenként, véletlent belekeverve küldik
+</li>
+<li>A <code>224.0.0.1</code> címre = all hosts
+</li>
+</ul>
+</li>
+
+<li>Nem lehet hálózat/router vagy host/router hozzárendelést megadni
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12">Destination unreachable</h3>
+<div class="outline-text-3" id="text-1-12">
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Type = 3    |     Code      |          Checksum           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                             unused                            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|      Internet Header + 64 bits of Original Data Datagram      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+
+<ul class="org-ul">
+<li>Gyakori hibaüzenet
+</li>
+<li>Küldheti a címzett, vagy egy közbülső router
+</li>
+<li>Tűzfalak is küldhetik előbb, akár a címzettet mímelve
+</li>
+<li>A code mező mutatja a finomabb okot
+<ul class="org-ul">
+<li>Network unreachable: router küldi, ha zavarba jön, nem találja a címzettet
+</li>
+<li>Host unreachable: az utolsó router küldi, aki úgy érzi, látnia kéne, de ilyen nincs
+</li>
+<li>Protocol unreachable: többnyire nem UDP/TCP-vel kapcsolatos hiba
+</li>
+<li>Port Unreachable
+<ul class="org-ul">
+<li>Jellemzően a címzettől jön
+</li>
+<li>TCP-re nem jellemző
+<ul class="org-ul">
+<li>Ott RESET-tel bomlik a kapcsolat
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Fragmentation needed but DF set = Túl nagy csomag
+<ul class="org-ul">
+<li>Egy közbülső router küldi
+</li>
+<li>A következő MTU kisebb mint a csomag
+</li>
+<li>A csomagban kérték, hogy DF: Don't Fragment
+</li>
+<li>A második 4 byte-os szóban elküldheti a bajt okozó MTU-t
+<ul class="org-ul">
+<li>Ez eredetileg használatlan
+</li>
+<li><a href="http://tools.ietf.org/html/1191">RFC1191</a> vezette be
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13">Path MTU discovery</h3>
+<div class="outline-text-3" id="text-1-13">
+<ul class="org-ul">
+<li>Különösen TCP kapcsolatoknál fontos
+</li>
+<li>Lehetőleg nagy csomagokat akarunk küldeni
+</li>
+<li>De nem akarjuk, hogy közben fragmentumokra szedjék a csomagokat
+</li>
+<li>A cél címig mekkora a legkisebb MTU?
+<ul class="org-ul">
+<li>Időben akár változhat is !
+</li>
+</ul>
+</li>
+<li><a href="http://tools.ietf.org/html/1191">RFC1191</a>
+<ul class="org-ul">
+<li>A küldőnek van egy változója a célcím-hez tartozó MTU-ról
+</li>
+<li>Kezdetben a célcím route-jához tartozó MTU
+</li>
+<li>Csökkenti, ha „túl nagy csomag” üzenetet kap
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-14" class="outline-3">
+<h3 id="sec-1-14">Source quench - Lassíts!</h3>
+<div class="outline-text-3" id="text-1-14">
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Type = 4  |     Code = 0  |          Checksum             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                             unused                            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|      Internet Header + 64 bits of Original Data Datagram      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+
+<ul class="org-ul">
+<li>Torlódás kezelés - congestion control
+<ul class="org-ul">
+<li>Ősi, nyers eszköz a torlódáskezelésre - (különösen TCP-ben)
+kifinomultabb eszközök vannak
+</li>
+</ul>
+</li>
+<li>Egy közbülső router, vagy a célállomás küldheti
+</li>
+<li>Ha eldobta a csomagot, mert nem tudta már továbbítani
+</li>
+<li>Ha már közel van ehhez az állapothoz
+</li>
+<li>A küldő állomás visszafogja magát
+<ul class="org-ul">
+<li>A visszaküldött csomagból látszik, hogy hol is!
+</li>
+<li>Egy idő után dönthet úgy, hogy újra erőteljesebben küld
+</li>
+</ul>
+</li>
+<li>Tűzfalak kiszűrhetik
+<ul class="org-ul">
+<li>hiba
+</li>
+<li>furcsa jelenségeket okozhat
+</li>
+<li>esetleg sokáig nem vesszük észre
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-15" class="outline-3">
+<h3 id="sec-1-15">Redirect - A célállomást rövidebb úton is eléred, ha erre keresed</h3>
+<div class="outline-text-3" id="text-1-15">
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Type = 5  |     Code      |          Checksum             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                 Gateway Internet Address                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|      Internet Header + 64 bits of Original Data Datagram      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+
+
+<ul class="org-ul">
+<li>Router küldi
+</li>
+<li>Megjelöl egy másik routert, ami kedvezőbb
+</li>
+<li>Csak akkor, ha látja, hogy a küldő és a kedvezőbb router egy hálózaton van
+</li>
+<li>A küldő állomás módosítja a routing tábláját
+</li>
+<li>Visszaélésre ad módot
+<ul class="org-ul">
+<li>A default routeren kívül mástól nem szabad elfogadni
+</li>
+<li>Lehet, hogy még a dafault router-től sem!
+</li>
+</ul>
+</li>
+
+<li>Redirect Code
+
+<ul class="org-ul">
+<li><code>0</code> = Redirect datagrams for the Network.
+</li>
+<li><code>1</code> = Redirect datagrams for the Host.
+</li>
+<li><code>2</code> = Redirect datagrams for the Type of Service and Network.
+</li>
+<li><code>3</code> = Redirect datagrams for the Type of Service and Host.
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-16" class="outline-3">
+<h3 id="sec-1-16">Time exceeded</h3>
+<div class="outline-text-3" id="text-1-16">
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Type = 11 |     Code      |          Checksum             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                             unused                            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|      Internet Header + 64 bits of Original Data Datagram      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+
+<ul class="org-ul">
+<li>Eldobtam a csomagod, mert mire ideért lejárt a TTL
+<ul class="org-ul">
+<li>Code = <code>0</code> : time to live exceeded in transit;
+</li>
+<li>Code = <code>1</code> : fragment reassembly time exceeded.
+<ul class="org-ul">
+<li>Lejárt a timeout, és nem sikerült az egész (részekben küldött) datagram-ot összeállítani
+</li>
+<li>Ha az első fragmentum nem érkezett meg, akkor nem!
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A visszaküldött csomagból látszik, hogy melyik kapcsolathoz tartozik
+</li>
+<li>Túlbuzgó tűzfalak ezt is kiszűrhetik - ez is nehezen kideríthető
+hibához vezethet
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-17" class="outline-3">
+<h3 id="sec-1-17">Tűzfalakon ajánlatos legalább is a következő ICMP üzeneteket átengedni</h3>
+<div class="outline-text-3" id="text-1-17">
+<ul class="org-ul">
+<li>Destination unreachable (type = <code>3</code>)
+</li>
+<li>Source quench (type = <code>4</code>)
+</li>
+<li>Time exceeded (type = <code>11</code>)
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-18" class="outline-3">
+<h3 id="sec-1-18">Echo request/reply - a ping program eszközei</h3>
+<div class="outline-text-3" id="text-1-18">
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| Type = 8 v 0  |     Code = 0  |          Checksum             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|           Identifier          |        Sequence Number        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Data ...
++-+-+-+-+-
+</pre>
+
+<ul class="org-ul">
+<li>Type: request = <code>8</code>, reply = <code>0</code>
+</li>
+<li>ID: egy ping instanciát azonosít, (= processz ID)
+</li>
+<li>Sequence Number: egy instancián belül a sorszámot
+<ul class="org-ul">
+<li>Lehet, hogy más sorrendben kapjuk vissza az echot!
+</li>
+</ul>
+</li>
+<li>Adat: a küldött adatot vissza kell kapjuk
+</li>
+<li>ping program
+<ul class="org-ul">
+<li>Klasszikus eszköz egy IP cím elérhetőségének vizsgálatára
+</li>
+<li><code>-c</code> kapcsoló (count): ennyi request-et küld
+</li>
+<li><code>-s</code> kapcsoló (size): ekkora adat részt küld (+8 byte ICMP fejrész)
+</li>
+<li><code>-f</code> kapcsoló (flood): gyorsan küld sokat egymás után
+<ul class="org-ul">
+<li>A küldött csomagokat pont (<code>.</code>), a vetteket backspace jelzi: mozi
+</li>
+<li>Rendszergazdai jogok kellenek a használatához
+</li>
+</ul>
+</li>
+<li>Ha távoli gép nem elérhető, érdemes a default route-ot pingetni
+</li>
+<li><code>-R</code> kapcsoló (record route)
+<ul class="org-ul">
+<li>Az IP record route opcióját kapcsolja be
+</li>
+<li>Mindkét irányban láthatjuk a közbülső routereket
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-18-1" class="outline-4">
+<h4 id="sec-1-18-1">IP record route opció</h4>
+<div class="outline-text-4" id="text-1-18-1">
+<pre class="example">+--------+--------+--------+---------//--------+
+|00000111| length | pointer|     route data    |
++--------+--------+--------+---------//--------+
+  Type=7
+</pre>
+
+
+<ul class="org-ul">
+<li><b>length</b>: ennyi byte az opció
+</li>
+<li>a route data length-3 hosszú
+</li>
+<li><b>pointer</b>: a következő IP cím helyét mutatja: először 4, legfeljebb 40
+<ul class="org-ul">
+<li>40: tele az IP header
+</li>
+</ul>
+</li>
+<li>Az adat 4 byte-os IP címekből áll
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-19" class="outline-3">
+<h3 id="sec-1-19">Traceroute</h3>
+<div class="outline-text-3" id="text-1-19">
+<ul class="org-ul">
+<li>Az IP record route opció legfeljebb 9 router címet tárol
+</li>
+<li>Nem mindenki engedi át
+</li>
+<li>1, 2, 3,… TTL-lel küld UDP csomagokat
+</li>
+<li>Az i-edik menetben küldött csomagot az i-edik hop router utasítja el ICMP time exceeded üzenettel
+</li>
+<li>UDP <code>33434</code>-től egyre nagyobb portokra küld csomagokat
+<ul class="org-ul">
+<li>Ezzel azonosítja a választ
+</li>
+</ul>
+</li>
+<li>Tűzfalak korlátozhatják
+</li>
+<li>Alternatívák
+<ul class="org-ul">
+<li><code>traceroute -I</code>: ICMP csomagokat küld
+</li>
+<li><code>mtr</code> (my/Matt's traceroute): ICMP csomagok, látványos felület, mozi
+</li>
+<li><code>tcptraceroute</code>: TCP csomagok, a 80-as, vagy bármely más portra
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Szerzõ: Pásztor Miklós, Máray Tamás</p>
+<!--
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+-->
+</div>
+
+
+
+</body></html>

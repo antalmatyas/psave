@@ -1,0 +1,9 @@
+program elso
+valtozok: 
+string1, string2: szoveg
+
+BE: string1, string2
+
+KI: |string1| >= 5 és |string2| >= 5 és (string1[0:5] = string2[0:5])
+
+program_vege

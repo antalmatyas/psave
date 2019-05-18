@@ -1,0 +1,1263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0047)http://users.itk.ppke.hu/~marta5/eloadas-9.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógépes hálózatok – 9. előadás</title>
+
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Pásztor Miklós">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógépes hálózatok – 9. előadás_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Számítógépes hálózatok – 9. előadás</h1>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">UDP</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/768">RFC768</a>, J. Postel, 1980
+</li>
+
+<li>IP protokoll mező értéke: 17
+</li>
+<li>Egyszerű
+</li>
+<li>Egy-egy IP csomag küldésére alkalmas
+</li>
+<li>Nincs kapcsolat felépítés, bontás
+</li>
+<li>Nincs garancia arra, hogy egyáltalán eljut a címzetthez a csomag
+</li>
+<li>Mégis, igen gyakran nagyon jó
+<ul class="org-ul">
+<li>BOOTP/DHCP
+</li>
+<li>RIP
+</li>
+<li>NTP
+</li>
+<li>DNS
+</li>
+<li>NFS
+</li>
+<li>Multimédia alkalmazások
+</li>
+</ul>
+</li>
+<li>A magasabb szintek gondoskodhatnak a hiányzó funkciókról
+</li>
+</ul>
+<pre class="example"> 0      7 8     15 16    23 24    31
++--------+--------+--------+--------+
+|     Source      |   Destination   |
+|      Port       |      Port       |
++--------+--------+--------+--------+
+|                 |                 |
+|     Length      |    Checksum     |
++--------+--------+--------+--------+
+|
+|          data octets ...
++---------------- ...
+</pre>
+
+<ul class="org-ul">
+<li>Forrás/cél port: eszerint demultiplexál az UDP réteg
+</li>
+<li>Lehet, hogy ugyanaz a sorszám egész mást jelent UDP/TCP portként
+<ul class="org-ul">
+<li>A gyakorlatban szokás mégis kapcsolatot teremteni: pl. 13 = daytime
+</li>
+</ul>
+</li>
+<li>Hossz: byte-ban adja meg a fejrész, és az adatrész hosszának összegét
+<ul class="org-ul">
+<li>Minimum: 8, ha nincs csak fejrész. (Lehetséges)
+</li>
+<li>Redundáns információ: az IP fejrészből kitalálható
+</li>
+</ul>
+</li>
+<li>Csekkszumma: a szokásos one's complement összeadás
+<ul class="org-ul">
+<li>Az IP csekkszumma csak az IP fejrészre vonatkozik
+</li>
+<li>Ha 0, akkor nincs ( ⟹ a 0-t <code>FFFF</code>-ként kell ábrázolni )
+<ul class="org-ul">
+<li>Az UDP csekszumma opcionális
+</li>
+<li>Erősen ajánlott, de pl. ha csak ethernet van, nem igazán segít
+</li>
+</ul>
+</li>
+
+<li>Nem csak az UDP csomagot, hanem egy „pszeudó fejrészt” is figyelembe vesz:
+</li>
+</ul>
+</li>
+</ul>
+<pre class="example">+--------+--------+--------+--------+
+|          source address           |
++--------+--------+--------+--------+
+|        destination address        |
++--------+--------+--------+--------+
+|  zero  |protocol|   UDP length    |
++--------+--------+--------+--------+
+</pre>
+
+<ul class="org-ul">
+<li>Az IP fejrészből ismétel meg elemeket
+<ul class="org-ul">
+<li>A rossz helyre küldött UDP csomagokat lehet így kiszűrni
+</li>
+<li>TCP-nél is van ilyen
+</li>
+<li>Az UDP csomag hossza kétszer szerepel
+</li>
+</ul>
+</li>
+<li>Ha a csekkszumma hibát jelez, a csomagot egyszerűen eldobjuk, nincs hibaüzenet se
+<ul class="org-ul">
+<li>Vajon kinek, milyen portra menne ?
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">UDP lite</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Egyes alkalmazásoknál (pl. hang) lehet, hogy jobb megtartani a sérült csomagot is
+</li>
+<li>UDP Lite - <a href="http://tools.ietf.org/html/3828">RFC3828</a> (2004. Július)
+<ul class="org-ul">
+<li>IP protocol id = 136
+</li>
+<li>Az ismételt UDP length helyett: checksum coverage
+</li>
+<li>Annyi byte-ot fog át a csekkszumma: legalább 8 - az UDP fejrészt mindenképpen tartalmazza
+</li>
+</ul>
+</li>
+</ul>
+
+<pre class="example"> 0              15 16             31
++--------+--------+--------+--------+
+|     Source      |   Destination   |
+|      Port       |      Port       |
++--------+--------+--------+--------+
+|    Checksum     |                 |
+|    Coverage     |    Checksum     |
++--------+--------+--------+--------+
+|                                   |
+:              Payload              :
+|                                   |
++-----------------------------------+
+</pre>
+</div>
+</div>
+<!--
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">IP fragmentumok</h3>
+<div class="outline-text-3" id="text-1-2">
+<pre class="example">0...                7 8                15 16                              32
++---------+----------+-------------------+---------------------------------+
+|változat |  fejrész |Type Of Service    |     Teljes hossz                |
+| 4 bit   |   hossz  |    8 bit          |        16 bit                   |
+|         |   4 bit  |                   |                                 |
++----------------------------------------+----------+----------------------+
+|                 ID                     |   Flagek | Fragmentum offset    |
+|               16 bit                   |   3 bit  |     13 bit           |
++--------------------+-------------------+---------------------------------+
+|TTL                 |Protokoll          |  Fejrész csekkszumma            |
+|8 bit               |8 bit              |     16 bit                      |
++--------------------------------------------------------------------------+
+|                                   Forrás cím                             |
+|                                     32 bit                               |
++--------------------------------------------------------------------------+
+|                                    Cél cím                               |
+|                                     32 bit                               |
++--------------------------------------------------------------------------+
+|                                      Opciók                              |
+|                                     ha ugyan...                          |
++--------------------------------------------------------------------------+
+|                                        Adat                              |
+|                                                                          |
+|                                                                          |
+|                                                                          |
++--------------------------------------------------------------------------+
+</pre>
+
+<ul class="org-ul">
+<li>Lehet, hogy nagyobb az IP datagram, mint az eszközön az MTU
+</li>
+<li>Ilyenkor darabokra szedi az IP a csomagot: fragmentál
+<ul class="org-ul">
+<li>Datagram-okat több packet-re
+</li>
+<li>Teheti a küldö oldal
+</li>
+<li>Teheti bármelyik közbülső router
+</li>
+</ul>
+</li>
+<li>A fragmentálás a felső réteg (UDP, TCP) számára transzparens
+</li>
+<li>Az egyes fragmentumokban külön-külön IP fejrész van
+<ul class="org-ul">
+<li>Az egyes fragmentumokban ugyanaz lesz az ID
+<ul class="org-ul">
+<li>Ennek segítségével lehet összerakni a csomagot
+</li>
+</ul>
+</li>
+<li>A felsőbb réteg fejrésze nem ismétlődik
+<ul class="org-ul">
+<li>Következmény: a közbülső darabokból nem lehet tudni, hogy milyen portra mennek
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A „Teljes hossz” mező a fragmentum hosszát mutatja
+</li>
+<li>Ha nem az utolsó fragmentumról van szó, akkor áll a „More Fragments” bit
+</li>
+<li>A fragmentum offszet 8 byte-os egységekben a mutatja, hogy hova illik ez a darab
+<ul class="org-ul">
+<li>Következmény: az utolsó darab kivételével minden fragmentum adatrészének hossza 8 többszöröse kell legyen
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Példák:</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><i>captures/udpfragmentumok.cap</i>
+</li>
+</ul>
+<pre class="example">17:40:45.609015 lex.jak.ppke.hu.59688 &gt; adsl240021.vnet.hu.domain: [|domain] (DF)
+17:40:47.436402 lex.jak.ppke.hu.59688 &gt; adsl240021.vnet.hu.domain: [|domain] (DF)
+17:40:57.507625 lex.jak.ppke.hu.59689 &gt; adsl240021.vnet.hu.domain:  8992 updataA$ [b2&amp;3=0x4e65] [28530a] [29815q] [27424n] [29541au][|domain] (frag 30810:24@0+)
+17:40:57.530420 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30810:1456@24+)
+17:40:57.532105 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30810:24@1480+)
+17:40:57.564929 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30810:1456@1504+)
+17:40:57.566601 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30810:24@2960+)
+17:40:57.599644 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30810:1456@2984+)
+17:40:57.601339 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30810:24@4440+)
+17:40:57.634382 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30810:1456@4464+)
+17:40:57.636076 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30810:24@5920+)
+17:40:57.668888 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30810:1456@5944+)
+17:40:57.687223 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30810:800@7400)
+17:40:57.690141 lex.jak.ppke.hu.59689 &gt; adsl240021.vnet.hu.domain:  25965 zoneInit+$ [b2&amp;3=0x7374] [29472a] [24948q] [27759n] [26400au][|domain] (frag 30811:24@0+)
+17:40:57.726139 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30811:1456@24+)
+17:40:57.726140 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30811:24@1480+)
+17:40:57.760138 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30811:1456@1504+)
+17:40:57.760140 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30811:24@2960+)
+17:40:57.791131 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30811:1456@2984+)
+17:40:57.798127 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30811:24@4440+)
+17:40:57.830127 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30811:1456@4464+)
+17:40:57.830130 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30811:24@5920+)
+17:40:57.861123 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30811:1456@5944+)
+17:40:57.874418 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30811:560@7400)
+</pre>
+
+<ul class="org-ul">
+<li>Ha Don't Fragment (DF) bit áll, és kisebb az MTU, akkor
+<ul class="org-ul">
+<li>Destination unreachable ICMP üzenet
+</li>
+<li>Fragmentation needed code-dal
+</li>
+<li>A next hop MTU-jával
+</li>
+<li><code>ping -M do -s 1472 adsl-lel.bekapcsolt.valami</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+-->
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Maximális UDP csomagméret</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Elvileg max(IP csomag) - hossz(UDP fejrész+IP fejrész) = 65535 - 28 = 65507
+</li>
+<li>Az operációs rendszerek (TCP/IP rutin, kernel) korlátozhatják
+</li>
+<li>Általában 8192 byte (2¹³)
+</li>
+</ul>
+<!--
+<li><i>captures/netcat-nagyfile-udp.cap</i>
+</li>
+</ul>
+<pre class="example">17:51:42.132622 lex.jak.ppke.hu.59891 &gt; adsl240021.vnet.hu.domain:  18034 updateMA+$ [b2&amp;3=0x6f6d] [24937a] [8301q] [27757n] [24942au][|domain] (frag 30812:24@0+)
+17:51:42.156089 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30812:1456@24+)
+17:51:42.157769 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30812:24@1480+)
+17:51:42.190548 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30812:1456@1504+)
+17:51:42.192505 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30812:24@2960+)
+17:51:42.225297 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30812:1456@2984+)
+17:51:42.227001 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30812:24@4440+)
+17:51:42.260051 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30812:1456@4464+)
+17:51:42.261739 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30812:24@5920+)
+17:51:42.294517 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30812:1456@5944+)
+17:51:42.312879 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30812:800@7400)
+17:51:42.315596 lex.jak.ppke.hu.59891 &gt; adsl240021.vnet.hu.domain:  25445 updateM$ [b2&amp;3=0x6465] [25914a] [28259q] [8300n] [26995au][|domain] (frag 30813:24@0+)
+17:51:42.351584 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30813:1456@24+)
+17:51:42.351586 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30813:24@1480+)
+17:51:42.383584 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30813:1456@1504+)
+17:51:42.388583 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30813:24@2960+)
+17:51:42.418002 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30813:1456@2984+)
+17:51:42.418928 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30813:24@4440+)
+17:51:42.451488 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30813:1456@4464+)
+17:51:42.453421 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30813:24@5920+)
+17:51:42.486446 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30813:1456@5944+)
+17:51:42.504575 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30813:800@7400)
+17:51:42.516568 lex.jak.ppke.hu.59891 &gt; adsl240021.vnet.hu.domain:  16486 zoneInit$ [b2&amp;3=0x7465] [25455a] [27694q] [11893n] [27454au][|domain] (frag 30814:24@0+)
+17:51:42.541100 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30814:1456@24+)
+17:51:42.545565 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30814:24@1480+)
+17:51:42.575565 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30814:1456@1504+)
+17:51:42.581557 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30814:24@2960+)
+17:51:42.611553 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30814:1456@2984+)
+17:51:42.611554 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30814:24@4440+)
+17:51:42.643428 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30814:1456@4464+)
+17:51:42.645108 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30814:24@5920+)
+17:51:42.677910 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30814:1456@5944+)
+17:51:42.696239 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30814:800@7400)
+17:51:42.709543 lex.jak.ppke.hu.59891 &gt; adsl240021.vnet.hu.domain:  26223 zoneInit$ [b2&amp;3=0x7220] [24947a] [15472q] [31348n] [28530au][|domain] (frag 30815:24@0+)
+17:51:42.735538 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30815:1456@24+)
+17:51:42.735541 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30815:24@1480+)
+17:51:42.767108 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30815:1456@1504+)
+17:51:42.767308 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30815:24@2960+)
+17:51:42.800085 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30815:1456@2984+)
+17:51:42.802040 lex.jak.ppke.hu &gt; adsl240021.vnet.hu: udp (frag 30815:24@4440+)
+</pre>
+-->
+
+<ul class="org-ul">
+<li>Egyes alkalmazások még tovább mennek: 512 byte-os csomagoknál nagyobbakat nem engednek meg
+<ul class="org-ul">
+<li>TFTP, BOOTP stb.
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">TFTP - Trivial File Transfer Protocol</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Egyszerűen implementálható fájl küldés/fogadás
+</li>
+<li>Boot szervereknél használatos: DHCP paraméter a host és a fájl neve
+</li>
+<li><a href="http://tools.ietf.org/html/1350">RFC1350</a>
+</li>
+<li>UDP-t használ, 69-es porton szólitja meg a kliens a szervert
+<ul class="org-ul">
+<li>A tényleges adatforgalom már nem a 69-es portról, hanem a szerver véletlen portja és a kliens
+kezdeményező portja közt
+</li>
+</ul>
+</li>
+<li>Stop-and-wait elvű protokoll:
+<ul class="org-ul">
+<li>Minden egyes küldött blokkra nyugtát vár
+</li>
+<li>Ha nem jön adat timeout-ig, ismétli az utolsó nyugtát
+</li>
+<li>Ha nem jön nyugta timeout-ig, ismétli az utolsó adatot
+</li>
+</ul>
+</li>
+</ul>
+
+
+<pre class="example">Type   Op #     Format without header
+
+       2 bytes    string   1 byte     string   1 byte
+      +-----------------------------------------------+
+RRQ/  | 01/02 |  Filename  |   0  |    Mode    |   0  |
+WRQ   +-----------------------------------------------+
+       2 bytes    2 bytes       n bytes
+      +---------------------------------+
+DATA  | 03    |   Block #  |    Data    |
+      +---------------------------------+
+       2 bytes    2 bytes
+      +--------------------+
+ACK   | 04    |   Block #  |
+      +--------------------+
+       2 bytes  2 bytes        string    1 byte
+      +----------------------------------------+
+ERROR | 05    |  ErrorCode |   ErrMsg   |   0  |
+      +----------------------------------------+
+</pre>
+
+<ul class="org-ul">
+<li>Az első két byte: opcode, <code>read=1, write=2, data=3, ack=4, error=5</code>
+</li>
+<li>Írásnál és olvasásnál 0-val terminált fájlnév
+</li>
+<li>Mode: netascii, vagy octet
+<ul class="org-ul">
+<li>netascii-nál a sorok <code>CR/LF</code> közt
+</li>
+</ul>
+</li>
+<li>Az adatokat és a nyugtákat a block nr. rendeli egymáshoz
+</li>
+<li>Az adat legfeljebb 512 byte
+</li>
+<li>A fájl végét az 512-nél rövidebb adatcsomag jelzi
+</li>
+<li>Nincs csekkszumma
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">A stop and wait elv és sávszélesség</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>A tényleges átviteli sebesség nem csak a fizikai vonalak sebességétől, hanem a késleltetéstől is függ
+</li>
+<li>A fogadónak lehetne ilyesfajta mondása: „van három csomagnyi bufferem, küldhetsz egymás után annyit”
+</li>
+<li>Ez a <b>window mechanizmus</b>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Bűvészinas szindróma (Sorcerer's apprentice syndrome)</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>A <code>k</code>-adik nyugta késik, de nem vész el
+</li>
+<li>A <code>k</code>-adik adatot újra küldi a küldő
+</li>
+<li>Megérkezik a késett k-adik nyugta
+</li>
+<li>A küldő küldi a <code>k+1</code>-edig adatot
+</li>
+<li>Megérkezik az újraküldött k-adikra küldött nyugta
+</li>
+<li>A küldő küldi a <code>k+1</code>-edig adatot
+</li>
+<li>Ettől kezdve minden csomagot kétszer fog küldeni
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Biztonság</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>A TFTP protokollban nincs azonosító/jelszó se semmi más biztosíték
+</li>
+<li>A szerver implementációk korlátozásokat tesznek lehetővé, mint pl.:
+<ul class="org-ul">
+<li>Csak bizonyos fájlokhoz
+</li>
+<li>Csak bizonyos IP címekről
+</li>
+<li>Csak olvasási joggal
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Hol használnak TFTP-t?</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Router, switch operációs rendszerek frissítésekor
+</li>
+<li>Router, switch konfiguációs fájlok tárolására, mentésére
+</li>
+<li>Vékony kliensek, PC-k bootolásakor (PXE)
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+<!--
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">UDP szerver kérdések</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>UDP-nél is lehet bizonyos értelemben kapcsolatról beszélni
+<ul class="org-ul">
+<li>A kliens az elküldött UDP csomagnak megfelelő táblázatot, állapotgépet kezel - hasonlóan a TCP-hez
+</li>
+</ul>
+</li>
+<li>A forrás/cél IP cím/port négyes azonosítja
+</li>
+<li>Eszerint demultiplexál az UDP réteg
+</li>
+<li>Ezért tud egy UDP szerver több klienst kiszolgálni
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">Több interfész, több IP cím</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>Egy gépnek több IP címe lehet
+<ul class="org-ul">
+<li>Akár egyetlen fizikai interfészen is
+</li>
+</ul>
+</li>
+<li>Alapértelmezésben minden IP címen figyelnek a szerver programok
+</li>
+<li>Az operációs rendszer módot adhat arra, hogy csak egy-egy IP címen
+figyeljenek
+<ul class="org-ul">
+<li><code>listen-on</code> konfigurációs paraméter
+</li>
+</ul>
+</li>
+<li>Módot adhat arra is, hogy csak bizonyos IP címről/címekről fogadjanak el klienst
+</li>
+</ul>
+</div>
+</div>
+
+-->
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">Ethernet és IP broadcast és multicast</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li>TCP-nél, mivel az kapcsolatorientált, nincs értelme
+</li>
+<li>Broadcast és multicast rendszerint UDP-vel használatos
+</li>
+<li>A multicast <i>egy→soknak</i> kommunikáció <!-- de multicast-tal megoldható a <i>több→soknak</i> kommunikáció is (pl. videokonferencia)-->
+</li>
+<li>Az ethernet kártya rendszerint csak azokat a csomagokat adja fel, amik:
+<ul class="org-ul">
+<li>Az ő MAC címére érkeznek
+</li>
+<li>Broadcast címre érkeznek
+</li>
+</ul>
+</li>
+<li>Minden csomagot felad, ha promiscuous módba tesszük
+</li>
+<li>Lehet kérni, hogy bizonyos multicast címekre érkező csomagokat feladjon
+<ul class="org-ul">
+<li>Ethernet multicast címek: amiknek első byte-ja páratlan
+</li>
+</ul>
+</li>
+<li>A multicast csomagokkal csökkenteni lehet a hálózaton „felébresztett”, feleslegesen zavart állomások számát
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">Demultiplexálás, szűrés</h3>
+<div class="outline-text-3" id="text-1-8">
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 9. előadás_files/udp-retegek1.png" alt="udp-retegek1.png">
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Az egyes rétegek a csomag tartalma alapján döntenek
+<ul class="org-ul">
+<li>Eldobják a csomagot
+</li>
+<li>Van valaki, feljebb a hierarchiában, aki kéri tőlük
+</li>
+<li>Az UDP réteg az IP cím, cél port, és esetleg a forrás cím alapján dönt
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">Limited broadcast</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li><code>255.255.255.255</code> címre menő csomag
+</li>
+<li>Csak bekapcsoláskor használják pl. BOOTP/DHCP induláskor
+</li>
+<li>Sosem forwardolják a routerek
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10">(Sub)net directed broadcast</h3>
+<div class="outline-text-3" id="text-1-10">
+<ul class="org-ul">
+<li>A CIDR miatt eltűnik a subnet/net különbség
+</li>
+<li>Csak a host id részben csupa 1
+</li>
+<li>Például: a <code>10.1.30.0/24</code> hálózatban: <code>10.1.30.255</code>
+</li>
+<li>LAN-on broadcast csomag lesz
+</li>
+<li>Távoli hálózatnál
+<ul class="org-ul">
+<li>unicast-ként a távoli hálózat routeréig
+</li>
+<li>Az utolsó router-nél limited broadcast lesz
+</li>
+<li>Manapság a routerek konfigurációjában rendszerint letiltják
+</li>
+</ul>
+</li>
+<li>Példa: <code>ping -b 10.2.22.255</code>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Multicast</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Indokai</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Broadcast feleslegesen terheli a hálózati eszközöket
+</li>
+<li>Nem egyszer éppen a legnagyobb forgalmat bonyolító protokollok küldenek több címzettnek: pl. live audio/video
+</li>
+<li>Szükség van arra, hogy routereken át haladjon a forgalom
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">IP multicast - ethernet multicast címek</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>A IANA az IEEE-től kapott egy mulitcast mezőt:
+<ul class="org-ul">
+<li><code>01:00:5e:00:00:00 - 01:00:5e:ff:ff:ff</code>
+</li>
+<li>A <code>00:00:5e</code>-vel kezdődő unicast tartomány is a IANA birtoka
+</li>
+</ul>
+</li>
+<li>Ennek első felét <code>01:00:5e:00:00:00</code> -től IP multicastra használjuk: ez 23 bit:
+<ul class="org-ul">
+<li><code>01:00:5e:00:00:00 - 01:00:5e:7f:ff:ff</code>
+</li>
+</ul>
+</li>
+<li>Az IP címeknél multicast tartomány:
+</li>
+</ul>
+<pre class="example">Bit --&gt;  0                           31            Address Range:
+        +-+----------------------------+
+        |0|       Class A Address      |       0.0.0.0 - 127.255.255.255
+        +-+----------------------------+
+        +-+-+--------------------------+
+        |1 0|     Class B Address      |     128.0.0.0 - 191.255.255.255
+        +-+-+--------------------------+
+        +-+-+-+------------------------+
+        |1 1 0|   Class C Address      |     192.0.0.0 - 223.255.255.255
+        +-+-+-+------------------------+
+        +-+-+-+-+----------------------+
+        |1 1 1 0|  MULTICAST Address   |     224.0.0.0 - 239.255.255.255
+        +-+-+-+-+----------------------+
+        +-+-+-+-+-+--------------------+
+        |1 1 1 1 0|     Reserved       |     240.0.0.0 - 247.255.255.255
+        +-+-+-+-+-+--------------------+
+</pre>
+
+<ul class="org-ul">
+<li>Azt is mondják, hogy a <code>224.0.0.0-239.255.255.255</code> címek D osztályúak (<code>224.0.0.0/4</code>)
+<ul class="org-ul">
+<li>Ezen belül a <code>224.0.0.0/8</code> local multicast: a routerek nem továbbítják
+</li>
+</ul>
+</li>
+<li>Már láttunk alkalmazást: Router advertisement/solicitation ICMP üzenetek
+<ul class="org-ul">
+<li><code>224.0.0.1</code>: all hosts
+</li>
+<li><code>224.0.0.2</code>: all routers
+</li>
+</ul>
+</li>
+<li>Itt 28 bit áll rendelkezésre
+</li>
+<li>Mappelés: az IP multicast felső 5 bitjét nem vesszük figyelembe
+<ul class="org-ul">
+<li>Következmény: egybeesnek IP multicast csoportok ethernet sszmpontból, az IP rétegnek is figyelni, szűrni kell
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Csatlakozás egy multicast csoporthoz / Csoport elhagyás</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Az alkalmazás utasítja az IP réteget, az IP réteg az ethernet drivert:
+<ul class="org-ul">
+<li>Kér/lemond egy csoportot
+</li>
+<li>Egy bizonyos interfészen !
+</li>
+<li>Egy hoston, egy interfészen több alkalmazás is kérheti ugyanazt !
+</li>
+<li>Ha egy csoportot kér egy alkalmazás, és abba a csoportba küld is,
+akkor a kernelnek éppen úgy kell bánnia vele, mintha kintről érkezett volna!
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">Küldés</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>Az alkalmazás a megfelelő IP/ethernet multicast címre küld
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">IGMP - Internet Group Management Protocol</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>Nem a multicast üzenetek küldése, hanem „szervezés”, vezérlés a feladata
+</li>
+<li>Host membership query/report protokoll
+</li>
+<li>Akkor van szerepe, ha nem csak egy LAN-on akarunk multicast forgalmat
+</li>
+<li>A routereknek tudni kell, hogy melyik interfészükre milyen multicast forgalmat kell továbbítani
+</li>
+<li>Egy-egy multicast csoport egy-egy részgráfot - <b>célszerűen egy fát</b> - jelöl ki a router-ek közt: általában nem feszíti ki az egész hálózatot
+</li>
+<li>Külön IP protocol ID: <code>2</code>
+</li>
+<li><a href="http://tools.ietf.org/html/1112">RFC1112</a> - IGMPv1, STD 5 része
+<ul class="org-ul">
+<li>Nem csak az IGMP-t, hanem elsősorban az IP multicast támogatást
+tárgyalja
+<ul class="org-ul">
+<li><i>Host Extensions for IP Multicasting</i>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="http://tools.ietf.org/html/2236">RFC2236</a> - IGMPv2
+</li>
+<li><a href="http://tools.ietf.org/html/3376">RFC3376</a> - IGMPv3
+</li>
+</ul>
+</div>
+</div>
+
+<!--
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">Reverse Path Check Forwarding (RPF)</h3>
+<div class="outline-text-3" id="text-2-6">
+
+<div class="figure">
+<p><img src="bcp38.png" alt="bcp38.png">
+</p>
+<p><span class="figure-number">Figure 2:</span> Ingress filtering, BCP38</p>
+</div>
+
+<ul class="org-ul">
+<li>Eljárás, ami a csomag továbbítást befolyásolja a <b>forrás cím alapján</b>
+<ul class="org-ul">
+<li>A multicast forgalmat bonyolító routereknél különösen fontos
+</li>
+</ul>
+</li>
+<li>A router összeveti a bejövő (pl. multicast) csomag forrás címét a
+routing táblával: ha máshonnan jön, mint ahonnan várja, - <b>ahova ő
+küldené, ha a forrás cím cél cím lenne</b> -,  akkor nem továbbítja
+<ul class="org-ul">
+<li>Így nem csak a TTL gondoskodik róla, hogy nem lesz kör a topológiában
+</li>
+<li>Vegyük észre, hogy multicast kommunikációnál még veszélyesebb a kör: eleve többszöröződnek a routereknél a csomagok!
+</li>
+</ul>
+</li>
+<li>Border routerekben RPF-et használhatnak hamisított source IP cím
+használata (<i>IP Source Address Spoofing</i>) ellen
+<ul class="org-ul">
+<li>Best Current Practice 38, <a href="http://tools.ietf.org/html/2827">BCP38</a> = <a href="http://tools.ietf.org/html/2827">RFC2827</a>
+</li>
+<li>Alternatív elnevezések: Ingress filtering, Unicast RPF
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7">IGMP üzenetek</h3>
+</div>
+
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8">IGMPv1:</h3>
+<div class="outline-text-3" id="text-2-8">
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Version| Type  |    Unused     |           Checksum            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         Group Address                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9">IGMPv2:</h3>
+<div class="outline-text-3" id="text-2-9">
+<pre class="example"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|      Type     | Max Resp Time |           Checksum            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         Group Address                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+
+<ul class="org-ul">
+<li>Üzenet típusok:
+<ul class="org-ul">
+<li><code>0x11</code> = Membership Query
+<ul class="org-ul">
+<li>General Query
+</li>
+<li>Group-Specific Query
+</li>
+</ul>
+</li>
+<li><code>0x16</code> = Version 2 Membership Report
+</li>
+<li><code>0x17</code> = Leave Group
+</li>
+<li><code>0x12</code> = Version 1 Membership Report
+</li>
+<li>Érdekes, hogy szigorú értelemben a v2 üzenetek speciális v1 üzenetek!
+</li>
+</ul>
+</li>
+<li>Max response time: a query üzenetekben ennyi ideig vár a válaszra a router. Mértékegység 1/10 másodperc
+</li>
+<li>Group Address: ha 0, az minden csoportot jelent, general query
+</li>
+<li>Csekkszumma: a szokásos one's complement összeadás
+</li>
+<li>Milyen IP címre kell küldeni az IGMP üzeneteket?
+<ul class="org-ul">
+<li>A query üzeneteket az all-host multicast csoportba: <code>224.0.0.1</code>
+<ul class="org-ul">
+<li>Nem igényel belépést/kilépést
+</li>
+</ul>
+</li>
+<li>Más üzeneteket abba a csoportba, ahova az tartozik
+</li>
+</ul>
+</li>
+<li>Ha egy host csatlakozik egy csoporhoz egy interfészen, akkor küld egy megfelelő riportot
+</li>
+<li>A routerek időről-időre érdeklődő (general query) üzeneteket küldenek minden interfészükön
+<ul class="org-ul">
+<li>A <code>224.0.0.1</code> csoportba
+</li>
+<li>Az állomások véletlen ideig várnak, és aztán küldenek egy riportot — (<code>Max Resp Time</code>) itt kap szerepet
+<ul class="org-ul">
+<li>1. következmény: csökken a kollízió esélye
+</li>
+<li>2. következmény: törölhetik a várakozó riportot, ha látják, hogy ezen a hálózaton már van más partner a multicast csoportban
+</li>
+<li>Minden csoportról külön riport megy, külön időzítéssel
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IGMPv1 szerint ,leave' üzenetet nem küld, ha már egy processze se 
+figyeli az interfészen a csoportot, csak a következő érdeklődésre nem 
+felel
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10">IGMPv3</h3>
+<div class="outline-text-3" id="text-2-10">
+<ul class="org-ul">
+<li>Vegyük észre, hogy küldeni bárki bármikor küldhet multicast csoportba
+</li>
+<li>Multicast spam elleni védekezés
+</li>
+<li>Meg lehet adni, hogy honnan akarok forgalmat elfogadni
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-11" class="outline-3">
+<h3 id="sec-2-11">Switch-ek és multicast</h3>
+<div class="outline-text-3" id="text-2-11">
+<ul class="org-ul">
+<li>Lehet, hogy a switch a multicast csomagokat minden interfészére kikürtöli
+</li>
+<li>Lehet, hogy hallgatózik, és megtanulja, hogy hol milyen csoportok vannak (IGMP snoop)
+<ul class="org-ul">
+<li>Ez az ethernet címek szintjén is lehetséges
+</li>
+</ul>
+</li>
+<li>Lehet, hogy a rendszergazda erővel beállít egy működési módot a switchen
+</li>
+<li>A routerek segíthetnek a switchnek, a megfelelő információ elküldésével: CGMP, Cisco Group Management Protocol
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-12" class="outline-3">
+<h3 id="sec-2-12">PIM - Protocol Independent Multicast</h3>
+<div class="outline-text-3" id="text-2-12">
+<ul class="org-ul">
+<li>IP protokoll: <code>103</code>
+</li>
+<li>IGMP-vel csak közeli LAN-okon át lehet multicast-ot szervezni
+</li>
+<li>A routerek közti multicast szervezés újabb protokoll(oka)t igényel
+</li>
+<li>Jó összefoglaló: <a href="http://www.juniper.net/techpubs/software/junos/junos60/swconfig60-multicast/html/swconfig60-multicastTOC.html">http://www.juniper.net/techpubs/software/junos/junos60/swconfig60-multicast/html/swconfig60-multicastTOC.html</a>
+</li>
+<li>A routerek és így az állomások valamilyen unicast routing protokoll 
+(ezért PI) + PIM alapján találják meg a multicast partnereket
+<ul class="org-ul">
+<li>A routing-ot RPF-re (Reverse Path Check Forwarding) használják
+</li>
+</ul>
+</li>
+<li>Multicast csoporton alapul: ALL-PIM-ROUTERS, <code>224.0.0.13</code>
+</li>
+<li><b>DR</b> - Designated Router
+<ul class="org-ul">
+<li>Egy-egy LAN-on (broadcast domain-ben) a PIM routerek választják maguk közül
+</li>
+<li>Az egész LAN-t ez fogja képviselni a multicast forgalom szempontjából
+</li>
+</ul>
+</li>
+</ul>
+<ul class="org-ul">
+<li><b>RP</b> - Rendezvous Point: egy-egy csoporthoz tartozó találkozó router: a receiverek itt találkoznak a source-(okk)al
+</li>
+<li>A routerekbe rendszerint kézzel konfigurálják be, hogy hol van(nak) RP-k
+<ul class="org-ul">
+<li>Az RP-(k)be kézzel kell bekonfigurálni, hogy kik is azok
+</li>
+</ul>
+</li>
+<li>A routerek <i>(S,G)</i> = (Source IP, IP multicast group address) párokhoz építenek feszítő fát
+<ul class="org-ul">
+<li>Nem source specifikus fa: <i>(*,G)</i>
+</li>
+</ul>
+</li>
+<li>Join/Prune (csatlakoztató, lemetsző) üzeneteket küldenek a router-ek az RP/source fele
+<ul class="org-ul">
+<li>A multicast üzenetek az ellenkező irányban haladnak, mind ahogy a Join
+</li>
+<li>A join üzeneteket periódikusan ismételni kell
+<ul class="org-ul">
+<li>Egy timeout után kikerül a csoportból a router
+</li>
+<li>Erőforrás-takarékosság
+</li>
+</ul>
+</li>
+<li>Így felépül egy csoporthoz tartozó fa
+</li>
+<li>Prune, ha nincs csoport tag a kapcsolódó hálózatokon
+</li>
+<li>Prune, ha RPF jobb utat mutat
+</li>
+</ul>
+</li>
+<li>A fa lehet:
+<ul class="org-ul">
+<li>Shared tree: bárki küldhet a csoporba (pl. videokonferencia, <i>(*.G)</i>)
+</li>
+<li>Source specific tree: egy forrása van (pl. rádió, tv adás, <i>(S,G)</i>)
+</li>
+</ul>
+</li>
+</ul>
+<ul class="org-ul">
+<li>Sparse (ritka) Mode PIM (<a href="http://tools.ietf.org/html/4601">RFC4601</a>, 150 oldal <code>;-)</code>:
+<ul class="org-ul">
+<li>A router a szomszédjairól nem tételezi fel, hogy tagjai az újonnan megjelent csoportnak
+</li>
+<li>A receiverek az RP-fele küldenek Join-t
+</li>
+<li>Ha adni akar egy állomás egy  csoportba, akkor unicast csomaggal
+szól az RP-nek (Register)
+</li>
+<li>Kezdetben a source unicast-ba becsomagolva (encapsulated) küldi az
+RP-hez az adatfolyamot, az RP kicsomagolja, és multicast-ként továbbítja
+</li>
+<li>Az RP Join <i>(S,G)</i> üzenetet küld a source fele. Ha ez célbaért, az
+RP két példányban kapja (unicast, és multicast) az
+üzeneteket. Ilyenkor Register-Stop üzenettel leállítja az unicast
+folyamot.
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="pim1.png" alt="pim1.png">
+</p>
+</div>
+
+<ul class="org-ul">
+<li>A join-t a szomszéd router továbbítja - ha még nincs a csoportban
+</li>
+</ul>
+
+
+
+<div class="figure">
+<p><img src="pim2.png" alt="pim2.png">
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Kezdetben az RP mindig tagja a csoportnak
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="pim3.png" alt="pim3.png">
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Később - ha RPF szerint jobbnak látják - kivághatják a fából az RP-t
+</li>
+<li>PIM SSM   <a href="http://tools.ietf.org/html/3569">RFC3569</a> - Source Specific Multicast
+<ul class="org-ul">
+<li>A PIM SM speciális esete
+</li>
+<li>Kihasználjuk, hogy a csoportban csak egy forrás van (pl. IPTV)
+</li>
+</ul>
+</li>
+
+<li>Dense (sűrű) Mode (<a href="http://tools.ietf.org/html/3973">RFC3973</a>):
+<ul class="org-ul">
+<li>A router a szomszédjairól feltételezi, hogy eleve tagjai az újonnan megjelent csoportnak
+</li>
+<li>Ha jelentkezik egy állomás egy  csoportba, akkor azonnal beteszi a csoportba az interfészt
+</li>
+<li>Minden megfelelő irányba továbbítja a csoportba tartozó üzeneteket
+</li>
+<li>Nincs szükség RP-kre
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+-->
+
+
+<div id="postamble" class="status">
+<p class="author">Szerzõ: Pásztor Miklós</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+
+</div></div></body></html>

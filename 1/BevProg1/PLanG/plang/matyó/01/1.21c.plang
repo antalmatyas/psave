@@ -1,0 +1,14 @@
+PROGRAM elso
+  VÁLTOZÓK:
+    sz1, sz2, vegso: SZÖVEG,
+    eloford, hossz1, hossz2: egesz
+ 
+  BE: sz1, sz2
+  hossz1 := |sz1|
+  hossz2 := |sz2|
+  eloford := sz1 @ sz2
+  vegso := sz1[0:eloford]
+  ki: vegso
+  vegso := sz1[eloford + hossz2:hossz1]
+  ki: vegso
+PROGRAM_VÉGE

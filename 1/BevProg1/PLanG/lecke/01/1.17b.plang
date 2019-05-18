@@ -1,0 +1,9 @@
+PROGRAM kezdoesvegeplusz
+  VÁLTOZÓK:
+    a: SZÖVEG,
+    b: EGÉSZ
+ 
+  BE: a
+  b := |a|
+  KI: a[0] = NAGY a[b - 1] VAGY a[0] = KIS a[b - 1]
+PROGRAM_VÉGE

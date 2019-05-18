@@ -1,0 +1,26 @@
+program yetike
+	valtozok: 
+	textike, szav: szoveg,
+	mrtexthosszeleje, mrtexthosszvege, mrtexthossz, maxhoszszavhossz, i :egesz
+be: textike
+i:=0
+mrtexthosszeleje := 0
+maxhoszszavhossz := 0
+
+ciklus amig i < |textike|		
+	ha textike[0] = ' ' akkor
+		textike := textike[1:|textike|]
+	ha_vege
+
+	mrtexthosszvege := textike@' '
+
+	mrtexthossz := mrtexthosszvege - mrtexthosszeleje
+	ha mrtexthossz > maxhoszszavhossz akkor 
+		szav := textike[mrtexthosszeleje:mrtexthosszvege]
+		maxhoszszavhossz := mrtexthossz
+	ha_vege
+	textike := textike[mrtexthosszvege:|textike|]
+	i := i + 1
+ciklus_vege
+ki: szav
+program_vege

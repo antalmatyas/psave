@@ -1,0 +1,5 @@
+function [x,y,z]=gyak4_f43_(a,b,c,d,e,f,g)
+x=NaN;
+y=NaN;
+z=NaN;
+end

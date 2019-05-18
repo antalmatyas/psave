@@ -1,0 +1,9 @@
+PROGRAM monogram
+  VÁLTOZÓK:
+    a: SZÖVEG,
+    b: EGÉSZ
+ 
+  BE: a
+  b := a @ ' '
+  KI: NAGY a[0], ". ", NAGY a[b + 1], '.'
+PROGRAM_VÉGE

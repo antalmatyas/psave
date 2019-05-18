@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1489419088 source:c:\users\john\desktop\gpdefault - copy\main.cpp
+	"graphics.hpp"
+	<vector>
+	<ctime>
+	<iostream>
+
+1430015266 c:\users\john\desktop\gpdefault - copy\include\graphics.hpp
+	<string>
+
+1490036156 source:c:\users\matyó\dropbox\gpdefault - copy\main.cpp
+	"graphics.hpp"
+	<vector>
+	<ctime>
+	<iostream>
+	<sstream>
+
+1430018866 c:\users\matyó\dropbox\gpdefault - copy\include\graphics.hpp
+	<string>
+
+1490122784 source:c:\users\matyó\dropbox\000exterior\2\bprog2\kekdoboz_gorgos\main.cpp
+	"graphics.hpp"
+	<vector>
+	<ctime>
+	<iostream>
+	<sstream>
+
+1430018866 c:\users\matyó\dropbox\000exterior\2\bprog2\kekdoboz_gorgos\include\graphics.hpp
+	<string>
+

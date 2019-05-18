@@ -1,0 +1,168 @@
+asmmain:
+     ; Ide írhatod az asm-programot!
+
+; Ez a program a jobb oldali potméter értékét írja ki bal felso kijelzore 
+; Hexadeciumális formában
+      call #SetupADC12
+      
+      
+      
+      mov.w LeftValue,R14
+      
+      mov.w R14,R6
+      And.w #0xF000,R6
+      mov.w R14,R7
+      And.w #0x0F00,R7
+      mov.w R14,R8
+      And.w #0x00F0,R8
+      mov.w R14,R9
+      And.w #0x000F,R9 
+            ;;;;
+      mov #0, R13
+      mov R6, R12
+      mov #0x1000,R14
+      call #divide 
+      mov #10, R4
+      mov R12,R15
+      sub R4, R12
+      jn n1
+      Add #7, R15
+      n1:      
+      mov R15,R6      
+      add.w #'0',R6
+      mov.w R6,R14
+      mov.w #0x0001,R13
+      mov.w #0x0002,R12
+      call #LCDChrXY
+            ;;;;
+      mov #0, R13
+      mov R7, R12
+      mov #0x0100,R14
+      call #divide
+      mov #10, R4
+      mov R12,R15
+      sub R4, R12
+      jn n2
+      Add #7, R15
+      n2:            
+      mov R15,R7       
+      add.w #'0',R7
+      mov.w R7,R14
+      mov.w #0x0001,R13
+      mov.w #0x0003,R12
+      call #LCDChrXY
+            ;;;;
+      mov #0, R13
+      mov R8, R12
+      mov #0x0010,R14
+      call #divide 
+      mov R12, R15
+      sub R4, R12
+      jn n3
+      Add #7, R15
+      n3:      
+      mov R15,R8
+      add.w #'0',R8
+      mov.w R8,R14
+      mov.w #0x0001,R13
+      mov.w #0x0004,R12
+      call #LCDChrXY
+            ;;;;
+      mov #10, R4
+      mov R9, R12
+      mov R9, R15
+      sub R4, R12
+      jn n4
+      Add #7, R15
+      n4:
+      mov R15,R9
+      add.w #'0',R9
+      mov.w R9,R14
+      mov.w #0x0001,R13
+      mov.w #0x0005,R12
+      call #LCDChrXY
+      
+      mov.w RightValue,R14
+      
+      mov.w R14,R6
+      And.w #0xF000,R6
+      mov.w R14,R7
+      And.w #0x0F00,R7
+      mov.w R14,R8
+      And.w #0x00F0,R8
+      mov.w R14,R9
+      And.w #0x000F,R9 
+            ;;;;
+      mov #0, R13
+      mov R6, R12
+      mov #0x1000,R14
+      call #divide 
+      mov #10, R4
+      mov R12,R15
+      sub R4, R12
+      jn n5
+      Add #7, R15
+      n5:      
+      mov R15,R6      
+      add.w #'0',R6
+      mov.w R6,R14
+      mov.w #0x0001,R13
+      mov.w #0x0008,R12
+      call #LCDChrXY
+            ;;;;
+      mov #0, R13
+      mov R7, R12
+      mov #0x0100,R14
+      call #divide
+      mov #10, R4
+      mov R12,R15
+      sub R4, R12
+      jn n6
+      Add #7, R15
+      n6:            
+      mov R15,R7       
+      add.w #'0',R7
+      mov.w R7,R14
+      mov.w #0x0001,R13
+      mov.w #0x0009,R12
+      call #LCDChrXY
+            ;;;;
+      mov #0, R13
+      mov R8, R12
+      mov #0x0010,R14
+      call #divide 
+      mov R12, R15
+      sub R4, R12
+      jn n7
+      Add #7, R15
+      n7:      
+      mov R15,R8
+      add.w #'0',R8
+      mov.w R8,R14
+      mov.w #0x0001,R13
+      mov.w #0x000A,R12
+      call #LCDChrXY
+            ;;;;
+      mov #10, R4
+      mov R9, R12
+      mov R9, R15
+      sub R4, R12
+      jn n8
+      Add #7, R15
+      n8:
+      mov R15,R9
+      add.w #'0',R9
+      mov.w R9,R14
+      mov.w #0x0001,R13
+      mov.w #0x000B,R12
+      call #LCDChrXY
+      
+     ; mov.w RightValue,R14
+      ;mov.w #0x0001,R13
+      ;mov.w #0x0008,R12
+      ;call #LCDChrXY
+      call #LCDUpdate
+      jmp asmmain
+      ret
+      
+ 

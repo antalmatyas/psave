@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0062)http://users.itk.ppke.hu/~mpasztor/netora/2012-osz/vizsga.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu" xml:lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógéphálózatok vizsga</title>
+
+<meta name="title" content="Számítógéphálózatok vizsga">
+<meta name="generator" content="Org-mode">
+<meta name="generated" content="2012. december">
+<meta name="author" content="Pásztor Miklós">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógéphálózatok vizsga_files/base-style.css">
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="http://users.itk.ppke.hu/~pasztor/netora/2012-osz"> UP </a>
+ |
+ <a accesskey="H" href="http://www.ppke.hu/~pasztor/"> HOME </a>
+</div>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Számítógéphálózatok vizsga</h1>
+
+
+
+
+<div id="outline-container-1" class="outline-4">
+<h4 id="sec-1">A vizsga menete</h4>
+<div class="outline-text-4" id="text-1">
+
+
+<p>
+  A szóbeli vizsga két részből áll:
+</p><ul>
+<li>Kifejtendő tétel. Pontosan az alant olvashatók.
+</li>
+<li>Villámkérdések. Hasonlatosak az alant olvashatókhoz, vagy a gyakorlaton megoldott feladatokhoz kapcsolódóak.
+</li>
+</ul>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-4">
+<h4 id="sec-2">Tételsor</h4>
+<div class="outline-text-4" id="text-2">
+
+<ol>
+<li>Az OSI referenciamodell és TCP/IP
+</li>
+<li>RFC-k, Internet szervezetek
+</li>
+<li>Klasszikus ethernet
+</li>
+<li>Point to point ethernet, fast ethernet, full duplex ethernet, VLAN-ok
+</li>
+<li>IP
+</li>
+<li>PPP, PPPoE
+</li>
+<li>ARP, RARP
+</li>
+<li>BOOTP, DHCP
+</li>
+<li>ICMP, ICMP hibaüzenetek
+</li>
+<li>ICMP vezérlő (nem hiba) üzenetek,
+</li>
+<li>UDP
+</li>
+<li>IP multicast ethernet hálózaton
+</li>
+<li>IGMP, PIM
+</li>
+<li>DNS működés
+</li>
+<li>DNS rekordok
+</li>
+<li>TFTP
+</li>
+<li>TCP
+</li>
+<li>TCP flow control
+</li>
+<li>FTP
+</li>
+<li>SMTP, ESMTP
+</li>
+<li>Levél, internet message formátum: RFC2822/822, MIME
+</li>
+<li>Distance vector routing protokollok, RIP
+</li>
+<li>Autonóm rendszerek, BGP
+</li>
+<li>Spanning tree protokoll
+</li>
+</ol>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-4">
+<h4 id="sec-3">Villámkérdések (minta)</h4>
+<div class="outline-text-4" id="text-3">
+
+<ul>
+<li id="sec-3-1">Mi az hogy:<br>
+<ul>
+<li>Ephemeral port
+</li>
+<li>CIDR
+</li>
+<li>RFC
+</li>
+<li>IANA
+</li>
+<li>IAB
+</li>
+<li>Unicast/multicast/broadcast/anycast
+</li>
+<li>Simplex/duplex/half duplex
+</li>
+<li>CSMA/CD
+</li>
+<li>Late collision
+</li>
+<li>Exponential backoff
+</li>
+<li>Little endian/Big endian
+</li>
+<li>Spanning tree
+</li>
+<li>VLAN
+</li>
+<li>Loopback interfész
+</li>
+<li>MTU
+</li>
+<li>TOS
+</li>
+<li>TTL – IP csomagnál, DNS rekordnál
+</li>
+<li>Netmask
+</li>
+<li>NAT
+</li>
+<li>ARP cache poisoning
+</li>
+<li>Path MTU discovery
+</li>
+<li>ICMP redirect
+</li>
+<li>BGP dampening
+</li>
+<li>AS
+</li>
+<li>UDP lite
+</li>
+<li>IGMP membership query/membership report
+</li>
+<li>SOA, NS, A, PTR, MX rekord
+</li>
+<li>FQDN
+</li>
+<li>Glue rekord
+</li>
+<li>Lame név szerver
+</li>
+<li>Primary (master), secondary (slave) DNS szerver
+</li>
+<li>Caching only DNS szerver, autoritatív név szerver
+</li>
+<li>DNS cache poisining
+</li>
+<li>TCP syn flood támadás
+</li>
+<li>TCP aktív/passzív open
+</li>
+<li>TCP aktív/passzív close
+</li>
+<li>TIME_WAIT (2MSL wait) állapot
+</li>
+<li>TCP reset támadás
+</li>
+<li>tcp_wrapper
+</li>
+<li>TCP retransmission timer  (RTO)
+</li>
+<li>Delayed ack
+</li>
+<li>Nagle algoritmus
+</li>
+<li>Slow start
+</li>
+<li>Persist timer
+</li>
+<li>Passzív ftp
+</li>
+<li>UA, MTA
+</li>
+</ul>
+
+
+<hr>
+<ul>
+<li>Hogyan működik az IP csomag fragmentálás?
+</li>
+<li>Milyen ethernet és IP címek lesznek abban a csomagban, amit a 222-es gépteremből
+
+<ul>
+<li>a szomszéd gépére küldünk?
+</li>
+<li>a www.arizona.edu web szerverre küldünk?
+
+</li>
+</ul>
+
+</li>
+<li>Mikor van szükség ethernet flow controlra, és mikor nincs?
+</li>
+<li>Miért felejtenek és mit felejtenek switch-ek?
+</li>
+<li>Mi a különbség hub és switch közt?
+</li>
+<li>Miért felejtik el az eszközök az ARP bejegyzéseiket?
+</li>
+<li>Hogyan működik a traceroute?
+</li>
+<li>Mi a különbség tcptraceroute és traceroute között?
+</li>
+<li>Hogyan működik a ping?
+</li>
+<li>Miért  tartalmazzák az ICMP hibaüzenetek a hibát kiváltó csomag egy részét is?
+</li>
+<li>Mire vezetne, ha icmp hiba üzenetre icmp hiba üzenet lehetne a reakció?
+</li>
+<li>Mit értünk routing protokolloknál konvergencián?
+</li>
+<li>Mi az a  split horizon? Miért van rá szükség?
+</li>
+<li>Hogyan működik Dijkstra OSPF algoritmusa?
+</li>
+<li>Igaz-e, hogy a Dijkstra féle feszítő fa minimális?
+</li>
+<li>Mi a kockázata annak, ha bárhonnan elfogadunk RIP üzeneteket?
+</li>
+<li>Mely IP fragmentumoknak kell 8-cal osztható hosszúaknak lenniük? Miért?
+</li>
+<li>Egy etherneten 20 állomás figyel egy multicast csoportban. Mitől függ, hogy ki válaszol egy IGMP membership query üzenetre?
+</li>
+<li>Miért fontos, hogy a root név szerverek mindig elérhetőek legyenek?
+</li>
+<li>Mire szolgál és hogyan működik az inetd daemon?
+</li>
+<li>Hogyan zajlik egy TCP kapcsolat felépítés?
+</li>
+<li>Hogyan zajlik egy TCP kapcsolat bontás?
+</li>
+<li>Mitől függ a TCP retransmission timeout?
+</li>
+<li>FTP-nél/SMTP-nél hogyan csoportosítjuk a szerver hibakódokat?
+</li>
+<li>Miért okoz gondot a tűzfalakon az aktív ftp?
+</li>
+<li>Hogyan zajlik egy SMTP kapcsolatfelépítés?
+</li>
+<li>Mi az a looking-glass?
+</li>
+<li>Lehet-e egy hub két különböző interfészén különböző a sebesség?
+</li>
+<li>Mi történik, ha háromszögbe kötünk három switch-et és azok nem tudnak Spanning Tree-t?
+</li>
+<li>Az IP címünk 193.225.109.130, a netmask /25. Egy hálózaton van-e
+     velünk a 193.225.109.100? (Más, akkor és ott kitalált számokkal.)
+</li>
+<li>Milyen funkcionális elemek együttműködését igényli az ECN?
+</li>
+</ul>
+
+
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="author">Szerző: Pásztor Miklós</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+
+
+</body></html>

@@ -1,0 +1,20 @@
+program YETIIII
+valtozok:
+	n, i, osszeg: egesz,
+	mrboolean : logikai
+** 0-t ne használj, csak záró értéknek! **
+
+be: i
+mrboolean := igaz
+n := 0
+osszeg := 0
+	ciklus amig mrboolean
+		n := n + 1
+		osszeg := osszeg + i
+		be: i
+		ha i = 0 akkor
+			mrboolean := hamis 
+		ha_vege
+	ciklus_vege
+	ki: valos(osszeg)/n
+program_vege

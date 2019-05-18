@@ -1,0 +1,8 @@
+PROGRAM elso
+  VÁLTOZÓK:
+    a, b: EGÉSZ
+ 
+  BE: a
+  BE: b
+  KI: b MOD a = 0
+PROGRAM_VÉGE

@@ -1,0 +1,14 @@
+PROGRAM atlag2
+  VÁLTOZÓK:
+    a, p, i, n: VALÓS
+ 
+  i := 1
+  p := 0
+  BE: n
+  CIKLUS AMÍG i <= n
+    BE: a
+    p := p + a
+    i := i + 1
+  CIKLUS_VÉGE
+  KI: p / n
+PROGRAM_VÉGE

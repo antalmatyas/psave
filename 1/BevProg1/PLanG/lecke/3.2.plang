@@ -1,0 +1,15 @@
+PROGRAM osztoosszeg
+  VÁLTOZÓK:
+    a, i, b: EGÉSZ
+ 
+  BE: a
+  i := 1
+  b := 0
+  CIKLUS AMÍG i <= a
+    HA a MOD i = 0 AKKOR
+      b := b + i
+    HA_VÉGE
+    i := i + 1
+  CIKLUS_VÉGE
+  KI: b
+PROGRAM_VÉGE

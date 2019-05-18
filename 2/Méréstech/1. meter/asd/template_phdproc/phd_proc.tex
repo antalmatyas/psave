@@ -1,0 +1,178 @@
+\documentclass[10pt, conference,a4paper]{ITKproc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+% correct bad hyphenation here
+
+\hyphenation{pre-sence vi-su-alized si-mu-la-tions mo-le-cu-lar se-ve-ral cha-rac-te-ris-tic CoNSEnsX}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{This is the title, in which only the first word, names and abbreviations are capitalized}
+
+\author{\IEEEauthorblockN{Firstname LASTNAME}
+\IEEEauthorblockA{(Supervisor: Firstname LASTNAME, Firstname LASTNAME)\\
+Pázmány Péter Catholic University, Faculty of Information Technology and Bionics\\
+50/a Pr\'ater street, 1083 Budapest, Hungary\\
+\texttt{youremail@itk.ppke.hu}}
+}
+
+% make the title area
+\maketitle
+
+\begin{abstract}
+This article describes how to use the ITKproc class with {\LaTeX} to create your paper for the proceedings of the annual PhD conference. This template heavily relies on the IEEEtran, but some modifications were made. Please do not change any of the settings, and do not replace the style description with the original IEEEtran class or any other class files.    
+
+\end{abstract}
+\begin{IEEEkeywords}
+keyword; keyword; keyword
+\end{IEEEkeywords}
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+
+{\LaTeX} is the commonly used format for typesetting scientific papers and professional publications. That is why, from now on, we prefer the submission of papers in {\LaTeX} to any other word processing tools. This guide contains layout instructions specific to this class. If you are not familiar with {\LaTeX}, please consult other resources.
+
+
+\section{Class options}
+Please do not modify the class options. I.e. use exactly the options given in this example paper:
+\vspace{3mm}
+\begin{small}
+ \texttt{$\backslash$documentclass[a4paper,10pt,conference]\{ITKproc\}}
+\end{small}
+%\vspace{3mm}
+
+Do not change paper size, font size or the layout type! You can add standard packages to the preambulum if you need to.
+
+
+\section{Title and authors}
+The paper title is defined at the beginning of the paper. Only the first word, proper names and abbreviations should be capitalized.
+
+The title is followed by the author and affiliation definitions. Exactly one author should be given in the format of `Firstname LASTNAME'. The name(s) of the supervisor(s) should be formatted the same way. Any additional contributors must be listed in the Acknowledgement section at the end of the paper.
+
+Your PhD research is assigned to the university, thus only include any additional affiliations if you really have to. Otherwise, leave it the way it is. Also, for your email, please use your academic email address instead of other, informal addresses, unless you really have to. 
+
+\section{Abstract and index terms}
+Please provide a short summary of your paper in the abstract environment. Also provide some key terms related to your topic.
+
+\section{Sections}
+Sections and their headings are declared in the usual {\LaTeX}
+fashion via \texttt{$\backslash$section, $\backslash$subsection, $\backslash$subsubsection}
+
+
+
+\section{Citations}
+Citations are made with the  \texttt{$\backslash$cite} command as usual.
+The individually bracketed citation numbers will be produced in IEEE style, such as \cite{lamport94}. The referenced publications are usually stored in a separate \texttt{bib} database which is imported by the \texttt{$\backslash$bibliography\{references\}} command at the end of the paper (where `references' is the name of the bib file). Another method is to include all bibtex antries in the main file in the \texttt{thebibliography} environment.
+
+\section{Equations}
+Equations are created using the traditional equation environment:
+\begin{small}
+\begin{verbatim}
+\begin{equation}
+\label{eqn_example}
+x = \sum\limits_{i=0}^{z} 2^{i}Q
+\end{equation}
+\end{verbatim}
+\end{small}
+
+which yields
+
+\begin{equation}
+\label{eqn_example}
+x = \sum\limits_{i=0}^{z} 2^{i}Q
+\end{equation}
+
+You should properly break your long equations in order to fit into one column width.
+
+\section{Figures and tables}
+
+\subsection{Figures}
+Figures should be entered in the standard {\LaTeX} manner. For example:
+
+\begin{small}
+\begin{verbatim}
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{myfigure}
+\caption{Simulation results for the network.}
+\label{fig_sim}
+\end{figure}
+\end{verbatim}
+\end{small}
+
+Note that figures should be centered via the {\LaTeX} \texttt{$\backslash$centering} command—this is a better approach than using the center environment which adds unwanted vertical spacing; the caption follows the graphic; and any labels must be
+declared after (or within) the caption command.
+
+\subsection{Tables}
+
+Tables are handled in a similar fashion, but with a few
+notable differences. For example, the code
+
+\begin{small}
+\begin{verbatim}
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+\caption{A Simple Example Table}
+\label{table_example}
+\centering
+\begin{tabular}{c||c}
+\hline
+\bfseries First & \bfseries Next\\
+\hline\hline
+1.0 & 2.0\\
+\hline
+\end{tabular}
+\end{table}
+\end{verbatim}
+\end{small}
+
+results in Table~\ref{table_example}. Table captions are placed before the tables.
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+\caption{A Simple Example Table}
+\label{table_example}
+\centering
+\begin{tabular}{c||c}
+\hline
+\bfseries First & \bfseries Next\\
+\hline\hline
+1.0 & 2.0\\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Double column floats}
+{\LaTeX} \texttt{figure*} and \texttt{table*} environments produce figures
+and tables that span both columns. This capability is
+sometimes needed for structures that are too wide for a single
+column.
+
+\section{Lists}
+You can use the standard {\LaTeX} list types: \texttt{itemize} for unordered lists, \texttt{enumerate} for numbered lists, and  \texttt{description} for definitions.
+
+\section*{Acknowledgements}
+The Acknowledgement section is not numbered, which is achieved by envoking it with the \texttt{$\backslash$section*\{Acknowledgements\}} command.
+
+
+\bibliographystyle{ieeetr}
+%\bibliography{references}
+\begin{thebibliography}{9}
+
+\bibitem{lamport94}
+  Leslie Lamport,
+  \emph{{\LaTeX}: a document preparation system},
+  Addison Wesley, Massachusetts,
+  2nd edition,
+  1994.
+
+\end{thebibliography}
+
+% that's all folks
+\end{document}

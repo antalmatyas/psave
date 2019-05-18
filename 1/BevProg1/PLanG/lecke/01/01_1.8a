@@ -1,0 +1,9 @@
+PROGRAM szsor
+  VÁLTOZÓK:
+    a, b, c: VALÓS
+ 
+  BE: a
+  BE: b
+  c := b - a
+  KI: b + c
+PROGRAM_VÉGE

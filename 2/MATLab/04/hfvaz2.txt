@@ -1,0 +1,8 @@
+function abra=gyak4_f42_(archivum)
+% load függvény használata -> lásd help; fontos, hogy a house.mat
+% ugyanabban a mappában legyen, mint a függvény, különben teljes elérési
+% utat kell adni neki.
+
+%% Ide kerüljön az ábra kirajzoltatása
+abra = figure; % ez után
+end

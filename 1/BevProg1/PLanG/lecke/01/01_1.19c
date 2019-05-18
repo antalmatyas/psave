@@ -1,0 +1,11 @@
+PROGRAM elsoszocsere
+  VÁLTOZÓK:
+    a, d: SZÖVEG,
+    b, c: EGÉSZ
+ 
+  BE: a
+  BE: d
+  b := a @ ' '
+  c := |a|
+  KI: d + ' ' + a[b + 1:c]
+PROGRAM_VÉGE

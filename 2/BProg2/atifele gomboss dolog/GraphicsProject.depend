@@ -1,0 +1,145 @@
+# depslib dependency file v1.0
+1363437202 source:c:\users\zsolt\desktop\widget\graphicsproject\main.cpp
+	"graphics.hpp"
+	"widgets.hpp"
+	"examplecheckbox.hpp"
+	<vector>
+
+1430022466 c:\users\zsolt\desktop\widget\graphicsproject\include\graphics.hpp
+	<string>
+
+1363436920 c:\users\zsolt\desktop\widget\graphicsproject\widgets.hpp
+	"graphics.hpp"
+
+1491406368 c:\users\zsolt\desktop\widget\graphicsproject\examplecheckbox.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+
+1363437174 source:c:\users\zsolt\desktop\widget\graphicsproject\examplecheckbox.cpp
+	"examplecheckbox.hpp"
+	"graphics.hpp"
+
+1493798377 source:c:\users\zsolt\desktop\programozás\widget\graphicsproject\examplecheckbox.cpp
+	"examplecheckbox.hpp"
+	"graphics.hpp"
+
+1491406368 c:\users\zsolt\desktop\programozás\widget\graphicsproject\examplecheckbox.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+
+1430022466 c:\users\zsolt\desktop\programozás\widget\graphicsproject\include\graphics.hpp
+	<string>
+
+1363436920 c:\users\zsolt\desktop\programozás\widget\graphicsproject\widgets.hpp
+	"graphics.hpp"
+
+1493800668 source:c:\users\zsolt\desktop\programozás\widget\graphicsproject\main.cpp
+	"graphics.hpp"
+	"widgets.hpp"
+	"examplecheckbox.hpp"
+	<vector>
+	"textbox.hpp"
+	"writer.hpp"
+
+1491406437 source:c:\users\zsolt\desktop\programozás\widget\graphicsproject\widgets.cpp
+	"widgets.hpp"
+	"graphics.hpp"
+
+1493798682 source:c:\users\zsolt\desktop\programozás\widget\graphicsproject\textbox.cpp
+	"textbox.hpp"
+	"graphics.hpp"
+
+1493798471 c:\users\zsolt\desktop\programozás\widget\graphicsproject\textbox.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+
+1493800656 c:\users\zsolt\desktop\programozás\widget\graphicsproject\writer.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+	<vector>
+	<string>
+
+1493800656 source:c:\users\zsolt\desktop\programozás\widget\graphicsproject\writer.cpp
+	"writer.hpp"
+	"graphics.hpp"
+
+1493798377 source:c:\users\matyó\documents\graphicsproject\examplecheckbox.cpp
+	"examplecheckbox.hpp"
+	"graphics.hpp"
+
+1491406368 c:\users\matyó\documents\graphicsproject\examplecheckbox.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+
+1430022466 c:\users\matyó\documents\graphicsproject\include\graphics.hpp
+	<string>
+
+1363436920 c:\users\matyó\documents\graphicsproject\widgets.hpp
+	"graphics.hpp"
+
+1493798682 source:c:\users\matyó\documents\graphicsproject\textbox.cpp
+	"textbox.hpp"
+	"graphics.hpp"
+
+1493798471 c:\users\matyó\documents\graphicsproject\textbox.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+
+1491406437 source:c:\users\matyó\documents\graphicsproject\widgets.cpp
+	"widgets.hpp"
+	"graphics.hpp"
+
+1493800710 source:c:\users\matyó\documents\graphicsproject\writer.cpp
+	"writer.hpp"
+	"graphics.hpp"
+
+1493800656 c:\users\matyó\documents\graphicsproject\writer.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+	<vector>
+	<string>
+
+1493794777 source:c:\users\nox\dropbox\000exterior\2\bprog2\atifele gomboss dolog\examplecheckbox.cpp
+	"examplecheckbox.hpp"
+	"graphics.hpp"
+
+1491402768 c:\users\nox\dropbox\000exterior\2\bprog2\atifele gomboss dolog\examplecheckbox.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+
+1430018866 c:\users\nox\dropbox\000exterior\2\bprog2\atifele gomboss dolog\include\graphics.hpp
+	<string>
+
+1363433320 c:\users\nox\dropbox\000exterior\2\bprog2\atifele gomboss dolog\widgets.hpp
+	"graphics.hpp"
+
+1493797167 source:c:\users\nox\dropbox\000exterior\2\bprog2\atifele gomboss dolog\main.cpp
+	"graphics.hpp"
+	"widgets.hpp"
+	"examplecheckbox.hpp"
+	<vector>
+	"textbox.hpp"
+	"writer.hpp"
+
+1493794871 c:\users\nox\dropbox\000exterior\2\bprog2\atifele gomboss dolog\textbox.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+
+1493797056 c:\users\nox\dropbox\000exterior\2\bprog2\atifele gomboss dolog\writer.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+	<vector>
+	<string>
+
+1493795082 source:c:\users\nox\dropbox\000exterior\2\bprog2\atifele gomboss dolog\textbox.cpp
+	"textbox.hpp"
+	"graphics.hpp"
+
+1491402837 source:c:\users\nox\dropbox\000exterior\2\bprog2\atifele gomboss dolog\widgets.cpp
+	"widgets.hpp"
+	"graphics.hpp"
+
+1493797110 source:c:\users\nox\dropbox\000exterior\2\bprog2\atifele gomboss dolog\writer.cpp
+	"writer.hpp"
+	"graphics.hpp"
+

@@ -1,0 +1,7 @@
+PROGRAM elso
+  VÁLTOZÓK:
+    a, b: EGÉSZ
+ 
+  BE: a
+  KI: a MOD 2 = 0
+PROGRAM_VÉGE

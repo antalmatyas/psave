@@ -1,0 +1,12 @@
+PROGRAM forditas
+  VÁLTOZÓK:
+    a: SZÖVEG,
+    n: EGÉSZ
+ 
+  BE: a
+  n := |a|
+  CIKLUS AMÍG n > 0
+    KI: a[n - 1]
+    n := n - 1
+  CIKLUS_VÉGE
+PROGRAM_VÉGE

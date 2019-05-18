@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0067)http://users.itk.ppke.hu/~mpasztor/netora/2012-osz/gyakorlat-1.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu" xml:lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógéphálózatok – 1. gyakorlat</title>
+
+<meta name="title" content="Számítógéphálózatok – 1. gyakorlat">
+<meta name="generator" content="Org-mode">
+<meta name="generated" content="2012-09-13T16:26+0200">
+<meta name="author" content="Pasztor Miklos">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógéphálózatok – 1. gyakorlat_files/base-style.css">
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="http://users.itk.ppke.hu/~pasztor/netora/2012-osz"> UP </a>
+ |
+ <a accesskey="H" href="http://www.ppke.hu/~pasztor/"> HOME </a>
+</div>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Számítógéphálózatok – 1. gyakorlat</h1>
+
+
+
+
+<div id="outline-container-1" class="outline-3">
+<h3 id="sec-1">Az órán linux-ban dolgozunk.</h3>
+<div class="outline-text-3" id="text-1">
+
+<ul>
+<li id="sec-1-1">Ismerkedjünk a tcpdump és a wireshark programokkal!<br>
+
+<pre class="example">man tcpdump
+</pre>
+
+
+<p>
+ <a href="http://www.tcpdump.org/">http://www.tcpdump.org</a>
+</p>
+<p>
+ <a href="http://danielmiessler.com/study/tcpdump/">http://danielmiessler.com/study/tcpdump/</a>
+</p>
+<p>
+ <a href="http://www.wireshark.org/">http://www.wireshark.org/</a>
+</p>
+
+<p>
+ A tcpdump-ot általában nem tudja csak a root felhasználó használni, ezek a
+ a gépek kivételek: itt <code>setuid</code> bittel van telepítve.
+</p>
+</li>
+</ul>
+<ul>
+<li id="sec-1-2">Az órai feladatsor elérhető itt:  <a href="https://users.itk.ppke.hu/~horbe/TCExam/public/code/index.php">https://users.itk.ppke.hu/~horbe/TCExam/public/code/index.php</a><br>
+  Az itk-s azonosítónkkal és jelszavunkkal be tudunk jelentkezni.
+
+</li>
+</ul>
+<ul>
+<li id="sec-1-3">A feladatsor:<br>
+ (<i>Itt csak emlékeztetőül. A tcexam-ban kell megoldani!</i>)
+
+<ol>
+<li>Mentsen el pl. http forgalmat tcpdump-pal! Elemezze wireshark-kal!
+
+<ul>
+<li>Hány byte-os ethernet, IP és TCP fejrészeket látunk?
+
+</li>
+</ul>
+
+</li>
+<li>Ki az első RFC szerzője?
+
+</li>
+<li>Mi most (2012. szeptember 12.) az utolsó RFC sorszáma?
+
+</li>
+<li>Melyik RFC definiálja az IP protokollt? Ki a szerző?
+
+</li>
+<li>Mi az az <i>evil bit</i>?  Melyik RFC definiálja?
+
+</li>
+<li>Melyek A, B és C osztályú címek ezek közül:
+
+<ul>
+<li>100.10.20.30
+</li>
+<li>200.10.20.30
+</li>
+<li>150.10.20.30
+</li>
+<li>193.225.109.2
+</li>
+<li>130.140.150.160
+</li>
+<li>13.14.15.16
+
+</li>
+</ul>
+
+</li>
+<li>Egy hálózaton az egyik IP cím 193.239.149.6. A netmask 255.255.255.0.
+     Mely címek vannak ugyanezen a hálózaton:
+
+<ul>
+<li>193.238.149.66
+</li>
+<li>193.239.149.254
+</li>
+<li>193.239.149.166
+</li>
+<li>193.239.148.4
+</li>
+</ul>
+
+</li>
+</ol>
+
+
+
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="creator"><a href="http://orgmode.org/">Org</a> version 7.8.11 with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+
+
+</body></html>

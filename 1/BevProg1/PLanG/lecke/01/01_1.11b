@@ -1,0 +1,10 @@
+PROGRAM ketponttavolsag
+  VÁLTOZÓK:
+    x, y, a, b: VALÓS
+ 
+  BE: x
+  BE: y
+  BE: a
+  BE: b
+  KI: ((x - a) ^ 2 + (y - b) ^ 2) ^ 0.5
+PROGRAM_VÉGE

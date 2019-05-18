@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1490690461 source:c:\users\antma1\desktop\mandelrajz\graphicsproject\main.cpp
+	"graphics.hpp"
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<vector>
+	<cmath>
+	"mandelrajz.hpp"
+	"komplex.hpp"
+
+1330553510 c:\users\antma1\desktop\mandelrajz\graphicsproject\include\graphics.hpp
+	<string>
+
+1490690467 c:\users\antma1\desktop\mandelrajz\graphicsproject\mandelrajz.hpp
+
+1490800519 c:\users\antma1\desktop\mandelrajz\graphicsproject\komplex.hpp
+
+1490690483 source:c:\users\antma1\desktop\mandelrajz\graphicsproject\mandelrajz.cpp
+	"komplex.hpp"
+	"graphics.hpp"
+
+1490800519 source:c:\users\antma1\desktop\mandelrajz\graphicsproject\komplex.cpp
+	"komplex.hpp"
+

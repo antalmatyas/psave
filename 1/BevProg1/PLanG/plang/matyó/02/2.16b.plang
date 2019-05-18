@@ -1,0 +1,16 @@
+PROGRAM nagybetu
+  VÁLTOZÓK:
+    i: EGÉSZ,
+    s, mit, atm: SZÖVEG
+ 
+  BE: s, mit
+  i := 0
+  CIKLUS AMÍG i < |s| - |mit|
+    HA s[i:i + |mit|] = mit AKKOR
+      atm := s[i + |mit|:|s|]
+      s := s[0:i] + atm
+    HA_VÉGE
+    i := i + 1
+  CIKLUS_VÉGE
+  KI: s
+PROGRAM_VÉGE

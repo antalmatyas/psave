@@ -1,0 +1,62 @@
+Tétel.	Ha egy n pontú gráfnak legalább n éle van, akkor van benne kör.
+
+Bizonyítás.	A bizonyítást n-re vonatkozó teljes indukcióval végezzük.
+		Az állítás n = 1 esetén nyilvánvalóan igaz.
+		Tegyük fel, hogy valamely  -re minden n pontú és legalább n élu gráfban 
+		van kör.
+		Legyen G egy n + 1 pontú gráf, amelynek legalább n + 1 éle van.
+Ha van elsõfokú éle, töröljük a rá illeszkedõ éllel együtt. A maradék gráfban az indukciós feltétel szerint van kör. Visszavéve az elsõfokõ pontot és a rá illeszkedõ élet, az elõzõ kört uu.  tartalmazza a kapott gráf. 
+
+Ha nincs elsõfokú pontja, akkor minden pont legalább másodfokú.  Ekkor a az elõzõ tétel szertint van a gráfban kör.  		
+
+Tétel.	Az n szögpontú fagráf éleinek száma n - 1.
+
+Bizonyítás.	Tudjuk, hogy minden n szögpontú összefüggo gráfnak legalább n - 1 éle 
+		van. Az elozo tétel szerint, ha egy n pontú gráfnak legalább n éle van, akkor a 
+		gráfban van kör. Eszerint minden n pontú körmentes összefüggo gráfnak pontosan 
+		n - 1 éle van, ami az állítást igazolja.
+
+Definíció.	Ha egy gráf összefüggo és nem tartalmaz kört, akkor fagráfnak vagy röviden 
+		fának nevezzük. 
+
+
+Tétel.	Az n szögpontú és n - 1 élu összefüggo gráfok fák.
+
+Bizonyítás.	Tegyük fel ugyanis, hogy a G gráf nem fa, azaz tartalmaz kört. Ha a kör 
+		egy élét töröljük, akkor n szögpontú, n - 2 élu összefüggo gráfot kapunk, ami 
+		ellentmond annak, hogy egy n szögpontú összefüggo gráfnak legalább n - 1 éle 
+		van.
+		Be kell még látnunk, hogy ha egy összefüggo gráf valamely körének egy 
+		tetszoleges élét töröljük, akkor ismét összefüggo gráfot kapunk.
+		Tegyük fel ehhez, hogy a törölt él nem hurokél, hiszen hurokél törlése nem szünteti 
+		meg az összefüggoséget. Töröljük a G gráf K körének   élét. A G gráfban az 
+		u-ból a v-be most is el tudunk jutni a K kör megmaradt élein keresztül, azaz az 
+		  törlése után is eljuthatunk bármelyik pontból bármelyik pontba, tehát a 
+		kapott gráf is összefüggo.
+		
+
+Az elozoek alapján a fák a következo négy tulajdonsággal rendelkeznek:
+	
+Fa definíciói:
+
+Tétel: egy összefggõ gráf akkor és csak akkor fa, ha bármely két pontja között pontosan egyy út van.
+
+Tétel: a fa összefüggõ körmentes gráf
+
+Tétel: az n pontú, n-1 élú összefüggõ gráf fa.
+
+Prüfer kód:
+
+Prüfer kód 
+
+A fák tárolására használjuk.  (Prüfer kód és a fák közötti bijekció)
+
+A Prüfer kód elõállítása:
+
+a fa csúcsait sorszámozzuk meg 1-tõl n-ig
+keressük meg a legkisebb sorszámú levelet
+ezt a levelet hagyjuk el a hozzá illeszkedõ éllel együtt, az él másik csúcsát pedig a Prüfer kód végére írjuk
+az elõzõ két lépést addig ismételjük, amíg csak 2 csúcsunk marad
+
+Az így kapott kód n-2 hosszú lesz n db. csúcs esetén, továbbá az eredeti fa leveleinek sorszáma nem lesz benne a kódban.
+

@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0047)http://users.itk.ppke.hu/~marta5/eloadas-2.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu" xml:lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Szamitogepes halozatok - 2. eloadas</title>
+
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Pásztor Miklós">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Szamitogepes halozatok - 2. eloadas_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<!--
+<h1 class="title">Számítógépes hálózatok &#x2013; 3. előadás</h1>
+-->
+<h1 class="title">Számítógépes hálózatok - 2. eloadás</h1>
+
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">Internet protokollok és programok</h3>
+<div class="outline-text-3" id="text-2-6">
+
+<div class="figure">
+<p><img src="./Szamitogepes halozatok - 2. eloadas_files/protokollok.png" alt="protokollok.png">
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li>Fizikai réteg: egy médiumon bitfolyamot visz át egy jel modulálásával
+</li>
+<li>Adatkapcsolati réteg: csomagokat különít el. Adatátviteli hibát vehet észre, ismételhet. A fizikai réteggel sokszor összenőtt: pl. ethernet kártya
+<ul class="org-ul">
+<li>ARP, RARP: Hálózati és adatkapcsolati címek közti kapcsolatot teremti meg. Address Resolution Protocol, Reverse Address Resolution Protocol
+</li>
+</ul>
+</li>
+<li>Hálózati réteg: hálózati címek szerint irányítja a csomagokat
+</li>
+
+
+<ul class="org-ul">
+<li>IP: A végberendezések felé irányít egy-egy csomagot. A végberendezéseket címek azonosítják. Az egyes csomagok egymástól nem függenek. Internet Protocol.
+</li>
+<li>ICMP: hiba, és szolgáltati üzenetek küldésére szolgál.  Internet Control Message Protocol. Példák:
+<ul class="org-ul">
+<li>Lassíts, mert dugó van
+</li>
+<li>Küldd vissza ezt a csomagot (ping)
+</li>
+</ul>
+</li>
+<li>IGMP: Multiast üzenetek küldésénél használatos. Egyetlen csomagot egyszerre több végberendezéshez is eljuttathatunk. Internet Group Management Protocol
+</li>
+</ul>
+
+<li>Szállítási réteg: két végberendezés közt kapcsolatot építhet, bonthat, az alkalmazások számára „telefonkapcsolatot” ad.
+</li>
+<ul>
+<li>TCP: hiba és veszteségmentes, sorrendtartó átvitelt biztosít. Transmission Control Protocol
+</li>
+<li>UDP: nem garantál hiba és veszteségmentességet, sorrendtartást.
+<ul class="org-ul">
+<li>Ezekről az alkalmazás gondoskodhat.
+</li>
+<li>Egy-egy csomagot <i>datagram</i>-ot lehet egy végpontról egy másikra továbbítani.
+</li>
+<li>Analógia: ha a TCP telefon, az UDP SMS. User Datagram Protocol
+</li>
+</ul>
+</li></ul>
+
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7">Alkalmazási réteg példák:</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li>Levelezés: SMTP
+</li>
+<li>Távoli bejelentkezés: Telnet, SSH
+</li>
+<li>Fájl átvitel: FTP, HTTP, SCP
+<ul class="org-ul">
+<li>…
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./Szamitogepes halozatok - 2. eloadas_files/ftpreteg.png" alt="ftpreteg.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8">Kliens szerver modell</h3>
+<div class="outline-text-3" id="text-2-8">
+<ul class="org-ul">
+<li>A szolgáltatást két komponens valósítja meg:
+</li>
+<li><b>Kliens</b>: a felhasználó oldalán a megjelenítést, parancsértelmezést végzi,a szerverrel a hálózaton át kommunikál.
+</li>
+<li><b>Szerver</b>: a tényleges szolgáltatást látja el, a hálózat különböző pontjain levő kliensek részére.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9">A hálózati és transzport réteg</h3>
+<div class="outline-text-3" id="text-2-9">
+
+<div class="figure">
+<p><img src="./Szamitogepes halozatok - 2. eloadas_files/router.png" alt="router.png">
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10">Router (csomagkapcsoló)</h3>
+<div class="outline-text-3" id="text-2-10">
+<ul class="org-ul">
+<li>Legalább két hálózati interfésze van
+</li>
+<li>A csomagokat cím szerint irányítja
+</li>
+<li>Hálózatokat köt össze: internet
+</li>
+<li>A használt protokoll, Internet Protokoll, IP
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-11" class="outline-3">
+<h3 id="sec-2-11">IP</h3>
+<div class="outline-text-3" id="text-2-11">
+<ul class="org-ul">
+<li><b>Hop-by-hop</b> protokoll
+</li>
+<li>Nem csak a végberendezésben szükséges
+</li>
+<li><b>Best effort:</b> igyekszik, ahogy tud, de késhetnek, elveszhetnek, duplikálódhatnak csomagok
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-12" class="outline-3">
+<h3 id="sec-2-12">TCP</h3>
+<div class="outline-text-3" id="text-2-12">
+<ul class="org-ul">
+<li>Végberendezések közti protokoll
+</li>
+<li>Az IP csuklásokat kisimítja
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-13" class="outline-3">
+<h3 id="sec-2-13">Internet címek</h3>
+<div class="outline-text-3" id="text-2-13">
+<ul class="org-ul">
+<li>Egyediségéről gondoskodni kell
+</li>
+<li>IP cím: 4 byte
+</li>
+<li>Pontozott decimális jelölés: <code>193.225.12.48</code>
+</li>
+<li>Nem gépnek, hanem egy gép hálózati interfészének van!
+</li>
+<li>A cím első része a <i>hálózatot</i>, a második része azon belül egy  végberendezést azonosít
+
+<ul class="org-ul">
+<li><b>Netmask</b>: az a bithalmaz, amivel lemaszkolva az egy hálózatba eső címeket, mindig ugyanazt az értéket kapjuk
+<ul class="org-ul">
+<li>Szokás pontozott decimális, vagy hexa alakban megadni: Pl. <code>255.255.255.0, FF:FF:FF:00</code>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li>A hálózat címét a legkisebb abba tartozó címmel adjuk meg.
+<ul class="org-ul">
+<li>Például: <code>193.225.86.0</code>
+</li>
+<li>Ez az a konstans, ami a netmaszkkal való <b>AND</b> után minden címből marad
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+   <center>
+<table border="1">
+<tbody><tr><th width="97"><center>Osztály</center></th><th width="227"><center>Tartomány</center>
+</th><th>Netmask</th><th>Egy hálózatban kiosztható cím</th></tr>
+<tr><td width="97"><center>A</center></td><td width="227"><b>0</b>.0.0.0 - <b>127</b>.255.255.255
+</td><td>/8 azaz 255.0.0.0</td><td>2^24 &gt; 16 millió</td></tr>
+<tr><td width="97"><center><a name="OCRUncertain026">B</a></center>
+</td><td width="227"><b>128</b>.0.0.0 - <b>191</b>.255.255.255
+</td><td>/16 azaz 255.255.0.0</td><td>2^16 = 65536</td></tr>
+<tr><td width="97"><center><a name="OCRUncertain027">C</a></center>
+</td><td width="227"><b>192</b>.0.0.0 - <b>223</b>.255.255.255
+</td><td>/24 azaz 255.255.255.0</td><td>2^8 = 256</td></tr>
+<!--
+   <TR><TD WIDTH=97><CENTER><A NAME="OCRUncertain028">D</A></CENTER>
+</TD><TD WIDTH=227><B>224</B>.0.0.0 to <B>239</B>.255.255.255
+</TD></TR>
+<TR><TD WIDTH=97><CENTER><A NAME="OCRUncertain029">E</A></CENTER>
+</TD><TD WIDTH=227><B>240</B>.0.0.0 to <B>247</B>.255.255.255
+</TD></TR>
+-->
+   </tbody></table>
+</center>
+</div>
+
+
+<div id="outline-container-sec-2-14" class="outline-3">
+<h3 id="sec-2-14">CIDR</h3>
+<div class="outline-text-3" id="text-2-14">
+<ul class="org-ul">
+<li>Classless Inter-Domain Routing
+</li>
+<li>Megszűnnek az osztálykülönbségek <code>:-)</code>
+</li>
+<li>A backbone routerek memóriája nem bírta a sok címet
+</li>
+<li>A hálózati cím nem csak byte határon lehet
+</li>
+<li>A hálózati címben levő bitek számát <code>/n</code> alakban adjuk meg
+</li>
+<li>A hálózatot a legkisebb címével adjuk meg
+<ul class="org-ul">
+<li>Példa: <code>193.225.195.128/25</code>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="outline-container-sec-2-15" class="outline-3">
+<h3 id="sec-2-15">IP címek kiosztása</h3>
+<div class="outline-text-3" id="text-2-15">
+<ul class="org-ul">
+<li>A föld régiókra van osztva, ezek IP tartományokat adnak
+</li>
+<li>Európai szervezet: <a href="http://www.ripe.net/">RIPE</a>
+</li>
+<li>A RIPE szolgáltatóknak ad tovább kisebb tartományokat
+<ul class="org-ul">
+<li>Az akadémiai hálózatban a Hungarnet a szolgáltató
+</li>
+<li>Más szolgáltatók például:
+<ul class="org-ul">
+<li>Magyar Telekom
+</li>
+<li>Invitel
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A szolgáltatók egyes szervezeteknek
+</li>
+<li>Az egyes szervezetekben a hálózati rendszergazdák adnak címeket
+<ul class="org-ul">
+<li>Rejtett címeket is adhatnak, amik az interneten nem jelennek meg
+</li>
+<li>Ezeket átfordíthatják: Network Address Translation (NAT)
+</li>
+</ul>
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Szamitogepes halozatok - 2. eloadas_files/ip-dist.png" alt="ip-dist.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-16" class="outline-3">
+<h3 id="sec-2-16">Akadémiai hálózat - NREN (National Research and Education Network)</h3>
+<div class="outline-text-3" id="text-2-16">
+<ul class="org-ul">
+<li>Felsőoktatási intézmények, közgyűjtemények, kutatóintézetek <i>hálózata</i> illetve <i>szervezete</i>
+</li>
+<li>Kezdetektől fogva élenjárók az internet használatában,  fejleszétésében
+</li>
+<li>Adófizetők által támogatott, külön hálózati infrastruktúra
+</li>
+<li>Például:
+<ul class="org-ul">
+<li>Szervezet: Európában <a href="http://www.geant.org/">GEANT Association</a>, Magyarországon a  <a href="http://www.hungarnet.hu/">Hungarnet</a>,  <a href="http://www.niif.hu/">az NIIF</a>  Intézet
+</li>
+<li>Hálózat: Geant, Magyarországon HBONE
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-17" class="outline-3">
+<h3 id="sec-2-17">Egymásba ágyazás</h3>
+<div class="outline-text-3" id="text-2-17">
+<ul class="org-ul">
+<li>Az egyes rétegekhez tartozó protokollok egymásba ágyazott csomagokat eredményeznek:
+</li>
+<li>Kívül az alacsonyabb rendű protokoll, belül a magasabb rendű fejrésze.
+<ul class="org-ul">
+<li>Például:
+</li>
+</ul>
+</li>
+</ul>
+
+
+<pre class="example">+------------------+--------------+-------------+---------------+--- - - ----+
+| Ethernet fejrész |  IP fejrész  | TCP fejrész | HTTP fejrész  |    ADAT    |
++------------------+--------------+-------------+---------------+--- - - ----+
+</pre>
+
+<ul class="org-ul">
+<li>Így alakul ki:
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Szamitogepes halozatok - 2. eloadas_files/encap.png" alt="encap.png">
+</p>
+<p><span class="figure-number">Figure 5:</span> Egymásba ágyazás</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-18" class="outline-3">
+<h3 id="sec-2-18">Csomagok neve</h3>
+<div class="outline-text-3" id="text-2-18">
+<ul class="org-ul">
+<li>TCP: szegmens
+</li>
+<li>IP: datagram
+</li>
+<li>Ethernet: frame
+</li>
+<li>Lehet, hogy 1-1 a megfelelés, de lehet, hogy nem!
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-19" class="outline-3">
+<h3 id="sec-2-19">Demultiplexálás</h3>
+<div class="outline-text-3" id="text-2-19">
+
+<div class="figure">
+<p><img src="./Szamitogepes halozatok - 2. eloadas_files/demultip.png" alt="demultip.png">
+</p>
+</div>
+
+<ul class="org-ul">
+<li>A réteges struktúra következménye
+</li>
+<li>A hálózati rétegek prezentálják a felettük álló rétegek számára a nekik szóló csomagokat.
+</li>
+<li>Egy végberendezésen belül akár TCP/IP mellett más protokollok is keveredhetnek
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-20" class="outline-3">
+<h3 id="sec-2-20">Portok</h3>
+<div class="outline-text-3" id="text-2-20">
+<ul class="org-ul">
+<li>TCP és UDP is az 16 bites számok, <i>portok</i> alapján különbözteti meg
+<ul class="org-ul">
+<li>A felette álló rétegeket
+</li>
+<li>Az egyes kapcsolatokat
+</li>
+</ul>
+</li>
+
+<li>A kapcsolat mindkét végéhez tartozik port
+</li>
+<li>Egy kapcsolatot a két végpont IP címe és a használt portok határoz meg
+</li>
+
+<li>A szerverek <i>„well-known”</i> portokon figyelnek
+<ul class="org-ul">
+<li>Általában <code>&lt; 1024</code>
+</li>
+<li>Az operációs rendszerek korlátozzák az ezekhez való hozzáférést
+</li>
+</ul>
+</li>
+<li>A kliensek „ephemeral” portokat választanak a maguk oldalán
+<ul class="org-ul">
+<li><code>&gt; 1024</code>
+</li>
+</ul>
+</li>
+<li>Unixokban: <code>/etc/services</code>
+</li>
+<li>Portscan: port letapogatás
+<ul class="org-ul">
+<li>Más gépére tilos, de legalább is udvariatlan
+</li>
+<li>Saját gépeinkre hasznos segédeszköz
+</li>
+<li>Népszerű eszköz: <code>nmap</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-21" class="outline-3">
+<h3 id="sec-2-21">RFC-k</h3>
+<div class="outline-text-3" id="text-2-21">
+<ul class="org-ul">
+<li>Request For Comments, a szerény, gyakorlatias hozzáállást mutatja
+</li>
+<li>Az internet közösség alapdokumentumai
+</li>
+<li>A protokollok szabványai RFC-k
+</li>
+<li>Az <a href="http://www.ietf.org/">IETF</a> (Internet Engeeniring Task Force) alkotja meg
+</li>
+<li>Munkacsoportok (Working Groups)
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Dátum: 2016. szeptember</p>
+<p class="author">Szerzõ: Pásztor Miklós, Máray Tamás</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org/">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+
+</body></html>

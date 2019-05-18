@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1489419088 source:c:\users\john\desktop\gpdefault - copy\main.cpp
+	"graphics.hpp"
+	<vector>
+	<ctime>
+	<iostream>
+
+1430015266 c:\users\john\desktop\gpdefault - copy\include\graphics.hpp
+	<string>
+

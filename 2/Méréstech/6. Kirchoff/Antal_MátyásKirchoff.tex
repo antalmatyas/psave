@@ -1,0 +1,119 @@
+%  <-- ezzel lesznek jelölve a kommentek,
+%a legtöbb dolgot jobb békénhagyni úgy ahogy van, általában csak {} közé vagy \section{} alá kell írni majd
+%az ITKproc miatt nem kell megformáznod a szöveget tehát ezt mindenképpen hagyjátok a itt, valamint mindig legyen a dokumentum mappájában, hogy elérje a fordító
+\documentclass[10pt, conference,a4paper]{ITKproc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+% correct bad hyphenation here
+
+\hyphenation{pre-sence vi-su-alized si-mu-la-tions mo-le-cu-lar se-ve-ral cha-rac-te-ris-tic CoNSEnsX}
+
+
+\begin{document}
+% ide a {} közé írd a jegyzőkönyv címét
+\title{Kirchhoff törvények mérési jegyzőkönyv}
+% ezek gondolom egyértelműek, itt is mindig csak a {} szerkesszétek, valamint használhattok \\ sortöréshez, pl dátum hozzáírás stb
+\author{\IEEEauthorblockN{Mátyás Antal}
+\IEEEauthorblockA{(Supervisor: Attila Tihanyi)\\
+Pázmány Péter Catholic University, Faculty of Information Technology and Bionics\\
+50/a Pr\'ater street, 1083 Budapest, Hungary\\
+\texttt{antal.matyas.gergely@hallgato.ppke.hu}}
+}
+
+
+\maketitle
+
+\begin{abstract}
+A mérés célja volt a Kirchhoff törvények megismerése és gyakorlati alkalmazása, valamint ezzel a törvények működésének bizonyítása. A mérésre való felkészülés során átismételtük középiskolában a Kirchhoff törvényekről tanultakat, valamint terveztünk olyan egyszerű mérési elrendezéseket, melyek vizsgálatával mérni tudtuk a Kirchoff hurok és csomóponti törvényeket. 
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+% innentől kezdve jönnek a feladatok
+% \section{} Ezzel hozunk létre fejezetet, a {} közé pedig bármi írhatunk, általában úgyis "Feladat" és "összefoglalás"-t fogunk,
+% a fejezetek alapjáraton számozódnak római számokkal tehát azt nem szükséges beleírni, 
+% ha alfejezeteket akarunk létrehozni akkor \subsection{} subsubsection{} stb- vel tegyük
+%példa:
+\section{Mérendő objektumok}
+
+A mérés során 3 darab ismeretlen értékű ellenállást kaptunk, első feladatunk ezeknek a beazonosítása volt. Mindhárom ellenállás 5csíkos jelöléssel volt ellátva, az erre vonatkozó táblázat alapján leolvastuk az elméleti értéküket, majd az ELVIS digitális multiméter használatával, a V és COM kimenetek közé kapcsolva méréssel ellenőriztük azt. Az $R_1$ ellenállás, a jelölés alapján 3300$\Omega$, '\%-os tűréssel, a mérés eredménye pedig $R_1 = 3.28 k\Omega$, ami belül esik a tűréshatáron. A második ($R_2$) ellenállás leolvasott értéke 1100$\Omega$ szintén 1\%-os tűréssel, a mért értéke pedig $R_2 = 1.09k\Omega$, mely szintén megfelelő érték. A harmadik ($R_3$) ellenállás a színkód alapján 2200$\Omega$, 1\%os tűréssel, mért értéke pedig $R_3 = 2.18k\Omega$. A mérési elrendezésekben használt ellenállások értéke tehát \[R_1 = 3.28k\Omega, R_2 = 1.09k\Omega, R_3 = 2.18k\Omega \]
+A mérések során minden esetben megmértük a mérőeszközben a nulla ellenállást, illetve feszültséget, és a Null Offset funkció használatával ezt automatikusan kivontuk a később mért értékekből, ezzel kiküszöbölve az offszet hibát. 
+
+\section{Első mérési összeállítás}
+\subsection{Mérések}
+
+Az első mérési elrendezésünkben az $R_1$, $R_2$ és az $R_3$ ellenállásokat sorosan kötöttük be, és ELVIS digitális multiméter segítségével egyenként megmértük az ellenállásokon eső feszültség nagyságát, valamint az áramkör különböző helyein az áramerősség értékét. Az áramerrősség nagysága természetesen minden esetben azonos volt, hiszen soros kapcsolással dolgoztunk. Az értéke $I_e = 0.00055 A$. Az egyes ellenállásokon mért feszültségek mért értékét az alábbi táblázat szemlélteti. 
+
+\begin{table}[ht!]
+\renewcommand{\arraystretch}{1.3}
+\caption{Első mérési összeállítás}
+\centering
+\begin{tabular}{c||c}
+\hline
+\bfseries Ellenállás & \bfseries Feszültség \\
+\hline\hline
+ $R_1$ = 3.28$k\Omega$ & $U_1$ = 2.41$V$\\
+\hline
+ $R_2$ = 1.09$k\Omega$ & $U_2$ = 0.804$V$ \\
+\hline
+$R_3$ = 2.18$k\Omega$ & $U_3$ = 1.609$V$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Magyarázat}
+Az fenti mérési elrendezés vizsgálatával szemléltethető Kirchhoff huroktörvénye, mely szerint bármely zárt hurokban a feszültségek előjeles összege 0. Pozitív előjelet kap tehát a feszültségforrás, negatívat pedig azok az áramköri elemek, melyeken feszültség esik, jelen esetben a három ellenállás. \[+U_e - U_1 - U_2 - U_3 = 0 \] 
+mely egyenlet átrendezve: \[U_e = U_1 + U_2 + U_3\] 
+Mivel az feszültségforrás mért értéke $4.89V$ volt, a mért értékek kielégítik az egyenletet, tehát szemléltettük huroktörvényt. \[4.89 \approx 2.41 + 0.804 + 1.609\]
+Az egyenletet tovább alakíthatjuk, az Ohm törvény ($U = R * I$) behelyettesítésével az egyenlet: \[R_e*I_e = R_1*I_1 + R_2*I_2 + R_3*I_3\] mivel az áramerősségek soros kapcsolás miatt az áramkör bármely pontján megegyeznek ($I_e = I_1 = I_2 = I_3$), ezzel leoszthatunk, így az \[R_e = R_1 + R_2 + R_3\] egyenletet kapjuk. A mérés során ezt ellenőrizni tudjuk, ha a három ellenállás helyett, ezeknek eredőjével számolunk és az Ohm törvényt használjuk: $U_e = R_e * I_e$, mely egyenlet a mérések segítségével szintén bizonyítható. 
+
+\section{Második mérési összeállítás}
+\subsection{Mérések}
+A második mérési összeállításban annyit módosítottunk, hogy az $R_2$ és $R_3$ ellenállásokat párhuzamosan kötöttük be, ezzel csomópontokat létrehozva az áramkörben. Célunk itt a Kirchhoff csomóponti törvény szemléltetése volt. A mérés során szintén megmértük az egyes ellenállásokra eső feszültségeket, majd az áramkör különböző pontjain (az árammérőt sorosan bekötve) az áramerősség értékét. A mért értékeket az alábbi táblázat szemlélteti: 
+
+\begin{table}[ht!]
+\renewcommand{\arraystretch}{1.3}
+\caption{Második mérési össezállítás}
+\centering
+\begin{tabular}{c||c||c}
+\hline
+\bfseries Ellenállás & \bfseries Feszültség & \bfseries Áramerősség\\
+\hline\hline
+ $R_2$ = 3.28$k\Omega$ & $U_2$ = 4.8$V$ & $I_2$ = 0.00426$A$\\
+\hline
+ $R_3$ = 1.09$k\Omega$ & $U_3$ = 4.8$V$ & $I_3$ = 0.00205$A$ \\
+\hline
+$R_e$ = 0.73$k\Omega$ & $U_e$ = 4.8$V$ & $I_e$ = 0.00647$A$\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Magyarázat}
+A fenti mérési elrendezés vizsgálatával szemléltethető Kirchhoff csomóponti törvénye, mely szerint bármely csomópontba befolyó áramok összege megegyezik az onnan elfolyó áramok összegével. Jelen esetben az $I_e$ áramerősséget a főágban mértük, azaz a két, párhuzamosan kötött ellenállást követő csomópont után. A csomóponti törvény szerint tehát, a két mellékágban mért $I_2$ és $I_3$ áramok összegének egyelőnek kell lennie a főágban mért $I_e$ árammal, ami teljesül: $0.00426 + 0.00205 \approx 0.00647$. \\
+A mérések eredményeiből látszik továbá, hogy az áramerősség párhuzamos kapcsolás esetén az áramkör bármely pontján állandó, tehát $U_e = U_2 = U_3$. Kiindulva a csomóponti törvényből:
+\[I_e-(I_2 + I_3) = 0\] ezt átrendezve, és az Ohm törvényt ($I = U/R$) felhasználva az egyenlet: \[\frac{U_e}{R_e} = \frac{U_2}{R_2} + \frac{U_3}{R_3}\] mivel fent említettük, hogy párhuzamos kapcsolás esetén az áramerősségek egyenlőek, az egyenletben ezzel leoszthatunk, ezzel az alábbi azonosságot kapva: \[\frac{1}{R_e} = \frac{1}{R_2} + \frac{1}{R_3}\] mellyel bizonyítottuk a párhuzamosan kötött ellenállások eredőjének számítását. A fenti táblázatból látszik, hogy a mérések megerősítették ezt a számítást, hiszen \[\frac{1}{0.730} \approx \frac{1}{1.09} + \frac{1}{2.18}\]
+
+
+%Ha szeretnéd hogy az adott fejezet ne legyen számozva használj \section*{} -t, pl Acknowledgements
+
+
+% Az egyenletekre, táblázatokra, listákra stb. itt nem térnék ki, ahhoz mindenképp érdemes kicsit utána olvasni
+
+% A references mindig a legutolsó fejezet lesz
+
+%  minden hivatkozás elnevezünk, ezzel a névvel fogunk hivatkozni a szövegen belül
+% \bibitem{} <- hivatkozásnév
+% A hivatkozás formája legjobban a példa dokumentumban látszik a tanárúr honlapján, általában: szerző, olvasott anyag neve, közreműködők, hely, év
+% a szövegben pedig \cite{Megadott hivatkozásnév} -vel hivatkozunk
+
+
+% példa:
+
+
+% Ez a rész mindig marad:---------
+\bibliographystyle{ieeetr}
+%\bibliography{references}
+
+
+% that's all folks
+\end{document}

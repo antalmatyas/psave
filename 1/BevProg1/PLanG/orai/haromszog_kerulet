@@ -1,0 +1,10 @@
+PROGRAM haromszog_kerulet
+  VÁLTOZÓK:
+    a, b, c, s: VALÓS
+ 
+  BE: a
+  BE: b
+  BE: c
+  s := (a + b + c) / 2
+  KI: (s * (s - a) * (s - b) * (s - c)) ^ 0.5
+PROGRAM_VÉGE

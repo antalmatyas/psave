@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1363629762 source:c:\users\matyó\desktop\widget+button example\examplecheckbox.cpp
+	"examplecheckbox.hpp"
+	"graphics.hpp"
+
+1363440754 c:\users\matyó\desktop\widget+button example\examplecheckbox.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+
+1430022466 c:\users\matyó\desktop\widget+button example\include\graphics.hpp
+	<string>
+
+1366112430 c:\users\matyó\desktop\widget+button example\widgets.hpp
+	"graphics.hpp"
+
+1366647456 source:c:\users\matyó\desktop\widget+button example\main.cpp
+	"graphics.hpp"
+	"widgets.hpp"
+	"examplecheckbox.hpp"
+	"statictext.hpp"
+	"texteditor.hpp"
+	"window.hpp"
+	"pushbutton.hpp"
+	<vector>
+
+1366037726 c:\users\matyó\desktop\widget+button example\statictext.hpp
+	<string>
+	"widgets.hpp"
+
+1366037694 c:\users\matyó\desktop\widget+button example\texteditor.hpp
+	<string>
+	"widgets.hpp"
+
+1366646470 c:\users\matyó\desktop\widget+button example\window.hpp
+	"widgets.hpp"
+	<vector>
+
+1366646756 c:\users\matyó\desktop\widget+button example\pushbutton.hpp
+	"widgets.hpp"
+	"window.hpp"
+
+1366037860 source:c:\users\matyó\desktop\widget+button example\statictext.cpp
+	"statictext.hpp"
+	<string>
+
+1365435048 source:c:\users\matyó\desktop\widget+button example\texteditor.cpp
+	"texteditor.hpp"
+	<string>
+
+1366112456 source:c:\users\matyó\desktop\widget+button example\widgets.cpp
+	"widgets.hpp"
+	"graphics.hpp"
+
+1366646486 source:c:\users\matyó\desktop\widget+button example\window.cpp
+	"window.hpp"
+
+1366646860 source:c:\users\matyó\desktop\widget+button example\pushbutton.cpp
+	"pushbutton.hpp"
+

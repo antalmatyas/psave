@@ -1,0 +1,7 @@
+PROGRAM elso
+  VÁLTOZÓK:
+    sz1, sz2: SZÖVEG
+ 
+  BE: sz1, sz2
+  KI: (sz2 @ sz1) /= |sz2|
+PROGRAM_VÉGE

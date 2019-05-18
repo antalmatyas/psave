@@ -1,0 +1,36 @@
+PROGRAM rombusz
+  VÁLTOZÓK:
+    n, k, x, y: EGÉSZ,
+    ps: LOGIKAI
+ 
+  BE: n
+  x := 0
+  y := 0
+  ps := HAMIS
+  CIKLUS AMÍG y < n
+    x := 0
+    HA ps = IGAZ AKKOR
+      ps := HAMIS
+    KÜLÖNBEN
+      ps := IGAZ
+    HA_VÉGE
+    CIKLUS AMÍG x < n
+      HA ((x MOD 2) = 0) AKKOR
+        HA ps = HAMIS AKKOR
+          KI: "**"
+        KÜLÖNBEN
+          KI: " "
+        HA_VÉGE
+      KÜLÖNBEN
+        HA ps = IGAZ AKKOR
+          KI: "**"
+        KÜLÖNBEN
+          KI: " "
+        HA_VÉGE
+      HA_VÉGE
+      x := x + 1
+    CIKLUS_VÉGE
+    KI: SV
+    y := y + 1
+  CIKLUS_VÉGE
+PROGRAM_VÉGE

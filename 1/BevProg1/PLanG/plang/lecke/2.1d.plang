@@ -1,0 +1,40 @@
+PROGRAM rombusz
+  VÁLTOZÓK:
+    n, j, m, i: EGÉSZ
+ 
+  BE: n
+  j := 0
+  m := 0
+  i := 0
+  CIKLUS AMÍG i < n
+    j := 0
+    m := 0
+    CIKLUS AMÍG j <= n - i - 2
+      KI: "  "
+      j := j + 1
+    CIKLUS_VÉGE
+    CIKLUS AMÍG m <= i * 2
+      KI: " *"
+      m := m + 1
+    CIKLUS_VÉGE
+    i := i + 1
+    KI: SV
+  CIKLUS_VÉGE
+  j := 0
+  m := 0
+  i := 1
+  CIKLUS AMÍG i < n
+    j := 0
+    m := 0
+    CIKLUS AMÍG j < i
+      KI: "  "
+      j := j + 1
+    CIKLUS_VÉGE
+    CIKLUS AMÍG m + 1 < (n - i) * 2
+      KI: " *"
+      m := m + 1
+    CIKLUS_VÉGE
+    i := i + 1
+    KI: SV
+  CIKLUS_VÉGE
+PROGRAM_VÉGE

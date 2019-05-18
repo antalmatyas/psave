@@ -1,0 +1,88 @@
+#include "graphics.hpp"
+#include <iostream>
+#include <time.h>
+#include <vector>
+#include <stdlib.h>
+#include <cmath>
+#include <random>
+
+using namespace genv;
+using namespace std;
+
+int XX, YY;
+
+struct pix{float x, y, r, g, b;};
+
+void spawn(vector<pix> &pixel)
+{
+    for(int i = 0 ; i < 1000 ; i++)
+    {
+        pix a;
+        a.x = rand() % XX;
+        a.y = rand() % YY;
+        a.r = rand() % 255 + 1;
+        a.g = rand() % 255 + 1;
+        a.b = rand() % 255 + 1;
+        pixel.push_back(a);
+    }
+}
+
+void draw(vector<pix> &pixel)
+{
+    for(int i = 0 ; i < pixel.size() ; i ++)
+    {
+        gout << color(pixel[i].r, pixel[i].g, pixel[i].b) << move_to(pixel[i].x, pixel[i].y) << box(3,3);
+    }
+}
+
+void pmove(vector<pix> &pixel)
+{
+    for (int i = 0; i < pixel.size(); i++)
+    {
+        if(i < pixel.size() - 1)
+        {
+            pixel[i].x += ((pixel[i+1].x - pixel[i].x) / sqrt(pow(pixel[i+1].x - pixel[i].x, 2) + pow(pixel[i+1].y - pixel[i].y, 2)));
+            pixel[i].y += ((pixel[i+1].y - pixel[i].y) / sqrt(pow(pixel[i+1].y - pixel[i].y, 2) + pow(pixel[i+1].x - pixel[i].x, 2)));
+        }
+        else
+        {
+            pixel[i].x += ((pixel[0].x - pixel[i].x) / sqrt(pow(pixel[0].x - pixel[i].x, 2) + pow(pixel[0].y - pixel[i].y, 2)));
+            pixel[i].y += ((pixel[0].y - pixel[i].y) / sqrt(pow(pixel[0].x - pixel[i].x, 2) + pow(pixel[0].y - pixel[i].y, 2)));
+        }
+        if(pixel[i].x > XX || pixel[i].x < 0 || pixel[i].y > YY || pixel[i].y < 0)
+        {
+            pixel[i].x = rand() % XX;
+            pixel[i].y = rand() % YY;
+        }
+    }
+}
+
+void pclear()
+{
+    gout << color(0,0,0) << move_to(0,0) << box(XX,YY);
+}
+
+int main()
+{
+    XX = 600;
+    YY = 600;
+    srand(time(0));
+    gout.open(XX,YY);
+    event ev;
+    vector<pix> pixel;
+    gin.timer(1);
+    spawn(pixel);
+    while(gin >> ev && ev.keycode != key_escape)
+    {
+        if(ev.type == ev_timer)
+        {
+            pclear();
+            pmove(pixel);
+            draw(pixel);
+            gout << refresh;
+        }
+    }
+
+    return 0;
+
+}

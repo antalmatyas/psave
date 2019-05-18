@@ -1,0 +1,67 @@
+kulcs generálása:
+gpg --gen-key
+1
+1024
+0
+y
+név
+e-mail
+enter
+o (ok)
+jelszó
+
+authorizáció: vmilyen jogosultságot adunk vkinek
+authentikáció: azonosítás pl. rendõrnek megmutatom a sz.ig.-t
+
+
+Rejtjelezés - ez az informatikai kérdés
+pl. minden betû helyett az ABC-ben 3-mal utánna levõt használom vagy táblázat segítségével használok másik betût
+
+szteganográfia: a rejtjelezett üzenet is el van rejtve pl. minden sor vagy minden 3. szõ elsõ betûje értelmes; képben bináris üzenet utolsó bitekbõl éll össze
+
+szimmetrikus algoritmusok
+ugyan az a kulcs kell a kódoláshoz és a dekodoláshoz, hogy juttatom el a kulcsot
+IDEA
+DES (3DES)
+AES Rijudael
+
+K(ü)=R
+K(R)=ü
+
+
+brute force attack: megfejtésre irányuló támadás, amikor az összes lehetséges kulcsot végig próbáljuk
+dictionary attack: szótárt használok és információim vannak az emberrõl
+
+asszimetrikus
+nem azonos a 2 kulcs, sõt nem állítható elõ egymásból a kulcs a kódoláshoz és a dekodolóshoz
+
+RSA:
+Mindenkinek van 1 titkos és egy publikus kulcsa. (At, Ap; Bt, Bp). A tudja Bp és B tudja Ap kulcsát.
+A: Bp(ü)=R
+B: Bt(R)=Bt(Bp(ü))=ü
+
+man-in-the-middle attack
+A C B
+C elkapja Bp kulcsát és helyette a sajátját küldi A-nak, aki azt hiszi az B-é.
+A Cp(ü) így Ct(Cp(ü))=ü majd C az elkapott Bp kulccsal kódolja az esetleg módosított üzenetet és mindenki meg van gyõzõdve, hogy minden jól mûködött.
+
+digitális aláírás:
+A: At(P)
+B: Ap(At(P))=P valóban A írta-e alá
+P - egy publikus kulcs
+Ugyan azt a kulcsot többen aláírhatják. Ez hitelesebbé teszi.
+
+kivonatoló algoritmus (mesage digest): hossz(K(ü))<<hossz(ü)
+Az üzenetet kivonatát írjuk alá
+A: At(K(ü))=D
+B: Ap(At(K(ü)))=?K(ü)
+A elküldte az üzenetet és a kivonatot aláírva. Ha a 2 kivonat egyezik, akkor tudom, hogy A írta alá és az üzenet nem módosult. Kis megváltoztatás hatására a kivonat nagyon változik.
+2 algoritmus: MD5, SHA
+
+https - megnézhetõ az aláírt tanúsítvány, valóban pl. a bank szerverétõl jött
+Ki írja alá?
+Tanúsítvány kiadó (CA- certification authority): hierarchikus rendszer és a böngészõben benne vannak a root (fõ) tanúsítvány kezelõ publikus kulcsai
+CRL - tanúsítvány visszavonási lisita a szolgáltatónál
+
+pszeudo random generátorok:
+véletlen szám generátor hardver szinten lehet jót csinálni

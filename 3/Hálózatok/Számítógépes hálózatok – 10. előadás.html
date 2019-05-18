@@ -1,0 +1,1454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0048)http://users.itk.ppke.hu/~marta5/eloadas-10.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógépes hálózatok – 10. előadás</title>
+
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Pásztor Miklós">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógépes hálózatok – 10. előadás_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Számítógépes hálózatok – 10. előadás</h1>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Az internet DNS</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">A feladat</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Az Interneten számok (IP címek) azonosítanak gépeket
+</li>
+<li>Emberek számára ez
+<ul class="org-ul">
+<li>nem kifejező
+</li>
+<li>nehezen megjegyezhető
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Nevek bevezetése</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><b>Név – Cím</b> megfeleltetés
+<ul class="org-ul">
+<li>haszna: pl. <code>telnet arizona.edu</code>
+</li>
+</ul>
+</li>
+<li><b>Cím – Név</b> megfeleltetés
+<ul class="org-ul">
+<li>haszna: pl. <code>traceroute arizona.edu</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Host táblák</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Központi, szétküldött fájl
+</li>
+<li>Soronként tartalmaz egy-egy név-IP cím megfeleltetést
+</li>
+<li>Kezdetben használták
+</li>
+<li>Nem skálázható: <i>„does not scale”</i>
+</li>
+<li>Unixokon máig is él: <code>/etc/hosts</code>
+<ul class="org-ul">
+<li>Windows-okon is van ilyen: <code>system32\drivers\etc\hosts</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Hierarchikus, osztott adatbázis</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>A nevek hierarchikusan épülnek fel
+</li>
+<li>A hierarchia egyes szintjein önállóan döntenek
+<ul class="org-ul">
+<li>Érvényesül a szubszidiaritás elve
+</li>
+</ul>
+</li>
+<li>Minden szinten tovább lehet delegálni
+</li>
+<li>A feloldás rekurzívan történik a hierarchián
+</li>
+<li>Nagyon jól skálázható: ma sok millió név, sok százezer névszerver
+</li>
+<li>Egyedül a <code>.com</code> alatt több mint 120 millió elágazás (delegálás)
+<ul class="org-ul">
+<li>Forrás: <a href="http://www.domaintools.com/statistics/tld-counts/">http://www.domaintools.com/statistics/tld-counts/</a>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 10. előadás_files/dnsfa.png" alt="dnsfa.png">
+</p>
+<p><span class="figure-number">Figure 1:</span> DNS fa</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">A DNS</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/1034">RFC1034</a>, <a href="http://tools.ietf.org/html/1035">RFC1035</a>
+</li>
+<li>Nevek:
+<ul class="org-ul">
+<li>Alfanumerikus karakterek és a - (dash)
+</li>
+<li><b>LDH</b> (Letter, Digit, Hyphen) karakterek
+</li>
+<li>Kis /nagybetű nem számít
+</li>
+<li>Hiererchia balról jobbra
+<ul class="org-ul">
+<li>Fordítva, mint a könyvtárstruktúra
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Label
+<ul class="org-ul">
+<li>Két pont közti rész
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">Kliens-szerver elv</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>Kliens: resolver
+<ul class="org-ul">
+<li>Gyakorlatilag minden IP szoftvernek része
+</li>
+<li>Legalább egy szervert látnia kell
+</li>
+<li>Konfigurációs paraméter
+</li>
+</ul>
+</li>
+<li>Szerver: DNS szerver
+<ul class="org-ul">
+<li>Sok operációs rendszer alatt
+</li>
+<li>Nem feltétlenül autoritás
+</li>
+<li>Kapcsolat a többi szerverrel
+</li>
+<li>cache !!
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">A kommunikáció</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li>UDP 53-as porton történik
+<ul class="org-ul">
+<li>Az UDP csomag hossza legfeljebb 512
+</li>
+<li>Néha (pl. zóna transzfernél) TCP 53-as port
+</li>
+</ul>
+<p>
+A név fán a gyökértől kezdve lépésről lépésre a hiararchia szerint
+</p>
+<ul class="org-ul">
+<li><code>www.btk.elte.hu</code>
+</li>
+<li><code>.</code> név szerverét kérdezve
+</li>
+<li><code>.hu</code> név szerverét kérdezve
+</li>
+<li><code>.elte.hu</code> név szerverét kérdezve
+</li>
+<li>…
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">A DNS szerverek kettős feladata</h3>
+<div class="outline-text-3" id="text-1-8">
+</div><div id="outline-container-sec-1-8-1" class="outline-4">
+<h4 id="sec-1-8-1">Látni</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<ul class="org-ul">
+<li>Az elosztott adatbázist kérdezni szerte az interneten
+</li>
+<li>Ez a <i>rekurzív</i> név szerverek, más néven <i>rekurzor</i>-ok, vagy <i>caching</i>
+        név szerverek feladata
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8-2" class="outline-4">
+<h4 id="sec-1-8-2">Mutatni</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<ul class="org-ul">
+<li>A rájuk tartozó részről a többi szerver számára adatokat szolgáltatni
+</li>
+<li>Ez az <i>autoritatív</i> más néven <i>hiteles</i> név szerverek feladata
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8-3" class="outline-4">
+<h4 id="sec-1-8-3">A szerverek ennek megfelelően lehetnek</h4>
+<div class="outline-text-4" id="text-1-8-3">
+<ul class="org-ul">
+<li>Caching szerverek, vagy
+</li>
+<li>Autoritatív más néven hiteles szerverek
+</li>
+<li>Egy-egy szerver mindkét feladatot elláthatja
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 10. előadás_files/dns.png" alt="dns.png">
+</p>
+<p><span class="figure-number">Figure 2:</span> DNS kérések</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">DNS üzenet formátum</h3>
+<div class="outline-text-3" id="text-1-9">
+<pre class="example">+---------------------+
+|        Header       |
++---------------------+
+|       Question      | the question for the name server
++---------------------+
+|        Answer       | RRs answering the question
++---------------------+
+|      Authority      | RRs pointing toward an authority
++---------------------+
+|      Additional     | RRs holding additional information
++---------------------+
+</pre>
+
+<ul class="org-ul">
+<li>A fejrész (header) mindig van
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10">Fejrész</h3>
+<div class="outline-text-3" id="text-1-10">
+<pre class="example">                                1  1  1  1  1  1
+  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                      ID                       |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|QR|   Opcode  |AA|TC|RD|RA|   Z    |   RCODE   |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|               Kérdések száma                  |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|               Válasz RR-ek száma              |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|               Autoritás RR-ek száma           |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|               Ráadás RR-ek száma              |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+</pre>
+
+
+<ul class="org-ul">
+<li>ID: ennek segítségével lehet a kérdést és a választ párosítani
+</li>
+<li>QR: 0 ha kérdés, 1 ha válasz
+</li>
+<li>AA: A válasz autoritatív (Authoritative Answer)
+</li>
+<li>TC: A válasz csonkolt (Truncated)
+</li>
+<li>RD: Rekurziót kérek (Recursion Desired)
+</li>
+<li>RA: Rekurziót adok (Recursion Available)
+</li>
+<li>Rcode: a visszatérési érték: ha 0, siker
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11">Kérdés formátum</h3>
+<div class="outline-text-3" id="text-1-11">
+<pre class="example">                                1  1  1  1  1  1
+  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                                               |
+/                     QNAME                     /
+/                                               /
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                     QTYPE                     |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                     QCLASS                    |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+</pre>
+
+<ul class="org-ul">
+<li>QNAME: a kérdéses domain name. Label-enként.
+</li>
+</ul>
+<pre class="example">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|7|d|i|g|i|t|u|s|3|i|t|k|4|p|p|k|e|2|h|u|0|
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+
+<ul class="org-ul">
+<li>A label-ek maximális hossza: 63
+</li>
+<li>A 0 hosszú label a gyökér domaint jelenti
+</li>
+
+<li>QTYPE: a kérdés típusa. Például
+<ul class="org-ul">
+<li>A: Address record
+</li>
+<li>NS: DNS rekord
+</li>
+<li>AXFR: zóna kérés
+</li>
+</ul>
+</li>
+<li>QCLASS: majdnem mindig 1, azaz IN, Internet Class
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12">RR, Resource Record formátum</h3>
+<div class="outline-text-3" id="text-1-12">
+<pre class="example">                                1  1  1  1  1  1
+  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                                               |
+/                                               /
+/                      NAME                     /
+|                                               |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                      TYPE                     |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                     CLASS                     |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                      TTL                      |
+|                                               |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                   RDLENGTH                    |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--|
+/                     RDATA                     /
+/                                               /
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+</pre>
+
+<ul class="org-ul">
+<li>NAME, TYPE, CLASS: mint a kérdésnél
+</li>
+<li>TTL: Time To Live. Ennyi másodpercig kell a cache-ben tartani a rekordot
+</li>
+<li>RDLENGTH: a rekordhoz tartozó adat hossza byte-ban
+</li>
+<li>RDATA: a rekordhoz tartozó adat. Formátuma függ a rekord típusától.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13">Rezolver konfiguráció</h3>
+<div class="outline-text-3" id="text-1-13">
+<ul class="org-ul">
+<li>Minden TCP/IP-t használó gépen szükséges
+</li>
+<li>IP címmel kell megadni
+</li>
+<li>Több lehet (primary, secondary)
+</li>
+<li>Elvben az internet bármely pontján
+</li>
+<li>Célszerűen: hálózati értelemben közel levő
+</li>
+<li>A DNS szerverek (&gt;8.x Bind) korlátozhatják
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-14" class="outline-3">
+<h3 id="sec-1-14">Cache, TTL</h3>
+<div class="outline-text-3" id="text-1-14">
+<ul class="org-ul">
+<li>A DNS szerverek a megtudott nevekre emlékeznek
+</li>
+<li>Haszon
+<ul class="org-ul">
+<li>Gyorsabb feloldás
+</li>
+<li>Hálózat kímélése
+</li>
+</ul>
+</li>
+<li>Hogy meddig kell cache-elni, azt a név gazdája dönti el
+</li>
+<li>Minden rekordhoz tartozik egy ilyen idő: <i>TTL</i> (Time To Live).
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-15" class="outline-3">
+<h3 id="sec-1-15">DNS cache poisoning</h3>
+<div class="outline-text-3" id="text-1-15">
+<ul class="org-ul">
+<li>DNS válaszban visszaadott hamis érték
+<ul class="org-ul">
+<li>Rendszerint hamisított IP címről érkezik
+</li>
+<li>Rendszerint az additional vagy az authority részben
+</li>
+</ul>
+</li>
+<li>Visszaélésre ad módot
+<ul class="org-ul">
+<li>Pl. a www.optbank.hu kéréseket máshova téríthetik
+</li>
+</ul>
+</li>
+<li>Minimális védekezés: csak az autoritatív név szerverektől szabad elfogadni adatot
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 10. előadás_files/dns-poison.png" alt="dns-poison.png">
+</p>
+<p><span class="figure-number">Figure 3:</span> DNS cache mérgezés</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-16" class="outline-3">
+<h3 id="sec-1-16">A „Kaminsky bug”</h3>
+<div class="outline-text-3" id="text-1-16">
+<ul class="org-ul">
+<li>2008. augusztus, Blackhat konferencia: Dan Kaminsky nyilvánosságra hozta, hogy a cache mérgezés
+könnyebb mint gondolták
+</li>
+<li>Már májusban a nagy gyártók tudomására hozta
+</li>
+<li>A gyártók júniusban javították a programjaikat, „upgrade” kampányt kezdtek
+</li>
+<li>Ellenőrző: <a href="http://entropy.dns-oarc.net/test/">http://entropy.dns-oarc.net/test/</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-17" class="outline-3">
+<h3 id="sec-1-17">Segédprogramok</h3>
+<div class="outline-text-3" id="text-1-17">
+<ul class="org-ul">
+<li>Csak a DNS rendszerben való böngészésre
+</li>
+<li>DNS intelligencia
+</li>
+<li>tetszőleges szervertől kérdezhetünk
+</li>
+<li>NSLOOKUP
+<ul class="org-ul">
+<li>klasszikus
+</li>
+<li>sok platformon
+</li>
+</ul>
+</li>
+<li>HOST, DIG: unixokon
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-18" class="outline-3">
+<h3 id="sec-1-18">Domain</h3>
+<div class="outline-text-3" id="text-1-18">
+<ul class="org-ul">
+<li>Minden elem domain
+</li>
+<li>Nem csak IP cím lehet, hanem
+<ul class="org-ul">
+<li>hardware info
+</li>
+<li>tovább delegálás
+</li>
+<li>levelezési info
+</li>
+<li>?
+</li>
+</ul>
+</li>
+<li>A név fa egy pontja
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-19" class="outline-3">
+<h3 id="sec-1-19">Zóna</h3>
+<div class="outline-text-3" id="text-1-19">
+<ul class="org-ul">
+<li>A fának egy egyben kezelt ága
+</li>
+<li>A mutató szerver szempontjából egy egység
+</li>
+<li>Egy szerver rendelkezhet több zóna felett
+</li>
+<li>Példa:
+<ul class="org-ul">
+<li>root zóna: a TLD-k zónája
+</li>
+<li>elte.hu, arizona.edu, …
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-20" class="outline-3">
+<h3 id="sec-1-20">Primary (master), secondary (slave) szerverek</h3>
+<div class="outline-text-3" id="text-1-20">
+<ul class="org-ul">
+<li>Egy zónát több szerver is szolgáltat(hat)
+</li>
+<li>Mind autoritás
+</li>
+<li>Egy primary, a többi secondary
+</li>
+<li>Nem összekeverendő a resolvernél használt primary/secondary fogalommal!
+</li>
+<li>A secondaryk időről időre tükrözik a primary adatait
+<ul class="org-ul">
+<li>csak akkor töltenek le adatot, ha van változás
+</li>
+<li>konfigurációs (SOA rekordban eldöntött) paraméterek
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-21" class="outline-3">
+<h3 id="sec-1-21">Gyökér (root) domain</h3>
+<div class="outline-text-3" id="text-1-21">
+<ul class="org-ul">
+<li>Pont olyan mint akármely domain
+<ul class="org-ul">
+<li>Intranetnél ezt kihasználják
+</li>
+</ul>
+</li>
+<li>A szerverei szét vannak szórva az interneten
+<ul class="org-ul">
+<li>Minden szerverbe be kell konfigurálni!
+</li>
+<li>Fontos, hogy mindig elérhetők legyenek
+</li>
+<li><a href="http://www.root-servers.org/">http://www.root-servers.org</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-22" class="outline-3">
+<h3 id="sec-1-22">Top level domain-ok (TLD-k)</h3>
+<div class="outline-text-3" id="text-1-22">
+<ul class="org-ul">
+<li>Eredetileg felhasználó típusa szerint
+</li>
+<li>gTLD-k - generic Top Level Domains
+</li>
+<li><a href="http://www.iana.org/gtld/gtld.htm">http://www.iana.org/gtld/gtld.htm</a>
+<ul class="org-ul">
+<li>edu – oktatási intézmény
+</li>
+<li>gov – kormányzati intézmény
+</li>
+<li>org – közhasznú intézmény
+</li>
+<li>com – kereskedelmi intézmény
+</li>
+<li>mil - katonai
+</li>
+<li>int - nemzetkozi
+</li>
+</ul>
+</li>
+<li>Az Internet nemzetközivé válásával országkódok
+</li>
+<li>ccTLD-k - country code Top Level Domains
+<ul class="org-ul">
+<li>Pl: cz, it, jp
+</li>
+<li><a href="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm">ISO 3166</a> kódok
+</li>
+</ul>
+</li>
+<li>Manapság egy domain név birtoklása üzleti érték
+</li>
+<li>Új top level domainek jelentek meg
+<ul class="org-ul">
+<li>.biz
+</li>
+<li>.info
+</li>
+<li>.pro
+</li>
+</ul>
+</li>
+<li>2013-ban több új jelent meg
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-23" class="outline-3">
+<h3 id="sec-1-23">Domain nevek</h3>
+<div class="outline-text-3" id="text-1-23">
+<ul class="org-ul">
+<li>FQDN = Fully Qualified Domain Name
+</li>
+<li>Rövidítve (jobb oldalát lehagyva)
+<ul class="org-ul">
+<li>használható
+</li>
+<li>nem egyértelmű
+</li>
+</ul>
+</li>
+<li>A hierarchikus felépítés miatt
+<ul class="org-ul">
+<li>FQDN egyértelmű
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-24" class="outline-3">
+<h3 id="sec-1-24">Inverz leképezés</h3>
+<div class="outline-text-3" id="text-1-24">
+<ul class="org-ul">
+<li>IP címből név
+</li>
+<li>Visszavezetik név leképezésre
+</li>
+<li>Speciális domain:IN-ADDR.ARPA
+</li>
+<li>Az IP címet fordított sorrendben kell írni
+<ul class="org-ul">
+<li>Pl: 67.84.225.193.in-addr.arpa
+</li>
+<li>A segédprogramok automatikusan megfordítják
+</li>
+</ul>
+</li>
+<li>Sokszor elfelejtkeznek róla!
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Name szerver programok</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Klasszikus: <a href="http://www.isc.org/software/bind">BIND</a> (Berkeley, Internet Name Daemon Software)
+</li>
+<li>Újabbak: <a href="http://cr.yp.to/djbdns.html">djbdns</a>, <a href="http://www.nlnetlabs.nl/projects/nsd/">NSD</a>
+</li>
+<li>Zónák szempontjából
+<ul class="org-ul">
+<li>primary
+</li>
+<li>secondary
+</li>
+<li>caching only
+</li>
+</ul>
+</li>
+<li>Firewall mögött levő: slave
+</li>
+<li>Cache-elnek
+<ul class="org-ul">
+<li>a cache-t inicializáljuk a root szerverek címeivel
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Caching only szerver, forwarder</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Érdemes minden lokális hálózaton legalább egy DNS szervert futtatni
+</li>
+<li>Ha nem autoritás, akkor caching only
+</li>
+<li>A cache-ét kiegészítheti, ha forwardereket használ
+</li>
+<li>Forwarder
+<ul class="org-ul">
+<li>Mielőtt az interneten érdeklődne, először ezt kérdezi
+</li>
+<li>Nagyobb, hatékonyabb lesz a cache
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Zóna fájl</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Az adatbázis adatait tartalmazza
+</li>
+<li>Elemei: Resource Rekordok (RR)
+</li>
+<li>Legfontosabbak:
+<ul class="org-ul">
+<li>Start Of Authority (SOA)
+</li>
+<li>Name Server (NS)
+</li>
+<li>Address (A)
+</li>
+<li>Pointer (PTR)
+</li>
+<li>Canonical Name (CNAME)
+</li>
+<li>Mail eXchanger (MX)
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">SOA rekord</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>Globális zóna adatok
+</li>
+</ul>
+<pre class="example">bioetika.hu              SOA     ns.ppke.hu hostmaster.ppke.hu (
+                 2003100901      ;serial (version)
+                 43200   ;refresh period (12 hours)
+                 14400   ;retry interval (4 hours)
+                 2592000 ;expire time (4 weeks, 2 days)
+                 86400   ;default ttl (1 day)
+                 )
+</pre>
+
+<ul class="org-ul">
+<li>A legtöbb adat a secondaryk-nak szól
+</li>
+<li>Szokás a sorszámban a dátumot kódolni
+</li>
+<li><code>ÉÉÉÉHHNNVV</code> forma (az 5. évezredig jó)
+</li>
+<li>A sorszámot FONTOS növelni
+</li>
+<li>Ha a refresh, retry nagy
+<ul class="org-ul">
+<li>kiméli a secondary-kat, de:
+</li>
+<li>változások lassabban terjednek
+</li>
+<li>Expiration ideig lehet, hogy nem vesszük észre, ha elrontottunk valamit!
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">Idő értékek a SOA rekordban</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>Másodperc az egység, de Bind-nál W (hét), D (nap), H (óra) is megadható
+</li>
+<li>Refresh
+<ul class="org-ul">
+<li>Ennyi időnként néz a secondary a primaryra
+</li>
+<li>8.x Bind-tól azonnali letöltés: notify
+</li>
+</ul>
+</li>
+<li>Retry
+<ul class="org-ul">
+<li>Ha nem sikerül ennyi idő múlva próbálkozik a secondary
+</li>
+</ul>
+</li>
+<li>Expiration
+<ul class="org-ul">
+<li>Ennyi ideig tartja az adatokat a secondary, ha nem talál a primary-val kapcsolatot
+</li>
+</ul>
+</li>
+<li>Nem megfelelő értékek
+<ul class="org-ul">
+<li>Értelmetlen
+</li>
+<li>refresh &gt; expire
+</li>
+<li>retry &gt; refresh
+</li>
+<li>ttl &gt; expire
+</li>
+</ul>
+</li>
+<li>Célszerűtlen érték
+<ul class="org-ul">
+<li>kicsi TTL (De változás előtt!!)
+</li>
+<li>kicsi vagy túl nagy refresh
+</li>
+</ul>
+</li>
+<li>TTL a SOA rekordban
+<ul class="org-ul">
+<li>A 8.2 változatú Bind-ig: default
+</li>
+<li>8.2 óta: negative cache idő
+</li>
+<li>8.2 -nél a default-ra új derektíva: $TTL
+</li>
+<li>A TTL-t rekordonként később felülbírálhatjuk
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">Address rekord</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li>Név - IP cím hozzárendelés
+</li>
+</ul>
+<pre class="example">ludens.elte.hu A 157.181.2.1
+</pre>
+<ul class="org-ul">
+<li>Nem szabad az inverz bejegyzésről elfeledkezni
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">NS rekord</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li>Egy aldomain autoritását tovább delegálja
+</li>
+<li>Az apuka és a gyerek zónában is megjelenik
+<ul class="org-ul">
+<li>Hiba, ha ezek eltérést mutatnak!
+</li>
+</ul>
+</li>
+</ul>
+
+
+<pre class="example">btk.ppke.hu             NS      ns2.sztaki.hu
+btk.ppke.hu             NS      hera.btk.ppke.hu
+btk.ppke.hu             NS      szele.cs.elte.hu
+</pre>
+
+<ul class="org-ul">
+<li>Ajánlatos több autoritatív név szerver azaz több  NS rekordot használni
+</li>
+<li>Az argumentumban szereplő gép gazdája a felelős!!!
+</li>
+</ul>
+</div>
+</div>
+
+<!--
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">Glue rekord</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li>Az apuka zónába kényszerülő A rekord
+</li>
+<li>Példa:
+<ul class="org-ul">
+<li><code>ppke.hu</code> delegálja az <code>btk.ppke.hu</code>-t
+</li>
+<li>az (egyik) szerver <code>hera.btk.ppke.hu</code> lesz
+</li>
+<li>A <code>hera.btk.ppke.hu</code>-t fel kell vennünk az <code>ppke.hu</code> zónába
+</li>
+</ul>
+</li>
+<li>Felesleges glue rekord: hiba és veszély
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10">Lame delegálás</h3>
+<div class="outline-text-3" id="text-1-10">
+<ul class="org-ul">
+<li>Az apuka zóna szerint autoritás
+</li>
+<li>Mégsem mutatja a zónát
+</li>
+<li>Okok
+<ul class="org-ul">
+<li>Legtöbbször ember-ember kommunikáció hiányossága
+<ul class="org-ul">
+<li>A secondary gazdája nem szólt, hogy megszűnt a gép, változott a neve
+</li>
+<li>A primary gazdája nem szólt, hogy kér secondary-t
+</li>
+</ul>
+</li>
+<li>Rossz konfiguráció
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+-->
+
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11">CNAME rekord</h3>
+<div class="outline-text-3" id="text-1-11">
+<ul class="org-ul">
+<li>Kanonikus név (alias)
+</li>
+</ul>
+<pre class="example">www.bioetika.hu       CNAME   digitus.itk.ppke.hu
+</pre>
+
+<ul class="org-ul">
+<li>Leggyakoribb felhasználás:
+</li>
+<li>Szolgáltatás jelölése
+</li>
+<li>Ha valami CNAME, akkor nem lehet
+<ul class="org-ul">
+<li>MX, TEXT,… is!
+</li>
+<li>A jobb oldalon álló domain célszerűen <code>A</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12">MX rekord</h3>
+<div class="outline-text-3" id="text-1-12">
+<ul class="org-ul">
+<li>Mail eXchanger
+</li>
+<li>Levél célállomást jelöl
+</li>
+</ul>
+<pre class="example">ella.hu  MX   100 hugbox.sztaki.hu
+ella.hu  MX   40 helka.iif.hu
+</pre>
+
+<ul class="org-ul">
+<li>Az első paraméter prioritás, nem súly!
+</li>
+<li>Felhasználásai:
+<ul class="org-ul">
+<li>Csak levelezésen át kapcsolódók (pl. fido.net)
+</li>
+<li>Intézmény címzés egyszerűsítés
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<!--
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13">SRV rekord</h3>
+<div class="outline-text-3" id="text-1-13">
+<ul class="org-ul">
+<li>Service meghatározására
+</li>
+<li>Az MX rekord általánosítása
+</li>
+<li><a href="http://tools.ietf.org/html/2782">RFC2782</a> írja le
+</li>
+<li>Szerkezete
+<ul class="org-ul">
+<li>_Service._Proto.Name TTL Class SRV Priority Weight Port Target
+</li>
+</ul>
+</li>
+<li>Példák
+</li>
+</ul>
+<pre class="example">_http._tcp.x.hu.         3600   IN      SRV   10 20 8000 masina.x.hu.
+_sip._udp.itk.ppke.hu.  86400   IN      SRV    0  0 5060 voip.itk.ppke.hu.
+</pre>
+</div>
+</div>
+-->
+<div id="outline-container-sec-1-14" class="outline-3">
+<h3 id="sec-1-14">HINFO és TXT rekord</h3>
+<div class="outline-text-3" id="text-1-14">
+<ul class="org-ul">
+<li>Emberek tájékoztatására szolgál
+</li>
+<li>HINFO = Hardware információ
+</li>
+</ul>
+<pre class="example">huearn.sztaki.hu HINFO "IBM" "VM/CMS"
+</pre>
+<ul class="org-ul">
+<li>Hardware és szoftver neve
+</li>
+<li>TXT = Text
+</li>
+<li>Tetszőleges szöveget tartalmazhat
+</li>
+</ul>
+<pre class="example">keys.pgp.net descriptive text "Email gateway to PGP replicated key server”
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-1-15" class="outline-3">
+<h3 id="sec-1-15">Szellemes TXT használat</h3>
+<div class="outline-text-3" id="text-1-15">
+<ul class="org-ul">
+<li>Clamav vírusírtó kurrens adatbázis változata
+</li>
+</ul>
+
+<pre class="example">current.cvd.clamav.net.  TXT     "0.98.4:55:19542:1414398891:1:63:42580:242"
+</pre>
+</div>
+</div>
+
+<!--
+
+<div id="outline-container-sec-1-16" class="outline-3">
+<h3 id="sec-1-16">Delegálás az in-addr.arpa zónákban</h3>
+<div class="outline-text-3" id="text-1-16">
+<ul class="org-ul">
+<li>Az IP címtartományokkal gazdálkodók delegálják
+</li>
+<li>Rendszerint szolgáltatók
+</li>
+<li>A osztály: a1.in-addr.arpa
+</li>
+<li>B osztály: b1.b2.in-addr.arpa
+</li>
+<li>C osztály: c1.c2.c3.in-addr.arpa
+</li>
+<li>Az IP címet fordítva írjuk:
+<ul class="org-ul">
+<li><code>193.1.2.3 - 3.2.1.193.in-addr.arpa</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-17" class="outline-3">
+<h3 id="sec-1-17">PTR rekord</h3>
+<div class="outline-text-3" id="text-1-17">
+<ul class="org-ul">
+<li>Az in-addr.arpa - olyan, mint más domain
+</li>
+<li>Címhez domain nevet rendel
+</li>
+</ul>
+<pre class="example">36.12.225.193.in-addr.arpa PTR hugbox.sztaki.hu
+</pre>
+<ul class="org-ul">
+<li>Az egyenes és inverz delegálás nem jár feltétlen együtt
+<ul class="org-ul">
+<li>Ha látjuk, hogy kimaradt valami, a hierarchiából egyértelmű, hogy hol a hiányosság
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+-->
+<div id="outline-container-sec-1-18" class="outline-3">
+<h3 id="sec-1-18">Ékezetes domain nevek</h3>
+<div class="outline-text-3" id="text-1-18">
+<ul class="org-ul">
+<li>Köznyelvi szavakat akarunk domain névként használni
+</li>
+<li>A domain névként csak LDH karaktereket: [a-z0-9-] használhatunk
+</li>
+<li>bár tetszőleges bináris információ lehetne a DNS rekorokban
+</li>
+<li>Akarunk e használni tetszőleges karaktersorozatot, például csupa írásjelből álló domain nevet?
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-19" class="outline-3">
+<h3 id="sec-1-19">Ékezetes DNS?</h3>
+<div class="outline-text-3" id="text-1-19">
+<ul class="org-ul">
+<li>NEM!
+</li>
+<li>IDN = Internationalized Domain Names
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-20" class="outline-3">
+<h3 id="sec-1-20">IDNA - Intenational Domain Names in Applications</h3>
+<div class="outline-text-3" id="text-1-20">
+<ul class="org-ul">
+<li>2001 decemberében IETF döntés
+</li>
+<li>A DNS szerkezet nem változik, az alkalmazások konvertálnak IDN/LDH közt
+</li>
+<li>Előnyök
+<ul class="org-ul">
+<li>Nem kell a DNS protokollt változtatni
+</li>
+<li>Nem kell a DNS infrastruktúrát változtatni
+</li>
+<li>A régi alkalmazások/domain nevek békén maradhatnak
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-21" class="outline-3">
+<h3 id="sec-1-21">ACE - Ascii Compatible Encoding</h3>
+<div class="outline-text-3" id="text-1-21">
+<ul class="org-ul">
+<li>Eszköz, mely lehetővé teszi, hogy a DNS szoftver komponensek semmit ne változzanak az ékezetes
+domain-re való áttéréskor
+</li>
+<li>Az IDN karaktereket tartalmazó (ISO-10646, <a href="http://www.unicode.org/standard/standard.html">unicode</a>) karaktersorozatot LDH karakterek segítségével
+kódoljuk
+</li>
+<li>Előtét miatt nem keverjük „közönséges” névvel (pl. <code>bq--</code>)
+</li>
+<li>Évek óta több javaslat született: BRACE, DUDE, RACE, …
+</li>
+</ul>
+</div>
+</div>
+
+<!--
+
+<div id="outline-container-sec-1-22" class="outline-3">
+<h3 id="sec-1-22">Punycode</h3>
+<div class="outline-text-3" id="text-1-22">
+<ul class="org-ul">
+<li>Adam Costello (Berkeley Egyetem) munkája, <a href="http://tools.ietf.org/html/3492">RFC3492</a>
+</li>
+<li>Az ascii karkakterek változatlanok maradnak
+</li>
+<li>Nem a karaktereket, hanem a karakter-pozíció párokat kódolja
+</li>
+<li>Nem is ezeket a párokat, hanem ezek különbségeit
+</li>
+<li>Nagyon tömör - sokszor tömörebb, mint az utf8!
+</li>
+<li>Előtét: <code>xn--</code>
+</li>
+<li>Példák
+<ul class="org-ul">
+<li><code>xn--megszentsgtelenthetetlensgeskedseitekrt-jpdqgg5</code>
+</li>
+<li><code>xn-1caaaaaaaaaa</code>
+</li>
+<li><code>xn--rvz-dla6d</code>
+</li>
+<li><code>xn--rdi-ela6g</code>
+</li>
+<li><code>xn-szolgltat-41a6r</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-23" class="outline-3">
+<h3 id="sec-1-23">Implementációk</h3>
+<div class="outline-text-3" id="text-1-23">
+<ul class="org-ul">
+<li>Böngészők
+<ul class="org-ul">
+<li>A 2002 óta frissült böngészők támogatják
+</li>
+</ul>
+</li>
+<li><a href="http://www.gnu.org/software/libidn/">libidn</a>
+<ul class="org-ul">
+<li>Működő stringprep, punycode és IDNA implementáció
+</li>
+<li>Library + utilityk
+</li>
+<li>Simon Josefsson munkája
+</li>
+<li>Szabad (GPL) szoftver
+</li>
+<li>Az interneten látható IDN eszközök többsége ezen alapul
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-24" class="outline-3">
+<h3 id="sec-1-24">IDN a .hu alatt</h3>
+<div class="outline-text-3" id="text-1-24">
+<ul class="org-ul">
+<li>Csak magyar nyelvű domain nevek
+</li>
+<li>Megengedett karakterek: LDH, ékezetes kis betűk
+</li>
+<li>Nem vezetünk be kötegeket
+<ul class="org-ul">
+<li>Más nyelveken célszerű egyszerre több nevet lefoglalni egy regisztációkor (más írásmóddal
+ugyanaz a szó)
+<ul class="org-ul">
+<li>Pl. Straße = Strasse
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+-->
+
+
+
+
+
+<div id="postamble" class="status">
+<p class="author">Szerzõ: Pásztor Miklós, Máray Tamás</p>
+<!--
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+-->
+</div>
+
+
+</body></html>

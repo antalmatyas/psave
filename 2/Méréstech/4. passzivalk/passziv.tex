@@ -1,0 +1,213 @@
+%  <-- ezzel lesznek jelölve a kommentek,
+%a legtöbb dolgot jobb békénhagyni úgy ahogy van, általában csak {} közé vagy \section{} alá kell írni majd
+%az ITKproc miatt nem kell megformáznod a szöveget tehát ezt mindenképpen hagyjátok a itt, valamint mindig legyen a dokumentum mappájában, hogy elérje a fordító
+\documentclass[10pt, conference,a4paper]{ITKproc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+% correct bad hyphenation here
+
+\hyphenation{pre-sence vi-su-alized si-mu-la-tions mo-le-cu-lar se-ve-ral cha-rac-te-ris-tic CoNSEnsX}
+
+
+\begin{document}
+% ide a {} közé írd a jegyzőkönyv címét
+\title{Passzív alkatrészek vizsgálata mérési jegyzőkönyv}
+% ezek gondolom egyértelműek, itt is mindig csak a {} szerkesszétek, valamint használhattok \\ sortöréshez, pl dátum hozzáírás stb
+\author{\IEEEauthorblockN{Mátyás Antal}
+\IEEEauthorblockA{(Supervisor:Attila Tihanyi)\\
+Pázmány Péter Catholic University, Faculty of Information Technology and Bionics\\
+50/a Pr\'ater street, 1083 Budapest, Hungary\\
+\texttt{antal.matyas.gergely@hallgato.ppke.hu}}
+}
+
+
+\maketitle
+
+\begin{abstract}
+A mérés célja volt ismerkedni a passzív elektromos alkatrészek tulajdonságaival, vizsgálatával, valamint az ELVIS mérőműszer és a hozzá tartozó szoftvercsomag használatával. A mérésre való felkészülés során átismételtük a középiskolában az ellenállásról, kondenzátorról, valamint az induktivitásról tanultakat, továbbá ezek mérési lehetőségeit. 
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+% innentől kezdve jönnek a feladatok
+% \section{} Ezzel hozunk létre fejezetet, a {} közé pedig bármi írhatunk, általában úgyis "Feladat" és "összefoglalás"-t fogunk,
+% a fejezetek alapjáraton számozódnak római számokkal tehát azt nem szükséges beleírni, 
+% ha alfejezeteket akarunk létrehozni akkor \subsection{} subsubsection{} stb- vel tegyük
+%példa:
+\section{Mérendő objektumok}
+A mérés kezdetén 6 darab ismeretlen áramköri elemet kaptunk, első feladatunk ezeknek felismerése volt. Ahhoz, hogy az egyes passzív alkatrészekről eldöntsük, ellenállással, kondenzátorral, vagy induktivitással van dolgunk az ELVIS mérőműszer Impedance Analyzerét használtuk. A leírás szerint a műszer DUT+ és DUT- kimenete közé bekötöttük az egyes elemeket, majd különböző frekvenciákon vizsgáltuk, figyelve az impedancia analizátor diagramját. Amennyiben a $Magnitude$ értéke közel megegyezett az ellenállás értékével, valamint a Reaktancia elhanyagolható volt az ellenálláshoz képest, azaz a fázisszög nagyon kis értékű volt, arra következtethettünk, hogy a mért alkatrész Ohmos ellenállás. Az ismeretlen elemet induktivitásnak jelöltük, amennyiben a fázisszög 0 és 90 fok kötötti értéket vett fel, valamint az ellenállás és a reaktancia értéke nagyságrendileg megegyezett. Ha a fáziszög értéke 270 és 360 fok közé esett, valamint a reaktancia negatív értéket vett fel, kapacitást vizsgáltunk. Ezen mérések segítségével megállapítottuk, hogy 2 ellenállás, 2 induktivitás, valamint 2 kondenzátor a 6 mérendő objektum. 
+Az alábbiakban az ELVIS digitális multiméter használatakor minden mérés előtt megmértük a műszer eredeti belső ellenállását, induktivitását, valamint kapacitását, majd a DMM Null Offset funkcióját használva ezt mindig kivontuk a mérési eredményből, ezzel is pontosítva azt. 
+\section{Ellenállás mérése}
+\subsection{DMM - ellenállás mód}
+A két ismeretlen ellenállás értékének meghatározásához az ELVIS DMM(digitális multiméter)-t használtuk. A műszert ellenállás módba kapcsolva követtük a kapcsolási utasítást, ennek megfelelően a panel oldalán található V és COM csatlakozók közé kapcsoltuk az ismeretlen ellenállásokat. Az első ellenállás - jelölje innentől $R_1$ - értéke a digitális multiméter mérése alapján $21.9 k\Omega$ , a második ellenállás - $R_2$ - értéke: $50.7\Omega$ . 
+\subsection{DMM - induktivitás, kapacitás mód}
+Az ellenállásokat a digitális multiméter utasítása alapján a DUT+ és DUT- kimeneti pontok közé kötve megvizsgáltuk induktivitás, majd kapacitás üzemmódban is. Az ellenállásokat kapacitás üzemmódban mérve az értékek igen ingadozóak voltak, így nem voltak mérhetőek. Az induktivitás üzemmódban való vizsgálat során a mért érték mindkét esetben $+Over$ volt. 
+\subsection{Impedance Analyzer}
+Az ellenállásokat ezt követően az ELVIS Impedance Analyzerével is megvizsgáltuk 100, 1000 valamint 10000 Hz-es mérési frekvencián. A mérési eredményeket ellenállásokra lebontva a táblázatok szemléltetik. 
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+\caption{$R_1$ ellenállás}
+\centering
+\begin{tabular}{c||c||c||c}
+\hline
+\bfseries & \bfseries 100Hz & \bfseries 1000Hz & \bfseries 10000Hz\\
+\hline\hline
+$Magnitude$ & 21.81$k\Omega$ & 21.81$k\Omega$  & 21.81$k\Omega$\\
+\hline
+$Phase(deg)$ & 0.02 & 0.17  & 1.68\\
+\hline
+$Resistance$ & 21.8$k\Omega$ & 21.8$k\Omega$  & 21.8$k\Omega$\\
+\hline
+$Reaktance$ & 6.44$\Omega$ & 63.46$\Omega$  & 639.79$\Omega$\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+\caption{$R_2$ ellenállás}
+\centering
+\begin{tabular}{c||c||c||c}
+\hline
+\bfseries & \bfseries 100Hz & \bfseries 1000Hz & \bfseries 10000Hz\\
+\hline\hline
+$Magnitude$ & 51.32$\Omega$ & 51.32$\Omega$  & 51.31$\Omega$\\
+\hline
+$Phase(deg)$ & 0.16 & 1.60  & 0.02\\
+\hline
+$Resistance$ & 51.35$\Omega$ & 51.34$\Omega$  & 51.32$\Omega$\\
+\hline
+$Reaktance$ & 143.35$m\Omega$ & 1.43$\Omega$  & 14.84$m\Omega$\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Soros és párhuzamos kapcsolás}
+A feladat utolsó pontja volt a vizsgált ellenállásokat soros és párhuzamos kapcsolásban is megmérni. Az ellenállás méréséhez itt egyszerre használtuk az ELVIS mérőegység modellező lapját, valamint a digitális multiméter oldalsó kivezetéseit. A soros kapcsolás során elméleti számítások szerint, az $R_e = \sum_{k=1}^{n} R_k$ képlet alapján $21939+50=21989 \Omega$ értéket kellett, hogy kapjunk, a mérés során pontosan ez lett az eredmény. \\
+A párhuzamos kapcsolásnál az eredmény $51.7\Omega$ lett, ami a $\frac{1}{R_e} = \sum_{k=1}^{n} \frac{1}{R_k}$ egyenlet alapján megfelelő eredmény. 
+
+\section{Induktivitás mérése}
+\subsection{DMM - induktivitás mód}
+A két ismeretlen értékű induktivitás meghatározásához az ELVIS DMM-t használtuk. Az induktivitás üzemmódban való méréshez tartozó utasítás szerint az ismeretlen induktivitásokat egymás után a DUT+ és DUT- kimenetek közé csatlakoztattuk, majd a digitális multiméter használatával megmértük az értéküket. Az első indutivitás - jelölje innentől $L_1$ - értéke 0.0220$mH$, a másodiké - legyen $L_2$ - 0.223$mH$ lett a műszer mérése alapján. 
+\subsection{DMM - ellenállás, kapacitás mód}
+A digitális multimétert kapacitás üzemmódba állítva is megvizsgáltuk az induktivitásokat, mindkét esetben $+Over$ értékeket kapva. \\
+Az ellenállás üzemmódban való méréshez természetesen módosítottunk a mérési összeállításon, az induktivitások két végét rögítettük a $V$ és $COM$ kimenetek közé. Az $L_1$ induktivitás esetében az ellenállás $R = 0.429\Omega$, az $L_2$ induktivitás esetében pedig $R = 0.016\Omega$ lett a mérési eredmény. 
+\subsection{Impedance Analyzer}
+A két induktivitást ezután az ELVIS Impedance Analyzerrel is vizsgáltuk különböző frekvenciákon, a III. és IV. táblázat szemlélteti a mérési eredményeket. 
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+\caption{$L_1$ induktivitás}
+\centering
+\begin{tabular}{c||c||c||c}
+\hline
+\bfseries & \bfseries 100Hz & \bfseries 1000Hz & \bfseries 10000Hz\\
+\hline\hline
+$Magnitude$ & 1.05$\Omega$ & 1.06$\Omega$  & 1.77$k\Omega$\\
+\hline
+$Phase(deg)$ & 0.79 & 7.77  & 53.69\\
+\hline
+$Resistance$ & 1.05$\Omega$ & 1.05$\Omega$  & 1.05$\Omega$\\
+\hline
+$Reaktance$ & 14.63$m\Omega$ & 143.67$m\Omega$  & 1.43$\Omega$\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+\caption{$L_2$ induktivitás}
+\centering
+\begin{tabular}{c||c||c||c}
+\hline
+\bfseries & \bfseries 100Hz & \bfseries 1000Hz & \bfseries 10000Hz\\
+\hline\hline
+$Magnitude$ & 2.04$\Omega$ & 1.97$\Omega$  & 2.49$\Omega$\\
+\hline
+$Phase(deg)$ & 0.39 & 4.21  & 35.50\\
+\hline
+$Resistance$ & 2.04$\Omega$ & 1.96$\Omega$  & 2.03$\Omega$\\
+\hline
+$Reaktance$ & 13.77$m\Omega$ & 144.48$m\Omega$  & 1.45$\Omega$\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Soros és párhuzamos kapcsolás}
+A feladat utolsó pontjaként a két induktivitást sorosan valamint párhuzamos kapcsolással is megmértük a digitális multiméter segítségével, a kapcsolásokat az ELVIS mérőegység modellező lapján létrehozva és a DUT+ és DUT- kivezetések közé kötve. Soros kapcsolású mérés során a mért eredmény $L = 0.0322 mH$ lett, párhuzamos kapcsolás esetén pedig $L = 0.0179 mH$. A mérési értékeket az elméleti számítások is alátámasztják: Soros kapcsolás esetén $L_e = \sum_{k=1}^{n} L_k$, párhuzamos kapcsolás esetén pedig $\frac{1}{L_e} = \sum_{k=1}^{n} \frac{1}{L_k}$. 
+
+\section{Kapacitás mérése}
+\subsection{DMM - kapacitás mód}
+A két ismeretlen értékű kapacitás méréséhez a digitális multiméter utasítása alapján a kapacitásokat a DUT+ és DUT- kivezetések közé kötöttük, majd DMM kapacitás üzemmódban leolvastuk az értékeiket. Az első kapacitás - legyen mostantól $C_1$ - értéke $C_1 = 0.1011 nF$, a másodiké - innentől $C_2$ - $C_2 = 4.443 nF$. 
+\subsection{DMM - ellenállás, induktivitás mód}
+A két kapacitás értékét megvizsgáltuk továbbá a digitális multiméter ellenállás, majdpedig induktivitás üzemmódját használva. Az ellenállás méréséhez természetesen az ELVIS mérőegység oldalsó kivezetéseit ($V$ és $COM$) használtuk. A mérés eredménye mindkét esetben $+Over$ lett. 
+
+
+\subsection{Impedance Analyzer}
+Ezt követően a két kapacitást az ELVIS Impedance Analyzer segítségével vizsgáltuk, különböző frekvenciákon. A mérési eredményeket az V. és VI. táblázat tartalmazza.  
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+\caption{$C_1$ kapacitás}
+\centering
+\begin{tabular}{c||c||c||c}
+\hline
+\bfseries & \bfseries 100Hz & \bfseries 1000Hz & \bfseries 10000Hz\\
+\hline\hline
+$Magnitude$ & 1.523$k\Omega$ & 1.55$k\Omega$  & 155.71$\Omega$\\
+\hline
+$Phase(deg)$ & 272.08 & 271.42  & 272.08\\
+\hline
+$Resistance$ & 5.66$\Omega$ & 376.1$\Omega$  & 74.94$\Omega$\\
+\hline
+$Reaktance$ & -155.61$k\Omega$ & -15.22$k\Omega$  & -1.55$k\Omega$\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+\caption{$C_2$ kapacitás}
+\centering
+\begin{tabular}{c||c||c||c}
+\hline
+\bfseries & \bfseries 100Hz & \bfseries 1000Hz & \bfseries 10000Hz\\
+\hline\hline
+$Magnitude$ & 357.47$k\Omega$ & 36.04$k\Omega$  & 3.65$k\Omega$\\
+\hline
+$Phase(deg)$ & 271.31 & 271.3  & 271.48\\
+\hline
+$Resistance$ & 8.2$k\Omega$ & 814.87$\Omega$  & 94.49$\Omega$\\
+\hline
+$Reaktance$ & -357.37$k\Omega$ & -36.03$k\Omega$  & -3.65$k\Omega$\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Soros és párhuzamos kapcsolás}
+Az utolsó feladat a kapacitások soros valamint párhuzamos kapcsolás melletti mérése volt. A kapcsolásokat az ELVIS mérőegység modellezőtábláján állítottuk össze, a digitális multiméterrel való kapacitás méréséhez a DUT+ és DUT- kivezetések közé kapcsolva. A digitális multiméterről leolvasott értékek szerint soros kapcsolás esetén $C_e = 4.550 nF$, párhuzamos kapcsolás esetén pedig $C_e = 0.1050  F$. A kapott értékek helyességét alátámasztják ez elméleti számítások is: Soros kapcsolás $C_e = \sum_{k=1}^{n} \frac{1}{C_k}$ valamint párhuzamos kapcsolás $C_e = \sum_{k=1}^{n} C_k$. 
+
+%Ha szeretnéd hogy az adott fejezet ne legyen számozva használj \section*{} -t, pl Acknowledgements
+
+
+% Az egyenletekre, táblázatokra, listákra stb. itt nem térnék ki, ahhoz mindenképp érdemes kicsit utána olvasni
+
+% A references mindig a legutolsó fejezet lesz
+
+%  minden hivatkozás elnevezünk, ezzel a névvel fogunk hivatkozni a szövegen belül
+% \bibitem{} <- hivatkozásnév
+% A hivatkozás formája legjobban a példa dokumentumban látszik a tanárúr honlapján, általában: szerző, olvasott anyag neve, közreműködők, hely, év
+% a szövegben pedig \cite{Megadott hivatkozásnév} -vel hivatkozunk
+
+
+% példa:
+
+
+% Ez a rész mindig marad:---------
+\bibliographystyle{ieeetr}
+%\bibliography{references}
+
+
+% that's all folks
+\end{document}

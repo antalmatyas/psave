@@ -1,0 +1,77 @@
+# depslib dependency file v1.0
+1496839220 source:c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\main.cpp
+	"graphics.hpp"
+	"Widget.hpp"
+	"SText.hpp"
+	"Nums.hpp"
+	"Checkbox.hpp"
+	"Menu.hpp"
+	<vector>
+
+1430022466 c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\include\graphics.hpp
+	<string>
+
+1496834474 source:c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\widget.cpp
+	"Widget.hpp"
+	"graphics.hpp"
+	<vector>
+
+1496834455 c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\widget.hpp
+	"graphics.hpp"
+	<vector>
+
+1496836631 source:c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\nums.cpp
+	"Widget.hpp"
+	"Nums.hpp"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1496835452 c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\nums.hpp
+
+1496836015 source:c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\stext.cpp
+	"Widget.hpp"
+	"SText.hpp"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1496836008 c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\stext.hpp
+
+1496837645 source:c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\checkbox.cpp
+	"Widget.hpp"
+	"Checkbox.hpp"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1496837259 c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\checkbox.hpp
+
+1496839184 c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\menu.hpp
+
+1496839229 source:c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\menu.cpp
+	"Widget.hpp"
+	"Menu.hpp"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1496841606 source:c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\input.cpp
+	"Widget.hpp"
+	"Input.hpp"
+	"graphics.hpp"
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1496841524 c:\users\matyó\dropbox\000exterior\2\bprog2\4. proglib\input.hpp
+

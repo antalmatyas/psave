@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1363437174 source:c:\users\matyó\desktop\gpdefault\examplecheckbox.cpp
+	"examplecheckbox.hpp"
+	"graphics.hpp"
+
+1363437154 c:\users\matyó\desktop\gpdefault\examplecheckbox.hpp
+	"graphics.hpp"
+	"widgets.hpp"
+
+1430022466 c:\users\matyó\desktop\gpdefault\include\graphics.hpp
+	<string>
+
+1363436920 c:\users\matyó\desktop\gpdefault\widgets.hpp
+	"graphics.hpp"
+
+1363437202 source:c:\users\matyó\desktop\gpdefault\main.cpp
+	"graphics.hpp"
+	"widgets.hpp"
+	"examplecheckbox.hpp"
+	<vector>
+
+1363436916 source:c:\users\matyó\desktop\gpdefault\widgets.cpp
+	"widgets.hpp"
+	"graphics.hpp"
+
+1492679611 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\main.cpp
+	<stdio.h>
+	<vector>
+	"graphics.hpp"
+	"widget.h"
+	"nums.h"
+	"slist.h"
+
+1492611352 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\widget.h
+	"graphics.hpp"
+	<vector>
+
+1492679620 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\nums.h
+	"widget.h"
+	"graphics.hpp"
+
+1492611352 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\widget.cpp
+	"widget.h"
+	"graphics.hpp"
+	<vector>
+
+1430022466 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\include\graphics.hpp
+	<string>
+
+1492609316 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\nums.cpp
+	"widget.h"
+	"nums.h"
+	"graphics.hpp"
+	<stdio.h>
+	<sstream>
+
+1492678256 source:c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\slist.cpp
+	<stdio.h>
+	<vector>
+	<sstream>
+	"slist.h"
+	"widget.h"
+	"graphics.hpp"
+
+1492677523 c:\users\matyó\dropbox\000exterior\2\bprog2\widget bead\slist.h
+	<vector>
+	"widget.h"
+	"graphics.hpp"
+

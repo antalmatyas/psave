@@ -1,0 +1,17 @@
+Laplace: http://tutorial.math.lamar.edu/Classes/DE/InverseTransforms.aspx
+
+Régi wiki-s anyag - sok gyakorlópélda (nagy részét már letöltöttem):
+https://wiki.itk.ppke.hu/twiki/bin/view/PPKE/AramkorokElmeleteEsSzamitasa
+
+Többhurkos egyenáramú hálózatok analízise.
+Videó: https://www.youtube.com/watch?v=sIc07JYE974
+Feladatok: http://eet.atw.hu/feladatok.pdf
+Ellenõrzéshez: https://www.circuitlab.com/
+	és https://systemvision.com/add-design
+
+Diódák:
+https://www.youtube.com/watch?v=c_pqAwlV17k
+https://www.youtube.com/watch?v=TXjHWGngsME
+https://www.ee.iitb.ac.in/~sequel/ee101/ee101_diodes_1.pdf
+
+Tranzisztorok: http://www.livescience.com/46021-what-is-a-transistor.html

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1479406331 source:c:\users\nox\dropbox (personal)\000exterior\1\bevprog1\c++\ffff\main.cpp
+	<iostream>
+	<vector>
+	<fstream>
+	<cstdlib>
+

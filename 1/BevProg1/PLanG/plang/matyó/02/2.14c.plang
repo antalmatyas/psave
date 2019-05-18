@@ -1,0 +1,26 @@
+PROGRAM almacsere
+  VÁLTOZÓK:
+    mit, mire, txt, szo, veg: SZÖVEG,
+    i, n: EGÉSZ
+ 
+	n := 0
+  BE: txt, mit, mire
+	txt := txt + ' '
+	szo := ""
+	veg := ""
+	CIKLUS AMIG n + 1 < |txt|
+		szo := szo + txt[n]
+		HA n = |txt| VAGY txt[n + 1] = ' '  AKKOR
+			HA szo[1:|szo|] = mit AKKOR
+				veg := veg + ' ' + mire
+				szo := ""
+			
+			KÜLÖNBEN
+				veg := veg + szo
+				szo := ""
+			HA_VEGE
+		HA_VÉGE
+		n := n + 1
+	CIKLUS_VEGE
+KI: veg
+PROGRAM_VÉGE

@@ -1,0 +1,3 @@
+10%os mérési eredmény
+
+ha 10ms-nál több a mért érték, akkor már biztosan beleesik ebbe a tartományba, mivel, ha ennél kisebb idot mérek, az millisecundumos mérésnél nem lehet 10%pontos.. Mivel az emberi reakcióido ennél biztosan több, a mérés minimum 10%os pontosságú lesz. 

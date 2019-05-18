@@ -1,0 +1,64 @@
+function [fig1,antSpeed,antStatistics,fig2]=myFunction(antRecords)
+%% 1) Draw the path of the ants, based on the original matrix, with different colors (Do not forget to remove singleton dimensions for plotting).
+fig1=figure;
+%antRecords(1,2,:)
+hold on
+plot(squeeze(antRecords(1,1,:)),squeeze(antRecords(1,2,:)),'.-b')
+plot(squeeze(antRecords(2,1,:)),squeeze(antRecords(2,2,:)),'.-r')
+plot(squeeze(antRecords(3,1,:)),squeeze(antRecords(3,2,:)),'.-g')
+plot(squeeze(antRecords(4,1,:)),squeeze(antRecords(4,2,:)),'.-k')
+axis equal
+grid on
+title('Movement of Ants','fontweight','bold','fontsize',14)
+xlabel('X [cm]','fontweight','bold','fontsize',12)
+ylabel('Y [cm]','fontweight','bold','fontsize',12)
+legend('ant 1 ','ant 2','ant 3','ant 4','Location','northeast')
+hold off
+%% 2) Calculate the speed of the ants at every point of their travel using numerical derivation.
+A1=diff(sqrt(squeeze((antRecords(1,1,:))).^2+squeeze((antRecords(1,2,:))).^2));
+A2=diff(sqrt(squeeze((antRecords(2,1,:))).^2+squeeze((antRecords(2,2,:))).^2));
+A3=diff(sqrt(squeeze((antRecords(3,1,:))).^2+squeeze((antRecords(3,2,:))).^2));
+A4=diff(sqrt(squeeze((antRecords(4,1,:))).^2+squeeze((antRecords(4,2,:))).^2));
+t =[A1.' ;A2.';A3.' ;A4.'];
+antSpeed = t./(1/100);
+%% 3) Calculate the average, the maximum, and the minimum speed of all ants, and store them in a variable, where the first column is the average the second is the maximum and the third is the minimum.
+
+B1=mean(squeeze(antSpeed(1,:)));
+B2=mean(squeeze(antSpeed(2,:)));
+B3=mean(squeeze(antSpeed(3,:)));
+B4=mean(squeeze(antSpeed(4,:)));
+
+C1=max(squeeze(antSpeed(1,:)));
+C2=max(squeeze(antSpeed(2,:)));
+C3=max(squeeze(antSpeed(3,:)));
+C4=max(squeeze(antSpeed(4,:)));
+
+D1=min(squeeze(antSpeed(1,:)));
+D2=min(squeeze(antSpeed(2,:)));
+D3=min(squeeze(antSpeed(3,:)));
+D4=min(squeeze(antSpeed(4,:)));
+
+antStatistics = [B1 C1 D1;B2 C2 D2;B3 C3 D3;B4 C4 D4];
+%% 4) Draw the speed curves for each ant.
+fig2 = figure;
+
+hold on
+subplot(4, 1, 1)
+
+plot(squeeze(antSpeed(1,:)),'.-b');
+title('Speed of Ants','fontweight','bold','fontsize',14)
+axis([3 100 -50 50])
+subplot(4, 1, 2)
+plot(squeeze(antSpeed(2,:)),'.-r');
+ylabel('velocity [m/s]','fontweight','bold','fontsize',12)
+axis([3 4 -100 100])
+subplot(4, 1, 3)
+plot(squeeze(antSpeed(3,:)),'.-g');
+axis([3 4 -100 100])
+subplot(4, 1, 4)
+plot(squeeze(antSpeed(4,:)),'.-k');
+axis([3 4 -50 50])
+xlabel('time [s]','fontweight','bold','fontsize',12)
+hold off 
+
+end

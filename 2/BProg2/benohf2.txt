@@ -1,0 +1,148 @@
+#include "graphics.hpp"
+#include <time.h>
+#include <random>
+#include <vector>
+#include <cmath>
+
+using namespace genv;
+using namespace std;
+
+# define PI           3.14159265358979323846
+
+int XX = 800;
+int YY = 800;
+
+int m_x, m_y = 0;
+
+struct RGB
+{
+    int r, g, b;
+    RGB()
+    {
+        r = 20;
+        g = 20;
+        b = 20;
+    }
+};
+
+struct pixel
+{
+    float x, y;
+    RGB c;
+    pixel()
+    {
+        x = rand()%(XX);
+        y = rand()%(YY);
+    }
+};
+void helpbar()
+{
+    gout << color(255,255,255) << move_to(0,0) << box(200,60) << color(0,0,0);
+    gout << move_to(5, 5 + gout.cascent()) << text("Space - Új pixelek");
+    gout << move_to(5, 5 + (gout.cascent() * 2)) << text("Nyilak - Folyásirány");
+    gout << move_to(5, 5 + (gout.cascent() * 3)) << text("Jobb CTRL - Irány reset");
+}
+
+
+void letrehoz(vector<pixel> & pixelek, int n = 2000)
+{
+
+    for (int i = 0; i < n; i++)
+    {
+        int oszto = floor(i / 255);
+        pixel p;
+        if(i < 255){
+            p.c.g = pixelek.size() + 1;
+        } else if(oszto % 2 == 0)
+        {
+            p.c.g = 255 - (pixelek.size() + 1 - oszto*255);
+        } else
+        {
+            p.c.g = pixelek.size() + 1 - (oszto * 255);
+        }
+        pixelek.push_back(p);
+    }
+}
+
+void kirajzol(vector<pixel> pixelek)
+{
+    for (pixel p : pixelek)
+    {
+        gout << color(p.c.r, p.c.g, p.c.b) << move_to(p.x, p.y) << box(4,4);
+    }
+}
+void mozog(vector<pixel> & pixelek)
+{
+    int m = pixelek.size();
+    for (int i = 0; i < pixelek.size(); i++)
+    {
+        float tav = sqrt(pow(pixelek[((i+1 == m)?(0):(i+1))].x - pixelek[i].x, 2) + pow(pixelek[((i+1 == m)?(0):(i+1))].y - pixelek[i].y, 2)) + 5;
+
+        pixelek[i].x += m_x + ((pixelek[((i+1 < m)?(i+1):(0))].x - pixelek[i].x) / tav);
+        pixelek[i].y += m_y + ((pixelek[((i+1 < m)?(i+1):(0))].y - pixelek[i].y) / tav);
+
+
+        if(pixelek[i].x > XX || pixelek[i].x < 0 || pixelek[i].y > YY || pixelek[i].y < 0)
+        {
+            pixelek[i].x = rand()%(XX);
+            pixelek[i].y = rand()%(YY);
+        }
+    }
+}
+
+int main()
+{
+    event ev;
+    srand(time(0));
+
+    gout.open(XX,YY);
+
+    vector<pixel> pixelek;
+
+    letrehoz(pixelek);
+
+    gin.timer(10);
+    while(gin >> ev)
+    {
+        if(ev.type == ev_timer)
+        {
+            mozog(pixelek);
+            kirajzol(pixelek);
+            helpbar();
+            gout << refresh;
+            gout << color(0,0,0) << move_to(0,0) << box(XX, YY);
+        }
+
+        if(ev.keycode == key_space)
+        {
+            letrehoz(pixelek, 10);
+        }
+
+        if(ev.keycode == key_down)
+        {
+            m_y += 1;
+        }
+        if(ev.keycode == key_up)
+        {
+            m_y -= 1;
+        }
+        if(ev.keycode == key_left)
+        {
+            m_x -= 1;
+        }
+        if(ev.keycode == key_right)
+        {
+            m_x += 1;
+        }
+        if(ev.keycode == key_rctrl)
+        {
+            m_x = 0; m_y = 0;
+        }
+        if(ev.keycode == key_escape)
+        {
+            break;
+        }
+    }
+
+    return 0;
+}

@@ -1,0 +1,26 @@
+PROGRAM legtottoszto
+  VÁLTOZÓK:
+    a, b, o, lt, s, i: EGÉSZ
+ 
+  BE: a
+  BE: b
+  lt := 0
+  s := 0
+  a := a + 1
+  CIKLUS AMÍG a < b
+    i := 2
+    o := 0
+    CIKLUS AMÍG i < a
+      HA a MOD i = 0 AKKOR
+        o := o + 1
+      HA_VÉGE
+      i := i + 1
+    CIKLUS_VÉGE
+    HA o > lt AKKOR
+      lt := o
+      s := a
+    HA_VÉGE
+    a := a + 1
+  CIKLUS_VÉGE
+  KI: s, ", ennek ", lt, " db osztója van."
+PROGRAM_VÉGE

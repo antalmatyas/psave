@@ -1,0 +1,40 @@
+program rombusz
+valtozok:
+	n, k, m, i: egesz
+BE: n
+k:=0
+m:=0
+i:=0
+ciklus amíg i < n
+	k:=0
+	m:=0
+	ciklus amig k <= n - i - 2
+		ki:"  "
+		k := k + 1
+	ciklus_vege
+	ciklus amig m <= i * 2
+		ki:" *"
+		m := m + 1
+	ciklus_vege
+i := i + 1
+ki: sv
+ciklus_vege
+k:=0
+m:=0
+i:=1
+ciklus amig i < n
+	k := 0
+	m := 0
+	ciklus amig k < i
+		ki: "  "
+		k:= k + 1
+	ciklus_vege
+	ciklus amig m + 1 < (n - i) * 2
+		ki:" *"
+		m := m + 1
+	ciklus_vege
+i := i + 1
+ki: sv
+ciklus_vege
+
+program_vege

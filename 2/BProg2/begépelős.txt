@@ -1,0 +1,4 @@
+if(ev.type==ev_key && ev.keycode>0)
+{
+char c=ev.keycode;
+}

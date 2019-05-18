@@ -1,0 +1,11 @@
+program elso
+valtozok: 
+string: szoveg,
+n: egesz
+
+BE: string
+n := string @ ' '
+
+KI: string[0:n]
+
+program_vege

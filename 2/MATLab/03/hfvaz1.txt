@@ -1,0 +1,10 @@
+function [B,C,d,e,f]=gyak3_f31_(A)
+% A bemenetünk egy véletlenszeru értékeket tartalmazó 5x2x3-as mátrix.
+B = NaN;
+C = NaN;
+
+d = NaN;
+e = NaN;
+
+f = NaN;
+end

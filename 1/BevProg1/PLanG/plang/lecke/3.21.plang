@@ -1,0 +1,17 @@
+PROGRAM kisa
+  VÁLTOZÓK:
+    n: SZÖVEG,
+    i, h, a: EGÉSZ
+ 
+  BE: n
+  h := |n|
+  i := 0
+  a := 0
+  CIKLUS AMÍG i < h
+    HA n[i] = 'a' AKKOR
+      a := a + 1
+    HA_VÉGE
+    i := i + 1
+  CIKLUS_VÉGE
+  KI: a
+PROGRAM_VÉGE

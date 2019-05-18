@@ -1,0 +1,15 @@
+\frametitle {�br�k k�rbefutatt�sa sz�veggel}
+Lehet�s�g�nk van az �br�kat a sz�vegbe �gyazni. Ehhez a \verb*|wrapfig| csomagra lesz sz�ks�g�nk
+\begin{block}{}
+    \begin{quote}{\footnotesize
+    \begin{verbatim}
+\begin{wrapfigure}[lineheight]{alignment}{width}
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{gull}
+  \end{center}
+  \caption{A gull}
+\end{wrapfigure}
+    \end{verbatim}}
+    \end{quote}
+\end{block}

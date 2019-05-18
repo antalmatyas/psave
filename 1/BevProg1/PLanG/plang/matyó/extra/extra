@@ -1,0 +1,24 @@
+program primtenyezo
+	valtozok:
+	n, i: egesz
+** Ütõ Bence
+i := 2
+be: n
+
+ciklus amig (n /= 1 és i /= n) és (i < valos(n)^(valos(1)/valos(2)) vagy n = 4)
+	ha ((n mod i) = 0) akkor 
+		ki: i, " "
+		n := n div i
+	különben
+		ciklus amig n mod (i + (i mod 2) + 1) /= 0 és i < valos(n)^(valos(1)/valos(2))
+			i := i + (i mod 2) + 1
+		ciklus_vege
+		i := i + (i mod 2) + 1
+	ha_vege	
+ciklus_vege
+ha i >= valos(n)^(valos(1)/valos(2)) akkor
+	i := n
+ha_vege
+
+ki: n
+program_vege

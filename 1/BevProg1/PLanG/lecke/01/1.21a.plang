@@ -1,0 +1,8 @@
+PROGRAM szovegresz
+  VÁLTOZÓK:
+    a, b: SZÖVEG
+ 
+  BE: a
+  BE: b
+  KI: b @ a /= |b|
+PROGRAM_VÉGE

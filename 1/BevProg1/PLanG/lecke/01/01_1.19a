@@ -1,0 +1,9 @@
+PROGRAM elsoszo
+  VÁLTOZÓK:
+    a: SZÖVEG,
+    b: EGÉSZ
+ 
+  BE: a
+  b := a @ ' '
+  KI: a[0:b]
+PROGRAM_VÉGE

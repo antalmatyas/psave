@@ -1,0 +1,19 @@
+PROGRAM monogram2
+  VÁLTOZÓK:
+    a: SZÖVEG,
+    b, c, i: EGÉSZ
+ 
+  BE: a
+  c := |a|
+  i := 0
+  KI: NAGY a[0], '.'
+  CIKLUS AMÍG i < c - 2
+    b := a @ ' '
+    HA b /= |a| AKKOR
+      KI: ' ', NAGY a[b + 1], '.'
+      a := a[b + 1:c - 1]
+      c := |a|
+    HA_VÉGE
+    i := i + 1
+  CIKLUS_VÉGE
+PROGRAM_VÉGE

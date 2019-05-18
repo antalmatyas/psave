@@ -1,0 +1,15 @@
+program alma
+változók:
+i:egész, 
+a, b, c:szöveg
+be: a, b
+i:=0
+ciklus amíg i < |a| - |b|
+ha a[i:i+|b|] = b akkor 
+c:= a[i+|b|:|a|]
+a:=a[0:i] + c
+ha_vége
+i:=i+1 
+ciklus_vége
+ki:a
+program_vége

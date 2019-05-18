@@ -1,0 +1,1138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0047)http://users.itk.ppke.hu/~marta5/eloadas-5.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Számítógépes hálózatok – 5. előadás</title>
+
+<meta name="generator" content="Org-mode">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Számítógépes hálózatok – 5. előadás_files/base-style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Számítógépes hálózatok – 5. előadás</h1>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Adatkapcsolati (link) réteg, folytatás</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">PPP - Point to Point Protocol</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/1661">RFC1661</a>: pont-pont kapcsolatra használatos adatkapcsolati réteg
+</li>
+<li>IP alatt gyakran használt, másra is használható
+<ul class="org-ul">
+<li>Az első hasonló protokoll a SLIP volt (Serial Line IP, <a href="http://tools.ietf.org/html/1055">RFC1055</a>)
+</li>
+</ul>
+</li>
+<li>Klasszikus esetben telefon vonalon
+</li>
+<li>Feladatok — ezeket tűzték ki, amikor tervezték a protokollt (<a href="http://tools.ietf.org/html/1547">RFC1547</a>)
+<ul class="org-ul">
+<li>Frame-ek elkülönítése
+</li>
+<li>Transzparencia: tetszőleges byte folyamot át lehessen vinni
+</li>
+<li>Hatékony sávszélesség kihasználás
+</li>
+<li>Hiba felderítés (CRC)
+</li>
+<li>Többfajta protokollt támogasson (ne csak IP-t), ezeket multiplexálni lehessen
+</li>
+<li>Magasabb protokoll paraméterek egyeztetését oldja meg (pl. IP címek)
+</li>
+<li>Többféle fizikai médiumon működhessen
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">PPP frame szerkezet - ISO HDLC (High level Data Link Control) alapú</h3>
+<div class="outline-text-3" id="text-1-2">
+<table rules="groups" frame="hsides" cellspacing="0" cellpadding="6" border="2">
+
+
+<colgroup>
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+</colgroup>
+<tbody>
+<tr>
+<td class="left">Flag (1-byte)</td>
+<td class="left">Address (1-byte)</td>
+<td class="left">Control (1-byte)</td>
+<td class="left">Protokoll (2-byte)</td>
+<td class="left">Adat</td>
+<td class="left">CRC   (2 byte)</td>
+<td class="left">Flag (1-byte)</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Flag: a frame kezdetét és végét jelzi: <code>0x7E</code>
+</li>
+<li>Address: PPP-nél mindig <code>0xFF</code>
+</li>
+<li>Control: PPP-nél mindig <code>0x03</code>
+</li>
+<li>Protocol: ethernet „type”-hoz hasonló
+<ul class="org-ul">
+<li>LCP - Link Control Protocol
+</li>
+<li>PAP, CHAP - Password Authentication Protocol, Challange Handshake Authentication Protocol
+</li>
+<li>NCP - Network Control Protocol, pl. IPCP
+</li>
+<li>Adat - pl. IP
+</li>
+</ul>
+</li>
+<li>Adat
+<ul class="org-ul">
+<li>Általában legfeljebb 1500 byte. LCP-vel másban is megállapodhatnak
+</li>
+<li>Az adatfolyamban a flag byte-ot escape-elni kell: byte stuff
+<ul class="org-ul">
+<li>Az escape byte: <code>0x7D</code>
+</li>
+<li>Az escape-elt byte-ot XOR-oljuk <code>0x20</code>-szal
+</li>
+<li><code>7E →  7D 5E</code>
+</li>
+</ul>
+</li>
+<li>Alapértelmezésben minden <code>0x20</code>-nál kisebb byte-ot is escape-elnek
+<ul class="org-ul">
+<li>Pl. Ctrl/A: <code>01 → 7D 21</code>
+</li>
+</ul>
+</li>
+<li>Az escape byte-ot is escapeljük: <code>7D → 7D 5D</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">PPP állapotok</h3>
+<div class="outline-text-3" id="text-1-3">
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 5. előadás_files/ppp-s.png" alt="ppp-s.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">LCP: Link Control Protocol</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Kapcsolat felépítés
+</li>
+<li>Kapcsolat bontás
+</li>
+<li>Paraméterek egyeztetése
+<ul class="org-ul">
+<li>Autentikálás
+</li>
+<li>Tömörítés
+</li>
+<li>Sallangok elhagyása
+</li>
+</ul>
+</li>
+<li>Kapcsolat figyelés
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">PAP: Password Authentication Protocol</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>Két lépés
+<ul class="org-ul">
+<li>Kliens küldi az azonosítót és a jelszót (kódolatlanul)
+</li>
+<li>Szerver válaszol, hogy rendben van-e
+</li>
+</ul>
+</li>
+
+<li>Nem biztonságos
+<ul class="org-ul">
+<li>Lehallgatható
+</li>
+<li>Visszajátszható
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">CHAP: Challange Handshake Authentication Protocol</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/1994">RFC1994</a>
+</li>
+<li>Három lépés
+</li>
+
+<li>A szerver egy véletlen számot küld a kliensnek (challenge)
+</li>
+<li>A kliens a kapott challenge-ből, és a jelszóból választ képez
+</li>
+<li>A szerver ellenőrzi
+</li>
+
+<li>Nem megy cleartext-ben a jelszó, nem visszajátszható a folyamat
+</li>
+<!--
+<li>Szemléletes leírás a <a href="http://www.cisco.com/en/US/tech/tk713/tk507/technologies_tech_note09186a00800b4131.shtml">cisco anyagban</a>
+</li>
+-->
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">NCP: Network Control Protocol</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li>A magasabb réteg konfigurálására szolgál, több van (pl. külön Novell)
+<ul class="org-ul">
+<li>Egy időben akár több magasabb szintű kapcsolat lehet egy PPP session fölött
+</li>
+</ul>
+</li>
+<li>IP: IPCP, IP Control Protocol, <a href="http://tools.ietf.org/html/rfc1332">RFC1332</a>
+<ul class="org-ul">
+<li>IP cím
+</li>
+<li>Van Jacobson TCP/IP fejrész tömörítés
+<ul class="org-ul">
+<li>A rendszerint 40 byte-os TCP/IP fejrészből 3 byte lehet
+</li>
+</ul>
+</li>
+<li>DNS szerverek címe (<a href="http://tools.ietf.org/html/rfc1877">RFC1877</a>)
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">PPPoE</h3>
+<div class="outline-text-3" id="text-1-8">
+<table rules="groups" frame="hsides" cellspacing="0" cellpadding="6" border="2">
+
+
+<colgroup>
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+</colgroup>
+<tbody>
+<tr>
+<td class="left">Ver. (4 bit)</td>
+<td class="left">Típus (4 bit)</td>
+<td class="left">Kód (1 byte)</td>
+<td class="left">Session ID (2 byte)</td>
+<td class="left">Hossz (2 byte)</td>
+<td class="left">Adat</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>PPP over Ethernet, <a href="http://tools.ietf.org/html/rfc2516">RFC2516</a>
+</li>
+<li>ADSL és FTTH (Fiber To The Home) előfizetőknél ez használatos
+</li>
+<li>Ethernet type mező:
+<ul class="org-ul">
+<li><code>0x8863</code>: discovery stage
+</li>
+<li><code>0x8864</code>: PPP session stage
+</li>
+</ul>
+</li>
+<li>Discovery
+<ul class="org-ul">
+<li>A partnerek megtudják az ethernet címeket és egy session ID-t
+</li>
+<li>Négy lépcsős folyamat (PAD = PPPoE Active Discovery)
+<ul class="org-ul">
+<li>Broadcast ethernet csomaggal indul <b>(PADI, Initiation)</b>
+</li>
+<li>Több állomás (Access Concentrator) is válaszolhat <b>(PADO, Offer)</b>
+</li>
+<li>A kliens egy unicast csomaggal dönt <b>(PADR, Request)</b>
+</li>
+<li>A koncentrátor egy session id-t küld <b>(PADS, Session-confirmation)</b>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<pre class="example">Kliens                            Koncentrátor
+
+                PADI                                 Ki segít nekem?
+           -----------------&gt;
+                PADO                                 Ha akarod, én!
+           &lt;-----------------
+
+                PADR                                 Kérlek segíts!
+           -----------------&gt;
+
+                PADS                                 Rendben!
+           &lt;----------------
+</pre>
+
+
+
+<ul class="org-ul">
+<li>Session
+<ul class="org-ul">
+<li>Unicast csomagok, mindben ott a session id, hossz
+</li>
+<li>PADT (Terminate) lezárhatja
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">Több mint 7 réteg:</h3>
+<div class="outline-text-3" id="text-1-9">
+
+<div class="figure">
+<p><img src="./Számítógépes hálózatok – 5. előadás_files/pppoe.png" alt="pppoe.png">
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10">Loopback interfész</h3>
+<div class="outline-text-3" id="text-1-10">
+<ul class="org-ul">
+<li>Sokszor a kliens és a szerver ugyanazon az eszközön van
+</li>
+<li>Akkor is akarunk hálózatot látni, ha nincs fizikai összeköttetés
+</li>
+<li>IP címe: <code>127.0.0.1</code>
+<ul class="org-ul">
+<li>Ez az IP cím fizikai hálózaton sose jelenhet meg
+</li>
+</ul>
+</li>
+<li>Minden tekintetben úgy viselkedik, mint egy valódi interfész
+</li>
+<li>Az egyes szolgáltatásoknál rendelkezhetünk róla, hogy ezen az interfészen is szolgáltassanak-e
+</li>
+<li>Nem csak számítógépeknél, hanem más dobozoknál: switch-ek, routerek stb.
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11">MTU - Maximum Transmission Unit</h3>
+<div class="outline-text-3" id="text-1-11">
+<ul class="org-ul">
+<li>A fizikai médium rendszerint korlátozza az átvihető frame méretét
+</li>
+<li>Mértékegység: byte
+</li>
+<li>Célszerű ennél nem nagyobb csomagokat használni a felső rétegen
+<ul class="org-ul">
+<li>Nem tudhatjuk, hogy a célállomásig milyen közegen, milyen MTU-val megy át a csomag
+</li>
+<li>Elvben lehet a legkülönbözőbb
+</li>
+<li>Van TCP/IP implementáció, ami nem tolerálja :-(
+</li>
+</ul>
+</li>
+</ul>
+
+<pre class="example"> +--+                    +------+                             +-------+
+ |PC|--------------------|router|------------------------- ...|szerver|
+ +--+         ^          +------+            ^                +-------+
+              |                              |
+ethernet, MTU = 1500                 ADSL, MTU &lt; 1500
+</pre>
+
+
+
+
+<ul class="org-ul">
+<li>Ethernet: 1500 a szokásos
+</li>
+<li>802.3: 1492
+</li>
+<li>Path MTU: egy adatkapcsolatnál a közbülső legkisebb MTU
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">IP, Internet Protokoll</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/rfc791">RFC791</a> Postel, 1981
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Tulajdonságok</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Nem kapcsolatorientált
+<ul class="org-ul">
+<li>Az egyes csomagokat a hálózati réteg egymástól függetlenül kezeli
+</li>
+<li>Nincs kapcsolat felépítés, kapcsolat bontás
+</li>
+</ul>
+</li>
+<li>Best effort, decentralizált, nem megbízható
+<ul class="org-ul">
+<li>Nem biztos, hogy a célba ér a csomag
+</li>
+<li>Nem biztos, hogy nem érkezik többször
+</li>
+<li>Nem biztos, hogy egymás utáni csomagok sorrendje megmarad
+</li>
+<li>Nem biztos, hogy nem sérülnek benne bitek
+</li>
+</ul>
+</li>
+<li>A felsőbb rétegek gondoskod(hat)nak mebízható, kapcsolatorientált kommunikációról
+</li>
+</ul>
+
+<pre class="example">0...                7 8                15 16                              31
++---------+----------+-------------------+---------------------------------+
+|változat |  fejrész |Type Of Service    |     Teljes hossz                |
+| 4 bit   |   hossz  |    8 bit          |        16 bit                   |
+|         |   4 bit  |                   |                                 |
++----------------------------------------+----------+----------------------+
+|                 ID                     |   Flagek | Fragmentum offset    |
+|               16 bit                   |   3 bit  |     13 bit           |
++--------------------+-------------------+---------------------------------+
+|TTL                 |Protokoll          |  Fejrész csekkszumma            |
+|8 bit               |8 bit              |     16 bit                      |
++--------------------------------------------------------------------------+
+|                                   Forrás cím                             |
+|                                     32 bit                               |
++--------------------------------------------------------------------------+
+|                                    Cél cím                               |
+|                                     32 bit                               |
++--------------------------------------------------------------------------+
+|                                      Opciók                              |
+|                                     ha ugyan...                          |
++--------------------------------------------------------------------------+
+|                                        Adat                              |
+|                                                                          |
+|                                                                          |
+|                                                                          |
++--------------------------------------------------------------------------+
+</pre>
+
+
+<ul class="org-ul">
+<li>A 0. bit a legnagyobb helyiértékű (big endian)
+</li>
+<li>Az egyes sorokban álló byte-ok balról jobbra mennek át (big endian)
+</li>
+<li>A változat (version) klasszikus esetben 4, manapság lehet 6
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Fejrész hossz</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>4 bit, a mértékegység 4 byte.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">TOS</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/rfc791">RFC791</a>
+</li>
+</ul>
+
+<pre class="example">0     1     2     3     4     5     6     7
++-----+-----+-----+-----+-----+-----+-----+-----+
+|   PRECEDENCE    |       TOS       |  0  |  0  |  RFC 791
++-----+-----+-----+-----+-----+-----+-----+-----+
+</pre>
+
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/rfc1122">RFC1122</a>
+</li>
+</ul>
+
+<pre class="example">0     1     2     3     4     5     6     7
++-----+-----+-----+-----+-----+-----+-----+-----+
+|   PRECEDENCE    |       TOS                   |  RFC 1122
++-----+-----+-----+-----+-----+-----+-----+-----+
+</pre>
+
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/rfc1349">RFC1349</a>
+</li>
+</ul>
+
+<pre class="example">0     1     2     3     4     5     6     7
++-----+-----+-----+-----+-----+-----+-----+-----+
+|   PRECEDENCE    |       TOS             | MBZ |  RFC 1349
++-----+-----+-----+-----+-----+-----+-----+-----+
+</pre>
+
+<ul class="org-ul">
+<li>MBZ: Must Be Zero
+</li>
+<li><a href="http://tools.ietf.org/html/rfc2474">RFC2474</a>
+</li>
+</ul>
+
+<pre class="example">+-----+-----+-----+-----+-----+-----+-----+-----+
+|          DS FIELD, DSCP           |     CU    | RFC 2474
++-----+-----+-----+-----+-----+-----+-----+-----+
+</pre>
+
+
+<ul class="org-ul">
+<li>CU: Currently Unused
+</li>
+<li><a href="http://tools.ietf.org/html/rfc3168">RFC3168</a>
+</li>
+</ul>
+
+<pre class="example">+-----+-----+-----+-----+-----+-----+-----+-----+
+|          DS FIELD, DSCP           | ECN FIELD | RFC 3168
++-----+-----+-----+-----+-----+-----+-----+-----+
+</pre>
+
+<ul class="org-ul">
+<li>DSCP: differentiated services codepoint
+</li>
+<li>ECN: Explicit Congestion Notification
+</li>
+
+<li>A csomag hálózat belsejében való továbbítását befolyásoló mező
+</li>
+<li>Sokszor átdolgozták
+</li>
+<li>Nincs garancia arra, hogy a hálózati partnerek kezelik
+<ul class="org-ul">
+<li>Többnyire nincs baj abból, ha nem
+</li>
+</ul>
+</li>
+<li>Hálózati átjárók, tűzfalak. routerek manipulálhatják
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">Hossz</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>Az egész IP csomag hossza byte-ban
+</li>
+<li>Max 65535
+</li>
+<li>Egy interfészen az MTU korlátozza
+</li>
+<li>Közbülső eszközök fragmentálhatnak
+</li>
+<li>Ethernetnél mutathat kevesebbet mint az ethernet csomag
+<ul class="org-ul">
+<li>Az ethernet csomag legalább 46 byte
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">ID</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>A csomagra jellemző egyedi szám
+</li>
+<li>Az internet ősi korszakában az implementációkban eggyel több mint a előző
+<ul class="org-ul">
+<li>Megjósolható -&gt; visszaélésre ad módot
+</li>
+<li>Manapság véletlen szám
+</li>
+</ul>
+</li>
+<li>Tűzfalak tovább randomizálhatják
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">Flag-ek</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li>Az IP darabolásnál (fragmentálás) van szerepük
+<ul class="org-ul">
+<li>Don't Fragment (DF)
+</li>
+<li>More Fragments (MF)
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7">Fragmentum offszet</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li>Ha fragmentált az IP datagram, azt mutatja, hogy ez a darab hova illik
+</li>
+<li>Mértékegység: 8 byte
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8">TTL - Time To Live</h3>
+<div class="outline-text-3" id="text-2-8">
+<ul class="org-ul">
+<li>Az időt hop-ban méri
+</li>
+<li>Felső korlátot ad közbülső routerekre
+</li>
+<li>Minden router dekrementálja
+</li>
+<li>Ha 0, eldobja a csomagot, ICMP üzenetet küld vissza a feladónak
+</li>
+<li>Ha nem lenne, végtelen ideig keringhetnének csomagok
+</li>
+<li>A traceroute program épp ezt használja
+<ul class="org-ul">
+<li>Egy sikertelen traceroute: <a href="http://users.itk.ppke.hu/~mpasztor/netora/captures/traceroute-fennakad.cap">traceroute-fennakad.cap</a>
+</li>
+<li>Egy sikeres (tcptraceroute): <a href="http://users.itk.ppke.hu/~mpasztor/netora/captures/tcptraceroute.cap">tcptraceroute.cap</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9">Protocol</h3>
+<div class="outline-text-3" id="text-2-9">
+<ul class="org-ul">
+<li>Az IP feletti protokollt adja meg
+</li>
+<li>IANA (Internet Assigned Numbers Authority) osztja
+<ul class="org-ul">
+<li>ICMP -1
+</li>
+<li>TCP - 6
+</li>
+<li>UDP - 17
+</li>
+<li>Összesen: <a href="http://www.iana.org/assignments/protocol-numbers/">http://www.iana.org/assignments/protocol-numbers/</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10">Csekszumma</h3>
+<div class="outline-text-3" id="text-2-10">
+<ul class="org-ul">
+<li>Nem ethernet CRC, sima bit összeadás
+<ul class="org-ul">
+<li><a href="http://tools.ietf.org/html/rfc1071">RFC1071</a>, <a href="http://tools.ietf.org/html/rfc1624">RFC1624</a> kiegészíti
+</li>
+<li>ones' complement összeadás, a csekkszumma az eredmény egyes komplemense
+</li>
+<li>Az ellenőrző oldalon 0 jön ki, ha minden jó
+</li>
+</ul>
+</li>
+<li>Csak a fejrészre
+</li>
+<li>A csomag többi részét a felsőbb szint ellenőrizheti
+</li>
+<li>Hop-ról hop-ra változik. Miért?
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-11" class="outline-3">
+<h3 id="sec-2-11">Forrás és célcím</h3>
+<div class="outline-text-3" id="text-2-11">
+<ul class="org-ul">
+<li>Az IP réteg szempontjából a legfontosabb: ennek alapján továbbítja (route-olja) a csomagot
+</li>
+<li>Tűzfalak még ezt is módosíthatják
+</li>
+<li>Pontozott decimális jelölés
+</li>
+
+<li>A négy byte-ot decimális számként írjuk, közéjük ponttal, pl.: 193.239.149.4
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-12" class="outline-3">
+<h3 id="sec-2-12">Opciók</h3>
+<div class="outline-text-3" id="text-2-12">
+<table rules="groups" frame="hsides" cellspacing="0" cellpadding="6" border="2">
+
+
+<colgroup>
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+</colgroup>
+<tbody>
+<tr>
+<td class="left">Type (1 byte)</td>
+<td class="left">Hossz (1 byte)</td>
+<td class="left">Adat</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li>Elvben több is lehet
+</li>
+<li>A mindennapi gyakorlatban ritka
+</li>
+<li>Pl: source routing
+<ul class="org-ul">
+<li>Manapság tiltják a routerek, tűzfalak
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<!--
+
+
+<div id="outline-container-sec-2-13" class="outline-3">
+<h3 id="sec-2-13">Hova küldjük a csomagokat? - Routing</h3>
+<div class="outline-text-3" id="text-2-13">
+<ul class="org-ul">
+<li>Definíció szerint ez a harmadik (hálózati/network) réteg feladata
+</li>
+<li>Végberendezéseken jellemző konfiguráció
+<ul class="org-ul">
+<li>Ha az adatkapcsolati rétegen közvetlenül elérhető a címzett: egyenesen neki
+</li>
+<li>Ha nem, akkor default route (alapértelmezett átjáró)
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-14" class="outline-3">
+<h3 id="sec-2-14">Netmask</h3>
+<div class="outline-text-3" id="text-2-14">
+<ul class="org-ul">
+<li>Egy IP címhez képest kijelöl egy tartományt
+<ul class="org-ul">
+<li>Decimális forma: <code>255.255.0.0</code>
+</li>
+<li>Hexadecimális forma: <code>ffff0000</code>
+</li>
+<li>CIDR forma: <code>/16</code>
+</li>
+</ul>
+</li>
+<li>CIDR előtt intézményi belső hálózaton használták már
+</li>
+<li>CIDR: backbone routerekben is (Classless Inter Domain Routing)
+</li>
+<li>Hálózati cím: <code>$netmask &amp;&amp; $ip_addr</code>
+</li>
+<li>A hálózaton kívüli címekre nem közvetlentül küldjük a csomagokat
+</li>
+
+<li>Router (gateway) címre
+</li>
+<li>Ezért a router-nek ebben a hálózatban kell lennie
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-15" class="outline-3">
+<h3 id="sec-2-15">Broadcast cím: a hálózatban levő legnagyobb cím (a végén csupa 1-es)</h3>
+<div class="outline-text-3" id="text-2-15">
+<ul class="org-ul">
+<li>Rendszerint ethernet broadcast-tal küldjük.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-16" class="outline-3">
+<h3 id="sec-2-16">Közvetlenül etherneten elérhető célcím</h3>
+<div class="outline-text-3" id="text-2-16">
+
+<div class="figure">
+<p><img src="eth-itt1.png" alt="eth-itt1.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-17" class="outline-3">
+<h3 id="sec-2-17">Routerek közbeiktatása</h3>
+<div class="outline-text-3" id="text-2-17">
+
+<div class="figure">
+<p><img src="routerek1.png" alt="routerek1.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-18" class="outline-3">
+<h3 id="sec-2-18">Routing attribútumok</h3>
+<div class="outline-text-3" id="text-2-18">
+<ul class="org-ul">
+<li>Melyik IP címet, címtatartományt
+<ul class="org-ul">
+<li>Netmask
+</li>
+</ul>
+</li>
+<li>Melyik interfészen
+</li>
+<li>Milyen forráscímmel
+</li>
+<li>Milyen link réteg tulajdonságokkal
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-19" class="outline-3">
+<h3 id="sec-2-19">IP route parancs</h3>
+<div class="outline-text-3" id="text-2-19">
+<pre class="example">%ip route show
+193.225.109.0/26 dev eth0  proto kernel  scope link  src 193.225.109.61
+10.2.20.0/24 dev vlan220  proto kernel  scope link  src 10.2.20.220
+10.4.20.0/24 dev vlan420  proto kernel  scope link  src 10.4.20.220
+10.2.21.0/24 dev vlan221  proto kernel  scope link  src 10.2.21.220
+10.1.29.0/24 dev vlan129  proto kernel  scope link  src 10.1.29.220
+10.2.22.0/24 dev vlan222  proto kernel  scope link  src 10.2.22.220
+10.1.30.0/24 dev vlan130  proto kernel  scope link  src 10.1.30.220
+10.4.19.0/24 dev vlan419  proto kernel  scope link  src 10.4.19.220
+10.2.19.0/24 dev vlan219  proto kernel  scope link  src 10.2.19.220
+195.111.97.0/24 dev vlan100  proto kernel  scope link  src 195.111.97.100
+10.3.19.0/24 dev vlan319  proto kernel  scope link  src 10.3.19.220
+default via 193.225.109.62 dev eth0
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-20" class="outline-3">
+<h3 id="sec-2-20">netstat -r parancs</h3>
+<div class="outline-text-3" id="text-2-20">
+<pre class="example">%netstat -r
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+193.225.109.0   *               255.255.255.192 U         0 0          0 eth0
+10.2.20.0  *               255.255.255.0   U         0 0          0 vlan220
+10.4.20.0  *               255.255.255.0   U         0 0          0 vlan420
+10.2.21.0  *               255.255.255.0   U         0 0          0 vlan221
+10.1.29.0  *               255.255.255.0   U         0 0          0 vlan129
+10.2.22.0  *               255.255.255.0   U         0 0          0 vlan222
+10.1.30.0  *               255.255.255.0   U         0 0          0 vlan130
+10.4.19.0  *               255.255.255.0   U         0 0          0 vlan419
+10.2.19.0  *               255.255.255.0   U         0 0          0 vlan219
+195.111.97.0    *               255.255.255.0   U         0 0          0 vlan100
+10.3.19.0  *               255.255.255.0   U         0 0          0 vlan319
+default         nemo.itk.ppke.h 0.0.0.0         UG        0 0          0 eth0
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-21" class="outline-3">
+<h3 id="sec-2-21">Flagek</h3>
+<div class="outline-text-3" id="text-2-21">
+<ul class="org-ul">
+<li>G: gateway
+</li>
+<li>U: up, él
+</li>
+<li>H: host route, csak egy IP címre
+</li>
+<li>D: dinamikus, pl. ICMP redirect által keletkezett
+</li>
+<li>M: modified, pl. ICMP redirect által
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-22" class="outline-3">
+<h3 id="sec-2-22">TCP-nél használt paraméterek</h3>
+<div class="outline-text-3" id="text-2-22">
+<ul class="org-ul">
+<li>MSS: Maximum Segnemt Size, MTU-nál kisebb is lehet
+</li>
+<li>Window: ennyi byte-ot fogad el nyugtázás nélkül
+</li>
+<li>irtt: Initial Round Trip Time, ennyi körbefordulási időt feltételez
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-23" class="outline-3">
+<h3 id="sec-2-23">NAT: Network Address Translation</h3>
+<div class="outline-text-3" id="text-2-23">
+
+<div class="figure">
+<p><img src="nat.png" alt="nat.png">
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li>A routeren/tűzfalon áthaladó csomag IP címét kicserélik
+</li>
+<li>Táblázatot kell fenntartani az élő kapcsolatokról
+</li>
+<li>A TCP/UDP portokat is módosítani kell, hogy ne legyen két „azonos” kapcsolat
+</li>
+<li>A NAT-olt hálózat bizonyos értelemben rejtve van a világ elől
+</li>
+<li>Nagyban megnöveli például az egyetlen C osztállyal internetbe kapcsolható gépek számát
+</li>
+<li>Egyetlen IP cím mögött akár 100 gépünk is lehet
+</li>
+<li>A NAT mögött használatos címek számára külön tartományokat tartanak fenn: <a href="http://tools.ietf.org/html/1918">RFC1918</a>
+<ul class="org-ul">
+<li>Ezek a címek <b>sose</b> jelenhetnek meg a nyilvános interneten
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+-->
+
+<div id="postamble" class="status">
+<p class="author">Szerzõ: Pásztor Miklós, Máray Tamás</p>
+<!--
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+-->
+</div>
+
+
+</div></div></body></html>
